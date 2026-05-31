@@ -1,0 +1,40 @@
+# Local/system noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+
+# Temp files
+*.tmp
+*.bak
+*.swp
+
+# Secrets / env files
+.env
+.env.*
+secrets/
+credentials/
+tokens/
+
+# Agent runtime output
+runtime/
+cache/
+scratch/
+*.log
+
+# Agent logs: keep templates and placeholder, ignore working logs
+logs/*.md
+!logs/log_template.md
+!logs/.gitkeep
+
+# Artifacts: keep README and placeholder, ignore generated files
+artifacts/*
+!artifacts/README.md
+!artifacts/.gitkeep
+!artifacts/handoff_notes/
+artifacts/handoff_notes/*
+!artifacts/handoff_notes/README.md
+!artifacts/handoff_notes/.gitkeep
