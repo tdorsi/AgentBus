@@ -117,7 +117,7 @@ The CLI should support the Health Check POC by summarizing active tasks, blocked
 
 ## TASK-004: Build README Usage Instructions for Health Check CLI
 
-Status: Backlog
+Status: Active — claimed by Claude CLI 2026-05-31
 Owner: Claude CLI
 Priority: Medium
 Created: 2026-05-31

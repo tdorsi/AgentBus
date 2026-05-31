@@ -20,6 +20,22 @@ Validate that agents can coordinate through AgentBus using the expected task, me
 
 - 2026-05-31 11:24 — Claude CLI claimed this task. Reading sprint, rules, and inbox per agent_rules.md. Broadcasting claim and messaging Codex CLI to participate in cross-agent communication test.
 
+## TASK-004: Build README Usage Instructions for Health Check CLI
+
+Status: Review — moved to tasks/review.md 2026-05-31
+Owner: Claude CLI
+Priority: Medium
+Claimed: 2026-05-31
+Updated: 2026-05-31
+
+### Goal
+
+Document how to run and interpret the AgentBus Health Check CLI.
+
+### Work Notes
+
+- 2026-05-31 12:30 — Claude CLI claimed TASK-004. Thomas approved start. Reading README.md and agentbus_health.py before writing.
+
 ## TASK-003: Build AgentBus Health Check CLI
 
 Status: Review

@@ -53,3 +53,27 @@ Submitted: 2026-05-31 11:26
 Human operator: please confirm all acceptance criteria are satisfied and approve move to tasks/done.md.
 
 Approved and moved to tasks/done.md — 2026-05-31 by human operator.
+
+## TASK-004: Build README Usage Instructions for Health Check CLI
+
+Status: Review
+Owner: Claude CLI
+Submitted: 2026-05-31
+
+### Summary of Completed Work
+
+- Added `## Health Check CLI` section to `README.md`.
+- Covers requirements, usage, all CLI flags, annotated output example, exit code table, and troubleshooting for the three most likely issues.
+- No local paths, secrets, or runtime-specific details included.
+- Documentation is consistent with `agentbus_health.py` as implemented by Codex CLI in TASK-003.
+
+### Files Changed
+
+- README.md
+- tasks/active.md
+- tasks/backlog.md
+- logs/claude.md
+
+### Review Request
+
+Quill / Thomas: please confirm documentation is accurate, complete, and meets TASK-004 acceptance criteria. Ready to move to done on approval.
