@@ -2,17 +2,18 @@
 
 ## Sprint Name
 
-AgentBus Bootstrap
+AgentBus Health Check CLI POC
 
 ## Sprint Goal
 
-Create and validate a lightweight markdown coordination workspace for local agents.
+Build a small proof-of-concept CLI that reads the AgentBus workspace and reports useful coordination status for Thomas, Quill, Claude CLI, and Codex CLI.
 
 ## Active Priorities
 
-- Validate the task lifecycle from backlog to done.
-- Confirm each agent can read rules, claim one task, log work, and send messages.
-- Keep the workflow simple enough to maintain by hand.
+- Establish the POC team and task structure using `roles.md` as the authoritative role model.
+- Build a Health Check CLI that reports active tasks, blocked tasks, messages needing response, recent decisions, and last update timing.
+- Add usage instructions after the CLI shape is stable.
+- Review and test the CLI before marking the POC complete.
 
 ## Current Blockers
 
@@ -20,18 +21,20 @@ Create and validate a lightweight markdown coordination workspace for local agen
 
 ## Agent Assignments
 
-- Codex CLI: Unassigned
-- Claude CLI: TASK-001 (Done 2026-05-31)
-- Local custom agent: Unassigned
+- Thomas: Product Owner; final acceptance for TASK-005.
+- Quill: Senior Analyst / PM; scope, review coordination, and TASK-005 review support.
+- Codex CLI: TASK-002 and TASK-003.
+- Claude CLI: TASK-004.
 
 ## Recent Decisions
 
-- AgentBus uses markdown files only for the bootstrap version.
-- Existing files must be preserved; new notes should be appended.
+- `roles.md` is the authoritative role structure for the POC.
+- Thomas approved the AgentBus Health Check CLI proof of concept.
+- Quill assigned planning and CLI implementation to Codex CLI, usage documentation to Claude CLI, and review/testing to Thomas / Quill.
 
 ## Next Review Checklist
 
-- Confirm every agent can find its inbox and log.
-- Confirm `TASK-001` can move through active, review, and done.
-- Confirm message IDs and task IDs are used consistently.
-- Confirm decision entries are concise and durable.
+- Confirm TASK-002 planning structure is accepted.
+- Confirm TASK-003 CLI reports the agreed coordination status.
+- Confirm TASK-004 usage instructions match the implemented CLI.
+- Confirm TASK-005 review covers output quality, task/message parsing, and ignored runtime files.
