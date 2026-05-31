@@ -4,8 +4,8 @@ Use this file for known work that is not currently claimed. Append new tasks usi
 
 ## TASK-001: Validate AgentBus workflow
 
-Status: Backlog
-Owner: Unassigned
+Status: Active — claimed by Claude CLI 2026-05-31
+Owner: Claude CLI
 Priority: High
 Created: 2026-05-31
 Updated: 2026-05-31

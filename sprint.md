@@ -21,7 +21,7 @@ Create and validate a lightweight markdown coordination workspace for local agen
 ## Agent Assignments
 
 - Codex CLI: Unassigned
-- Claude CLI: Unassigned
+- Claude CLI: TASK-001 (Done 2026-05-31)
 - Local custom agent: Unassigned
 
 ## Recent Decisions
