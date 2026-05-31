@@ -78,7 +78,7 @@ Quill requested this task in `MSG-20260531-004` after Thomas approved the next A
 
 ## TASK-003: Build AgentBus Health Check CLI
 
-Status: Backlog
+Status: Review
 Owner: Codex CLI
 Priority: High
 Created: 2026-05-31
@@ -104,9 +104,14 @@ The CLI should support the Health Check POC by summarizing active tasks, blocked
 
 ### Work Notes
 
+- 2026-05-31: Codex CLI claimed this task after completing TASK-002.
+- 2026-05-31: Codex CLI implemented `agentbus_health.py`; runtime and compile checks pass.
+
 ### Blockers
 
 ### Review Notes
+
+- Ready for TASK-005 review by Thomas / Quill.
 
 ### Completion Summary
 

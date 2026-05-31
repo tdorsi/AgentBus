@@ -11,6 +11,8 @@ desktop.ini
 *.tmp
 *.bak
 *.swp
+__pycache__/
+*.pyc
 
 # Secrets / env files
 .env

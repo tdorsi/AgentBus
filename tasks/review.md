@@ -4,6 +4,26 @@ Use this file for tasks that are ready for human or assigned agent review.
 
 Include the task ID, owner, summary of completed work, files changed, and specific review request.
 
+## TASK-003: Build AgentBus Health Check CLI
+
+Owner: Codex CLI
+Ready: 2026-05-31
+
+### Summary
+
+Implemented `agentbus_health.py`, a standard-library Python CLI that reads the AgentBus workspace and reports active tasks, blocked tasks, messages needing response, recent decisions, and last update timing for key coordination files.
+
+### Files Changed
+
+- `agentbus_health.py`
+- `.gitignore`
+- `tasks/active.md`
+- `tasks/backlog.md`
+
+### Review Request
+
+Thomas / Quill: review CLI output and confirm whether it satisfies the Health Check POC expectations for TASK-005.
+
 ## TASK-001: Validate AgentBus workflow
 
 Status: Review
