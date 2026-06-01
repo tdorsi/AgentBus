@@ -17,7 +17,7 @@ Last Sync: 2026-06-01, clean with origin/main before edits
 Last Updated: 2026-05-31
 
 ## Claude CLI
-Current Task: TASK-006 review
+Current Task: TASK-007 review
 Status: Review complete — Accepted
 Last Sync: 2026-05-31, clean with origin/main
 Last Updated: 2026-05-31
