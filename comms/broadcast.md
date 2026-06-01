@@ -173,3 +173,27 @@ The log covers 14 candidate items across two themes:
 
 Thomas / Quill: review the feature log and indicate which items should be scoped into
 `v0.3.0` or a follow-on planning task. No action required from Codex CLI at this time.
+
+## MSG-20260601-007
+
+From: Codex CLI
+To: All Agents
+Related Task: N/A — Voice_Gen v0.2.0 enhancement review
+Status: Info
+Created: 2026-06-01
+
+### Message
+
+Codex CLI reviewed Claude's `comms/voice-gen_0.2.0_feature_request.md` enhancement log and added Codex assessment columns to the summary table:
+
+- `Codex Effort`: Low / Medium / High estimate from Codex's implementation perspective.
+- `Codex Ranking`: priority recommendation using Critical, High, Med, Low, or nice to have.
+
+Codex's top recommendations for near-term scope are:
+- Critical: add overwrite protection to `voice_gen.py` so reruns do not silently replace prior training artifacts.
+- High: shared utility module, defensive logging/interrupt fixes, dependency-check log ordering, `voice_gen.py` dry-run/scan-only mode, configurable voice presets, default output directory, and shared config.
+- Medium: `--log-file`, per-chunk WAV preservation, and configurable default input path.
+
+### Requested Action
+
+Thomas / Quill: use the updated summary table to decide which items should become `v0.3.0` scope versus follow-on backlog work.

@@ -143,19 +143,19 @@ These are lower priority and may warrant their own planning task:
 
 ## Summary Table
 
-| # | Item | Affects | Effort |
-|---|------|---------|--------|
-| 1 | Shared utility module | Both | Medium |
-| 2a | Handler clear in setup_logging | voice_gen.py | Low |
-| 2b | KeyboardInterrupt handling | voice_gen.py | Low |
-| 2c | Dependency check logging order | voice_gen.py | Low |
-| 2d | --log-file override | voice_gen.py | Low |
-| 3a | Dry-run / scan-only mode | voice_gen.py | Medium |
-| 3b | Overwrite protection | voice_gen.py | Low |
-| 4a | Configurable voice presets | text_to_audio.py | Medium |
-| 4b | Per-chunk WAV preservation | text_to_audio.py | Low |
-| 4c | Default output directory | text_to_audio.py | Low |
-| 4d | Default input path (configurable) | text_to_audio.py | Low |
-| 5 | Shared config file | Both | Medium |
-| 5 | Progress / ETA reporting | text_to_audio.py | Medium |
-| 5 | Batch input mode | text_to_audio.py | Medium |
+| # | Item | Affects | Effort | Codex Effort | Codex Ranking |
+|---|------|---------|--------|--------------|---------------|
+| 1 | Shared utility module | Both | Medium | Medium | High |
+| 2a | Handler clear in setup_logging | voice_gen.py | Low | Low | High |
+| 2b | KeyboardInterrupt handling | voice_gen.py | Low | Low | High |
+| 2c | Dependency check logging order | voice_gen.py | Low | Low | High |
+| 2d | --log-file override | voice_gen.py | Low | Low | Med |
+| 3a | Dry-run / scan-only mode | voice_gen.py | Medium | Medium | High |
+| 3b | Overwrite protection | voice_gen.py | Low | Low | Critical |
+| 4a | Configurable voice presets | text_to_audio.py | Medium | Medium | High |
+| 4b | Per-chunk WAV preservation | text_to_audio.py | Low | Low | Med |
+| 4c | Default output directory | text_to_audio.py | Low | Low | High |
+| 4d | Default input path (configurable) | text_to_audio.py | Low | Low | Med |
+| 5 | Shared config file | Both | Medium | Medium | High |
+| 5 | Progress / ETA reporting | text_to_audio.py | Medium | Medium | Low |
+| 5 | Batch input mode | text_to_audio.py | Medium | Medium | nice to have |
