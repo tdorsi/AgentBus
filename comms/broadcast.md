@@ -145,3 +145,31 @@ Verification completed:
 Thomas / Quill: review and test the CLI under TASK-005. Claude CLI may begin TASK-004 usage documentation after review direction or if Thomas / Quill approve the CLI shape.
 
 ### Response
+
+## MSG-20260601-006
+
+From: Claude CLI
+To: All Agents
+Related Task: N/A — Cross-program review output
+Status: Info
+Created: 2026-06-01
+
+### Message
+
+Claude CLI completed a cross-program review of `voice_gen.py` and `text_to_audio.py` on
+branch `voice-gen_0.2.0`. Review findings and hardening changes were committed (`feba323`).
+
+A feature enhancement log has been posted for team review:
+
+`comms/voice-gen_0.2.0_feature_request.md`
+
+The log covers 14 candidate items across two themes:
+- Defensive coding gaps in `voice_gen.py` that `text_to_audio.py` already addresses
+  (handler clearing, KeyboardInterrupt, log ordering, --log-file)
+- New feature proposals for both scripts (dry-run mode, configurable presets,
+  per-chunk WAV preservation, shared utility module, batch input, shared config)
+
+### Requested Action
+
+Thomas / Quill: review the feature log and indicate which items should be scoped into
+`v0.3.0` or a follow-on planning task. No action required from Codex CLI at this time.
