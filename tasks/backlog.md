@@ -259,3 +259,80 @@ Thomas owns final acceptance. Quill coordinates review and synthesizes findings.
 ### Review Notes
 
 ### Completion Summary
+
+## TASK-008: Set Up Codex CLI TTS with Lori Voice
+
+Status: Backlog
+Owner: Codex CLI
+Priority: Medium
+Created: 2026-05-31
+Updated: 2026-05-31
+Related Files: `D:\AI_Models\Voice\moss-tts\tts_server_win.py`, `D:\AI_Models\Voice\moss-tts\repo\configs\llama_cpp\`, `D:\AI_Models\Voice\moss-tts\voices\`, `C:\Users\thoma\.claude\tts-hook.ps1`, `C:\Users\thoma\.claude\settings.json`
+
+### Goal
+
+Configure Codex CLI with a TTS hook that speaks Codex responses aloud using the MOSS-TTS server and the Lori voice, mirroring the setup Claude CLI has with the Hannah voice.
+
+### Context
+
+Claude CLI currently has a Stop hook (`C:\Users\thoma\.claude\tts-hook.ps1`) that fires after each response, strips markdown, and POSTs the text to the MOSS-TTS server at `http://127.0.0.1:8765/synthesize`. That server loads `hannah.yaml` and uses `Hannah_ref.wav` as the zero-shot reference.
+
+Lori uses the base MOSS-TTS-GGUF model (zero-shot — no fine-tuned GGUF exists for Lori). The reference audio and a suitable config already exist. Because the server's CONFIG_PATH and PORT are currently hardcoded, a second instance for Lori requires CLI argument support in the server script. Claude CLI's Hannah server must remain on port **8765** and must not be disrupted.
+
+### Reference Information
+
+**Lori reference audio**
+`D:\AI_Models\Voice\moss-tts\voices\Lori_ref.wav`
+
+**Base MOSS-TTS GGUF weights (used for Lori zero-shot)**
+`D:\AI_Models\Voice\moss-tts\weights\MOSS-TTS-GGUF\MOSS_TTS_Q4_K_M.gguf`
+Embeddings: `D:\AI_Models\Voice\moss-tts\weights\MOSS-TTS-GGUF\embeddings\`
+LM heads: `D:\AI_Models\Voice\moss-tts\weights\MOSS-TTS-GGUF\lm_heads\`
+Tokenizer: `D:\AI_Models\Voice\moss-tts\weights\MOSS-TTS-GGUF\tokenizer\`
+
+**Base config to use as Lori template (magnus.yaml)**
+`D:\AI_Models\Voice\moss-tts\repo\configs\llama_cpp\magnus.yaml`
+Points to the MOSS-TTS-GGUF weights above. Suitable for Lori zero-shot as-is.
+
+**Hannah config (reference for yaml structure)**
+`D:\AI_Models\Voice\moss-tts\repo\configs\llama_cpp\hannah.yaml`
+
+**Server script**
+`D:\AI_Models\Voice\moss-tts\tts_server_win.py`
+CONFIG_PATH, REFERENCE_AUDIO, and PORT are currently hardcoded constants (lines 43–47).
+Hannah server: port **8765**.
+Lori server should run on port **8766**.
+
+**Server launcher bat (reference)**
+`D:\AI_Models\Voice\moss-tts\start_server_win.bat`
+Activates the `moss-tts` conda env, sets CUDA 12 DLL paths, and launches the server.
+
+**Claude CLI hook (reference implementation)**
+`C:\Users\thoma\.claude\tts-hook.ps1`
+Reads the last assistant message from the Claude transcript, strips markdown, splits into 400-char sentence chunks, and POSTs each chunk to `http://127.0.0.1:8765/synthesize`. Falls back to SAPI George voice if the server is unavailable.
+
+**Claude CLI hook registration (reference)**
+`C:\Users\thoma\.claude\settings.json`
+Registers the hook under the `hooks` key as a `Stop` event with `"async": true`. The Codex CLI equivalent hook registration path and format should mirror this pattern for Codex CLI's own config directory.
+
+**Audio tokenizer (shared by both server instances)**
+`D:\AI_Models\Voice\moss-tts\weights\MOSS-Audio-Tokenizer-ONNX\encoder.onnx`
+`D:\AI_Models\Voice\moss-tts\weights\MOSS-Audio-Tokenizer-ONNX\decoder.onnx`
+
+### Acceptance Criteria
+
+- `tts_server_win.py` accepts `--config`, `--reference`, and `--port` CLI args; existing defaults (Hannah config, Hannah_ref.wav, port 8765) are preserved so Claude CLI's setup requires no changes.
+- `lori.yaml` exists at `D:\AI_Models\Voice\moss-tts\repo\configs\llama_cpp\lori.yaml`, pointing to MOSS-TTS-GGUF weights and `Lori_ref.wav`.
+- A Lori server launcher exists (e.g., `start_server_lori.bat`) that starts the server on port 8766 with `lori.yaml` and `Lori_ref.wav`.
+- A Codex CLI TTS hook script exists, adapted from `C:\Users\thoma\.claude\tts-hook.ps1`, targeting port 8766.
+- The hook is registered in Codex CLI's settings using the same event pattern as Claude CLI's `Stop` hook.
+- Claude CLI's Hannah server on port 8765 is unaffected.
+- Thomas confirms Lori audio is audible when Codex CLI responds.
+
+### Work Notes
+
+### Blockers
+
+### Review Notes
+
+### Completion Summary
