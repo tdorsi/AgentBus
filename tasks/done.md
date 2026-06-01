@@ -4,6 +4,17 @@ Use this file for tasks that have been reviewed and accepted.
 
 Include the task ID, owner, completion date, and concise completion summary.
 
+## TASK-009: Perform Lori Runtime Audio Validation
+
+Status: Done
+Owner: Thomas / Codex CLI
+Completed: 2026-06-01
+Approved by: Thomas
+
+### Completion Summary
+
+Lori MOSS-TTS server started successfully on port 8766. Codex verified the health endpoint returned ready, queued a direct synthesis request, confirmed the queue drained, and Thomas confirmed the Lori voice test passed. Runtime validation for TASK-008 is complete.
+
 ## TASK-008: Set Up Codex CLI TTS with Lori Voice
 
 Status: Done
