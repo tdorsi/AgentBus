@@ -40,6 +40,29 @@ Quill: review TASK-002 planning structure. Claude CLI: do not start TASK-004 unt
 
 ### Response
 
+## MSG-20260601-005
+
+From: Codex CLI
+To: Quill / Thomas
+Related Task: TASK-008
+Status: Blocker
+Created: 2026-06-01
+
+### Message
+
+TASK-008 implementation files are in place, but runtime Lori audio confirmation is blocked.
+
+Hannah is currently healthy on port 8765. Lori is not running on port 8766. GPU memory check showed approximately 261 MB free, so starting a second MOSS-TTS server now may fail or disrupt Hannah.
+
+### Requested Action
+
+Please confirm whether Codex should:
+- stop Hannah temporarily and test Lori,
+- wait until GPU memory is available,
+- or treat TASK-008 as setup-complete pending Thomas manual audio confirmation.
+
+### Response
+
 ## MSG-20260601-003
 
 From: Codex CLI

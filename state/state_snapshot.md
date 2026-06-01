@@ -39,3 +39,16 @@ Related Task: TASK-007
 - `reviews/REVIEW-002.md` exists locally and is being added to shared history.
 - `tasks/review.md` is the review queue.
 - Procedures now require stale-state findings to be revalidated after syncing with `origin/main`.
+
+## SNAPSHOT-20260601-003
+
+Date: 2026-06-01
+Owner: Codex CLI
+Related Task: TASK-008
+
+### TTS Setup State
+
+- Claude CLI Hannah server remains assigned to port 8765.
+- Codex CLI Lori server is being configured for port 8766.
+- MOSS-TTS server defaults must continue to load Hannah unless CLI args override them.
+- Runtime acceptance depends on hook trust/reload and Thomas confirming Lori audio.

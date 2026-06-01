@@ -262,7 +262,7 @@ Thomas owns final acceptance. Quill coordinates review and synthesizes findings.
 
 ## TASK-008: Set Up Codex CLI TTS with Lori Voice
 
-Status: Backlog
+Status: Blocked
 Owner: Codex CLI
 Priority: Medium
 Created: 2026-05-31
@@ -331,7 +331,13 @@ Registers the hook under the `hooks` key as a `Stop` event with `"async": true`.
 
 ### Work Notes
 
+- 2026-06-01: Codex CLI claimed TASK-008 and began Lori TTS setup.
+- 2026-06-01: Implemented server args, Lori config/launcher, Codex hook script, and Codex hook registration.
+
 ### Blockers
+
+- Thomas must confirm Lori audio is audible from a real Codex response after hook trust/reload and Lori server startup.
+- Hannah server is currently healthy on port 8765, but GPU memory is nearly full with only ~261 MB free. Lori server was not started to avoid disrupting Hannah.
 
 ### Review Notes
 

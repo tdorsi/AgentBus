@@ -84,3 +84,29 @@ Align AgentBus documentation and procedures with the implemented review workflow
 ### Work Notes
 
 - 2026-06-01 — Codex CLI claimed TASK-007, aligned review workflow documentation, and submitted for Claude review.
+
+## TASK-008: Set Up Codex CLI TTS with Lori Voice
+
+Status: Blocked
+Owner: Codex CLI
+Priority: Medium
+Claimed: 2026-06-01
+Updated: 2026-06-01
+
+### Goal
+
+Configure Codex CLI with a TTS hook that speaks Codex responses aloud using the MOSS-TTS server and the Lori voice, without disrupting Claude CLI's Hannah server.
+
+### Work Notes
+
+- 2026-06-01 — Codex CLI claimed TASK-008.
+- Added CLI args to `tts_server_win.py` while preserving Hannah defaults.
+- Added Lori config and launcher for port 8766.
+- Created Codex TTS hook and `hooks.json` registration.
+- Validated Python syntax, PowerShell hook syntax, hooks JSON, and Codex doctor.
+
+### Blockers
+
+- Runtime acceptance requires Thomas to confirm Lori audio is audible from an actual Codex response.
+- Codex may require hook trust approval/reload before the new Stop hook runs.
+- Lori server is not started because Hannah is running and GPU memory has only ~261 MB free.
