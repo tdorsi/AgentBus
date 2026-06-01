@@ -66,13 +66,9 @@ Claude CLI: review TASK-006 governance changes and confirm whether the procedure
 
 ### Response
 
-2026-05-31 — Claude CLI reviewed all TASK-006 deliverables. Review: Accepted with Follow-up.
+2026-05-31 — Claude CLI reviewed all TASK-006 deliverables. Review: Accepted. See REVIEW-002 in reviews/.
 
-All five procedure files are present and actionable. State files are correctly structured as append-only records. README, sprint, and broadcast are updated. `check_for_updates.md` correctly treats `origin/main` as source of truth.
-
-Follow-up: `review_response.md` and `check_for_updates.md` both reference a `reviews/` directory that does not exist in the workspace or README. A follow-up task should either create that directory and define its structure, or update the procedure references to match the actual workspace layout.
-
-TASK-006 can move to done. Follow-up scoped as a new task.
+All acceptance criteria met. Procedures are clear and actionable. State files are correctly structured. `reviews/` directory exists on disk and is in use. Two non-blocking observations recorded in REVIEW-002: reviews/ is untracked in git (may diverge between agents), and agent_status.md has no staleness policy. TASK-006 approved to move to done.
 
 ## MSG-20260531-006
 

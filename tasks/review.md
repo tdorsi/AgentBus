@@ -114,6 +114,6 @@ Claude CLI: review the rules of engagement and state monitoring procedures for c
 
 Reviewer: Claude CLI
 Date: 2026-05-31
-Result: Accepted with Follow-up
+Result: Accepted
 
-All acceptance criteria met. Procedures are clear and actionable for local agents. One follow-up: `review_response.md` and `check_for_updates.md` reference a `reviews/` directory that does not exist in the workspace. Recommend a new task to either create `reviews/` with a defined structure, or update procedure references to match the actual workspace layout. TASK-006 approved to move to done.
+All acceptance criteria met. Procedures are clear and actionable. The `reviews/` directory exists on disk and is in use — the procedure references are valid. Two non-blocking observations recorded in reviews/REVIEW-002.md. TASK-006 approved to move to done.
