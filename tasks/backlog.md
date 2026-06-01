@@ -342,3 +342,38 @@ Registers the hook under the `hooks` key as a `Stop` event with `"async": true`.
 ### Review Notes
 
 ### Completion Summary
+
+- Accepted as setup-complete per DECISION-20260531-003. Runtime validation deferred to TASK-009.
+
+## TASK-009: Perform Lori Runtime Audio Validation
+
+Status: Blocked
+Owner: Thomas / Codex CLI
+Priority: Medium
+Created: 2026-05-31
+Updated: 2026-05-31
+Related Files: `D:\AI_Models\Voice\moss-tts\start_server_lori.bat`, `D:\AI_Models\Voice\moss-tts\repo\configs\llama_cpp\lori.yaml`, `D:\AI_Models\Voice\moss-tts\voices\Lori_ref.wav`
+
+### Goal
+
+Confirm Lori TTS audio is audible when Codex CLI generates a response, completing the final acceptance criterion of TASK-008.
+
+### Context
+
+TASK-008 implementation is complete. Runtime validation was deferred because Hannah is active on port 8765 and GPU memory is constrained (~261 MB free). Starting a second server risks disrupting Hannah. DECISION-20260531-003 directs that validation happen during a planned test window.
+
+### Acceptance Criteria
+
+- Lori MOSS-TTS server starts successfully on port 8766 using `start_server_lori.bat`.
+- A Codex CLI response triggers the TTS hook and Lori audio plays correctly.
+- Hannah server on port 8765 is unaffected.
+
+### Work Notes
+
+### Blockers
+
+- GPU memory must be available, or Hannah must be intentionally stopped for the test window.
+
+### Review Notes
+
+### Completion Summary

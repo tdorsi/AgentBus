@@ -4,6 +4,17 @@ Use this file for tasks that have been reviewed and accepted.
 
 Include the task ID, owner, completion date, and concise completion summary.
 
+## TASK-008: Set Up Codex CLI TTS with Lori Voice
+
+Status: Done
+Owner: Codex CLI
+Completed: 2026-05-31
+Approved by: Thomas / Quill (DECISION-20260531-003)
+
+### Completion Summary
+
+All implementation files in place: `tts_server_win.py` updated to accept `--config`, `--reference`, and `--port` CLI args; `lori.yaml` created; Lori server launcher created; Codex CLI TTS hook script created and registered. Live audio confirmation deferred to TASK-009 — runtime validation blocked pending available GPU memory or a planned test window. Hannah server on port 8765 unaffected.
+
 ## TASK-001: Validate AgentBus workflow
 
 Status: Done

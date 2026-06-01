@@ -6,16 +6,23 @@ Include the task ID, owner, blocker, requested action, and date blocked.
 
 ## TASK-008: Set Up Codex CLI TTS with Lori Voice
 
-Status: Blocked
+Status: Done — resolved 2026-05-31 per DECISION-20260531-003
 Owner: Codex CLI
-Blocked: 2026-06-01
+
+### Resolution
+
+Thomas / Quill accepted TASK-008 as setup-complete. Runtime audio confirmation deferred to TASK-009. Do not start Lori on port 8766 while Hannah is active and GPU memory is constrained.
+
+## TASK-009: Perform Lori Runtime Audio Validation
+
+Status: Blocked
+Owner: Thomas / Codex CLI
+Blocked: 2026-05-31
 
 ### Blocker
 
-Implementation files are in place, but live Lori audio confirmation requires starting a second MOSS-TTS server on port 8766. Hannah is currently healthy on port 8765 and GPU memory is nearly full with only about 261 MB free.
-
-Starting Lori now may fail or disrupt Hannah, which violates the acceptance criterion that Claude CLI's Hannah server remains unaffected.
+GPU memory is constrained while Hannah is running on port 8765 (~261 MB free). Starting a second MOSS-TTS instance for Lori on port 8766 risks disrupting Hannah.
 
 ### Requested Action
 
-Quill / Thomas: confirm whether to stop Hannah temporarily for Lori testing, test Lori later after freeing GPU memory, or accept setup completion pending manual runtime confirmation.
+Thomas: schedule a test window when Hannah can be intentionally stopped, or when a session ends and GPU memory is available. Codex CLI will start the Lori server on port 8766, confirm audio output, and close TASK-009.

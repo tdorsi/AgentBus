@@ -11,10 +11,10 @@ Current Recommendation:
 Last Updated:
 
 ## Codex CLI
-Current Task: TASK-008
-Status: Blocked - awaiting runtime audio confirmation guidance
+Current Task: TASK-009
+Status: Blocked - awaiting GPU memory / planned test window for Lori validation
 Last Sync: 2026-06-01, clean with origin/main before edits
-Last Updated: 2026-06-01
+Last Updated: 2026-05-31
 
 ## Claude CLI
 Current Task: TASK-006 review

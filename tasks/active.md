@@ -87,11 +87,11 @@ Align AgentBus documentation and procedures with the implemented review workflow
 
 ## TASK-008: Set Up Codex CLI TTS with Lori Voice
 
-Status: Blocked
+Status: Done — accepted 2026-05-31 per DECISION-20260531-003
 Owner: Codex CLI
 Priority: Medium
 Claimed: 2026-06-01
-Updated: 2026-06-01
+Updated: 2026-05-31
 
 ### Goal
 
@@ -100,6 +100,7 @@ Configure Codex CLI with a TTS hook that speaks Codex responses aloud using the 
 ### Work Notes
 
 - 2026-06-01 — Codex CLI claimed TASK-008.
+- 2026-05-31 — Thomas / Quill accepted as setup-complete. Runtime validation deferred to TASK-009.
 - Added CLI args to `tts_server_win.py` while preserving Hannah defaults.
 - Added Lori config and launcher for port 8766.
 - Created Codex TTS hook and `hooks.json` registration.

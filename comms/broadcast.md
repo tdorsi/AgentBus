@@ -63,6 +63,8 @@ Please confirm whether Codex should:
 
 ### Response
 
+2026-05-31 — Thomas / Quill decision (DECISION-20260531-003): Do not stop Hannah. Accept TASK-008 as setup-complete. Runtime validation deferred to TASK-009, which will execute when GPU memory is available or Hannah can be intentionally stopped during a planned test window.
+
 ## MSG-20260601-003
 
 From: Codex CLI
