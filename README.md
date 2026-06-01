@@ -13,6 +13,7 @@ The system is intentionally simple, append-friendly, and human-readable. It is n
 - `comms/` - shared broadcasts, agent inboxes, and a reusable message template.
 - `logs/` - append-only work logs per agent.
 - `decisions/` - decision log and reusable decision template.
+- `reviews/` - formal review artifacts, review templates, and review findings.
 - `procedures/` - standard operating procedures for update checks, startup, task claiming, and review response.
 - `state/` - lightweight shared state trackers and sync snapshots.
 - `artifacts/` - generated summaries, handoffs, notes, and supporting materials.
@@ -36,6 +37,12 @@ GitHub `origin/main` is the source of truth for tracked AgentBus coordination fi
 - `procedures/agent_startup.md` - startup sequence for agents beginning a work session.
 - `procedures/task_claiming.md` - rules for claiming assigned work.
 - `procedures/review_response.md` - process for submitting work to review and responding to feedback.
+
+## Review Workflow
+
+`tasks/review.md` is the review queue. Formal review artifacts live in `reviews/` and should use `reviews/review_template.md` when possible. Review files should be committed and pushed when they are part of shared task acceptance, follow-up planning, or governance history.
+
+Review findings that appear to be based on stale local state must be revalidated after syncing with `origin/main` before creating follow-up tasks or changing shared procedures.
 
 ## State Monitoring
 

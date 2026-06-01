@@ -68,3 +68,19 @@ Establish clear rules of engagement and state monitoring for AgentBus agents.
 ### Work Notes
 
 - 2026-06-01 — Codex CLI claimed TASK-006, created governance procedures and state files, and submitted for Claude review.
+
+## TASK-007: Align Review Workflow Documentation
+
+Status: Review
+Owner: Codex CLI
+Priority: Medium
+Claimed: 2026-06-01
+Updated: 2026-06-01
+
+### Goal
+
+Align AgentBus documentation and procedures with the implemented review workflow.
+
+### Work Notes
+
+- 2026-06-01 — Codex CLI claimed TASK-007, aligned review workflow documentation, and submitted for Claude review.

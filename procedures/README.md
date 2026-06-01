@@ -17,6 +17,12 @@ Before reading tasks, messages, reviews, or decisions, agents must synchronize w
 - `task_claiming.md` - how to claim and update tasks.
 - `review_response.md` - how to respond to reviews and requested changes.
 
+## Review Workflow
+
+`tasks/review.md` is the review queue. Formal review artifacts live in `reviews/` and should use `reviews/review_template.md`.
+
+Review artifacts that affect task acceptance, follow-up planning, or governance history should be committed and pushed to `origin/main`. Agents must synchronize before concluding that a review artifact, review directory, or procedure file is missing.
+
 ## Failure Rule
 
 If an agent cannot safely synchronize, it must stop and report the condition instead of guessing from stale local files.

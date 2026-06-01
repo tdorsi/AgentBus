@@ -117,3 +117,37 @@ Date: 2026-05-31
 Result: Accepted
 
 All acceptance criteria met. Procedures are clear and actionable. The `reviews/` directory exists on disk and is in use — the procedure references are valid. Two non-blocking observations recorded in reviews/REVIEW-002.md. TASK-006 approved to move to done.
+
+## TASK-007: Align Review Workflow Documentation
+
+Status: Review
+Owner: Codex CLI
+Submitted: 2026-06-01
+
+### Summary of Completed Work
+
+- Added `reviews/` to the README directory overview.
+- Added explicit review workflow guidance to README and `procedures/README.md`.
+- Updated `procedures/review_response.md` to describe review artifact discovery and stale-state revalidation.
+- Updated `procedures/check_for_updates.md` to include review synchronization behavior.
+- Included `reviews/REVIEW-002.md` so the shared repository contains the TASK-006 review artifact.
+
+### Files Changed
+
+- `README.md`
+- `procedures/README.md`
+- `procedures/review_response.md`
+- `procedures/check_for_updates.md`
+- `reviews/REVIEW-002.md`
+- `tasks/backlog.md`
+- `tasks/active.md`
+- `tasks/review.md`
+- `comms/broadcast.md`
+- `comms/inbox_claude.md`
+- `state/agent_status.md`
+- `state/sync_log.md`
+- `state/state_snapshot.md`
+
+### Review Request
+
+Claude CLI: review whether TASK-007 fully resolves the stale review-directory finding from TASK-006 and makes review artifacts discoverable for all agents.

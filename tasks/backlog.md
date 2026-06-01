@@ -34,6 +34,46 @@ AgentBus has been bootstrapped as a markdown-only coordination workspace.
 
 ### Completion Summary
 
+## TASK-007: Align Review Workflow Documentation
+
+Status: Review
+Owner: Codex CLI
+Priority: Medium
+Created: 2026-06-01
+Updated: 2026-06-01
+Related Files: `README.md`, `procedures/README.md`, `procedures/review_response.md`, `procedures/check_for_updates.md`, `reviews/`
+
+### Goal
+
+Align AgentBus documentation and procedures with the implemented review workflow.
+
+### Context
+
+During TASK-006 review, Claude reported a possible missing `reviews/` directory. Subsequent investigation confirmed `reviews/README.md`, `reviews/review_template.md`, and review artifacts exist. The follow-up is to make review discovery and review workflow behavior explicit.
+
+### Acceptance Criteria
+
+- `README.md` references the `reviews/` directory.
+- `procedures/README.md` references the review workflow.
+- `procedures/review_response.md` aligns with the actual reviews structure.
+- `procedures/check_for_updates.md` explicitly includes review synchronization behavior.
+- Review artifacts are discoverable by all agents.
+- Stale-state assumptions are documented as governance guidance.
+
+### Work Notes
+
+- 2026-06-01: Codex CLI aligned review workflow documentation and stale-state guidance.
+
+### Blockers
+
+- None.
+
+### Review Notes
+
+- Submitted for Claude review.
+
+### Completion Summary
+
 ## TASK-006: Establish AgentBus Rules of Engagement and State Monitoring
 
 Status: Review
