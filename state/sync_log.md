@@ -37,3 +37,12 @@ Branch: main
 Remote: origin/main
 Status: Up to date — no pull needed
 Notes: Fetched before reviewing TASK-006 deliverables. All procedures and state files verified present and consistent.
+
+## SYNC-20260601-004
+
+Agent: Codex CLI
+Action: EPIC-001 task split sync
+Branch: main
+Remote: origin/main
+Status: Clean and up to date before edits
+Notes: Fetched before reviewing Voice_Gen planning artifacts and splitting EPIC-001 into TASK-011 through TASK-014.

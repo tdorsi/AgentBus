@@ -52,3 +52,21 @@ Related Task: TASK-008
 - Codex CLI Lori server is being configured for port 8766.
 - MOSS-TTS server defaults must continue to load Hannah unless CLI args override them.
 - Runtime acceptance depends on hook trust/reload and Thomas confirming Lori audio.
+
+## SNAPSHOT-20260601-004
+
+Date: 2026-06-01
+Owner: Codex CLI
+Related Task: EPIC-001 / TASK-011 through TASK-014
+
+### Voice_Gen v0.3.0 Planning State
+
+- Voice_Gen v0.3.0 planning documents are tracked under `artifacts/Planning/`.
+- `procedures/branching_strategy.md` defines Epic branches and the `vg_e001_shared_config` branch for EPIC-001.
+- EPIC-001 has been split into TASK-011 through TASK-014.
+- TASK-011 is active with Codex CLI implementing and Claude CLI assigned to architecture review.
+
+### Attention Items
+
+- Thomas / Quill should confirm the TASK-011 through TASK-014 breakdown matches intended EPIC-001 scope.
+- Claude CLI should review TASK-011 architecture notes once Codex posts them.

@@ -2,6 +2,158 @@
 
 Use this file for known work that is not currently claimed. Append new tasks using `task_template.md`.
 
+## TASK-011: Establish EPIC-001 Branch and Shared Configuration Architecture
+
+Status: Active - claimed by Codex CLI 2026-06-01
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Created: 2026-06-01
+Updated: 2026-06-01
+Related Epic: EPIC-001 Shared Configuration Framework
+Related Branch: `vg_e001_shared_config`
+Related Files: `procedures/branching_strategy.md`, `artifacts/Planning/PR_Voice_Gen/epics/EPIC-001_shared_configuration_framework.md`, `D:\Development\Voice_Gen\voice_gen.py`, `D:\Development\Voice_Gen\text_to_audio.py`
+
+### Goal
+
+Start EPIC-001 by establishing the `vg_e001_shared_config` branch and defining the shared configuration/utility architecture before code migration.
+
+### Context
+
+EPIC-001 is the prerequisite for Voice_Gen v0.3.0. The branching strategy requires an Epic integration branch named `vg_e001_shared_config`. Claude should review the architecture while Codex performs implementation.
+
+### Acceptance Criteria
+
+- `vg_e001_shared_config` exists and is based on `voice-gen_0.2.0`.
+- The branch relationship follows `procedures/branching_strategy.md`.
+- Codex documents the proposed architecture for `voice_gen_utils.py` and `voice_gen.toml`.
+- Codex identifies migration boundaries for `voice_gen.py` and `text_to_audio.py`.
+- Claude CLI reviews the architecture before broad implementation proceeds.
+- Follow-up implementation tasks remain aligned with TASK-012 through TASK-014.
+
+### Work Notes
+
+- 2026-06-01: Created from EPIC-001 planning documents. Codex assigned implementation ownership; Claude assigned architecture review.
+
+### Blockers
+
+- None.
+
+### Review Notes
+
+### Completion Summary
+
+## TASK-012: Extract Shared Voice_Gen Utility Module
+
+Status: Backlog
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Created: 2026-06-01
+Updated: 2026-06-01
+Related Epic: EPIC-001 Shared Configuration Framework
+Related Branch: `vg_e001_shared_config`
+Related Files: `D:\Development\Voice_Gen\voice_gen.py`, `D:\Development\Voice_Gen\text_to_audio.py`, `D:\Development\Voice_Gen\voice_gen_utils.py`
+
+### Goal
+
+Create `voice_gen_utils.py` and migrate shared terminal UI, logging, and prompt helpers from `voice_gen.py` and `text_to_audio.py`.
+
+### Context
+
+Claude's v0.2.0 review found duplicated banner, console formatting, logging setup, status helpers, and prompt behavior. EPIC-001 requires both applications to use shared utility functions.
+
+### Acceptance Criteria
+
+- `voice_gen_utils.py` provides shared banner, header, status, logging, and prompt helpers.
+- `voice_gen.py` imports and uses shared helpers without changing existing training behavior.
+- `text_to_audio.py` imports and uses shared helpers without changing existing inference behavior.
+- Existing command-line workflows continue to run.
+- Syntax checks pass for all touched Python files.
+- Claude CLI reviews utility architecture and migration quality.
+
+### Work Notes
+
+### Blockers
+
+### Review Notes
+
+### Completion Summary
+
+## TASK-013: Implement Shared Voice_Gen Configuration System
+
+Status: Backlog
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Created: 2026-06-01
+Updated: 2026-06-01
+Related Epic: EPIC-001 Shared Configuration Framework
+Related Branch: `vg_e001_shared_config`
+Related Files: `D:\Development\Voice_Gen\voice_gen.toml`, `D:\Development\Voice_Gen\voice_gen.py`, `D:\Development\Voice_Gen\text_to_audio.py`
+
+### Goal
+
+Create `voice_gen.toml` and load shared path/default settings from configuration instead of embedding operational defaults in each script.
+
+### Context
+
+EPIC-001 requires a shared configuration system for `MOSS_ROOT`, `LOG_DIR`, `VOICES_DIR`, `DEFAULT_OUTPUT_DIR`, and `DEFAULT_INPUT_FILE`. This is also the foundation for later Voice_Gen hardening and Text_to_Audio enhancements.
+
+### Acceptance Criteria
+
+- `voice_gen.toml` exists at the Voice_Gen repository root.
+- Both applications can load shared configuration successfully.
+- Configuration includes `MOSS_ROOT`, `LOG_DIR`, `VOICES_DIR`, `DEFAULT_OUTPUT_DIR`, and `DEFAULT_INPUT_FILE`.
+- Reasonable defaults preserve the current local workflow.
+- Missing or invalid config values produce clear logged errors.
+- README or adjacent docs explain the configuration file.
+
+### Work Notes
+
+### Blockers
+
+### Review Notes
+
+### Completion Summary
+
+## TASK-014: Migrate Voice Presets and Default Paths to Configuration
+
+Status: Backlog
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Created: 2026-06-01
+Updated: 2026-06-01
+Related Epic: EPIC-001 Shared Configuration Framework
+Related Branch: `vg_e001_shared_config`
+Related Files: `D:\Development\Voice_Gen\voice_gen.toml`, `D:\Development\Voice_Gen\text_to_audio.py`, `D:\Development\Voice_Gen\README.md`
+
+### Goal
+
+Remove hardcoded voice presets and default input/output paths from `text_to_audio.py` by making them configuration-driven and discoverable.
+
+### Context
+
+EPIC-001 acceptance criteria require that no hardcoded voice presets or hardcoded default paths remain. Future voices created by `voice_gen.py` should become available to `text_to_audio.py` without source-code edits.
+
+### Acceptance Criteria
+
+- Built-in voice presets are loaded from configuration and/or discovered from configured voice/config directories.
+- `text_to_audio.py` no longer hardcodes Lori, Lilybelle, Hannah, default input file, or default output directory in source.
+- Existing Lori, Lilybelle, and Hannah workflows continue functioning.
+- Interactive prompts use configured defaults.
+- Output collision behavior remains intact.
+- README documents how to add or discover a new voice preset.
+
+### Work Notes
+
+### Blockers
+
+### Review Notes
+
+### Completion Summary
+
 ## TASK-001: Validate AgentBus workflow
 
 Status: Active — claimed by Claude CLI 2026-05-31

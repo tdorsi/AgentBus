@@ -4,6 +4,25 @@ Use this file for tasks that are claimed and in progress. Each active task shoul
 
 Append updates beneath the relevant task. Do not remove history; move or summarize completed work only after review.
 
+## TASK-011: Establish EPIC-001 Branch and Shared Configuration Architecture
+
+Status: Active
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Claimed: 2026-06-01
+Updated: 2026-06-01
+Related Epic: EPIC-001 Shared Configuration Framework
+Related Branch: `vg_e001_shared_config`
+
+### Goal
+
+Start EPIC-001 by establishing the `vg_e001_shared_config` branch and defining the shared configuration/utility architecture before code migration.
+
+### Work Notes
+
+- 2026-06-01: Codex CLI claimed TASK-011 after Thomas requested EPIC-001 split into TASK-011 through TASK-014. Claude CLI is assigned as architecture reviewer while Codex performs implementation.
+
 ## TASK-001: Validate AgentBus workflow
 
 Status: Review — moved to tasks/review.md 2026-05-31 11:26
