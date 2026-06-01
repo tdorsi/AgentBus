@@ -1,26 +1,31 @@
 # Procedure: Check for Updates
 
-When instructed to 'check for updates', agents must:
+`origin/main` is the source of truth. Reading local files before checking repository state is not considered a complete update check.
+
+When instructed to "check for updates", agents must:
 
 1. Run `git status -sb`.
 2. Run `git fetch origin`.
-3. Determine whether the local branch is ahead, behind, or diverged.
-4. If clean and behind, fast-forward pull.
-5. If local modifications exist, do not overwrite them.
-6. Read:
-   - sprint.md
-   - agent inbox
-   - comms/broadcast.md
-   - tasks/active.md
-   - tasks/review.md
-   - reviews/
-   - decisions/decision_log.md
-7. Summarize:
+3. Determine whether the local branch is synced, ahead, behind, or diverged.
+4. If tracked files are clean and local is behind, run `git pull --ff-only origin main`.
+5. If tracked local modifications exist, do not overwrite them. Summarize the local changes and message Quill if guidance is needed.
+6. If branches diverged, do not merge or rebase without human or Quill guidance.
+7. Read:
+   - `sprint.md`
+   - `state/agent_status.md`
+   - your agent inbox
+   - `comms/broadcast.md`
+   - `tasks/active.md`
+   - `tasks/blocked.md`
+   - `tasks/review.md`
+   - `reviews/`
+   - `decisions/decision_log.md`
+8. Append a concise entry to `state/sync_log.md` when the update check changes working context or pulls commits.
+9. Summarize:
    - commits pulled
    - new messages
    - new reviews
    - task state changes
+   - sync state
    - actions required
-8. If no action is required, report standing by.
-
-Reading local files without first checking repository state is not considered a complete update check.
+10. If no action is required, report standing by.

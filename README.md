@@ -13,6 +13,8 @@ The system is intentionally simple, append-friendly, and human-readable. It is n
 - `comms/` - shared broadcasts, agent inboxes, and a reusable message template.
 - `logs/` - append-only work logs per agent.
 - `decisions/` - decision log and reusable decision template.
+- `procedures/` - standard operating procedures for update checks, startup, task claiming, and review response.
+- `state/` - lightweight shared state trackers and sync snapshots.
 - `artifacts/` - generated summaries, handoffs, notes, and supporting materials.
 
 ## Basic Workflow
@@ -23,6 +25,30 @@ The system is intentionally simple, append-friendly, and human-readable. It is n
 4. Communicate through inbox files or `comms/broadcast.md`.
 5. Record durable decisions in `decisions/decision_log.md`.
 6. Move finished work to review, then done after human or assigned review.
+
+## Source of Truth
+
+GitHub `origin/main` is the source of truth for tracked AgentBus coordination files. Before acting, agents must run the update-check or startup procedure and fast-forward when safe. Local ignored logs may remain local, but tracked task, comms, procedure, review, and state files should be committed and pushed when they change.
+
+## Governance Procedures
+
+- `procedures/check_for_updates.md` - required refresh behavior before reading local files as current.
+- `procedures/agent_startup.md` - startup sequence for agents beginning a work session.
+- `procedures/task_claiming.md` - rules for claiming assigned work.
+- `procedures/review_response.md` - process for submitting work to review and responding to feedback.
+
+## State Monitoring
+
+- `state/agent_status.md` - current task/status summary for each participant.
+- `state/sync_log.md` - append-only sync and push events.
+- `state/state_snapshot.md` - concise point-in-time operating snapshots.
+
+State monitoring process:
+
+1. Update `state/agent_status.md` when claiming, submitting, blocking, or completing a task.
+2. Append to `state/sync_log.md` after meaningful fetch, pull, commit, or push events.
+3. Add a `state/state_snapshot.md` entry when governance, sprint direction, or review state changes.
+4. Keep entries concise and avoid secrets, local credentials, or private runtime output.
 
 ## Status Meanings
 

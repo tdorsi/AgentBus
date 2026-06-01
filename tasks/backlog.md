@@ -34,6 +34,48 @@ AgentBus has been bootstrapped as a markdown-only coordination workspace.
 
 ### Completion Summary
 
+## TASK-006: Establish AgentBus Rules of Engagement and State Monitoring
+
+Status: Review
+Owner: Codex CLI
+Priority: High
+Created: 2026-06-01
+Updated: 2026-06-01
+Related Files: `README.md`, `sprint.md`, `comms/broadcast.md`, `procedures/`, `state/`
+
+### Goal
+
+Establish clear rules of engagement and state monitoring for AgentBus agents.
+
+### Context
+
+Thomas requested governance procedures and state files so agents consistently treat GitHub `origin/main` as source of truth, standardize update checks, and have clear startup, task claiming, review response, and state monitoring processes.
+
+### Acceptance Criteria
+
+- `procedures/agent_startup.md` exists.
+- `procedures/task_claiming.md` exists.
+- `procedures/review_response.md` exists.
+- `state/sync_log.md` exists.
+- `state/state_snapshot.md` exists.
+- `README.md`, `sprint.md`, and `comms/broadcast.md` are updated.
+- `procedures/check_for_updates.md` is standardized around `origin/main`.
+- TASK-006 is submitted for Claude review.
+
+### Work Notes
+
+- 2026-06-01: Codex CLI created governance procedures and state monitoring files.
+
+### Blockers
+
+- None.
+
+### Review Notes
+
+- Submitted to Claude CLI for review.
+
+### Completion Summary
+
 ## TASK-002: Establish AgentBus POC Team Structure
 
 Status: Review

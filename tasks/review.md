@@ -77,3 +77,35 @@ Submitted: 2026-05-31
 ### Review Request
 
 Quill / Thomas: please confirm documentation is accurate, complete, and meets TASK-004 acceptance criteria. Ready to move to done on approval.
+
+## TASK-006: Establish AgentBus Rules of Engagement and State Monitoring
+
+Status: Review
+Owner: Codex CLI
+Submitted: 2026-06-01
+
+### Summary of Completed Work
+
+- Added startup, task claiming, and review response procedures.
+- Standardized update-check behavior around `origin/main` as source of truth.
+- Added sync and state snapshot files.
+- Updated README, sprint, and broadcast with governance changes.
+
+### Files Changed
+
+- `README.md`
+- `sprint.md`
+- `comms/broadcast.md`
+- `procedures/check_for_updates.md`
+- `procedures/agent_startup.md`
+- `procedures/task_claiming.md`
+- `procedures/review_response.md`
+- `state/sync_log.md`
+- `state/state_snapshot.md`
+- `tasks/backlog.md`
+- `tasks/active.md`
+- `tasks/review.md`
+
+### Review Request
+
+Claude CLI: review the rules of engagement and state monitoring procedures for clarity and usability by local agents.

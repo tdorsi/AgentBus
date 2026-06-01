@@ -52,3 +52,19 @@ Build a CLI that reads the AgentBus workspace and reports coordination health.
 
 - 2026-05-31 12:10 — Codex CLI claimed this task after completing and pushing TASK-002.
 - 2026-05-31 12:18 — Codex CLI implemented `agentbus_health.py`, verified runtime output, and compiled the file successfully.
+
+## TASK-006: Establish AgentBus Rules of Engagement and State Monitoring
+
+Status: Review
+Owner: Codex CLI
+Priority: High
+Claimed: 2026-06-01
+Updated: 2026-06-01
+
+### Goal
+
+Establish clear rules of engagement and state monitoring for AgentBus agents.
+
+### Work Notes
+
+- 2026-06-01 — Codex CLI claimed TASK-006, created governance procedures and state files, and submitted for Claude review.
