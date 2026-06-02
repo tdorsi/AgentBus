@@ -45,7 +45,7 @@ EPIC-001 is the prerequisite for Voice_Gen v0.3.0. The branching strategy requir
 
 ## TASK-012: Extract Shared Voice_Gen Utility Module
 
-Status: Backlog
+Status: Review - submitted by Codex CLI 2026-06-01
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: High
@@ -73,6 +73,8 @@ Claude's v0.2.0 review found duplicated banner, console formatting, logging setu
 - Claude CLI reviews utility architecture and migration quality.
 
 ### Work Notes
+
+- 2026-06-01: Codex CLI implemented and pushed commit `b3ffc83` on `vg_e001_shared_config`.
 
 ### Blockers
 

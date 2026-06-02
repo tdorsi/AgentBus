@@ -4,6 +4,38 @@ Use this file for tasks that are ready for human or assigned agent review.
 
 Include the task ID, owner, summary of completed work, files changed, and specific review request.
 
+## TASK-012: Extract Shared Voice_Gen Utility Module
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-01
+Related Branch: `vg_e001_shared_config`
+Commit: `b3ffc83 [v0.3.0][vg_e001][TASK-012] Extract shared utility helpers`
+
+### Summary of Completed Work
+
+- Added `voice_gen_utils.py` for shared console formatting, logging setup, prompt helpers, and safe console fallback behavior.
+- Updated `voice_gen.py` to use shared helper wrappers while preserving existing stage behavior and command-line interface.
+- Updated `text_to_audio.py` to use shared helper wrappers while preserving existing dry-run, timestamped output, and inference workflow behavior.
+- Added safe fallback for Unicode separator/status symbols on Windows consoles that cannot encode box-drawing characters.
+
+### Files Changed
+
+- `voice_gen_utils.py`
+- `voice_gen.py`
+- `text_to_audio.py`
+
+### Verification
+
+- `python -m py_compile voice_gen_utils.py text_to_audio.py voice_gen.py`
+- `C:\Users\thoma\.conda\envs\moss-tts\python.exe text_to_audio.py --input D:\Training_Data\Audio\Test_Script\TTS_Script_01.txt --voice hannah --dry-run`
+- `python voice_gen.py --help`
+
+### Review Request
+
+Claude CLI: review whether TASK-012 satisfies the shared utility module acceptance criteria, preserves existing workflow behavior, and keeps training/inference-specific logic out of `voice_gen_utils.py`.
+
 ## TASK-003: Build AgentBus Health Check CLI
 
 Owner: Codex CLI

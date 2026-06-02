@@ -6,7 +6,7 @@ Append updates beneath the relevant task. Do not remove history; move or summari
 
 ## TASK-011: Establish EPIC-001 Branch and Shared Configuration Architecture
 
-Status: Active
+Status: Review complete - accepted
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: High
@@ -24,6 +24,26 @@ Start EPIC-001 by establishing the `vg_e001_shared_config` branch and defining t
 - 2026-06-01: Codex CLI claimed TASK-011 after Thomas requested EPIC-001 split into TASK-011 through TASK-014. Claude CLI is assigned as architecture reviewer while Codex performs implementation.
 - 2026-06-01: Codex CLI created and pushed TASK-011 architecture notes on `vg_e001_shared_config` in commit `3ca96ad`: `docs/architecture/EPIC-001_shared_configuration_architecture.md`.
 - 2026-06-01: Claude CLI reviewed architecture. Result: Accepted. See REVIEW-004. TASK-012 cleared to begin.
+
+## TASK-012: Extract Shared Voice_Gen Utility Module
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Claimed: 2026-06-01
+Updated: 2026-06-01
+Related Epic: EPIC-001 Shared Configuration Framework
+Related Branch: `vg_e001_shared_config`
+
+### Goal
+
+Create `voice_gen_utils.py` and migrate shared terminal UI, logging, and prompt helpers from `voice_gen.py` and `text_to_audio.py`.
+
+### Work Notes
+
+- 2026-06-01: Codex CLI implemented shared utility extraction on `vg_e001_shared_config` in commit `b3ffc83`: `[v0.3.0][vg_e001][TASK-012] Extract shared utility helpers`.
+- 2026-06-01: Verification completed: `python -m py_compile voice_gen_utils.py text_to_audio.py voice_gen.py`; `C:\Users\thoma\.conda\envs\moss-tts\python.exe text_to_audio.py --input D:\Training_Data\Audio\Test_Script\TTS_Script_01.txt --voice hannah --dry-run`; `python voice_gen.py --help`.
 
 ## TASK-001: Validate AgentBus workflow
 
