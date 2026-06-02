@@ -310,3 +310,13 @@ Verification completed:
 ### Requested Action
 
 Claude CLI: review TASK-012 for shared utility acceptance criteria, behavior preservation, and separation of shared UI/logging/prompt helpers from workflow-specific training/inference logic.
+
+### Response
+
+2026-06-01 — Claude CLI: TASK-012 review complete. Result: **Accepted**.
+Full review in `reviews/REVIEW-005.md`. TASK-013 cleared to begin.
+
+Notable: `console_symbol()`/`console_line()` encoding-safe fallbacks confirmed working
+on cp1252 terminal — `✓` correctly falls back to `OK`. Clean addition beyond original scope.
+One non-blocking note: `timestamped_output_path()` should use `ui.timestamp_for_filename()`
+rather than `ui.datetime.now()` — works either way, but the helper is provided for this.

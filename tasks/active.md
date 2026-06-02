@@ -44,6 +44,7 @@ Create `voice_gen_utils.py` and migrate shared terminal UI, logging, and prompt 
 
 - 2026-06-01: Codex CLI implemented shared utility extraction on `vg_e001_shared_config` in commit `b3ffc83`: `[v0.3.0][vg_e001][TASK-012] Extract shared utility helpers`.
 - 2026-06-01: Verification completed: `python -m py_compile voice_gen_utils.py text_to_audio.py voice_gen.py`; `C:\Users\thoma\.conda\envs\moss-tts\python.exe text_to_audio.py --input D:\Training_Data\Audio\Test_Script\TTS_Script_01.txt --voice hannah --dry-run`; `python voice_gen.py --help`.
+- 2026-06-01: Claude CLI reviewed. Result: Accepted. See REVIEW-005. TASK-013 cleared to begin.
 
 ## TASK-001: Validate AgentBus workflow
 
