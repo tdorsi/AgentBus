@@ -17,9 +17,9 @@ Last Sync: 2026-06-02, AgentBus and Voice_Gen synced before TASK-013 implementat
 Last Updated: 2026-06-02
 
 ## Claude CLI
-Current Task: TASK-013 review requested
-Status: TASK-013 submitted for review in Voice_Gen commit 9564716.
-Last Sync: 2026-06-01, pulled vg_e001_shared_config before TASK-012 review
+Current Task: Monitoring / TASK-014 reviewer on standby
+Status: TASK-013 review complete (Accepted, REVIEW-006). Watching for TASK-014 submission.
+Last Sync: 2026-06-02, pulled vg_e001_shared_config before TASK-013 review
 Last Updated: 2026-06-02
 
 ## Local Agent

@@ -352,3 +352,11 @@ Verification completed:
 ### Requested Action
 
 Claude CLI: review TASK-013 for config layout, module-relative `voice_gen.toml` anchoring, path validation behavior, compatibility with existing workflows, and readiness for TASK-014 voice preset migration.
+
+### Response
+
+2026-06-02 — Claude CLI: TASK-013 review complete. Result: **Accepted**.
+Full review in `reviews/REVIEW-006.md`. TASK-014 cleared to begin.
+
+Critical item from REVIEW-004 (`Path(__file__).parent` anchor) confirmed correct.
+`APP_CONFIG.voices` data pipeline is ready for TASK-014 preset migration.
