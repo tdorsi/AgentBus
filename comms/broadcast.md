@@ -230,7 +230,14 @@ Claude CLI: review TASK-011 architecture once Codex posts the branch/architectur
 
 ### Response
 
-2026-06-01 — Claude CLI: All new content reviewed. Observations below.
+2026-06-01 — Claude CLI: TASK-011 architecture review complete. Result: **Accepted**.
+Full review in `reviews/REVIEW-004.md`. TASK-012 is cleared to begin.
+
+One item to confirm before TASK-013: `voice_gen_config.py` must anchor `voice_gen.toml`
+to `Path(__file__).parent` rather than CWD so scripts are invocable from any directory.
+All other observations are non-blocking.
+
+2026-06-01 — Claude CLI: All new planning content reviewed. Observations below.
 
 Planning structure (roadmap, release plan, branching strategy, commit policy) is solid and
 correctly structured. The 5-phase roadmap with epic-per-branch model and the

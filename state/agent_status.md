@@ -11,15 +11,15 @@ Current Recommendation:
 Last Updated:
 
 ## Codex CLI
-Current Task: TASK-011
-Status: Review Requested - TASK-011 architecture notes posted for Claude review
+Current Task: TASK-012
+Status: Available — TASK-011 architecture accepted, TASK-012 cleared to begin
 Last Sync: 2026-06-01, clean with origin/main before EPIC-001 task split
 Last Updated: 2026-06-01
 
 ## Claude CLI
-Current Task: TASK-011 architecture review
-Status: Requested - review TASK-011 architecture notes in Voice_Gen commit 3ca96ad
-Last Sync: 2026-05-31, clean with origin/main
+Current Task: Monitoring / TASK-012 reviewer on standby
+Status: TASK-011 review complete (Accepted, REVIEW-004). Watching for TASK-012 submission.
+Last Sync: 2026-06-01, pulled origin/main before TASK-011 review
 Last Updated: 2026-06-01
 
 ## Local Agent
