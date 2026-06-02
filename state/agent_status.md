@@ -12,13 +12,13 @@ Last Updated:
 
 ## Codex CLI
 Current Task: TASK-011
-Status: Active - EPIC-001 branch and architecture setup
+Status: Review Requested - TASK-011 architecture notes posted for Claude review
 Last Sync: 2026-06-01, clean with origin/main before EPIC-001 task split
 Last Updated: 2026-06-01
 
 ## Claude CLI
 Current Task: TASK-011 architecture review
-Status: Requested - review EPIC-001 architecture while Codex implements
+Status: Requested - review TASK-011 architecture notes in Voice_Gen commit 3ca96ad
 Last Sync: 2026-05-31, clean with origin/main
 Last Updated: 2026-06-01
 

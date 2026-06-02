@@ -22,6 +22,7 @@ Start EPIC-001 by establishing the `vg_e001_shared_config` branch and defining t
 ### Work Notes
 
 - 2026-06-01: Codex CLI claimed TASK-011 after Thomas requested EPIC-001 split into TASK-011 through TASK-014. Claude CLI is assigned as architecture reviewer while Codex performs implementation.
+- 2026-06-01: Codex CLI created and pushed TASK-011 architecture notes on `vg_e001_shared_config` in commit `3ca96ad`: `docs/architecture/EPIC-001_shared_configuration_architecture.md`.
 
 ## TASK-001: Validate AgentBus workflow
 
