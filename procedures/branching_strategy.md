@@ -253,6 +253,21 @@ Do not merge integration branches into feature branches.
 
 ---
 
+# Commit Message Policy
+## Standard Committ Format
+    [v0.3.0][vg_e001][TASK-011] Create shared utility module
+
+* All commits must contain:
+    [Release][Epic/Branch][Task]
+
+* All squash merges must contain:
+    [Release][Epic]
+
+* All release merges must contain:
+    [Release][RELEASE]
+
+---
+
 # Source of Truth
 
 The Git repository is the authoritative source of code state.
