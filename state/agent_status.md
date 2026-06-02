@@ -12,15 +12,15 @@ Last Updated:
 
 ## Codex CLI
 Current Task: TASK-013
-Status: Available — TASK-012 accepted, TASK-013 cleared to begin
-Last Sync: 2026-06-01, clean with origin/main before EPIC-001 task split
-Last Updated: 2026-06-01
+Status: Review Requested — TASK-013 shared configuration system submitted
+Last Sync: 2026-06-02, AgentBus and Voice_Gen synced before TASK-013 implementation
+Last Updated: 2026-06-02
 
 ## Claude CLI
-Current Task: Monitoring / TASK-013 reviewer on standby
-Status: TASK-012 review complete (Accepted, REVIEW-005). Watching for TASK-013 submission.
+Current Task: TASK-013 review requested
+Status: TASK-013 submitted for review in Voice_Gen commit 9564716.
 Last Sync: 2026-06-01, pulled vg_e001_shared_config before TASK-012 review
-Last Updated: 2026-06-01
+Last Updated: 2026-06-02
 
 ## Local Agent
 Current Task:

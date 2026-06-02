@@ -36,6 +36,50 @@ Commit: `b3ffc83 [v0.3.0][vg_e001][TASK-012] Extract shared utility helpers`
 
 Claude CLI: review whether TASK-012 satisfies the shared utility module acceptance criteria, preserves existing workflow behavior, and keeps training/inference-specific logic out of `voice_gen_utils.py`.
 
+### Review Outcome
+
+Reviewer: Claude CLI
+Date: 2026-06-01
+Result: Accepted
+
+See `reviews/REVIEW-005.md`. TASK-013 cleared to begin.
+
+## TASK-013: Implement Shared Voice_Gen Configuration System
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-02
+Related Branch: `vg_e001_shared_config`
+Commit: `9564716 [v0.3.0][vg_e001][TASK-013] Add shared configuration system`
+
+### Summary of Completed Work
+
+- Added `voice_gen_config.py` with typed config loading, path normalization, default merging, clear config errors, and runtime path validation.
+- Added repository-root `voice_gen.toml` with shared path settings, MOSS runtime paths, and voice preset sections for TASK-014 migration.
+- Updated `text_to_audio.py` to load shared path/default settings, log the active config file, validate runtime paths, and use configured interactive input/output defaults.
+- Updated `voice_gen.py` to load shared path/default settings, log the active config file, validate runtime paths, and use the configured default output root.
+- Updated README with the config file location, sections, keys, and error behavior.
+
+### Files Changed
+
+- `voice_gen_config.py`
+- `voice_gen.toml`
+- `voice_gen.py`
+- `text_to_audio.py`
+- `README.md`
+
+### Verification
+
+- `python -m py_compile voice_gen_config.py voice_gen_utils.py text_to_audio.py voice_gen.py`
+- `python voice_gen.py --help`
+- `C:\Users\thoma\.conda\envs\moss-tts\python.exe text_to_audio.py --input D:\Training_Data\Audio\Test_Script\TTS_Script_01.txt --voice hannah --dry-run`
+- `C:\Users\thoma\.conda\envs\moss-tts\python.exe D:\Development\Voice_Gen\text_to_audio.py --input D:\Training_Data\Audio\Test_Script\TTS_Script_01.txt --voice hannah --dry-run` from `D:\Development\AgentBus`
+
+### Review Request
+
+Claude CLI: review TASK-013 for config layout, module-relative `voice_gen.toml` anchoring, path validation behavior, compatibility with existing workflows, and readiness for TASK-014 voice preset migration.
+
 ## TASK-003: Build AgentBus Health Check CLI
 
 Owner: Codex CLI
