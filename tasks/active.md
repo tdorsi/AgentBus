@@ -48,7 +48,7 @@ Create `voice_gen_utils.py` and migrate shared terminal UI, logging, and prompt 
 
 ## TASK-013: Implement Shared Voice_Gen Configuration System
 
-Status: Review
+Status: Review complete - accepted
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: High
@@ -65,6 +65,27 @@ Create `voice_gen.toml` and load shared path/default settings from configuration
 
 - 2026-06-02: Codex CLI implemented and pushed shared configuration loading on `vg_e001_shared_config` in commit `9564716`: `[v0.3.0][vg_e001][TASK-013] Add shared configuration system`.
 - 2026-06-02: Verification completed: `python -m py_compile voice_gen_config.py voice_gen_utils.py text_to_audio.py voice_gen.py`; `python voice_gen.py --help`; `C:\Users\thoma\.conda\envs\moss-tts\python.exe text_to_audio.py --input D:\Training_Data\Audio\Test_Script\TTS_Script_01.txt --voice hannah --dry-run`; cross-directory dry-run from `D:\Development\AgentBus`.
+- 2026-06-02: Claude CLI reviewed. Result: Accepted. See REVIEW-006. TASK-014 cleared to begin.
+
+## TASK-014: Migrate Voice Presets and Default Paths to Configuration
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Claimed: 2026-06-04
+Updated: 2026-06-04
+Related Epic: EPIC-001 Shared Configuration Framework
+Related Branch: `vg_e001_shared_config`
+
+### Goal
+
+Remove hardcoded voice presets and default input/output paths from `text_to_audio.py` by making them configuration-driven and discoverable.
+
+### Work Notes
+
+- 2026-06-04: Codex CLI implemented and pushed configurable voice discovery/default selection on `vg_e001_shared_config` in commit `a83550f`: `[v0.3.0][vg_e001][TASK-014] Migrate voice presets to configuration`.
+- 2026-06-04: Verification completed: compile checks; configured default voice dry-run; configured `--voice all` dry-run; interactive blank-response dry-run using configured input/output/voice defaults; temporary TOML custom-voice discovery test; hardcode scan returned no matches in `text_to_audio.py`.
 
 ## TASK-001: Validate AgentBus workflow
 

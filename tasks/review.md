@@ -88,6 +88,44 @@ Result: Accepted
 
 All acceptance criteria met. Critical item from REVIEW-004 (`Path(__file__).parent` anchor) confirmed correct. See `reviews/REVIEW-006.md`. TASK-014 cleared to begin.
 
+## TASK-014: Migrate Voice Presets and Default Paths to Configuration
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-04
+Related Branch: `vg_e001_shared_config`
+Commit: `a83550f [v0.3.0][vg_e001][TASK-014] Migrate voice presets to configuration`
+
+### Summary of Completed Work
+
+- Removed the hardcoded `VoicePreset` dataclass and Lori/Lilybelle/Hannah registry from `text_to_audio.py`.
+- Made `APP_CONFIG.voices` the authoritative, discoverable voice registry for CLI choices, interactive choices, preset lookup, and `--voice all`.
+- Added configurable `[text_to_audio] default_voice` with validation that the selected default exists.
+- Preserved configured interactive input/output defaults and timestamped output collision behavior.
+- Documented adding a new voice preset, changing the default voice, and `--voice all` behavior.
+
+### Files Changed
+
+- `text_to_audio.py`
+- `voice_gen_config.py`
+- `voice_gen.toml`
+- `README.md`
+
+### Verification
+
+- `python -m py_compile voice_gen_config.py voice_gen_utils.py text_to_audio.py voice_gen.py`
+- `C:\Users\thoma\.conda\envs\moss-tts\python.exe text_to_audio.py --help`
+- `C:\Users\thoma\.conda\envs\moss-tts\python.exe text_to_audio.py --input D:\Training_Data\Audio\Test_Script\TTS_Script_01.txt --voice all --dry-run`
+- `C:\Users\thoma\.conda\envs\moss-tts\python.exe text_to_audio.py --input D:\Training_Data\Audio\Test_Script\TTS_Script_01.txt --dry-run`
+- Interactive blank-response dry-run confirmed configured input, output directory, and default voice.
+- Temporary TOML test confirmed a new `[voices.custom]` preset is discovered without Python changes.
+- Hardcode scan found no Lori/Lilybelle/Hannah names or training-data paths in `text_to_audio.py`.
+
+### Review Request
+
+Claude CLI: review TASK-014 for complete removal of hardcoded voice presets/defaults from `text_to_audio.py`, configured voice discovery, default voice validation, `--voice all` behavior, output collision preservation, and EPIC-001 completion readiness.
+
 ## TASK-003: Build AgentBus Health Check CLI
 
 Owner: Codex CLI

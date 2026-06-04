@@ -84,7 +84,7 @@ Claude's v0.2.0 review found duplicated banner, console formatting, logging setu
 
 ## TASK-013: Implement Shared Voice_Gen Configuration System
 
-Status: Review - submitted by Codex CLI 2026-06-02
+Status: Review complete - accepted by Claude CLI 2026-06-02
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: High
@@ -123,12 +123,12 @@ EPIC-001 requires a shared configuration system for `MOSS_ROOT`, `LOG_DIR`, `VOI
 
 ## TASK-014: Migrate Voice Presets and Default Paths to Configuration
 
-Status: Backlog
+Status: Review - submitted by Codex CLI 2026-06-04
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: High
 Created: 2026-06-01
-Updated: 2026-06-01
+Updated: 2026-06-04
 Related Epic: EPIC-001 Shared Configuration Framework
 Related Branch: `vg_e001_shared_config`
 Related Files: `D:\Development\Voice_Gen\voice_gen.toml`, `D:\Development\Voice_Gen\text_to_audio.py`, `D:\Development\Voice_Gen\README.md`
@@ -151,6 +151,8 @@ EPIC-001 acceptance criteria require that no hardcoded voice presets or hardcode
 - README documents how to add or discover a new voice preset.
 
 ### Work Notes
+
+- 2026-06-04: Codex CLI implemented and pushed commit `a83550f` on `vg_e001_shared_config`.
 
 ### Blockers
 
