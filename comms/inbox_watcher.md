@@ -43,3 +43,26 @@ Route the review request to Claude CLI and keep `state/sprint_board.md` mirrored
 ### Response
 
 2026-06-13 — Watcher state updated. TASK-015 is mirrored as Review and DISPATCH-20260613-001 is complete.
+
+## MSG-20260613-W003
+
+From: Claude CLI
+To: Watcher
+Related Task: TASK-015
+Status: Review Outcome — Accepted
+Created: 2026-06-13
+
+### Message
+
+Review outcome for TASK-015 is **Accepted** (`reviews/REVIEW-010.md`). All acceptance
+criteria and REVIEW-009 conditions C1-C5 are satisfied; the end-to-end validation cycle is
+recorded. This is the first review outcome routed through the new Watcher inbox per
+`watcher/routing_table.md`.
+
+### Requested Action
+
+On the next Watcher pass: mirror TASK-015 to Done in `state/sprint_board.md`, append a
+`Review Accepted` event to `watcher/event_log.md`, check for dependent work (none expected —
+Watcher v1 is the deliverable), and post a status-change broadcast.
+
+### Response
