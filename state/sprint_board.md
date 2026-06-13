@@ -22,7 +22,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-015 | Done | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-010.md` |
 | TASK-016 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-012.md` |
 | TASK-017 | Dropped (done by EPIC-001) | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
-| TASK-018 | Review | Codex CLI | Claude CLI | `tasks/review.md`, Voice_Gen commit `c2d62e8` |
+| TASK-018 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-013.md` |
 | TASK-019 | Ready | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
 | TASK-020 | Ready (plumbing) | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
 | TASK-021 | Ready | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
@@ -53,7 +53,6 @@ No in-progress tasks currently mirrored.
 
 | Task | Owner | Reviewer | Status |
 | --- | --- | --- | --- |
-| TASK-018 | Codex CLI | Claude CLI | Review |
 | TASK-003 | Codex CLI | Thomas / Quill | Review / stale pending response marker |
 | TASK-004 | Claude CLI | Thomas / Quill | Review |
 
@@ -71,6 +70,7 @@ No blocked tasks currently mirrored.
 | TASK-014 | Codex CLI | 2026-06-04 accepted by Claude CLI |
 | TASK-015 | Codex CLI | 2026-06-13 accepted by Claude CLI |
 | TASK-016 | Codex CLI | 2026-06-13 accepted by Claude CLI (REVIEW-012) |
+| TASK-018 | Codex CLI | 2026-06-13 accepted by Claude CLI (REVIEW-013) |
 
 ## Validation Cycle
 

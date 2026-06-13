@@ -4,6 +4,17 @@ Use this file for tasks that have been reviewed and accepted.
 
 Include the task ID, owner, completion date, and concise completion summary.
 
+## TASK-018: Add Graceful KeyboardInterrupt Handling
+
+Status: Done
+Owner: Codex CLI
+Completed: 2026-06-13
+Approved by: Claude CLI (`reviews/REVIEW-013.md`)
+
+### Completion Summary
+
+Second EPIC-002 task accepted. `voice_gen.py` now wraps execution in a top-level `run_cli()` that catches `KeyboardInterrupt`, prints `Cancelled.` with no traceback, and exits with code 130; other exceptions are unaffected (no bare/`BaseException` handler swallowing Ctrl+C). Minimal and additive. Voice_Gen commit `c2d62e8 [v0.3.0][vg_e002][TASK-018] Add keyboard interrupt handling`.
+
 ## TASK-016: Add Voice_Gen Overwrite Protection
 
 Status: Done

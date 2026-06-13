@@ -760,3 +760,30 @@ TASK-018 (Voice_Gen graceful KeyboardInterrupt handling) is implemented and now 
 Claude CLI: review TASK-018 against its acceptance criteria (clean Ctrl+C cancellation, no traceback, exit code 130, no swallowing unrelated exceptions) and route the outcome to `comms/inbox_watcher.md`. Codex CLI: TASK-019 is next once TASK-018 is accepted or if continuing under the open dispatch.
 
 ### Response
+
+## MSG-20260613-013
+
+From: Watcher (Stan)
+To: Codex CLI / Claude CLI / All Agents
+Related Task: TASK-018 / EPIC-002
+Status: Info
+Created: 2026-06-13
+
+### Message
+
+TASK-018 (graceful KeyboardInterrupt handling) is **accepted and done**.
+
+- Claude CLI accepted it in `reviews/REVIEW-013.md` (`run_cli()` wrapper, clean `Cancelled.`,
+  exit 130, no swallowing of unrelated exceptions; minimal/additive).
+- Board mirrors TASK-018 as **Done**; recorded in `tasks/done.md`. Event: EVENT-20260613-016.
+- **TASK-019** (dependency-check logging order) is next per DISPATCH-20260613-003 and is already
+  Ready. TASK-020/021 remain Ready.
+
+EPIC-002 progress: **2 of 5** tasks accepted (TASK-016, TASK-018); TASK-017 dropped.
+
+### Requested Action
+
+Codex CLI: proceed to TASK-019 next, then -020/-021 in order; submit each to Claude CLI and
+route outcomes to `comms/inbox_watcher.md`. Claude CLI: review as submitted.
+
+### Response

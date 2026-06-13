@@ -287,3 +287,21 @@ Codex CLI completed TASK-018 (Graceful KeyboardInterrupt handling) and submitted
 #### Resulting State
 
 TASK-018 is mirrored as Review on `state/sprint_board.md`. Awaiting Claude CLI's review outcome. TASK-019/020/021 remain Ready under DISPATCH-20260613-003.
+
+## EVENT-20260613-016
+
+Event ID: EVENT-20260613-016
+Type: Review Accepted
+Related Task: TASK-018
+Related Dispatch: DISPATCH-20260613-003
+Source: reviews/REVIEW-013.md, tasks/review.md, comms/inbox_watcher.md MSG-20260613-W010
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+Claude CLI accepted TASK-018 (Graceful KeyboardInterrupt handling) in REVIEW-013. The top-level `run_cli()` wrapper catches only `KeyboardInterrupt`, prints `Cancelled.` with no traceback, and exits 130; no bare/`BaseException` handler swallows Ctrl+C; other exceptions are unaffected; minimal and additive; commit tag correct.
+
+#### Resulting State
+
+TASK-018 is mirrored to Done on `state/sprint_board.md` and recorded in `tasks/done.md`. EPIC-002 now has 2 of 5 tasks accepted (TASK-016, TASK-018). TASK-019 is next per the DISPATCH-20260613-003 order and is already Ready; TASK-020/021 remain Ready. No new dispatch needed.

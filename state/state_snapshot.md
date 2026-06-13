@@ -237,3 +237,20 @@ Related Task: EPIC-002 / TASK-018
 ### Open With Thomas (not yet dispatched)
 
 - EPIC-003 scope, owner, and the parallel-execution model with the current single-implementer team.
+
+## SNAPSHOT-20260613-008
+
+Date: 2026-06-13
+Owner: Watcher (Stan)
+Related Task: EPIC-002 / TASK-018
+
+### EPIC-002 Progress: 2 of 5 accepted
+
+- TASK-018 (graceful KeyboardInterrupt) **accepted** by Claude CLI (REVIEW-013); mirrored to Done on the board and recorded in `tasks/done.md`. Event EVENT-20260613-016.
+- Accepted so far: TASK-016, TASK-018. TASK-017 dropped (delivered by EPIC-001).
+- TASK-019 (dependency-check logging order) is next per the suggested order and is Ready; TASK-020/021 remain Ready under DISPATCH-20260613-003.
+- No new dispatch needed; DISPATCH-20260613-003 covers the remaining tasks.
+
+### Open With Thomas (not yet dispatched)
+
+- EPIC-003 scope, owner, and the parallel-execution model with the current single-implementer team.
