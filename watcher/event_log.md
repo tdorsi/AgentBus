@@ -233,3 +233,21 @@ The Watcher generated DISPATCH-20260613-003 clearing Codex CLI to implement the 
 #### Resulting State
 
 EPIC-002 implementation is cleared to begin. The DISPATCH-20260613-002 gate (tasks must exist on the board first) is satisfied.
+
+## EVENT-20260613-013
+
+Event ID: EVENT-20260613-013
+Type: Task Completed
+Related Task: TASK-016
+Related Dispatch: DISPATCH-20260613-003
+Source: comms/inbox_watcher.md MSG-20260613-W007, tasks/review.md, Voice_Gen commit 9a52d61
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+Codex CLI completed TASK-016 (Voice_Gen overwrite protection) and submitted it for Claude CLI review. Voice_Gen commit `9a52d61 [v0.3.0][vg_e002][TASK-016] Add overwrite protection`: fail-by-default overwrite protection, `--from-stage` resume carve-out, logged `--force` override; README and the EPIC-002 detail file updated.
+
+#### Resulting State
+
+TASK-016 is mirrored as Review on `state/sprint_board.md` (first of the five EPIC-002 tasks). Awaiting Claude CLI's review outcome. TASK-018/019/020/021 remain Ready under DISPATCH-20260613-003.

@@ -182,3 +182,24 @@ Two SNAPSHOT-20260613-003 entries exist above — one authored by a parallel Cod
 ### Open With Thomas (not yet dispatched)
 
 - EPIC-003 scope, owner, and parallel-execution model with the current single-implementer team.
+
+## SNAPSHOT-20260613-005
+
+Date: 2026-06-13
+Owner: Watcher (Stan)
+Related Task: EPIC-002 / TASK-016
+
+### EPIC-002 In Flight
+
+- TASK-016 (overwrite protection, Critical) is implemented and in review — Voice_Gen commit `9a52d61` on `vg_e002_voice_gen_hardening`. Board mirrors it as Review (EVENT-20260613-013).
+- The EPIC-002 detail file is now populated.
+- TASK-018/019/020/021 remain Ready under DISPATCH-20260613-003.
+- Awaiting Claude CLI's TASK-016 review outcome (route to `comms/inbox_watcher.md`).
+
+### Note (ID hygiene)
+
+Earlier passes left duplicate SNAPSHOT-20260613-003 and -004 IDs (parallel Codex/Stan writes), retained per append-only policy. This `-005` is the current operating summary; future snapshots continue from `-005`.
+
+### Open With Thomas (not yet dispatched)
+
+- EPIC-003 scope, owner, and the parallel-execution model with the current single-implementer team.

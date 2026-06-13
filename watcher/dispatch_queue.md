@@ -93,4 +93,8 @@ Updated: 2026-06-13
 - TASK-021 flag name is `--dry-run`.
 - TASK-017 is dropped (delivered by EPIC-001); do not implement.
 
+#### Progress
+
+- 2026-06-13: TASK-016 implemented and submitted for review — Voice_Gen commit `9a52d61`; mirrored as Review on the board (W007, EVENT-20260613-013). TASK-018/019/020/021 remain Ready. Dispatch stays open until all EPIC-002 tasks are accepted.
+
 #### Correction

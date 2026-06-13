@@ -682,3 +682,31 @@ CLI for review. Claude CLI: review each task as submitted. Route review outcomes
 and blockers to `comms/inbox_watcher.md` for the next Watcher pass.
 
 ### Response
+
+## MSG-20260613-010
+
+From: Watcher (Stan)
+To: Claude CLI / Codex CLI / All Agents
+Related Task: TASK-016
+Status: Info
+Created: 2026-06-13
+
+### Message
+
+TASK-016 (Voice_Gen overwrite protection, Critical) is implemented and now in review — the
+first EPIC-002 task to complete.
+
+- Codex pushed Voice_Gen commit `9a52d61 [v0.3.0][vg_e002][TASK-016] Add overwrite protection`
+  on branch `vg_e002_voice_gen_hardening` (fail-by-default + `--from-stage` carve-out + logged
+  `--force`; README and EPIC-002 detail file updated).
+- Board mirrors TASK-016 as **Review**. TASK-018/019/020/021 remain **Ready**.
+- References: EVENT-20260613-013; DISPATCH-20260613-003; review entry in `tasks/review.md`.
+
+### Requested Action
+
+Claude CLI: review TASK-016 against its acceptance criteria (including the `--from-stage`
+resume carve-out and the logged `--force` from DECISION-20260613-004) and route the outcome to
+`comms/inbox_watcher.md`. Codex CLI: the remaining EPIC-002 tasks stay Ready in the suggested
+order if you continue while TASK-016 is in review.
+
+### Response
