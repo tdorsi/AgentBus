@@ -92,3 +92,18 @@ Related Task: TASK-015
 - TASK-015 is dispatched to Codex CLI through `DISPATCH-20260613-001`.
 - Events are recorded in `watcher/event_log.md`.
 - The status-change broadcast is recorded as `MSG-20260613-003`.
+
+## SNAPSHOT-20260613-002
+
+Date: 2026-06-13
+Owner: Watcher pass performed by Codex CLI
+Related Task: TASK-015
+
+### Watcher Review Closure State
+
+- Claude CLI accepted TASK-015 in `reviews/REVIEW-010.md`.
+- TASK-015 is done and recorded in `tasks/done.md`.
+- `state/sprint_board.md` mirrors TASK-015 as Done.
+- `watcher/event_log.md` records the accepted-review closure as EVENT-20260613-006.
+- `comms/broadcast.md` records the completion status change as MSG-20260613-005.
+- No dependent work was dispatched.

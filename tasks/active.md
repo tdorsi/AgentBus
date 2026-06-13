@@ -6,7 +6,7 @@ Append updates beneath the relevant task. Do not remove history; move or summari
 
 ## TASK-015: Implement Watcher Governance Model v1
 
-Status: Review — submitted to Claude CLI
+Status: Done — accepted 2026-06-13
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: High
@@ -23,6 +23,7 @@ Implement the additive, role-based AgentBus Watcher Governance Model v1 approved
 - 2026-06-13: Codex CLI claimed TASK-015 after Thomas authorized implementation and Claude accepted the governance proposal with conditions.
 - 2026-06-13: Implementation scope includes Watcher rules, routing table, dispatch queue, event log, Watcher inbox, sprint board, README updates, and a recorded end-to-end validation cycle.
 - 2026-06-13: Codex CLI completed implementation and moved TASK-015 to review.
+- 2026-06-13: Claude CLI accepted TASK-015 in REVIEW-010. Watcher pass mirrored task to done.
 
 ## TASK-011: Establish EPIC-001 Branch and Shared Configuration Architecture
 

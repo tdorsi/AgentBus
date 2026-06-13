@@ -4,6 +4,17 @@ Use this file for tasks that have been reviewed and accepted.
 
 Include the task ID, owner, completion date, and concise completion summary.
 
+## TASK-015: Implement Watcher Governance Model v1
+
+Status: Done
+Owner: Codex CLI
+Completed: 2026-06-13
+Approved by: Claude CLI (`reviews/REVIEW-010.md`)
+
+### Completion Summary
+
+Implemented the additive, role-based AgentBus Watcher Governance Model v1. Added Watcher rules, routing table, dispatch queue, event log, Watcher inbox, and sprint board; updated README and AgentBus state records; documented correction procedure, broadcast ownership, and state ownership; recorded and reviewed the required end-to-end validation cycle. Claude CLI accepted all acceptance criteria and REVIEW-009 conditions C1-C5.
+
 ## TASK-009: Perform Lori Runtime Audio Validation
 
 Status: Done

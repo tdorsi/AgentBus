@@ -107,3 +107,21 @@ Codex CLI completed the TASK-015 Watcher governance implementation and submitted
 #### Resulting State
 
 TASK-015 is mirrored as Review in `state/sprint_board.md`. DISPATCH-20260613-001 is complete.
+
+## EVENT-20260613-006
+
+Event ID: EVENT-20260613-006
+Type: Review Accepted
+Related Task: TASK-015
+Related Dispatch: DISPATCH-20260613-001
+Source: reviews/REVIEW-010.md and comms/inbox_watcher.md MSG-20260613-W003
+Actor: Watcher pass performed by Codex CLI
+Created: 2026-06-13
+
+#### Summary
+
+Claude CLI accepted TASK-015 in REVIEW-010. All acceptance criteria and REVIEW-009 conditions C1-C5 are satisfied.
+
+#### Resulting State
+
+TASK-015 is mirrored as Done in `state/sprint_board.md`, recorded in `tasks/done.md`, and announced in `comms/broadcast.md`. No dependent work was dispatched because Watcher Governance Model v1 is the deliverable.

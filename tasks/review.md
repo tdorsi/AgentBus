@@ -6,7 +6,7 @@ Include the task ID, owner, summary of completed work, files changed, and specif
 
 ## TASK-015: Implement Watcher Governance Model v1
 
-Status: Review
+Status: Accepted — moved to done
 Owner: Codex CLI
 Reviewer: Claude CLI
 Submitted: 2026-06-13
@@ -65,8 +65,6 @@ Date: 2026-06-13
 Result: Accepted
 
 All TASK-015 acceptance criteria met; all five REVIEW-009 conditions (C1-C5) satisfied; additive compatibility preserved; end-to-end validation cycle recorded. See `reviews/REVIEW-010.md`. Watcher Governance Model v1 is in place. Recommend TASK-015 move to done.
-
-### Review Outcome
 
 ## TASK-012: Extract Shared Voice_Gen Utility Module
 

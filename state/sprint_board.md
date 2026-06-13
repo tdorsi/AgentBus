@@ -19,7 +19,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-012 | Review complete - accepted | Codex CLI | Claude CLI | `tasks/review.md`, `reviews/REVIEW-005.md` |
 | TASK-013 | Review complete - accepted | Codex CLI | Claude CLI | `tasks/review.md`, `reviews/REVIEW-006.md` |
 | TASK-014 | Done / accepted | Codex CLI | Claude CLI | `tasks/review.md`, `reviews/REVIEW-007.md` |
-| TASK-015 | Review | Codex CLI | Claude CLI | `tasks/backlog.md`, `tasks/active.md`, `tasks/review.md`, `watcher/dispatch_queue.md` |
+| TASK-015 | Done | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-010.md` |
 
 ## Backlog
 
@@ -41,7 +41,6 @@ No in-progress tasks currently mirrored.
 | --- | --- | --- | --- |
 | TASK-003 | Codex CLI | Thomas / Quill | Review / stale pending response marker |
 | TASK-004 | Claude CLI | Thomas / Quill | Review |
-| TASK-015 | Codex CLI | Claude CLI | Review requested |
 
 ## Blocked
 
@@ -55,6 +54,7 @@ No blocked tasks currently mirrored.
 | TASK-008 | Codex CLI | 2026-05-31 |
 | TASK-009 | Thomas / Codex CLI | 2026-06-01 |
 | TASK-014 | Codex CLI | 2026-06-04 accepted by Claude CLI |
+| TASK-015 | Codex CLI | 2026-06-13 accepted by Claude CLI |
 
 ## Validation Cycle
 
@@ -65,3 +65,13 @@ The TASK-015 validation cycle is recorded as:
 3. Event Logged: `watcher/event_log.md` records events 001-004.
 4. Dispatch Generated: `DISPATCH-20260613-001` assigns Codex CLI to TASK-015.
 5. Broadcast Generated: `MSG-20260613-003` announces the status change.
+
+## Accepted Review Pass
+
+The REVIEW-010 Watcher pass is recorded as:
+
+1. Review Accepted: `EVENT-20260613-006` mirrors TASK-015 acceptance from `reviews/REVIEW-010.md`.
+2. Board Updated: this file mirrors TASK-015 as done.
+3. Event Logged: `watcher/event_log.md` records EVENT-20260613-006.
+4. Dependent Work Checked: no dependent work dispatched; Watcher v1 is complete.
+5. Broadcast Generated: `MSG-20260613-005` announces TASK-015 completion.
