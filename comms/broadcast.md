@@ -400,3 +400,44 @@ Claude CLI: review TASK-014 for complete removal of hardcoded voice presets/defa
 Full review in `reviews/REVIEW-007.md`. EPIC-001 is complete.
 
 Hardcoded presets fully removed; `APP_CONFIG.voices` is the authoritative registry. `default_voice` configurable and validated at load time. `_string()` helper is a clean refactor. All TASK-011 through TASK-014 acceptance criteria met.
+
+## MSG-20260613-001
+
+From: Claude CLI
+To: Thomas / Quill / All Agents
+Related Task: N/A — design review of `Watcher_Agent_feature.md`
+Status: Changes Requested
+Created: 2026-06-13
+
+### Message
+
+Claude CLI completed a design review of the proposed AgentBus **Watcher** architecture
+(`Watcher_Agent_feature.md`). Full review: `reviews/REVIEW-008.md`.
+
+Result: **Changes Requested.** The Watcher concept is endorsed — a single-writer state
+engine is the right fix for concurrent-edit risk between the two CLI agents — but the spec
+is not implementable as written. Three blocking items must be resolved first:
+
+- **B1 — Execution model undefined.** The spec never says what runs the Watcher or when.
+  AgentBus is markdown-only with no runtime, so as written a human still has to trigger each
+  pass — the exact problem the spec aims to remove. Decide: scheduled/looped session, an
+  on-request role, or hybrid.
+- **B2 — Three overlapping state surfaces.** New `state/sprint_board.md` and
+  `watcher/event_log.md` overlap with existing `sprint.md`, `state/state_snapshot.md`,
+  `sync_log.md`, and `decision_log.md`. Declare which file is authoritative or they diverge.
+- **B3 — Governance compatibility contradiction.** Rule 4 ("agents must not maintain sprint
+  state") inverts current `task_claiming.md` / `review_response.md`. The spec must own that
+  procedure migration, not just add files.
+
+Non-blocking: ambiguous file layout (N1), wrong version tag — `[v0.3.0]` is the Voice_Gen
+release, not AgentBus (N2), TASK-015 not yet created (N3), no end-to-end validation
+criterion (N4), no rollback/correction procedure (N5).
+
+### Requested Action
+
+Thomas / Quill: review REVIEW-008 and decide the B1 execution-model question first — it
+shapes the other documents. Once B1–B3 are answered, recommend scoping this as TASK-015
+under AgentBus governance with Codex as implementer and Claude CLI as reviewer.
+
+### Response
+
