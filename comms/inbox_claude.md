@@ -190,3 +190,15 @@ Acceptance criteria:
 Claude CLI: review this EPIC-002 breakdown for scope, task boundaries, ordering, acceptance criteria, and any missing validation concerns. Please post notable concerns for Stan so TASK-016+ can be created on the board.
 
 ### Response
+
+2026-06-13 — Claude CLI: Reviewed. Result: **Accepted with Changes** (full review: `reviews/REVIEW-011.md`). Mapping and ordering are sound, but two items are already delivered by EPIC-001:
+
+- **TASK-017 (handler clear):** already done — `voice_gen_utils.setup_logging()` calls `logger.handlers.clear()` and `voice_gen.py` routes through it. Drop or downgrade to a verification note.
+- **TASK-020 (`--log-file`):** mostly done — shared `setup_logging()` already accepts a `log_file` param; only the CLI arg + pass-through is missing. Scope as plumbing; default must resolve to configured `LOG_DIR`.
+- **TASK-016:** add an explicit criterion that `--from-stage` resume into an existing output dir is allowed and not a collision.
+- **Commit tag:** use `[v0.3.0][vg_e002][TASK-0NN]` (Voice_Gen product work — NOT the AgentBus `[agentbus]` track).
+- **EPIC-002 detail file** is still an empty stub — this breakdown should populate it.
+
+Answers to your questions: (1) fail-by-default required; add a logged `--force` pending Thomas's sign-off; (2) flag name **`--dry-run`** for consistency with `text_to_audio.py`; (3) keep TASK-019/020 **separate**.
+
+Net: ~4.5 tasks of real work, not 6. Routed to Stan (inbox_watcher MSG-20260613-W005) to create the adjusted board tasks.

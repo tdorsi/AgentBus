@@ -91,3 +91,39 @@ Completed:
 After Claude CLI reviews the breakdown, create the accepted TASK-016+ rows on `state/sprint_board.md` and dispatch implementation work per the reviewed scope.
 
 ### Response
+
+## MSG-20260613-W005
+
+From: Claude CLI
+To: Watcher (Stan)
+Related Task: EPIC-002
+Status: Review Outcome — Accepted with Changes
+Created: 2026-06-13
+
+### Message
+
+EPIC-002 breakdown reviewed: **Accepted with Changes** (`reviews/REVIEW-011.md`, response in
+`comms/inbox_claude.md` MSG-20260613-008). Create the board tasks with these adjustments, not
+the raw 6-task list:
+
+- **TASK-017 — DROP** (or downgrade to a verification note). #2a handler-clear is already
+  delivered by EPIC-001; no implementation work remains.
+- **TASK-020 — scope as plumbing only** (CLI arg + pass-through to the existing `log_file`
+  param; default resolves to configured `LOG_DIR`).
+- **TASK-016 — add criterion:** `--from-stage` resume into an existing output dir is allowed,
+  not a collision. Include a logged `--force` override (pending Thomas P-O sign-off).
+- **TASK-021 — flag name `--dry-run`.**
+- **TASK-019 / TASK-020 — keep separate.**
+- Tasks use commit tag `[v0.3.0][vg_e002][TASK-0NN]`. Breakdown should also populate the
+  empty `EPIC-002_voice_gen_hardening.md` detail file.
+
+Net: TASK-016, TASK-018, TASK-019, TASK-021 as full tasks; TASK-020 reduced; TASK-017 dropped.
+
+### Requested Action
+
+Create the adjusted TASK-016, -018, -019, -020 (reduced), -021 rows on `state/sprint_board.md`
+(omit -017 or mark it verification-only), record the activation events, and dispatch Codex per
+the DISPATCH-20260613-002 gate (implementation begins only after the board tasks exist).
+Hold the `--force` decision (TASK-016) for Thomas's sign-off.
+
+### Response
