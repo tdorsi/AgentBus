@@ -535,3 +535,62 @@ TASK-008 implementation is complete. Runtime validation was deferred because Han
 ### Review Notes
 
 ### Completion Summary
+
+## TASK-015: Implement Watcher Governance Model v1
+
+Status: Ready — authorized by Thomas 2026-06-13
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Created: 2026-06-13
+Updated: 2026-06-13
+Related Files: `watcher/`, `comms/inbox_watcher.md`, `state/sprint_board.md`, `README.md`, `Watcher_Agent_feature.md`
+Related Decisions: DECISION-20260613-001, DECISION-20260613-002, DECISION-20260613-003
+Related Reviews: REVIEW-008, REVIEW-009
+
+### Goal
+
+Implement the additive, role-based AgentBus Watcher Governance Model v1 as approved in DECISION-20260613-001/002/003, resolving the REVIEW-008 blocking findings and the REVIEW-009 conditions.
+
+### Context
+
+The Watcher is a coordination role (not a software service) activated on request (DECISION-001). It owns operational state surfaces while agents continue managing `tasks/*`, `reviews/*`, and `logs/*` (DECISION-003). Existing procedures remain valid and Watcher procedures are introduced in parallel. Per the established split, Codex CLI implements and Claude CLI reviews.
+
+### Acceptance Criteria
+
+**Files created (use explicit paths):**
+- `watcher/watcher_rules.md` — responsibilities, authority, allowed/forbidden actions, state ownership, and worked examples for Accepted review, Blocked task, New task activation, Broadcast creation.
+- `watcher/routing_table.md` — message routing (review outcome / task completion / blocker → Watcher inbox; question for Codex → `inbox_codex.md`; question for Claude → `inbox_claude.md`; team announcement → `broadcast.md`).
+- `watcher/dispatch_queue.md` — template with Dispatch ID, Trigger, Assigned Agent, Action, Status.
+- `watcher/event_log.md` — state-transition ledger (task accepted/completed/blocked, epic activated, dispatch generated).
+- `comms/inbox_watcher.md` — Watcher inbox.
+- `state/sprint_board.md` — board with Backlog / Ready / In Progress / Review / Blocked / Done, including ownership and status columns.
+
+**Documentation:**
+- `README.md` updated to describe the Watcher role, routing model, state ownership, and dispatch workflow.
+- Watcher operating procedures documented for Review Accepted, Blocked Task, and EPIC Completion triggers.
+
+**REVIEW-009 conditions (must be satisfied):**
+- C1 — `state/sprint_board.md` is defined as a derived/reflective aggregate of `tasks/*`: the Watcher mirrors task state into the board; `tasks/*` remains authoritative for individual task state, `sprint_board.md` for the aggregate board view.
+- C2 — Broadcast ownership is documented: agents retain `broadcast.md` for announcements and review notices; the Watcher owns status-change broadcasts only.
+- C3 — AgentBus infrastructure does **not** use the Voice_Gen `[v0.3.0]` release tag; TASK-015 commits use an AgentBus track or are untagged.
+- C4 — `watcher/watcher_rules.md` documents a correction procedure (how to undo a bad dispatch or revert an event-log entry) in addition to the "Override Watcher action → Thomas/Quill" authority.
+- C5 — `watcher/dispatch_queue.md` is reflected in the state-ownership documentation (it was absent from the DECISION-002 File Authority Matrix).
+
+**Compatibility & validation:**
+- Existing procedures (`task_claiming.md`, `review_response.md`, `check_for_updates.md`) remain valid and unretired (additive model).
+- Documentation is internally consistent; roles, routing, and sprint ownership are unambiguous.
+- The Watcher can be performed by Claude, Codex, or a future local Director agent.
+- End-to-end validation: demonstrate one complete cycle — Review Accepted → Watcher receives update → sprint board updated → event logged → dispatch generated → broadcast generated. The run is recorded and submitted for review.
+
+### Work Notes
+
+- 2026-06-13: Created from the approved Watcher Governance Proposal v1 (Quill) and REVIEW-009. Codex assigned implementation; Claude assigned review.
+
+### Blockers
+
+- None.
+
+### Review Notes
+
+### Completion Summary
