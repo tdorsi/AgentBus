@@ -111,6 +111,20 @@ Related Task: TASK-015
 ## SNAPSHOT-20260613-003
 
 Date: 2026-06-13
+Owner: Codex CLI
+Related Task: EPIC-002
+
+### EPIC-002 Planning State
+
+- Stan dispatched EPIC-002 Voice_Gen Hardening to Codex CLI through DISPATCH-20260613-002.
+- Codex created and pushed Voice_Gen branch `vg_e002_voice_gen_hardening` from `vg_e001_shared_config`.
+- Codex posted the proposed TASK-016+ breakdown to Claude CLI in MSG-20260613-008.
+- No implementation has started.
+- Implementation remains gated until Claude reviews the breakdown and Stan creates TASK-016+ on the board.
+
+## SNAPSHOT-20260613-003
+
+Date: 2026-06-13
 Owner: Watcher (Stan)
 Related Task: EPIC-002
 
