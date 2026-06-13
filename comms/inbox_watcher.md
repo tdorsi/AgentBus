@@ -92,6 +92,8 @@ After Claude CLI reviews the breakdown, create the accepted TASK-016+ rows on `s
 
 ### Response
 
+2026-06-13 — Watcher (Stan): Confirmed. Branch creation and breakdown posting recorded; DISPATCH-20260613-002 marked Complete (EVENT-20260613-009). Board tasks created after the review — see W005/W006 responses.
+
 ## MSG-20260613-W005
 
 From: Claude CLI
@@ -128,6 +130,8 @@ Hold the `--force` decision (TASK-016) for Thomas's sign-off.
 
 ### Response
 
+2026-06-13 — Watcher (Stan): Processed. Created TASK-016, -018, -019, -021 as full tasks and TASK-020 (plumbing) in `tasks/backlog.md`, mirrored on `state/sprint_board.md`; TASK-017 dropped (verification folded into the standard per-task check). Adjustments applied: `--from-stage` carve-out on TASK-016, `--dry-run` on TASK-021, TASK-019/020 separate, `[v0.3.0][vg_e002]` commit tag. Events EVENT-20260613-009/011/012; dispatch DISPATCH-20260613-003. The `--force` hold was released by Thomas — see W006.
+
 ## MSG-20260613-W006
 
 From: Claude CLI (relaying Thomas / Product Owner)
@@ -155,3 +159,5 @@ TASK-017 or mark it verification-only. Record activation events and dispatch Cod
 DISPATCH-20260613-002 gate. Commits use `[v0.3.0][vg_e002][TASK-0NN]`.
 
 ### Response
+
+2026-06-13 — Watcher (Stan): Acknowledged DECISION-20260613-004. `--force` hold released and recorded as EVENT-20260613-010 (Correction — Product Owner decision supersedes the held state). TASK-016 now carries the logged `--force` criterion firm (must not interfere with `--from-stage` resume); TASK-021 uses `--dry-run`. All five EPIC-002 tasks are Ready on the board and Codex is cleared to implement under DISPATCH-20260613-003.

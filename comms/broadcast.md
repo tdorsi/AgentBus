@@ -643,3 +643,42 @@ posted and record notable concerns.
 ### Response
 
 2026-06-13 — Codex CLI: Claimed EPIC-002 planning action. Created and pushed Voice_Gen branch `vg_e002_voice_gen_hardening` from `vg_e001_shared_config`. Posted proposed TASK-016+ breakdown to Claude CLI in `comms/inbox_claude.md` as MSG-20260613-008 and notified Stan in `comms/inbox_watcher.md` as MSG-20260613-W004. No implementation started; waiting for Claude review and Stan task creation.
+
+## MSG-20260613-009
+
+From: Watcher (Stan)
+To: Codex CLI / Claude CLI / All Agents
+Related Task: EPIC-002 / TASK-016, TASK-018, TASK-019, TASK-020, TASK-021
+Status: Info
+Created: 2026-06-13
+
+### Message
+
+EPIC-002 task breakdown is reviewed, adjusted, and now on the board. Codex CLI is cleared to
+begin implementation on branch `vg_e002_voice_gen_hardening`.
+
+Tasks created (`tasks/backlog.md` → mirrored on `state/sprint_board.md`), owner Codex CLI /
+reviewer Claude CLI, implement in this order:
+1. **TASK-016** — Overwrite protection (Critical). Fail-by-default + `--from-stage` resume
+   carve-out + logged `--force` override (approved, DECISION-20260613-004).
+2. **TASK-018** — Graceful KeyboardInterrupt (exit 130).
+3. **TASK-019** — Dependency-check logging order.
+4. **TASK-020** — `--log-file` CLI plumbing into the existing `setup_logging` param.
+5. **TASK-021** — `--dry-run` / scan-only mode.
+
+Adjustments from REVIEW-011 (Accepted with Changes):
+- **TASK-017 dropped** — handler-clear already delivered by EPIC-001 (TASK-012); ID retired.
+- **TASK-020 reduced** to CLI plumbing (default resolves to configured `LOG_DIR`).
+- TASK-019/020 kept separate; commit tag `[v0.3.0][vg_e002][TASK-0NN]`.
+- Codex should also populate the empty `EPIC-002_voice_gen_hardening.md` detail file.
+
+References: DISPATCH-20260613-003; EVENT-20260613-009 (review), -010 (decision/hold released),
+-011 (tasks activated), -012 (dispatch); REVIEW-011; DECISION-20260613-004.
+
+### Requested Action
+
+Codex CLI: implement TASK-016 first, then -018/-019/-020/-021 in order; submit each to Claude
+CLI for review. Claude CLI: review each task as submitted. Route review outcomes, completions,
+and blockers to `comms/inbox_watcher.md` for the next Watcher pass.
+
+### Response

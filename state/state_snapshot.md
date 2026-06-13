@@ -147,3 +147,25 @@ Related Task: EPIC-002
 - EPIC-003 scope (thin after EPIC-001 absorbed items 4a/4c/4d).
 - Parallel-execution model with one implementer (Codex) and one reviewer (Claude).
 - Overall epic-scoping ownership.
+
+## SNAPSHOT-20260613-004
+
+Date: 2026-06-13
+Owner: Watcher (Stan)
+Related Task: EPIC-002 / TASK-016, TASK-018, TASK-019, TASK-020, TASK-021
+
+### EPIC-002 Tasks Active
+
+- Codex's EPIC-002 breakdown was reviewed by Claude (REVIEW-011, Accepted with Changes) and the adjusted task set is now on the board.
+- Created: TASK-016 (Critical), TASK-018, TASK-019, TASK-021 (full) and TASK-020 (plumbing). TASK-017 dropped — handler-clear already delivered by EPIC-001.
+- Thomas signed off the open scope questions in DECISION-20260613-004: TASK-016 ships fail-by-default overwrite protection + logged `--force` (no interference with `--from-stage` resume); TASK-021 uses `--dry-run`.
+- DISPATCH-20260613-003 clears Codex to implement on `vg_e002_voice_gen_hardening` in suggested order; Claude reviews each task.
+- Events: EVENT-20260613-009 through -012.
+
+### Note (ID hygiene)
+
+Two SNAPSHOT-20260613-003 entries exist above — one authored by a parallel Codex pass and one by Stan during the EPIC-002 activation. Both are retained per append-only policy; this snapshot (-004) is the current operating summary. Future snapshots continue from -004.
+
+### Open With Thomas (not yet dispatched)
+
+- EPIC-003 scope, owner, and parallel-execution model with the current single-implementer team.

@@ -602,3 +602,182 @@ The Watcher is a coordination role (not a software service) activated on request
 ### Completion Summary
 
 Watcher Governance Model v1 implemented and accepted. Required Watcher files, Watcher inbox, sprint board, README updates, routing model, correction procedure, state ownership matrix, and end-to-end validation cycle are in place.
+
+## TASK-016: Add Voice_Gen Overwrite Protection
+
+Status: Ready
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: Critical
+Created: 2026-06-13
+Updated: 2026-06-13
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Branch: `vg_e002_voice_gen_hardening`
+Related Reviews: REVIEW-011
+Related Files: `D:\Development\Voice_Gen\voice_gen.py`
+
+### Goal
+
+Prevent reruns from silently overwriting existing voice training artifacts (feature item #3b).
+
+### Acceptance Criteria
+
+- `voice_gen.py` detects an existing output directory or critical generated artifacts for the selected voice before writing.
+- Default behavior is non-destructive: stop with a clear message when collision risk exists (fail-by-default).
+- **Resuming with `--from-stage` into an existing output directory is permitted and is NOT treated as a collision** (REVIEW-011 F3 carve-out).
+- Ship an explicit, **logged** `--force` override (approved per **DECISION-20260613-004**). `--force` must NOT interfere with `--from-stage` resume.
+- Commit tag: `[v0.3.0][vg_e002][TASK-016]`.
+- Verification: compile check plus a relevant dry-run/scan verification.
+
+### Work Notes
+
+- 2026-06-13: Created by Watcher (Stan) from Codex's EPIC-002 breakdown (inbox_claude MSG-20260613-008) as adjusted by Claude's REVIEW-011 (Accepted with Changes). `--force` approved by Thomas in DECISION-20260613-004 (W006).
+
+### Blockers
+
+- None.
+
+## TASK-017: Clear Duplicate Logging Handlers — DROPPED
+
+Status: Dropped (already delivered by EPIC-001)
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High (originally)
+Created: 2026-06-13
+Updated: 2026-06-13
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Reviews: REVIEW-011
+
+### Disposition
+
+Dropped per REVIEW-011 F1. Feature item #2a (handler-clear) is already satisfied: `voice_gen_utils.setup_logging()` calls `logger.handlers.clear()` and `voice_gen.py` routes through that shared helper (delivered in EPIC-001 / TASK-012). No implementation work remains. The verification that repeated setup does not duplicate output is folded into the per-task verification standard for the remaining EPIC-002 tasks. The TASK-017 ID is retired (not reused).
+
+## TASK-018: Add Graceful KeyboardInterrupt Handling
+
+Status: Ready
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Created: 2026-06-13
+Updated: 2026-06-13
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Branch: `vg_e002_voice_gen_hardening`
+Related Files: `D:\Development\Voice_Gen\voice_gen.py`
+
+### Goal
+
+Make Ctrl+C cancellation user-friendly and consistent with `text_to_audio.py` (feature item #2b).
+
+### Acceptance Criteria
+
+- `voice_gen.py` catches `KeyboardInterrupt` at the top level.
+- Console output reports cancellation without a traceback.
+- Process exits with code 130.
+- Cancellation handling does not swallow other unexpected exceptions.
+- Commit tag: `[v0.3.0][vg_e002][TASK-018]`. Verification: compile check plus a relevant dry-run/scan verification.
+
+### Work Notes
+
+- 2026-06-13: Created by Watcher (Stan) from Codex's EPIC-002 breakdown, accepted in REVIEW-011.
+
+### Blockers
+
+- None.
+
+## TASK-019: Log Dependency Checks Correctly
+
+Status: Ready
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Created: 2026-06-13
+Updated: 2026-06-13
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Branch: `vg_e002_voice_gen_hardening`
+Related Files: `D:\Development\Voice_Gen\voice_gen.py`
+
+### Goal
+
+Ensure ffmpeg/ffprobe dependency failures are written to the run log (feature item #2c).
+
+### Acceptance Criteria
+
+- Logging is initialized before dependency checks can fail, or dependency failures are otherwise captured in a log artifact.
+- Dependency success/failure paths remain clear on console.
+- Failure exits remain explicit and do not proceed into pipeline stages.
+- Kept separate from TASK-020 per REVIEW-011 Q3.
+- Commit tag: `[v0.3.0][vg_e002][TASK-019]`. Verification: compile check plus a relevant dry-run/scan verification.
+
+### Work Notes
+
+- 2026-06-13: Created by Watcher (Stan) from Codex's EPIC-002 breakdown, accepted in REVIEW-011.
+
+### Blockers
+
+- None.
+
+## TASK-020: Add `--log-file` Override (plumbing only)
+
+Status: Ready
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: Medium
+Created: 2026-06-13
+Updated: 2026-06-13
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Branch: `vg_e002_voice_gen_hardening`
+Related Reviews: REVIEW-011
+Related Files: `D:\Development\Voice_Gen\voice_gen.py`, `D:\Development\Voice_Gen\voice_gen_utils.py`
+
+### Goal
+
+Allow callers to redirect Voice_Gen logs to a chosen path (feature item #2d). **Scope reduced to plumbing** per REVIEW-011 F2: the shared `voice_gen_utils.setup_logging()` already accepts a `log_file` parameter — only the CLI argument and pass-through are missing.
+
+### Acceptance Criteria
+
+- `voice_gen.py` accepts `--log-file PATH` and threads it into the existing `setup_logging(log_file=...)` parameter.
+- Default (flag absent) resolves to the configured `LOG_DIR` (EPIC-001 config) with the existing timestamped log behavior unchanged.
+- The override path is parent-created or fails with a clear error, matching existing project style.
+- README or inline usage text documents the flag.
+- Commit tag: `[v0.3.0][vg_e002][TASK-020]`. Verification: compile check plus a relevant dry-run/scan verification.
+
+### Work Notes
+
+- 2026-06-13: Created by Watcher (Stan); scoped as CLI plumbing per REVIEW-011 F2 (not new logging machinery).
+
+### Blockers
+
+- None.
+
+## TASK-021: Add Voice_Gen Dry-Run / Scan-Only Mode
+
+Status: Ready
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Created: 2026-06-13
+Updated: 2026-06-13
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Branch: `vg_e002_voice_gen_hardening`
+Related Reviews: REVIEW-011
+Related Files: `D:\Development\Voice_Gen\voice_gen.py`
+
+### Goal
+
+Let users validate input audio planning before transcription or training (feature item #3a).
+
+### Acceptance Criteria
+
+- `voice_gen.py` exposes a **`--dry-run`** flag (name decided in REVIEW-011 Q2 for consistency with `text_to_audio.py`).
+- The mode runs planning through the pre-training stages needed to report usable files, split plan, cleaned/scored candidates, and the selected reference candidate — without launching transcription, downloads, token encoding, fine-tuning, or sample generation.
+- Output is clear enough to decide whether a full run is worth starting.
+- The mode does not write destructive training artifacts.
+- Commit tag: `[v0.3.0][vg_e002][TASK-021]`. Verification: compile check plus a `--dry-run` verification.
+
+### Work Notes
+
+- 2026-06-13: Created by Watcher (Stan) from Codex's EPIC-002 breakdown, accepted in REVIEW-011. Suggested implementation order places this last (builds on safer output/log behavior).
+
+### Blockers
+
+- None.

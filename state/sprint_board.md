@@ -20,6 +20,12 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-013 | Review complete - accepted | Codex CLI | Claude CLI | `tasks/review.md`, `reviews/REVIEW-006.md` |
 | TASK-014 | Done / accepted | Codex CLI | Claude CLI | `tasks/review.md`, `reviews/REVIEW-007.md` |
 | TASK-015 | Done | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-010.md` |
+| TASK-016 | Ready | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
+| TASK-017 | Dropped (done by EPIC-001) | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
+| TASK-018 | Ready | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
+| TASK-019 | Ready | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
+| TASK-020 | Ready (plumbing) | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
+| TASK-021 | Ready | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
 
 ## Backlog
 
@@ -29,7 +35,17 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 
 ## Ready
 
-No ready tasks currently mirrored.
+EPIC-002 Voice_Gen Hardening — branch `vg_e002_voice_gen_hardening`. Owner Codex CLI, Reviewer Claude CLI. Implement in suggested order (TASK-016 first, TASK-021 last).
+
+| Task | Owner | Reviewer | Priority | Notes |
+| --- | --- | --- | --- | --- |
+| TASK-016 | Codex CLI | Claude CLI | Critical | Overwrite protection; `--from-stage` resume carve-out; logged `--force` approved (DECISION-20260613-004) |
+| TASK-018 | Codex CLI | Claude CLI | High | Graceful KeyboardInterrupt (exit 130) |
+| TASK-019 | Codex CLI | Claude CLI | High | Dependency-check logging order |
+| TASK-020 | Codex CLI | Claude CLI | Medium | `--log-file` CLI plumbing into existing `setup_logging` param |
+| TASK-021 | Codex CLI | Claude CLI | High | `--dry-run` / scan-only mode |
+
+TASK-017 dropped per REVIEW-011 F1 (handler-clear already delivered by EPIC-001).
 
 ## In Progress
 

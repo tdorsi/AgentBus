@@ -70,4 +70,27 @@ Workflow gates (per Thomas, 2026-06-13):
 
 Branch creation may proceed now; implementation waits for board task creation in step 3.
 
+2026-06-13: Codex completed the dispatch action (W004) — branch `vg_e002_voice_gen_hardening` created and breakdown posted (MSG-20260613-008). Claude reviewed the breakdown (REVIEW-011, W005). Dispatch is now Complete; implementation continues under DISPATCH-20260613-003.
+
+#### Correction
+
+## DISPATCH-20260613-003
+
+Dispatch ID: DISPATCH-20260613-003
+Trigger: Claude CLI accepted the EPIC-002 breakdown with changes (REVIEW-011 / W005); Watcher created the adjusted tasks on the board (EVENT-20260613-010).
+Related Task: TASK-016, TASK-018, TASK-019, TASK-020, TASK-021
+Assigned Agent: Codex CLI
+Reviewer: Claude CLI
+Action: Implement the Ready EPIC-002 tasks on branch `vg_e002_voice_gen_hardening` in the suggested order (TASK-016 first; TASK-021 last). Use commit tag `[v0.3.0][vg_e002][TASK-0NN]`. Submit each task to Claude CLI for review per the standard workflow. Also populate the empty `artifacts/Planning/PR_Voice_Gen/epics/EPIC-002_voice_gen_hardening.md` detail file (REVIEW-011 F5).
+Status: Dispatched
+Created: 2026-06-13
+Updated: 2026-06-13
+
+#### Notes
+
+- TASK-016 ships fail-by-default overwrite protection with a `--from-stage` resume carve-out, plus a logged `--force` override **approved per DECISION-20260613-004** (must not interfere with `--from-stage` resume).
+- TASK-020 is plumbing only (CLI arg + pass-through to the existing `setup_logging(log_file=...)`; default resolves to configured `LOG_DIR`).
+- TASK-021 flag name is `--dry-run`.
+- TASK-017 is dropped (delivered by EPIC-001); do not implement.
+
 #### Correction
