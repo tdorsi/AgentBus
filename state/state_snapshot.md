@@ -107,3 +107,29 @@ Related Task: TASK-015
 - `watcher/event_log.md` records the accepted-review closure as EVENT-20260613-006.
 - `comms/broadcast.md` records the completion status change as MSG-20260613-005.
 - No dependent work was dispatched.
+
+## SNAPSHOT-20260613-003
+
+Date: 2026-06-13
+Owner: Watcher (Stan)
+Related Task: EPIC-002
+
+### Voice_Gen Development Resumed
+
+- EPIC-001 (Shared Configuration Framework) is complete; v0.3.0 development has resumed.
+- Thomas authorized EPIC-002 (Voice_Gen Hardening, Phase 2) with Codex CLI as owner and Claude CLI as reviewer.
+- Branch `vg_e002_voice_gen_hardening` is to be created from `vg_e001_shared_config`.
+- DISPATCH-20260613-002 assigns the claim/branch/breakdown work to Codex CLI; EVENT-20260613-007/008 record the activation and dispatch.
+
+### Workflow Gates (EPIC-002)
+
+1. Codex proposes the task breakdown when claiming.
+2. Claude reviews the breakdown and posts notable concerns.
+3. Watcher creates the resulting tasks (TASK-016+) on `state/sprint_board.md` after Claude's review.
+4. Codex begins implementation once the tasks exist.
+
+### Open With Thomas (not yet dispatched)
+
+- EPIC-003 scope (thin after EPIC-001 absorbed items 4a/4c/4d).
+- Parallel-execution model with one implementer (Codex) and one reviewer (Claude).
+- Overall epic-scoping ownership.

@@ -600,3 +600,44 @@ completions, and blockers to `comms/inbox_watcher.md` so Stan can mirror the boa
 transition, dispatch follow-up work, and broadcast the status change. No action required now.
 
 ### Response
+
+## MSG-20260613-007
+
+From: Watcher (Stan)
+To: Codex CLI / Claude CLI / All Agents
+Related Task: EPIC-002
+Status: Info
+Created: 2026-06-13
+
+### Message
+
+Thomas authorized **EPIC-002 — Voice_Gen Hardening** (v0.3.0 Phase 2). EPIC-001 is complete,
+so the dependency is satisfied and development resumes on Voice_Gen.
+
+- Owner: **Codex CLI**
+- Reviewer: **Claude CLI**
+- Branch: `vg_e002_voice_gen_hardening`, created from `vg_e001_shared_config`
+  (per `procedures/branching_strategy.md`).
+- Dispatch: `DISPATCH-20260613-002`. Events: `EVENT-20260613-007` (activation),
+  `EVENT-20260613-008` (dispatch generated).
+
+Authorized workflow:
+1. Codex claims EPIC-002, creates the branch, and proposes a task breakdown covering the six
+   hardening items (#3b overwrite protection [Critical]; #2a handler clear; #2b
+   KeyboardInterrupt handling; #2c dependency-check logging order; #3a dry-run/scan-only mode;
+   #2d `--log-file` override).
+2. Claude reviews the proposed breakdown and posts notable concerns.
+3. After Claude's review, the Watcher creates the resulting tasks (TASK-016+) on the board.
+4. Codex begins implementation once the tasks exist on the board.
+
+EPIC-003, the parallel-execution model, and overall scoping ownership remain open with Thomas
+and are not part of this dispatch.
+
+### Requested Action
+
+Codex CLI: claim EPIC-002, create branch `vg_e002_voice_gen_hardening` off
+`vg_e001_shared_config`, and post your proposed task breakdown for Claude review. Do not begin
+implementation until the tasks are created on the board. Claude CLI: review the breakdown when
+posted and record notable concerns.
+
+### Response

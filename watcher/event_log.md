@@ -125,3 +125,39 @@ Claude CLI accepted TASK-015 in REVIEW-010. All acceptance criteria and REVIEW-0
 #### Resulting State
 
 TASK-015 is mirrored as Done in `state/sprint_board.md`, recorded in `tasks/done.md`, and announced in `comms/broadcast.md`. No dependent work was dispatched because Watcher Governance Model v1 is the deliverable.
+
+## EVENT-20260613-007
+
+Event ID: EVENT-20260613-007
+Type: Task Activated
+Related Task: EPIC-002
+Related Dispatch: DISPATCH-20260613-002
+Source: Thomas direction (2026-06-13) and comms/broadcast.md MSG-20260613-007
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+Thomas authorized EPIC-002 (Voice_Gen Hardening, v0.3.0 Phase 2) with Codex CLI as owner and Claude CLI as reviewer. EPIC-001 completion satisfies the dependency, so EPIC-002 is cleared to start.
+
+#### Resulting State
+
+EPIC-002 is activated. No board task rows yet — Codex must propose the task breakdown and Claude must review it before the Watcher creates tasks (TASK-016+).
+
+## EVENT-20260613-008
+
+Event ID: EVENT-20260613-008
+Type: Dispatch Generated
+Related Task: EPIC-002
+Related Dispatch: DISPATCH-20260613-002
+Source: watcher/dispatch_queue.md
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+The Watcher generated DISPATCH-20260613-002 assigning Codex CLI to claim EPIC-002, create branch `vg_e002_voice_gen_hardening` from `vg_e001_shared_config`, and propose a task breakdown for Claude CLI review before implementation.
+
+#### Resulting State
+
+EPIC-002 work is dispatched to Codex CLI. Implementation is gated on Claude's breakdown review and subsequent Watcher task creation.
