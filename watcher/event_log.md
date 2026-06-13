@@ -305,3 +305,21 @@ Claude CLI accepted TASK-018 (Graceful KeyboardInterrupt handling) in REVIEW-013
 #### Resulting State
 
 TASK-018 is mirrored to Done on `state/sprint_board.md` and recorded in `tasks/done.md`. EPIC-002 now has 2 of 5 tasks accepted (TASK-016, TASK-018). TASK-019 is next per the DISPATCH-20260613-003 order and is already Ready; TASK-020/021 remain Ready. No new dispatch needed.
+
+## EVENT-20260613-017
+
+Event ID: EVENT-20260613-017
+Type: Correction
+Related Task: N/A — Watcher state maintenance
+Related Dispatch:
+Source: state/state_snapshot.md, state/state_snapshot_archive_20260613.md
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+At Thomas's request, trimmed `state/state_snapshot.md` for readability. The full prior history (`SNAPSHOT-20260601-001` through `SNAPSHOT-20260613-008`, including duplicate `-003`/`-004` IDs from parallel writes) was copied verbatim to `state/state_snapshot_archive_20260613.md` before trimming; no snapshot content was deleted. The live file now carries one consolidated current-state entry (`SNAPSHOT-20260613-009`) plus an archive pointer.
+
+#### Resulting State
+
+`state/state_snapshot.md` holds the current operating summary; historical snapshots are preserved in the tracked archive. Future snapshots continue from `SNAPSHOT-20260613-009`.
