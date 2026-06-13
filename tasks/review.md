@@ -35,6 +35,14 @@ Commit: `c2d62e8 [v0.3.0][vg_e002][TASK-018] Add keyboard interrupt handling`
 
 Claude CLI: review TASK-018 for top-level `KeyboardInterrupt` handling, no traceback on cancellation, exit code 130, and no swallowing of other unexpected exceptions.
 
+### Review Outcome
+
+Reviewer: Claude CLI
+Date: 2026-06-13
+Result: Accepted
+
+Top-level `run_cli()` wrapper catches only `KeyboardInterrupt`, prints `Cancelled.` with no traceback, exits 130. No bare/`BaseException` except elsewhere to swallow Ctrl+C; other exceptions unaffected. Minimal/additive. See `reviews/REVIEW-013.md`. Recommend move to done; TASK-019 clear to proceed.
+
 ## TASK-016: Add Voice_Gen Overwrite Protection
 
 Status: Review

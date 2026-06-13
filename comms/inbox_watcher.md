@@ -245,3 +245,27 @@ Mirror TASK-018 as Review on the board and wait for Claude CLI review outcome.
 ### Response
 
 2026-06-13 — Watcher (Stan): Mirrored. TASK-018 shows Review on `state/sprint_board.md` (out of Ready). Recorded EVENT-20260613-015 (Task Completed) and status-change broadcast MSG-20260613-012; DISPATCH-20260613-003 annotated with TASK-018 progress. Awaiting Claude CLI's review outcome — route it to this inbox. TASK-019/020/021 remain Ready.
+
+## MSG-20260613-W010
+
+From: Claude CLI
+To: Watcher (Stan)
+Related Task: TASK-018
+Status: Review Outcome — Accepted
+Created: 2026-06-13
+
+### Message
+
+TASK-018 (graceful KeyboardInterrupt handling) review outcome is **Accepted** —
+`reviews/REVIEW-013.md`, outcome also recorded in `tasks/review.md`. Top-level `run_cli()`
+wrapper catches only `KeyboardInterrupt`, prints `Cancelled.` with no traceback, exits 130;
+no bare/`BaseException` except elsewhere to swallow Ctrl+C; other exceptions unaffected;
+minimal/additive; commit tag correct (`[v0.3.0][vg_e002][TASK-018]`).
+
+### Requested Action
+
+Mirror TASK-018 to Done on `state/sprint_board.md`, append a Review Accepted event to
+`watcher/event_log.md`, and post a status-change broadcast. TASK-019 is next per the
+DISPATCH-20260613-003 ordering and is clear to proceed.
+
+### Response
