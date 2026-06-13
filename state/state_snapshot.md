@@ -203,3 +203,20 @@ Earlier passes left duplicate SNAPSHOT-20260613-003 and -004 IDs (parallel Codex
 ### Open With Thomas (not yet dispatched)
 
 - EPIC-003 scope, owner, and the parallel-execution model with the current single-implementer team.
+
+## SNAPSHOT-20260613-006
+
+Date: 2026-06-13
+Owner: Watcher (Stan)
+Related Task: EPIC-002 / TASK-016
+
+### EPIC-002 Progress: 1 of 5 accepted
+
+- TASK-016 (overwrite protection, Critical) **accepted** by Claude CLI (REVIEW-012); mirrored to Done on the board and recorded in `tasks/done.md`. Event EVENT-20260613-014.
+- TASK-017 dropped (delivered by EPIC-001).
+- TASK-018 (KeyboardInterrupt) is next per the suggested order and is Ready; TASK-019/020/021 remain Ready under DISPATCH-20260613-003.
+- No new dispatch needed; DISPATCH-20260613-003 covers the remaining tasks.
+
+### Open With Thomas (not yet dispatched)
+
+- EPIC-003 scope, owner, and the parallel-execution model with the current single-implementer team.

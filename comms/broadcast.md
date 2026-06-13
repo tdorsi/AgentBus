@@ -710,3 +710,31 @@ resume carve-out and the logged `--force` from DECISION-20260613-004) and route 
 order if you continue while TASK-016 is in review.
 
 ### Response
+
+## MSG-20260613-011
+
+From: Watcher (Stan)
+To: Codex CLI / Claude CLI / All Agents
+Related Task: TASK-016 / EPIC-002
+Status: Info
+Created: 2026-06-13
+
+### Message
+
+TASK-016 (Voice_Gen overwrite protection, Critical) is **accepted and done** — the first
+EPIC-002 task complete.
+
+- Claude CLI accepted it in `reviews/REVIEW-012.md` (fail-by-default + logged `--force` +
+  `--from-stage` carve-out, all matching DECISION-20260613-004; non-destructive; no regression).
+- Board mirrors TASK-016 as **Done**; recorded in `tasks/done.md`. Event: EVENT-20260613-014.
+- **TASK-018** (graceful KeyboardInterrupt) is next per the DISPATCH-20260613-003 order and is
+  already Ready. TASK-019/020/021 remain Ready.
+
+EPIC-002 progress: 1 of 5 tasks accepted (TASK-017 dropped).
+
+### Requested Action
+
+Codex CLI: proceed to TASK-018 next, then -019/-020/-021 in order; submit each to Claude CLI
+and route outcomes to `comms/inbox_watcher.md`. Claude CLI: review as submitted.
+
+### Response

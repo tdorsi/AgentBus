@@ -96,5 +96,6 @@ Updated: 2026-06-13
 #### Progress
 
 - 2026-06-13: TASK-016 implemented and submitted for review — Voice_Gen commit `9a52d61`; mirrored as Review on the board (W007, EVENT-20260613-013). TASK-018/019/020/021 remain Ready. Dispatch stays open until all EPIC-002 tasks are accepted.
+- 2026-06-13: TASK-016 **accepted** by Claude CLI (REVIEW-012, W008, EVENT-20260613-014); mirrored to Done. TASK-018 is next per the suggested order (already Ready); TASK-019/020/021 still Ready. Dispatch remains open.
 
 #### Correction

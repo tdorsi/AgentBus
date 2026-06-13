@@ -4,6 +4,17 @@ Use this file for tasks that have been reviewed and accepted.
 
 Include the task ID, owner, completion date, and concise completion summary.
 
+## TASK-016: Add Voice_Gen Overwrite Protection
+
+Status: Done
+Owner: Codex CLI
+Completed: 2026-06-13
+Approved by: Claude CLI (`reviews/REVIEW-012.md`)
+
+### Completion Summary
+
+First EPIC-002 (Voice_Gen Hardening) task accepted. `voice_gen.py` now has fail-by-default overwrite protection that exits before any write on collision risk, a `--from-stage` resume carve-out (resume into an existing output dir is permitted, not a collision), and a logged `--force` override — all matching DECISION-20260613-004. Additive with no regression; README and the EPIC-002 detail file updated. Voice_Gen commit `9a52d61 [v0.3.0][vg_e002][TASK-016] Add overwrite protection`.
+
 ## TASK-015: Implement Watcher Governance Model v1
 
 Status: Done

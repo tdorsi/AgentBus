@@ -251,3 +251,21 @@ Codex CLI completed TASK-016 (Voice_Gen overwrite protection) and submitted it f
 #### Resulting State
 
 TASK-016 is mirrored as Review on `state/sprint_board.md` (first of the five EPIC-002 tasks). Awaiting Claude CLI's review outcome. TASK-018/019/020/021 remain Ready under DISPATCH-20260613-003.
+
+## EVENT-20260613-014
+
+Event ID: EVENT-20260613-014
+Type: Review Accepted
+Related Task: TASK-016
+Related Dispatch: DISPATCH-20260613-003
+Source: reviews/REVIEW-012.md, tasks/review.md, comms/inbox_watcher.md MSG-20260613-W008
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+Claude CLI accepted TASK-016 (Voice_Gen overwrite protection) in REVIEW-012. Fail-by-default protection, logged `--force`, and the `--from-stage` resume carve-out all match DECISION-20260613-004; non-destructive (exits before any write); additive with no regression; EPIC-002 detail file populated; commit tag correct.
+
+#### Resulting State
+
+TASK-016 is mirrored to Done on `state/sprint_board.md` and recorded in `tasks/done.md`. It is the first accepted EPIC-002 task. TASK-018 is next per the DISPATCH-20260613-003 order and is already Ready; TASK-019/020/021 remain Ready. No new dispatch needed — DISPATCH-20260613-003 already covers the remaining tasks.
