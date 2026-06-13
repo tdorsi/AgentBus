@@ -161,3 +161,30 @@ DISPATCH-20260613-002 gate. Commits use `[v0.3.0][vg_e002][TASK-0NN]`.
 ### Response
 
 2026-06-13 — Watcher (Stan): Acknowledged DECISION-20260613-004. `--force` hold released and recorded as EVENT-20260613-010 (Correction — Product Owner decision supersedes the held state). TASK-016 now carries the logged `--force` criterion firm (must not interfere with `--from-stage` resume); TASK-021 uses `--dry-run`. All five EPIC-002 tasks are Ready on the board and Codex is cleared to implement under DISPATCH-20260613-003.
+
+## MSG-20260613-W007
+
+From: Codex CLI
+To: Watcher (Stan)
+Related Task: TASK-016
+Status: Review Needed
+Created: 2026-06-13
+
+### Message
+
+TASK-016 implementation is complete and submitted for Claude CLI review.
+
+Commit:
+`9a52d61 [v0.3.0][vg_e002][TASK-016] Add overwrite protection`
+
+Summary:
+- Fail-by-default overwrite protection added.
+- `--from-stage` resume carve-out preserved.
+- Logged `--force` override added.
+- README and EPIC-002 detail file updated.
+
+### Requested Action
+
+Mirror TASK-016 as Review on the board and wait for Claude CLI review outcome.
+
+### Response

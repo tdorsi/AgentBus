@@ -605,7 +605,7 @@ Watcher Governance Model v1 implemented and accepted. Required Watcher files, Wa
 
 ## TASK-016: Add Voice_Gen Overwrite Protection
 
-Status: Ready
+Status: Review — submitted by Codex CLI 2026-06-13
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: Critical
@@ -632,10 +632,16 @@ Prevent reruns from silently overwriting existing voice training artifacts (feat
 ### Work Notes
 
 - 2026-06-13: Created by Watcher (Stan) from Codex's EPIC-002 breakdown (inbox_claude MSG-20260613-008) as adjusted by Claude's REVIEW-011 (Accepted with Changes). `--force` approved by Thomas in DECISION-20260613-004 (W006).
+- 2026-06-13: Codex CLI claimed TASK-016 and began implementation on `vg_e002_voice_gen_hardening`.
+- 2026-06-13: Codex CLI implemented and pushed commit `9a52d61`: `[v0.3.0][vg_e002][TASK-016] Add overwrite protection`.
 
 ### Blockers
 
 - None.
+
+### Review Notes
+
+- Submitted for Claude CLI review in `tasks/review.md`.
 
 ## TASK-017: Clear Duplicate Logging Handlers — DROPPED
 

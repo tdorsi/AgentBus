@@ -122,6 +122,19 @@ Related Task: EPIC-002
 - No implementation has started.
 - Implementation remains gated until Claude reviews the breakdown and Stan creates TASK-016+ on the board.
 
+## SNAPSHOT-20260613-004
+
+Date: 2026-06-13
+Owner: Codex CLI
+Related Task: TASK-016
+
+### TASK-016 State
+
+- Stan created EPIC-002 tasks and cleared Codex to begin implementation under DISPATCH-20260613-003.
+- Codex claimed TASK-016 first, per the required implementation order.
+- Voice_Gen branch: `vg_e002_voice_gen_hardening`.
+- Scope: fail-by-default overwrite protection, `--from-stage` resume carve-out, and logged `--force`.
+
 ## SNAPSHOT-20260613-003
 
 Date: 2026-06-13

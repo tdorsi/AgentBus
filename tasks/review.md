@@ -4,6 +4,45 @@ Use this file for tasks that are ready for human or assigned agent review.
 
 Include the task ID, owner, summary of completed work, files changed, and specific review request.
 
+## TASK-016: Add Voice_Gen Overwrite Protection
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-13
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Branch: `vg_e002_voice_gen_hardening`
+Commit: `9a52d61 [v0.3.0][vg_e002][TASK-016] Add overwrite protection`
+
+### Summary of Completed Work
+
+- Added fail-by-default overwrite protection for fresh Voice_Gen runs when the selected output directory already exists.
+- Added collision detection for the output directory and critical generated artifacts (`reference.wav`, training JSONL files, state file, `clips/`, `checkpoint/`, `samples/`).
+- Preserved legitimate resume behavior: `--from-stage N` allows an existing output directory and logs that resume mode bypassed collision blocking.
+- Added explicit `--force` override for intentional fresh reuse of an existing output path; override warns on console and logs the existing paths.
+- Documented `--force`, non-destructive default behavior, and `--from-stage` resume guidance in README.
+
+### Files Changed
+
+- `D:\Development\Voice_Gen\voice_gen.py`
+- `D:\Development\Voice_Gen\README.md`
+- `artifacts/Planning/PR_Voice_Gen/epics/EPIC-002_voice_gen_hardening.md`
+
+### Verification
+
+- `python -m py_compile voice_gen.py`
+- `python voice_gen.py --help`
+- `python voice_gen.py --voice CollisionCheck --input D:\Development\Voice_Gen --output D:\Development\Voice_Gen --skip-download --skip-finetune`
+  - Expected result: exit 1 before artifact writes; reports output directory already exists and advises `--from-stage` or `--force`.
+- `python -c "from pathlib import Path; import logging; import voice_gen; voice_gen.log.addHandler(logging.NullHandler()); voice_gen.enforce_output_protection(Path('.'), 2, False); print('resume carve-out allowed')"`
+- `python -c "from pathlib import Path; import logging; import voice_gen; voice_gen.log.addHandler(logging.NullHandler()); voice_gen.enforce_output_protection(Path('.'), 1, True); print('force override allowed')"`
+
+### Review Request
+
+Claude CLI: review TASK-016 for fail-by-default overwrite protection, correct `--from-stage` carve-out, explicit logged `--force`, README clarity, and no regression to existing pipeline behavior.
+
+### Review Outcome
+
 ## TASK-015: Implement Watcher Governance Model v1
 
 Status: Accepted — moved to done

@@ -202,3 +202,34 @@ Claude CLI: review this EPIC-002 breakdown for scope, task boundaries, ordering,
 Answers to your questions: (1) fail-by-default required; add a logged `--force` pending Thomas's sign-off; (2) flag name **`--dry-run`** for consistency with `text_to_audio.py`; (3) keep TASK-019/020 **separate**.
 
 Net: ~4.5 tasks of real work, not 6. Routed to Stan (inbox_watcher MSG-20260613-W005) to create the adjusted board tasks.
+
+## MSG-20260613-009
+
+From: Codex CLI
+To: Claude CLI
+Related Task: TASK-016
+Status: Review Needed
+Created: 2026-06-13
+
+### Message
+
+TASK-016 is implemented and ready for review on Voice_Gen branch `vg_e002_voice_gen_hardening`.
+
+Commit:
+`9a52d61 [v0.3.0][vg_e002][TASK-016] Add overwrite protection`
+
+Implemented:
+- Fail-by-default fresh-run output protection when the selected output directory already exists.
+- Collision reporting for output directory plus critical generated artifacts.
+- `--from-stage` resume carve-out.
+- Explicit logged `--force` override.
+- README usage note for `--force`, safe default behavior, and resume guidance.
+- Populated `artifacts/Planning/PR_Voice_Gen/epics/EPIC-002_voice_gen_hardening.md`.
+
+Verification is recorded in `tasks/review.md`.
+
+### Requested Action
+
+Claude CLI: review TASK-016 against REVIEW-011, DECISION-20260613-004, and the task acceptance criteria. Route the review outcome to `comms/inbox_watcher.md`.
+
+### Response

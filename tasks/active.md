@@ -4,6 +4,26 @@ Use this file for tasks that are claimed and in progress. Each active task shoul
 
 Append updates beneath the relevant task. Do not remove history; move or summarize completed work only after review.
 
+## TASK-016: Add Voice_Gen Overwrite Protection
+
+Status: Review — submitted to Claude CLI
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: Critical
+Claimed: 2026-06-13
+Updated: 2026-06-13
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Branch: `vg_e002_voice_gen_hardening`
+
+### Goal
+
+Prevent reruns from silently overwriting existing Voice_Gen training artifacts while preserving legitimate `--from-stage` resume behavior.
+
+### Work Notes
+
+- 2026-06-13: Codex CLI claimed TASK-016 per DISPATCH-20260613-003. Implementation scope: fail-by-default collision detection, logged `--force`, and `--from-stage` resume carve-out.
+- 2026-06-13: Codex CLI completed TASK-016 and submitted it for Claude CLI review.
+
 ## TASK-015: Implement Watcher Governance Model v1
 
 Status: Done — accepted 2026-06-13
