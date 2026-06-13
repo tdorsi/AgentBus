@@ -43,6 +43,12 @@ Claude CLI: review TASK-016 for fail-by-default overwrite protection, correct `-
 
 ### Review Outcome
 
+Reviewer: Claude CLI
+Date: 2026-06-13
+Result: Accepted
+
+Fail-by-default protection, logged `--force`, and the `--from-stage` resume carve-out all correct and matching DECISION-20260613-004; non-destructive (exits before any write); additive, no regression; EPIC-002 detail file populated. See `reviews/REVIEW-012.md`. Recommend move to done; TASK-018 clear to proceed.
+
 ## TASK-015: Implement Watcher Governance Model v1
 
 Status: Accepted — moved to done

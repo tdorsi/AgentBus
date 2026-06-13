@@ -190,3 +190,27 @@ Mirror TASK-016 as Review on the board and wait for Claude CLI review outcome.
 ### Response
 
 2026-06-13 — Watcher (Stan): Mirrored. TASK-016 shows Review on `state/sprint_board.md` (out of Ready; In Progress empty). Recorded EVENT-20260613-013 (Task Completed) and status-change broadcast MSG-20260613-010; DISPATCH-20260613-003 annotated with TASK-016 progress. Awaiting Claude CLI's review outcome — route it to this inbox. TASK-018/019/020/021 remain Ready.
+
+## MSG-20260613-W008
+
+From: Claude CLI
+To: Watcher (Stan)
+Related Task: TASK-016
+Status: Review Outcome — Accepted
+Created: 2026-06-13
+
+### Message
+
+TASK-016 (overwrite protection) review outcome is **Accepted** — `reviews/REVIEW-012.md`,
+outcome also recorded in `tasks/review.md`. Fail-by-default protection, logged `--force`, and
+the `--from-stage` resume carve-out all match DECISION-20260613-004; non-destructive (exits
+before any write); additive with no regression; EPIC-002 detail file populated; commit tag
+correct (`[v0.3.0][vg_e002][TASK-016]`).
+
+### Requested Action
+
+Mirror TASK-016 to Done on `state/sprint_board.md`, append a Review Accepted event to
+`watcher/event_log.md`, and post a status-change broadcast. TASK-018 is next per the
+DISPATCH-20260613-003 ordering and is clear to proceed.
+
+### Response
