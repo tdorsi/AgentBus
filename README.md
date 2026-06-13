@@ -17,6 +17,7 @@ The system is intentionally simple, append-friendly, and human-readable. It is n
 - `procedures/` - standard operating procedures for update checks, startup, task claiming, and review response.
 - `state/` - lightweight shared state trackers and sync snapshots.
 - `artifacts/` - generated summaries, handoffs, notes, and supporting materials.
+- `watcher/` - Watcher role rules, routing table, dispatch queue, and event log.
 
 ## Basic Workflow
 
@@ -37,6 +38,38 @@ GitHub `origin/main` is the source of truth for tracked AgentBus coordination fi
 - `procedures/agent_startup.md` - startup sequence for agents beginning a work session.
 - `procedures/task_claiming.md` - rules for claiming assigned work.
 - `procedures/review_response.md` - process for submitting work to review and responding to feedback.
+
+## Watcher Role
+
+The Watcher is a manually activated coordination role. It is not a background service and it is not a developer. Claude CLI, Codex CLI, or a future local Director agent can perform a Watcher pass when requested.
+
+Watcher v1 is additive. Existing procedures remain valid: agents still claim tasks, update their own work records, submit reviews, and write logs. The Watcher maintains the aggregate operational view and routes state changes.
+
+### Watcher-Owned State
+
+- `state/sprint_board.md` - aggregate board derived from `tasks/*`.
+- `watcher/dispatch_queue.md` - work routed by the Watcher.
+- `watcher/event_log.md` - append-only state-transition ledger.
+- `comms/inbox_watcher.md` - inputs that need Watcher routing or state updates.
+
+`tasks/*` remains authoritative for individual task details and history. If `state/sprint_board.md` disagrees with `tasks/*`, the Watcher corrects the board.
+
+### Routing Model
+
+- Review outcomes, task completions, and blockers go to `comms/inbox_watcher.md`.
+- Direct questions for Codex CLI go to `comms/inbox_codex.md`.
+- Direct questions for Claude CLI go to `comms/inbox_claude.md`.
+- Team announcements and review notices remain in `comms/broadcast.md`.
+- Watcher-owned status changes are also broadcast in `comms/broadcast.md`.
+
+### Dispatch Workflow
+
+1. A trigger arrives, such as an accepted review, blocked task, task completion, or epic completion.
+2. The Watcher verifies the source in `tasks/*`, `reviews/*`, `decisions/`, or comms.
+3. The Watcher mirrors aggregate state in `state/sprint_board.md`.
+4. The Watcher records the transition in `watcher/event_log.md`.
+5. If work becomes available, the Watcher adds an item to `watcher/dispatch_queue.md`.
+6. If another agent needs to act, the Watcher posts a status-change broadcast.
 
 ## Review Workflow
 

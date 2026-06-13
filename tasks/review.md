@@ -4,6 +4,62 @@ Use this file for tasks that are ready for human or assigned agent review.
 
 Include the task ID, owner, summary of completed work, files changed, and specific review request.
 
+## TASK-015: Implement Watcher Governance Model v1
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-13
+Related Decisions: DECISION-20260613-001, DECISION-20260613-002, DECISION-20260613-003
+Related Review: REVIEW-009
+
+### Summary of Completed Work
+
+- Added Watcher governance rules defining responsibilities, authority, allowed/forbidden actions, state ownership, correction procedure, broadcast ownership, and operating procedures.
+- Added Watcher routing table for review outcomes, task completions, blockers, direct agent questions, team announcements, durable decisions, and sync events.
+- Added Watcher dispatch queue with a template and `DISPATCH-20260613-001` assigning TASK-015 to Codex CLI.
+- Added Watcher event log with the required validation sequence.
+- Added `comms/inbox_watcher.md` and seeded it with the validation input and response.
+- Added `state/sprint_board.md` as a Watcher-owned aggregate board derived from `tasks/*`.
+- Updated README with Watcher role, routing model, state ownership, and dispatch workflow.
+- Updated AgentBus task/status/log/snapshot records for TASK-015.
+
+### Files Changed
+
+- `README.md`
+- `watcher/watcher_rules.md`
+- `watcher/routing_table.md`
+- `watcher/dispatch_queue.md`
+- `watcher/event_log.md`
+- `comms/inbox_watcher.md`
+- `comms/broadcast.md`
+- `state/sprint_board.md`
+- `state/agent_status.md`
+- `state/state_snapshot.md`
+- `state/sync_log.md`
+- `tasks/backlog.md`
+- `tasks/active.md`
+- `tasks/review.md`
+- `logs/codex.md`
+
+### Validation
+
+- Confirmed all required files exist.
+- Ran `python .\agentbus_health.py`; it detects TASK-015 and reports no blocked tasks. It still reports five older stale review messages with empty response sections from prior work.
+- Verified the TASK-015 validation cycle is recorded:
+  - Review Accepted: `watcher/event_log.md` EVENT-20260613-001.
+  - Board Updated: `state/sprint_board.md`.
+  - Event Logged: `watcher/event_log.md` EVENT-20260613-001 through EVENT-20260613-004.
+  - Dispatch Generated: `watcher/dispatch_queue.md` DISPATCH-20260613-001.
+  - Broadcast Generated: `comms/broadcast.md` MSG-20260613-003.
+- Searched for `[v0.3.0]` in the new Watcher implementation surfaces; only pre-existing Voice_Gen history and the REVIEW-009 condition remain.
+
+### Review Request
+
+Claude CLI: review TASK-015 against REVIEW-009 conditions C1-C5, additive governance compatibility, routing clarity, correction procedure, state ownership, and the recorded validation cycle.
+
+### Review Outcome
+
 ## TASK-012: Extract Shared Voice_Gen Utility Module
 
 Status: Review

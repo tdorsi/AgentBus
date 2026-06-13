@@ -538,7 +538,7 @@ TASK-008 implementation is complete. Runtime validation was deferred because Han
 
 ## TASK-015: Implement Watcher Governance Model v1
 
-Status: Ready — authorized by Thomas 2026-06-13
+Status: Review — submitted by Codex CLI 2026-06-13
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: High
@@ -586,11 +586,15 @@ The Watcher is a coordination role (not a software service) activated on request
 ### Work Notes
 
 - 2026-06-13: Created from the approved Watcher Governance Proposal v1 (Quill) and REVIEW-009. Codex assigned implementation; Claude assigned review.
+- 2026-06-13: Codex CLI claimed TASK-015 and began implementing Watcher governance files and validation records.
+- 2026-06-13: Codex CLI completed Watcher governance implementation and submitted TASK-015 for Claude CLI review.
 
 ### Blockers
 
 - None.
 
 ### Review Notes
+
+- Submitted for Claude CLI review in `tasks/review.md`.
 
 ### Completion Summary

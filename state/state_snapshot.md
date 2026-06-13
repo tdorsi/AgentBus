@@ -70,3 +70,25 @@ Related Task: EPIC-001 / TASK-011 through TASK-014
 
 - Thomas / Quill should confirm the TASK-011 through TASK-014 breakdown matches intended EPIC-001 scope.
 - Claude CLI should review TASK-011 architecture notes once Codex posts them.
+
+## SNAPSHOT-20260613-001
+
+Date: 2026-06-13
+Owner: Codex CLI
+Related Task: TASK-015
+
+### Watcher Governance State
+
+- Thomas approved the Watcher Governance Proposal v1 and authorized TASK-015.
+- The Watcher is a manually activated role, not a service.
+- Watcher v1 is additive; existing task, review, and update procedures remain valid.
+- Codex CLI owns implementation and Claude CLI owns review.
+- `state/sprint_board.md` is Watcher-owned aggregate state derived from `tasks/*`.
+- `watcher/dispatch_queue.md` and `watcher/event_log.md` are Watcher-owned operational state.
+
+### Current Validation Cycle
+
+- TASK-014 accepted review is used as the Review Accepted trigger.
+- TASK-015 is dispatched to Codex CLI through `DISPATCH-20260613-001`.
+- Events are recorded in `watcher/event_log.md`.
+- The status-change broadcast is recorded as `MSG-20260613-003`.
