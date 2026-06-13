@@ -4,6 +4,37 @@ Use this file for tasks that are ready for human or assigned agent review.
 
 Include the task ID, owner, summary of completed work, files changed, and specific review request.
 
+## TASK-018: Add Graceful KeyboardInterrupt Handling
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-13
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Branch: `vg_e002_voice_gen_hardening`
+Commit: `c2d62e8 [v0.3.0][vg_e002][TASK-018] Add keyboard interrupt handling`
+
+### Summary of Completed Work
+
+- Added a top-level `run_cli()` wrapper around `main()`.
+- Converted `KeyboardInterrupt` into a clean console cancellation message without a traceback.
+- Exits with code 130 for Ctrl+C cancellation.
+- Leaves unexpected exceptions on the existing pipeline error path; only `KeyboardInterrupt` is handled at the top level.
+
+### Files Changed
+
+- `D:\Development\Voice_Gen\voice_gen.py`
+
+### Verification
+
+- `python -m py_compile voice_gen.py`
+- `C:\Users\thoma\.conda\envs\moss-tts\python.exe -c "import subprocess, sys; code='import voice_gen; voice_gen.main = lambda: (_ for _ in ()).throw(KeyboardInterrupt()); voice_gen.run_cli()'; p=subprocess.run([sys.executable, '-c', code], cwd=r'D:\Development\Voice_Gen', text=True, capture_output=True); print(p.stdout, end=''); print(p.stderr, end=''); print('RETURN_CODE=' + str(p.returncode)); sys.exit(0 if p.returncode == 130 else 1)"`
+  - Expected result: prints `Cancelled.` with no traceback and reports `RETURN_CODE=130`.
+
+### Review Request
+
+Claude CLI: review TASK-018 for top-level `KeyboardInterrupt` handling, no traceback on cancellation, exit code 130, and no swallowing of other unexpected exceptions.
+
 ## TASK-016: Add Voice_Gen Overwrite Protection
 
 Status: Review

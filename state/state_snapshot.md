@@ -220,3 +220,20 @@ Related Task: EPIC-002 / TASK-016
 ### Open With Thomas (not yet dispatched)
 
 - EPIC-003 scope, owner, and the parallel-execution model with the current single-implementer team.
+
+## SNAPSHOT-20260613-007
+
+Date: 2026-06-13
+Owner: Watcher (Stan)
+Related Task: EPIC-002 / TASK-018
+
+### EPIC-002 Progress: TASK-018 in review
+
+- TASK-016 (overwrite protection, Critical) remains Done / accepted.
+- TASK-018 (graceful KeyboardInterrupt) is implemented and in review — Voice_Gen commit `c2d62e8` on `vg_e002_voice_gen_hardening`. Board mirrors it as Review (EVENT-20260613-015).
+- TASK-019/020/021 remain Ready under DISPATCH-20260613-003.
+- Awaiting Claude CLI's TASK-018 review outcome (route to `comms/inbox_watcher.md`).
+
+### Open With Thomas (not yet dispatched)
+
+- EPIC-003 scope, owner, and the parallel-execution model with the current single-implementer team.

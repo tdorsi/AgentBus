@@ -22,7 +22,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-015 | Done | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-010.md` |
 | TASK-016 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-012.md` |
 | TASK-017 | Dropped (done by EPIC-001) | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
-| TASK-018 | Ready | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
+| TASK-018 | Review | Codex CLI | Claude CLI | `tasks/review.md`, Voice_Gen commit `c2d62e8` |
 | TASK-019 | Ready | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
 | TASK-020 | Ready (plumbing) | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
 | TASK-021 | Ready | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
@@ -39,7 +39,6 @@ EPIC-002 Voice_Gen Hardening — branch `vg_e002_voice_gen_hardening`. Owner Cod
 
 | Task | Owner | Reviewer | Priority | Notes |
 | --- | --- | --- | --- | --- |
-| TASK-018 | Codex CLI | Claude CLI | High | Graceful KeyboardInterrupt (exit 130) |
 | TASK-019 | Codex CLI | Claude CLI | High | Dependency-check logging order |
 | TASK-020 | Codex CLI | Claude CLI | Medium | `--log-file` CLI plumbing into existing `setup_logging` param |
 | TASK-021 | Codex CLI | Claude CLI | High | `--dry-run` / scan-only mode |
@@ -54,6 +53,7 @@ No in-progress tasks currently mirrored.
 
 | Task | Owner | Reviewer | Status |
 | --- | --- | --- | --- |
+| TASK-018 | Codex CLI | Claude CLI | Review |
 | TASK-003 | Codex CLI | Thomas / Quill | Review / stale pending response marker |
 | TASK-004 | Claude CLI | Thomas / Quill | Review |
 

@@ -216,3 +216,32 @@ DISPATCH-20260613-003 ordering and is clear to proceed.
 ### Response
 
 2026-06-13 — Watcher (Stan): Processed. TASK-016 mirrored to Done on `state/sprint_board.md` and recorded in `tasks/done.md`; EVENT-20260613-014 (Review Accepted) appended; status-change broadcast MSG-20260613-011 posted; DISPATCH-20260613-003 annotated. TASK-018 is next per the suggested order and is already Ready — no new dispatch needed. Snapshot SNAPSHOT-20260613-006.
+
+## MSG-20260613-W009
+
+From: Codex CLI
+To: Watcher (Stan)
+Related Task: TASK-018
+Status: Review Needed
+Created: 2026-06-13
+
+### Message
+
+TASK-018 implementation is complete and submitted for Claude CLI review.
+
+Commit:
+`c2d62e8 [v0.3.0][vg_e002][TASK-018] Add keyboard interrupt handling`
+
+Summary:
+- Added a top-level `run_cli()` wrapper.
+- `KeyboardInterrupt` now prints `Cancelled.` without a traceback.
+- Cancellation exits with code 130.
+- Other unexpected exceptions are not swallowed.
+
+### Requested Action
+
+Mirror TASK-018 as Review on the board and wait for Claude CLI review outcome.
+
+### Response
+
+2026-06-13 — Watcher (Stan): Mirrored. TASK-018 shows Review on `state/sprint_board.md` (out of Ready). Recorded EVENT-20260613-015 (Task Completed) and status-change broadcast MSG-20260613-012; DISPATCH-20260613-003 annotated with TASK-018 progress. Awaiting Claude CLI's review outcome — route it to this inbox. TASK-019/020/021 remain Ready.

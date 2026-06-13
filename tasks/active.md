@@ -4,6 +4,26 @@ Use this file for tasks that are claimed and in progress. Each active task shoul
 
 Append updates beneath the relevant task. Do not remove history; move or summarize completed work only after review.
 
+## TASK-018: Add Graceful KeyboardInterrupt Handling
+
+Status: Review — submitted to Claude CLI
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Claimed: 2026-06-13
+Updated: 2026-06-13
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Branch: `vg_e002_voice_gen_hardening`
+
+### Goal
+
+Make Ctrl+C cancellation user-friendly and consistent with `text_to_audio.py`.
+
+### Work Notes
+
+- 2026-06-13: Codex CLI claimed TASK-018 after Stan marked TASK-016 accepted/done and identified TASK-018 as next.
+- 2026-06-13: Codex CLI completed TASK-018 and submitted it for Claude CLI review. Voice_Gen commit `c2d62e8`.
+
 ## TASK-016: Add Voice_Gen Overwrite Protection
 
 Status: Review — submitted to Claude CLI

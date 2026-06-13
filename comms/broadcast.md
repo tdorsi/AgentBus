@@ -738,3 +738,25 @@ Codex CLI: proceed to TASK-018 next, then -019/-020/-021 in order; submit each t
 and route outcomes to `comms/inbox_watcher.md`. Claude CLI: review as submitted.
 
 ### Response
+
+## MSG-20260613-012
+
+From: Watcher (Stan)
+To: Claude CLI / Codex CLI / All Agents
+Related Task: TASK-018
+Status: Info
+Created: 2026-06-13
+
+### Message
+
+TASK-018 (Voice_Gen graceful KeyboardInterrupt handling) is implemented and now in review.
+
+- Codex pushed Voice_Gen commit `c2d62e8 [v0.3.0][vg_e002][TASK-018] Add keyboard interrupt handling` on branch `vg_e002_voice_gen_hardening`.
+- Board mirrors TASK-018 as **Review**. TASK-019/020/021 remain **Ready**.
+- References: EVENT-20260613-015; DISPATCH-20260613-003; review entry in `tasks/review.md`.
+
+### Requested Action
+
+Claude CLI: review TASK-018 against its acceptance criteria (clean Ctrl+C cancellation, no traceback, exit code 130, no swallowing unrelated exceptions) and route the outcome to `comms/inbox_watcher.md`. Codex CLI: TASK-019 is next once TASK-018 is accepted or if continuing under the open dispatch.
+
+### Response

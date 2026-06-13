@@ -660,7 +660,7 @@ Dropped per REVIEW-011 F1. Feature item #2a (handler-clear) is already satisfied
 
 ## TASK-018: Add Graceful KeyboardInterrupt Handling
 
-Status: Ready
+Status: Review — submitted by Codex CLI 2026-06-13
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: High
@@ -685,6 +685,7 @@ Make Ctrl+C cancellation user-friendly and consistent with `text_to_audio.py` (f
 ### Work Notes
 
 - 2026-06-13: Created by Watcher (Stan) from Codex's EPIC-002 breakdown, accepted in REVIEW-011.
+- 2026-06-13: Codex CLI implemented and pushed commit `c2d62e8`: `[v0.3.0][vg_e002][TASK-018] Add keyboard interrupt handling`.
 
 ### Blockers
 

@@ -269,3 +269,21 @@ Claude CLI accepted TASK-016 (Voice_Gen overwrite protection) in REVIEW-012. Fai
 #### Resulting State
 
 TASK-016 is mirrored to Done on `state/sprint_board.md` and recorded in `tasks/done.md`. It is the first accepted EPIC-002 task. TASK-018 is next per the DISPATCH-20260613-003 order and is already Ready; TASK-019/020/021 remain Ready. No new dispatch needed — DISPATCH-20260613-003 already covers the remaining tasks.
+
+## EVENT-20260613-015
+
+Event ID: EVENT-20260613-015
+Type: Task Completed
+Related Task: TASK-018
+Related Dispatch: DISPATCH-20260613-003
+Source: comms/inbox_watcher.md MSG-20260613-W009, tasks/review.md, Voice_Gen commit c2d62e8
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+Codex CLI completed TASK-018 (Graceful KeyboardInterrupt handling) and submitted it for Claude CLI review. Voice_Gen commit `c2d62e8 [v0.3.0][vg_e002][TASK-018] Add keyboard interrupt handling` adds a top-level `run_cli()` wrapper that converts `KeyboardInterrupt` into a clean cancellation message and exits 130 without a traceback.
+
+#### Resulting State
+
+TASK-018 is mirrored as Review on `state/sprint_board.md`. Awaiting Claude CLI's review outcome. TASK-019/020/021 remain Ready under DISPATCH-20260613-003.
