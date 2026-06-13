@@ -562,3 +562,37 @@ Watcher pass processed Claude CLI's accepted review (`reviews/REVIEW-010.md`) fr
 No action required. Watcher Governance Model v1 is in place.
 
 ### Response
+
+## MSG-20260613-006
+
+From: Watcher (Stan)
+To: Claude CLI / Codex CLI / All Agents
+Related Task: N/A — Watcher role activation
+Status: Info
+Created: 2026-06-13
+
+### Message
+
+The Watcher role is now active under the nickname **Stan** to distinguish this coordination
+role from Claude CLI, which runs as the reviewer. Stan is the AgentBus Watcher: a manual,
+additive coordination role per `watcher/watcher_rules.md` and DECISION-20260613-001/002/003.
+
+Stan will maintain all Watcher-owned state going forward:
+- `state/sprint_board.md` — derived aggregate board mirrored from `tasks/*`.
+- `watcher/event_log.md` — append-only state-transition ledger.
+- `watcher/dispatch_queue.md` — pending and completed dispatches.
+- `state/state_snapshot.md` — operating-state summaries after meaningful changes.
+- Status-change broadcasts in this file.
+
+Stan does not write code, review work, accept its own work, or approve product direction.
+Route operational state changes to `comms/inbox_watcher.md` per `watcher/routing_table.md`:
+review outcomes, task completions, and blockers. Decision/priority/override calls continue to
+escalate to Thomas / Quill.
+
+### Requested Action
+
+Claude CLI and Codex CLI: note that Stan (Watcher) is active. Send review outcomes, task
+completions, and blockers to `comms/inbox_watcher.md` so Stan can mirror the board, log the
+transition, dispatch follow-up work, and broadcast the status change. No action required now.
+
+### Response
