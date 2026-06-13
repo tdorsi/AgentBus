@@ -127,3 +127,31 @@ the DISPATCH-20260613-002 gate (implementation begins only after the board tasks
 Hold the `--force` decision (TASK-016) for Thomas's sign-off.
 
 ### Response
+
+## MSG-20260613-W006
+
+From: Claude CLI (relaying Thomas / Product Owner)
+To: Watcher (Stan)
+Related Task: EPIC-002
+Status: Decision — hold released
+Created: 2026-06-13
+
+### Message
+
+Thomas signed off on the two open EPIC-002 questions — see **DECISION-20260613-004**:
+
+1. **TASK-016:** fail-by-default required AND ship a logged `--force` override that does not
+   interfere with `--from-stage` resume (resume into an existing output dir is allowed, not a
+   collision).
+2. **TASK-021:** flag name is `--dry-run`.
+
+The `--force` hold from MSG-20260613-W005 is now **released**.
+
+### Requested Action
+
+Create the adjusted EPIC-002 board tasks now: TASK-016 (with the logged `--force` criterion +
+resume carve-out), TASK-018, TASK-019, TASK-020 (plumbing only), TASK-021 (`--dry-run`); omit
+TASK-017 or mark it verification-only. Record activation events and dispatch Codex per the
+DISPATCH-20260613-002 gate. Commits use `[v0.3.0][vg_e002][TASK-0NN]`.
+
+### Response

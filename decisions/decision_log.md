@@ -148,3 +148,30 @@ Resolves REVIEW-008 blocking finding B3. An additive model avoids breaking exist
 ### Impact
 
 TASK-015 introduces Watcher files and procedures in parallel with existing governance. Future governance versions may centralize authority further. Broadcast ownership must be clarified per REVIEW-009 condition 2 (agents retain announcement broadcasts; Watcher owns status-change broadcasts).
+
+## DECISION-20260613-004
+
+Date: 2026-06-13
+Owner: Thomas
+Related Task: EPIC-002 (TASK-016, TASK-021)
+Status: Accepted
+
+### Decision
+
+Product Owner sign-off on the two EPIC-002 scope questions raised in REVIEW-011:
+
+1. **TASK-016 overwrite protection** — fail-by-default is required (non-destructive: stop with a clear message on collision risk). Additionally ship a `--force` override that is explicit and logged. `--force` must NOT interfere with legitimate `--from-stage` resume; resuming into an existing output directory is permitted and is not a collision.
+2. **TASK-021 dry-run flag name** — use `--dry-run`, matching `text_to_audio.py` for cross-tool consistency.
+
+### Reasoning
+
+Thomas runs the Voice_Gen pipeline iteratively (resume via `--from-stage`), so a logged escape hatch is worth the small added scope while keeping the safe default. Matching `text_to_audio.py`'s `--dry-run` continues EPIC-001's goal of reducing divergence between the two tools.
+
+### Alternatives Considered
+
+- Fail-by-default only, no `--force` (rejected: too rigid for iterative runs).
+- Flag names `--scan-only` / `--plan-only` (rejected: inconsistent with `text_to_audio.py`).
+
+### Impact
+
+Releases Stan's hold on TASK-016. Stan may create the adjusted EPIC-002 board tasks per REVIEW-011 / MSG-20260613-W005, with TASK-016 including the logged `--force` criterion and the `--from-stage` resume carve-out, and TASK-021 using `--dry-run`.
