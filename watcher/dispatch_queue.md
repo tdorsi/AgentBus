@@ -183,5 +183,6 @@ Updated: 2026-06-14
 - Gated on the restart: all three agents (Codex, Claude, Gemini) first pause, snapshot completed work, and resume under the new communication-isolation rules. Project-repo working-tree isolation is operator (Thomas) infra.
 - Governance/doc portion already landed (commit b6859a2, EVENT-20260614-001); this dispatch covers the residual code/infra/cutover only.
 - 2026-06-14: Scope expanded to include the AGENTS.md startup-file cutover (EVENT-20260614-003). `D:\Development\AGENTS.md` (CLI-agnostic grounding) created and `GEMINI.md` repointed by the Watcher; Codex's startup config and remaining `CLAUDE.md` cross-references are part of TASK-026.
+- 2026-06-14: Per-agent working trees established (EVENT-20260614-006) — `git worktree`s under `D:\Development\Sandbox\Voice_Gen_{codex,gemini,claude}` on per-task branches. Remaining for Codex: `agentbus_health.py` duplicate-ID/board-divergence detection, repoint Codex startup config to AGENTS.md, and cutover verification.
 
 #### Correction

@@ -595,3 +595,21 @@ Single-threaded manual Watcher pass processed the three paused session handoffs 
 #### Resulting State
 
 All three handoffs are acknowledged; board is current (EPIC-002: TASK-016/018/019 Done, TASK-020 Changes requested, TASK-021 Ready; EPIC-003: TASK-022–025 Ready; TASK-026 Dispatched). Consolidated paused state captured in SNAPSHOT-20260614-001. Agents await operator restart under the new rules (Codex → TASK-026 then TASK-020 fix; Gemini → TASK-022; Claude reviews per boundary). Loop stays paused.
+
+## EVENT-20260614-006
+
+Event ID: EVENT-20260614-006
+Type: Correction
+Related Task: TASK-026
+Related Dispatch: DISPATCH-20260614-001
+Source: D:\Development\Voice_Gen (git worktree), D:\Development\Sandbox, procedures/branching_strategy.md
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Per Thomas, set up per-agent project working trees (a TASK-026 acceptance item). Made `D:\Development\Sandbox` a plain folder (removed its trivial init `.git`) and created three `git worktree`s of the canonical `D:\Development\Voice_Gen`: `Sandbox/Voice_Gen_codex` on `vg_e002_voice_gen_hardening__codex__TASK-020`, `Sandbox/Voice_Gen_gemini` on `vg_e003_text_to_audio_enhancements__gemini__TASK-022`, and `Sandbox/Voice_Gen_claude` as a detached-HEAD review tree. Documented the `git worktree` + `Sandbox\Voice_Gen_<agent>` convention (and the serial-only exception) in `procedures/branching_strategy.md` and `D:\Development\AGENTS.md`.
+
+#### Resulting State
+
+Filesystem/index isolation is in place for parallel work: Codex and Gemini each have their own worktree on their own per-task branch; Claude has a review worktree. AgentBus remains a single shared tree. This satisfies the per-agent-working-tree portion of TASK-026; Codex still owns the residual code/cutover (agentbus_health.py, startup-file repointing, verification).

@@ -238,6 +238,36 @@ per-file single-writer model).
 Each agent works in **its own working tree/clone**, and creates **one branch per task**, branched
 from the assigned Epic branch. A reviewer must not commit from a developer's working tree.
 
+## Working Trees (git worktree)
+
+For true parallel work, each agent gets its **own linked working tree** via `git worktree` — one
+repo, multiple checkouts, each with its own index. Branches alone do **not** let two agents share
+one checkout (a checkout holds one branch + one index at a time). Agent worktrees live under
+`D:\Development\Sandbox\`:
+
+```text
+D:\Development\Voice_Gen                  ← canonical repo (main worktree)
+D:\Development\Sandbox\Voice_Gen_codex    ← Codex's worktree (on its per-task branch)
+D:\Development\Sandbox\Voice_Gen_gemini   ← Gemini's worktree (on its per-task branch)
+D:\Development\Sandbox\Voice_Gen_claude   ← Claude's review worktree (detached HEAD)
+```
+
+Create one per agent (developer example):
+
+```bash
+git -C D:\Development\Voice_Gen worktree add D:\Development\Sandbox\Voice_Gen_<agent> \
+    -b <epic-branch>__<agent>__<TASK-ID> <epic-branch>
+```
+
+The **reviewer** worktree uses a detached HEAD; at review time `git fetch` then check out the
+pushed branch/commit (a branch checked out in a developer's worktree cannot be checked out in
+another). When a task merges up and its branch is pruned, create the next per-task branch inside
+the same agent worktree.
+
+**Exception:** if agents run strictly **serially** (only one touches the project checkout at a
+time), a single shared working tree + per-task branches is sufficient and separate worktrees are
+optional. Concurrent work requires per-agent worktrees.
+
 ## Naming
 
 ```text
