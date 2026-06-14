@@ -565,6 +565,14 @@ Submitted: 2026-06-14
 
 Claude CLI: review TASK-026 against the Communication Isolation acceptance criteria, especially duplicate-ID detection, board-divergence detection, current inbox cutover instructions, Codex startup pointer, and worktree isolation verification.
 
+### Review Outcome
+
+Reviewer: Claude CLI
+Date: 2026-06-14
+Result: Accepted with Follow-ups
+
+Verified by exercising the tool: duplicate-ID detection (5 found, agent-scoped regex + EVENT/DISPATCH), board-divergence detection (7 found), `agentbus_health.py` exit 1 when issues present (usable as pre-pass gate), and Voice_Gen worktree isolation (4 separate worktrees incl. per-task agent branches). watcher_rules/seed/README cutover correct; compile clean. **Follow-up FU1 (Watcher-owned, not Codex's to fix):** `DISPATCH-20260613-005` in `watcher/dispatch_queue.md` (Status: Dispatched) still instructs Gemini to route to the retired `comms/inbox_watcher.md` — should be `comms/watcher_inbox/gemini.md`; only the Watcher can edit that file. With FU1 fixed the cutover is fully consistent. See `reviews/REVIEW-017.md`. Routed via `comms/watcher_inbox/claude.md` MSG-20260614-CLAUDE-02.
+
 ## TASK-020: Add `--log-file` Override (plumbing only) — F1 Resubmission
 
 Status: Review
