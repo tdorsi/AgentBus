@@ -51,13 +51,15 @@ None
 
 EPIC-002 Voice_Gen Hardening
 
+Owner: Codex CLI (reviewer Claude CLI)
+
 Branch:
 
 vg_e002_voice_gen_hardening
 
 Status:
 
-Planned
+In progress (TASK-016, TASK-018 accepted; TASK-019/020/021 pending; TASK-017 dropped)
 
 Depends On:
 
@@ -67,13 +69,15 @@ EPIC-001
 
 EPIC-003 Text_to_Audio Enhancements
 
+Owner: Gemini CLI (reviewer Claude CLI)
+
 Branch:
 
 vg_e003_text_to_audio_enhancements
 
 Status:
 
-Planned
+Activated 2026-06-13 — combined scope. Per Thomas, EPIC-004 Progress Reporting is folded into EPIC-003 (per-chunk WAV preservation + progress/ETA reporting). EPIC-005 remains deferred.
 
 Depends On:
 
@@ -106,15 +110,15 @@ EPIC-004 Progress Reporting
 
 Branch:
 
-vg_e004_progress_reporting
+(none — folded into EPIC-003)
 
 Status:
 
-Planned
+Folded into EPIC-003 (Thomas, 2026-06-13). Progress/ETA reporting now ships within EPIC-003 on `vg_e003_text_to_audio_enhancements` as part of v0.3.0. This standalone phase is retired.
 
 Depends On:
 
-v0.3.0 RC validation
+EPIC-001 (via EPIC-003)
 
 ---
 
@@ -128,8 +132,8 @@ vg_e005_batch_input
 
 Status:
 
-Planned
+Deferred — not in v0.3.0 scope (Thomas, 2026-06-13). Planned for a later release.
 
 Depends On:
 
-EPIC-004
+EPIC-003 (was EPIC-004, which is now folded into EPIC-003)

@@ -12,7 +12,9 @@ EPIC-001 Shared Configuration Framework
 
 EPIC-002 Voice_Gen Hardening
 
-EPIC-003 Text_to_Audio Enhancements
+EPIC-003 Text_to_Audio Enhancements (combined — includes EPIC-004 Progress Reporting, folded in per Thomas 2026-06-13: per-chunk WAV preservation + progress/ETA reporting)
+
+> Scope note (2026-06-13): EPIC-004 Progress Reporting is delivered within EPIC-003 for v0.3.0. EPIC-005 Batch Input Processing is deferred to a later release and is NOT part of v0.3.0.
 
 ---
 

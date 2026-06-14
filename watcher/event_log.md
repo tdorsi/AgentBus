@@ -359,3 +359,21 @@ The Watcher generated DISPATCH-20260613-004 assigning Gemini CLI to claim EPIC-0
 #### Resulting State
 
 EPIC-003 work is dispatched to Gemini CLI. Implementation is gated on Claude's breakdown review and subsequent Watcher task creation. EPIC-002 continues in parallel (Codex/Claude), achieving Thomas's parallel-epic goal.
+
+## EVENT-20260613-020
+
+Event ID: EVENT-20260613-020
+Type: Correction
+Related Task: EPIC-003 / EPIC-004 / EPIC-005
+Related Dispatch: DISPATCH-20260613-004
+Source: roles.md, artifacts/Planning/PR_Voice_Gen/voice_gen_roadmap.md, artifacts/Planning/Releases/voice_gen_v0.3.0.md
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+At Thomas's explicit approval, amended planning/governance docs to reflect the team and scope changes: (1) `roles.md` adds Gemini CLI to the Development Team, records current epic ownership, and documents the Watcher (Stan) coordination role; (2) `voice_gen_roadmap.md` marks EPIC-002 (Codex) in progress, EPIC-003 (Gemini) activated with combined scope, EPIC-004 folded into EPIC-003, and EPIC-005 deferred (now depends on EPIC-003); (3) the v0.3.0 release plan notes EPIC-003's combined scope and EPIC-005's deferral.
+
+#### Resulting State
+
+Roster and roadmap docs now match the live coordination state. NOTE: the underlying product decision (combine EPIC-003+004, defer EPIC-005) should be recorded by Thomas / Quill as a durable entry in `decisions/decision_log.md` (suggested DECISION-20260613-005) — the Watcher does not author decisions.
