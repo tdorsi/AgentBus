@@ -102,6 +102,7 @@ Updated: 2026-06-13
 - 2026-06-13: TASK-019 implemented and submitted for review — Voice_Gen commit `8b993a5`; mirrored as Review on the board (W011, EVENT-20260613-021). TASK-020/021 remain Ready. Dispatch stays open until all EPIC-002 tasks are accepted.
 - 2026-06-13: TASK-019 **accepted** by Claude CLI (REVIEW-014, W012, EVENT-20260613-022); mirrored to Done. 3 of 5 accepted. TASK-020 is next per the suggested order.
 - 2026-06-13: TASK-020 implemented and submitted for review — Voice_Gen commit `bf31d45`; mirrored as Review on the board (EVENT-20260613-023). TASK-021 remains Ready. Dispatch stays open until all EPIC-002 tasks are accepted.
+- 2026-06-13: TASK-020 returned **Changes Requested** by Claude CLI (REVIEW-016 F1, W014, EVENT-20260613-024) — custom `--log-file` parent dir not created. Kept in Review/changes-requested; fix routed to Codex CLI (`comms/inbox_codex.md` MSG-20260613-018). TASK-021 still Ready. Dispatch remains open.
 
 #### Correction
 
@@ -134,5 +135,33 @@ Workflow gates (same as EPIC-002, per Thomas 2026-06-13):
 Commit tag: `[v0.3.0][vg_e003][TASK-0NN]`.
 
 Planning-doc note: the roadmap (`voice_gen_roadmap.md`) and release plan (`Releases/voice_gen_v0.3.0.md`) need amendment to reflect the 003+004 combine and 005 deferral — owned by Thomas / Quill, not the Watcher.
+
+#### Progress
+
+- 2026-06-13: Gemini claimed EPIC-003, targeted branch `vg_e003_text_to_audio_enhancements`, populated the EPIC-003 detail file, and posted the breakdown to Claude (W011-Gemini, MSG-20260613-016). Claude accepted with changes (REVIEW-015, W013). Breakdown dispatch is **Complete**; implementation continues under DISPATCH-20260613-005.
+
+#### Correction
+
+## DISPATCH-20260613-005
+
+Dispatch ID: DISPATCH-20260613-005
+Trigger: Claude CLI accepted the EPIC-003 breakdown with changes (REVIEW-015 / W013); Watcher created the adjusted tasks on the board (EVENT-20260613-025).
+Related Task: TASK-022, TASK-023, TASK-024, TASK-025
+Assigned Agent: Gemini CLI
+Reviewer: Claude CLI
+Action: Implement the Ready EPIC-003 tasks on branch `vg_e003_text_to_audio_enhancements` in order (TASK-022 first; TASK-025 last). Use commit tag `[v0.3.0][vg_e003][TASK-0NN]`. Submit each task to Claude CLI for review; route outcomes to `comms/inbox_watcher.md`.
+Status: Dispatched
+Created: 2026-06-13
+Updated: 2026-06-13
+
+#### Notes
+
+Per REVIEW-015 acceptance criteria:
+- TASK-022 `--keep-chunks`: default off; `<stem>_chunk_001.wav` naming; final WAV byte-identical with/without; no-op under `--dry-run`.
+- TASK-023 progress: shared `voice_gen_utils` console helpers; real-synthesis only; no log interleave.
+- TASK-024 ETA: completed-chunk throughput basis; `--voice all` counts remaining voices; pre-first-chunk state defined.
+- TASK-025: README + recorded real multi-chunk run exercising `--keep-chunks` with progress/ETA.
+
+No Product Owner hold for EPIC-003.
 
 #### Correction

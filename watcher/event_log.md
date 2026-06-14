@@ -431,3 +431,77 @@ Codex CLI completed TASK-020 (`--log-file` plumbing) and submitted it for Claude
 #### Resulting State
 
 TASK-020 is mirrored as Review on `state/sprint_board.md`. Awaiting Claude CLI's review outcome. TASK-021 remains Ready under DISPATCH-20260613-003.
+
+## EVENT-20260613-024
+
+Event ID: EVENT-20260613-024
+Type: Correction
+Related Task: TASK-020
+Related Dispatch: DISPATCH-20260613-003
+Source: reviews/REVIEW-016.md, tasks/review.md, comms/inbox_watcher.md MSG-20260613-W014
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+Claude CLI returned TASK-020 (`--log-file` override) as Changes Requested in REVIEW-016. Plumbing is correct and in scope, but acceptance criterion F1 is unmet: a custom `--log-file` whose parent directory does not exist raises an unhandled `FileNotFoundError` (the shared `setup_logging()` mkdirs `LOG_DIR` but not a custom path's parent). Fix: create the parent (`Path(args.log_file).parent.mkdir(parents=True, exist_ok=True)`) or fail with a clear `err()`+`sys.exit(1)`, then resubmit.
+
+#### Resulting State
+
+TASK-020 is mirrored as Changes requested on `state/sprint_board.md` (kept in Review, NOT Done). The fix request is routed to Codex CLI (`comms/inbox_codex.md` MSG-20260613-018). TASK-021 remains independent and Ready. EPIC-002 stands at 3 of 5 accepted with TASK-020 in rework and TASK-021 Ready.
+
+## EVENT-20260613-025
+
+Event ID: EVENT-20260613-025
+Type: Task Activated
+Related Task: TASK-022, TASK-023, TASK-024, TASK-025
+Related Dispatch: DISPATCH-20260613-005
+Source: reviews/REVIEW-015.md, comms/inbox_watcher.md MSG-20260613-W012 (Gemini) and W013 (Claude), tasks/backlog.md, state/sprint_board.md
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+Claude CLI accepted Gemini's EPIC-003 breakdown with changes (REVIEW-015). The Watcher created the adjusted EPIC-003 task set in `tasks/backlog.md` and mirrored it on `state/sprint_board.md`: TASK-022 (`--keep-chunks`), TASK-023 (progress reporting), TASK-024 (ETA), TASK-025 (docs + end-to-end validation), each with the tightened acceptance criteria from the review.
+
+#### Resulting State
+
+TASK-022–025 are Ready on the board, owned by Gemini CLI with Claude CLI as reviewer. EPIC-003 (combined with Progress Reporting) is ready for implementation.
+
+## EVENT-20260613-026
+
+Event ID: EVENT-20260613-026
+Type: Dispatch Generated
+Related Task: TASK-022, TASK-023, TASK-024, TASK-025
+Related Dispatch: DISPATCH-20260613-005
+Source: watcher/dispatch_queue.md
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+The Watcher generated DISPATCH-20260613-005 clearing Gemini CLI to implement the Ready EPIC-003 tasks on branch `vg_e003_text_to_audio_enhancements` in order (TASK-022 first; TASK-025 last), with Claude CLI reviewing each. Commit tag `[v0.3.0][vg_e003][TASK-0NN]`. No Product Owner hold.
+
+#### Resulting State
+
+EPIC-003 implementation is cleared to begin. EPIC-002 (Codex) and EPIC-003 (Gemini) are both active — the parallel-epic goal is realized.
+
+## EVENT-20260613-027
+
+Event ID: EVENT-20260613-027
+Type: Correction
+Related Task: N/A — message ID hygiene
+Related Dispatch:
+Source: comms/inbox_watcher.md, comms/inbox_gemini.md, comms/broadcast.md
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+Concurrent appends by multiple agents during a high-activity burst produced duplicate message IDs. Status as of this pass:
+- `comms/inbox_watcher.md` duplicate `W011`/`W012` were **resolved by a concurrent pass** that renumbered the Gemini messages: the former duplicate `W011` (Gemini, EPIC-003 claim) is now **W015**, and the former duplicate `W012` (Gemini, EPIC-003 breakdown accepted) is now **W016**. The inbox is now clean: W011 (Codex/TASK-019), W012 (Claude/TASK-019), W013 (Claude/EPIC-003), W014 (Claude/TASK-020), W015 (Gemini/claim), W016 (Gemini/breakdown).
+- Residual: `MSG-20260613-015` still appears in two files — `comms/inbox_gemini.md` (Watcher EPIC-003 welcome) and `comms/broadcast.md` (Watcher TASK-019 in-review broadcast). Left intact (append-only); disambiguate by file. Low impact (different files, different audiences).
+
+#### Resulting State
+
+Inbox W-series collisions are cleared. Go-forward convention: next Watcher-inbox message is `W017`; this pass uses `MSG-20260613-018` (to Codex) and `-019` (broadcast), so the next global MSG id is `MSG-20260613-020`. Root cause: multiple agents/Watcher instances writing the shared tree concurrently without serializing — flagged to Thomas; the autonomous Watcher loop (af03d40d) was paused to reduce contention, but a concurrent Watcher writer is still active.

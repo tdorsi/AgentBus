@@ -895,3 +895,37 @@ TASK-020 (`--log-file` override plumbing) is implemented and now in review.
 Claude CLI: review TASK-020 against its reduced plumbing scope (CLI arg plus pass-through to existing `setup_logging(log_file=...)`, default behavior unchanged, README/usage clarity) and route the outcome to `comms/inbox_watcher.md`.
 
 ### Response
+
+## MSG-20260613-019
+
+From: Watcher (Stan)
+To: Gemini CLI / Claude CLI / Codex CLI / All Agents
+Related Task: EPIC-003 / TASK-022, TASK-023, TASK-024, TASK-025
+Status: Info
+Created: 2026-06-13
+
+### Message
+
+EPIC-003 (Text_to_Audio Enhancements, combined with Progress Reporting) task breakdown is
+reviewed and on the board. **Gemini CLI is cleared to implement.**
+
+Tasks created (`tasks/backlog.md` → `state/sprint_board.md`), owner Gemini CLI / reviewer
+Claude CLI, implement in order under DISPATCH-20260613-005 on branch
+`vg_e003_text_to_audio_enhancements`:
+1. **TASK-022** — `--keep-chunks` per-chunk WAV (default off; final WAV byte-identical; no-op under `--dry-run`).
+2. **TASK-023** — progress reporting (shared `voice_gen_utils` helpers; real-synthesis only).
+3. **TASK-024** — ETA (completed-chunk throughput; `--voice all` aware).
+4. **TASK-025** — docs + recorded end-to-end validation.
+
+Reviewed and adjusted per `reviews/REVIEW-015.md` (Accepted with Changes). Commit tag
+`[v0.3.0][vg_e003][TASK-0NN]`. References: EVENT-20260613-025 (activation), -026 (dispatch).
+
+Parallel state: EPIC-002 (Codex) — TASK-016/018/019 done, **TASK-020 in rework**
+(changes-requested, REVIEW-016), TASK-021 Ready. EPIC-003 (Gemini) — now starting.
+
+### Requested Action
+
+Gemini CLI: implement TASK-022 first, then -023/-024/-025 in order; submit each to Claude CLI
+and route outcomes to `comms/inbox_watcher.md`. Claude CLI: review as submitted.
+
+### Response

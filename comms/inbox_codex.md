@@ -86,3 +86,34 @@ Acceptance criteria for TASK-002:
 ### Response
 
 Please reply in `comms/inbox_claude.md` or `comms/broadcast.md` once TASK-002 is complete and ready for review.
+
+## MSG-20260613-018
+
+From: Watcher (Stan)
+To: Codex CLI
+Related Task: TASK-020
+Status: Request
+Created: 2026-06-13
+
+### Message
+
+TASK-020 (`--log-file` override) was reviewed **Changes Requested** by Claude CLI
+(`reviews/REVIEW-016.md`). One acceptance criterion (F1) is unmet: a custom `--log-file` whose
+parent directory does not exist raises an unhandled `FileNotFoundError` — the shared
+`setup_logging()` mkdirs `LOG_DIR` but not a custom path's parent, and `logging.FileHandler`
+does not create parents.
+
+Fix (one line): `Path(args.log_file).parent.mkdir(parents=True, exist_ok=True)` before
+delegating, or a guarded `err()` + `sys.exit(1)` matching project style. Then resubmit for a
+quick re-review.
+
+TASK-020 stays in Review (changes-requested) on the board — not moved to Done. TASK-021 remains
+independent and can proceed in parallel.
+
+### Requested Action
+
+Codex CLI: apply the TASK-020 parent-dir fix on `vg_e002_voice_gen_hardening`
+(`[v0.3.0][vg_e002][TASK-020]`), resubmit to Claude CLI, and notify the Watcher at
+`comms/inbox_watcher.md`.
+
+### Response

@@ -790,3 +790,131 @@ Let users validate input audio planning before transcription or training (featur
 ### Blockers
 
 - None.
+
+## TASK-022: Add `--keep-chunks` Per-Chunk WAV Preservation
+
+Status: Ready
+Owner: Gemini CLI
+Reviewer: Claude CLI
+Priority: Medium
+Created: 2026-06-13
+Updated: 2026-06-13
+Related Epic: EPIC-003 Text_to_Audio Enhancements (combined)
+Related Branch: `vg_e003_text_to_audio_enhancements`
+Related Reviews: REVIEW-015
+Related Files: `D:\Development\Voice_Gen\text_to_audio.py`
+
+### Goal
+
+Add an optional `--keep-chunks` flag that writes each generated audio chunk to a numbered file before concatenation (feature item #4b).
+
+### Acceptance Criteria
+
+- `--keep-chunks` defaults OFF.
+- Chunk files are named `<stem>_chunk_001.wav` (zero-padded, ordered).
+- The final concatenated WAV is byte-identical with or without the flag.
+- The flag is a no-op under `--dry-run` (no chunk files written).
+- Commit tag: `[v0.3.0][vg_e003][TASK-022]`. Verification: compile check plus a run/dry-run verification.
+
+### Work Notes
+
+- 2026-06-13: Created by Watcher (Stan) from Gemini's EPIC-003 breakdown as adjusted by Claude's REVIEW-015 (Accepted with Changes).
+
+### Blockers
+
+- None.
+
+## TASK-023: Add Progress Reporting for Long Inference Runs
+
+Status: Ready
+Owner: Gemini CLI
+Reviewer: Claude CLI
+Priority: Medium
+Created: 2026-06-13
+Updated: 2026-06-13
+Related Epic: EPIC-003 Text_to_Audio Enhancements (combined)
+Related Branch: `vg_e003_text_to_audio_enhancements`
+Related Reviews: REVIEW-015
+Related Files: `D:\Development\Voice_Gen\text_to_audio.py`, `D:\Development\Voice_Gen\voice_gen_utils.py`
+
+### Goal
+
+Report progress during long inference runs (progress tracking + status), pulled forward from EPIC-004.
+
+### Acceptance Criteria
+
+- Progress output uses the shared `voice_gen_utils` console helpers (no divergent formatting).
+- Progress reporting applies to real synthesis only (not `--dry-run`).
+- Progress lines do not interleave with / corrupt log output.
+- Commit tag: `[v0.3.0][vg_e003][TASK-023]`. Verification: compile check plus a real-run verification.
+
+### Work Notes
+
+- 2026-06-13: Created by Watcher (Stan) from Gemini's EPIC-003 breakdown, accepted with changes in REVIEW-015.
+
+### Blockers
+
+- None.
+
+## TASK-024: Add ETA Calculation for Long Inference Runs
+
+Status: Ready
+Owner: Gemini CLI
+Reviewer: Claude CLI
+Priority: Medium
+Created: 2026-06-13
+Updated: 2026-06-13
+Related Epic: EPIC-003 Text_to_Audio Enhancements (combined)
+Related Branch: `vg_e003_text_to_audio_enhancements`
+Related Reviews: REVIEW-015
+Related Files: `D:\Development\Voice_Gen\text_to_audio.py`
+
+### Goal
+
+Estimate time remaining for long inference runs (ETA), pulled forward from EPIC-004.
+
+### Acceptance Criteria
+
+- ETA is computed from completed-chunk throughput (chars or chunks per second of finished work).
+- For `--voice all`, ETA accounts for remaining voices, not just the current one.
+- The pre-first-chunk state (no throughput data yet) is defined and displayed sensibly (e.g. "estimating…").
+- Commit tag: `[v0.3.0][vg_e003][TASK-024]`. Verification: compile check plus a real-run verification.
+
+### Work Notes
+
+- 2026-06-13: Created by Watcher (Stan) from Gemini's EPIC-003 breakdown, accepted with changes in REVIEW-015. Builds on TASK-023.
+
+### Blockers
+
+- None.
+
+## TASK-025: EPIC-003 Documentation and End-to-End Validation
+
+Status: Ready
+Owner: Gemini CLI
+Reviewer: Claude CLI
+Priority: Medium
+Created: 2026-06-13
+Updated: 2026-06-13
+Related Epic: EPIC-003 Text_to_Audio Enhancements (combined)
+Related Branch: `vg_e003_text_to_audio_enhancements`
+Related Reviews: REVIEW-015
+Related Files: `D:\Development\Voice_Gen\text_to_audio.py`, `D:\Development\Voice_Gen\README.md`
+
+### Goal
+
+Document the new EPIC-003 features and record an end-to-end validation run.
+
+### Acceptance Criteria
+
+- README documents `--keep-chunks`, progress reporting, and ETA behavior.
+- A real multi-chunk run exercising `--keep-chunks` together with progress/ETA is performed and the result recorded.
+- Commit tag: `[v0.3.0][vg_e003][TASK-025]`. Verification: the recorded end-to-end run is the verification.
+
+### Work Notes
+
+- 2026-06-13: Created by Watcher (Stan) from Gemini's EPIC-003 breakdown, accepted with changes in REVIEW-015. Final task in the suggested order.
+
+### Blockers
+
+- None.
