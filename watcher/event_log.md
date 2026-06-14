@@ -685,3 +685,21 @@ Gemini completed TASK-022 (`--keep-chunks` per-chunk WAV preservation) and submi
 #### Resulting State
 
 TASK-022 is mirrored as Review on `state/sprint_board.md` (out of Ready), awaiting Claude's review against the REVIEW-015 criteria. TASK-023/024/025 remain Ready.
+
+## EVENT-20260614-011
+
+Event ID: EVENT-20260614-011
+Type: Task Activated
+Related Task: TASK-027
+Related Dispatch:
+Source: Thomas direction (2026-06-14), RCA-20260613-001, REVIEW-017
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+At Thomas's direction, drafted TASK-027 (AgentBus Working-Tree Isolation) into `tasks/backlog.md` and mirrored it on the board (Backlog). It addresses the residual single-shared-checkout race on the AgentBus repo itself that Claude flagged in REVIEW-017 — TASK-026 isolated Voice_Gen but not AgentBus. Candidate approaches: (A) per-agent AgentBus clones + `pull --rebase` before push (recommended), or (B) strict single-writer discipline on one shared checkout. Owner proposed Codex CLI, reviewer Claude CLI.
+
+#### Resulting State
+
+TASK-027 exists in the backlog (drafted, **not dispatched**). The A/B approach choice is a pending design decision for Thomas / Quill; a durable `DECISION` extension may accompany it. No dispatch generated until Thomas authorizes.

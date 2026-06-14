@@ -31,12 +31,14 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-024 | Ready | Gemini CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-015.md` |
 | TASK-025 | Ready | Gemini CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-015.md` |
 | TASK-026 | Done / accepted (w/ follow-ups) | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-017.md` |
+| TASK-027 | Backlog (drafted, not dispatched) | Codex CLI (proposed) | Claude CLI | `tasks/backlog.md` |
 
 ## Backlog
 
 | Task | Owner | Status |
 | --- | --- | --- |
 | TASK-005 | Thomas / Quill | Backlog |
+| TASK-027 | Codex CLI (proposed) | Backlog — AgentBus checkout isolation; approach A/B pending |
 
 ## Ready
 

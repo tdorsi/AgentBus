@@ -951,3 +951,42 @@ Complete the communication-isolation plan. The governance/doc portions were auth
 ### Blockers
 
 - None.
+
+## TASK-027: AgentBus Working-Tree Isolation (close the residual shared-checkout race)
+
+Status: Backlog (drafted; not yet dispatched)
+Owner: Codex CLI (proposed)
+Reviewer: Claude CLI
+Priority: High
+Created: 2026-06-14
+Related: `RCA.md` (RCA-20260613-001), DECISION-20260614-001, REVIEW-017 (Claude's root-cause note), TASK-026
+
+### Goal
+
+Close the residual concurrent-write race on the **AgentBus coordination repo itself**. TASK-026 isolated the *Voice_Gen* checkouts, but all agents still share a **single AgentBus working tree/index**. That is how, on 2026-06-14, a reviewer commit ended up stacked on Codex's feature branch alongside a concurrent TASK-022 commit and fast-forwarded onto `main` unintentionally (benign that time — see REVIEW-017 / Claude's transparency note). The single-writer *file-ownership* model is in place; the gap is the shared *checkout/index*.
+
+### Context / candidate approaches
+
+The AgentBus repo's coordination updates commit directly to `main` (not per-task feature branches), so the Voice_Gen worktree-per-task pattern doesn't map directly. Candidate approaches to evaluate:
+
+- **(A, recommended) Per-agent AgentBus clones** — each agent (and the Watcher) operates in its own clone of AgentBus, commits its own files, and runs `git pull --rebase` immediately before `git push origin main`. Concurrent pushes serialize naturally via git (non-fast-forward → rebase → push); the shared-index contamination disappears. Pairs with the existing per-file single-writer ownership.
+- **(B, fallback) Strict single-writer discipline** on one shared AgentBus checkout — commit-and-push atomically, one writer at a time, pull --rebase before each push. Lighter setup, but reintroduces serialization and relies on discipline.
+
+Final approach is a design decision (Thomas / Quill or as the task's first step).
+
+### Acceptance Criteria
+
+- No two agents share one AgentBus working tree/index for commits (or, if approach B, a documented single-writer discipline is enforced).
+- Concurrent AgentBus coordination updates cannot stack/contaminate each other; pushes to `origin/main` serialize safely via `pull --rebase`.
+- The chosen approach is documented in `procedures/branching_strategy.md` (or `agent_startup.md`) and `D:\Development\AGENTS.md`, with per-agent AgentBus checkout locations if approach A.
+- `agent_startup.md` reflects the AgentBus checkout/clone step alongside the existing Voice_Gen worktree step.
+- (Optional, from REVIEW-017 FU note) `agentbus_health.py` flags active, non-history references to retired/foreign inboxes.
+- Existing single-writer file-ownership rules (DECISION-20260614-001) remain in force and consistent.
+
+### Work Notes
+
+- 2026-06-14: Drafted by Watcher (Stan) at Thomas's direction, from Claude's REVIEW-017 root-cause note. Not dispatched; a durable `DECISION` extension may accompany the approach choice (Thomas / Quill).
+
+### Blockers
+
+- None (design choice A vs B pending).
