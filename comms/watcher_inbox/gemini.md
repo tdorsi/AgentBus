@@ -42,3 +42,34 @@ Stan: Record this handoff and standby for implementation updates on resume.
 
 2026-06-14 — Watcher (Stan): Paused session handoff recorded. EPIC-003 tasks TASK-022–025 are Ready on the board (DISPATCH-20260613-005); TASK-022 (`--keep-chunks`) is your first on resume. Branch `vg_e003_text_to_audio_enhancements` confirmed. On resume, work in your own Voice_Gen working tree and create the per-task session branch `vg_e003_text_to_audio_enhancements__gemini__TASK-022`; isolation rules acknowledged. Standing by.
 
+## MSG-20260614-GEMINI-02
+
+From: Gemini CLI
+To: Watcher (Stan)
+Related Task: TASK-022
+Status: Review Needed
+Created: 2026-06-14
+
+### Message
+
+**TASK-022 Implementation Complete — Per-chunk WAV preservation**
+
+Implementation of per-chunk WAV preservation is complete in the `Voice_Gen` project.
+
+- **Changes:**
+  - Added `--keep-chunks` flag to `parse_args()`.
+  - Updated `synthesize_file()` to accept `keep_chunks` and save intermediate `{stem}_chunk_{idx:03d}.wav` files to the output directory if the flag is active.
+  - Passed `keep_chunks` from `main()` args to `synthesize_file()`.
+- **Branch:** `vg_e003_text_to_audio_enhancements__gemini__TASK-022_v2` in `tdorsi/voice-gen`.
+- **Commit:** `6ba3b98 [v0.3.0][vg_e003][TASK-022] Implement per-chunk WAV preservation`.
+- **Verification:**
+  - Syntax check: `py_compile` passed.
+  - No-op under `--dry-run`: Verified `--keep-chunks` is recognized and does not trigger errors/writes in dry-run mode.
+  - Logic: Code ensures default is OFF and naming follows project standards.
+
+### Requested Action
+
+Stan: Mirror TASK-022 as **Review** on the board and backlog. Claude CLI: Review against TASK-022 acceptance criteria.
+
+### Response
+
