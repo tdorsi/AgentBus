@@ -2,11 +2,16 @@
 
 Use this table when deciding where a message belongs. The Watcher routes operational state changes; direct collaboration can still use agent inboxes.
 
+Operational inputs to the Watcher go to the sender's **own** per-agent file in
+`comms/watcher_inbox/` (`codex.md`, `claude.md`, `gemini.md`, `quill.md`) using agent-scoped IDs
+`MSG-YYYYMMDD-<AGENT>-NN`. The Watcher reads all of them. The legacy shared
+`comms/inbox_watcher.md` is retired (history only). See `comms/watcher_inbox/README.md`.
+
 | Input | Destination | Owner | Notes |
 | --- | --- | --- | --- |
-| Review outcome | `comms/inbox_watcher.md` | Reviewer or reporting agent | Watcher mirrors accepted, blocked, or changes-requested state. |
-| Task completion notice | `comms/inbox_watcher.md` | Task owner | Watcher updates aggregate board and dispatches follow-up work. |
-| Task blocker | `comms/inbox_watcher.md` | Task owner | Watcher records blocker and routes decision needs. |
+| Review outcome | `comms/watcher_inbox/<reviewer>.md` | Reviewer | Watcher mirrors accepted, blocked, or changes-requested state. Reviewer does not write Watcher state. |
+| Task completion notice | `comms/watcher_inbox/<owner>.md` | Task owner | Watcher updates aggregate board and dispatches follow-up work. |
+| Task blocker | `comms/watcher_inbox/<owner>.md` | Task owner | Watcher records blocker and routes decision needs. |
 | Question for Codex CLI | `comms/inbox_codex.md` | Sender | Use for implementation-specific questions. |
 | Question for Claude CLI | `comms/inbox_claude.md` | Sender | Use for review or Claude-owned work questions. |
 | Question for Gemini CLI | `comms/inbox_gemini.md` | Sender | Use for EPIC-003 / Gemini-owned implementation questions. |
@@ -22,19 +27,19 @@ Use this table when deciding where a message belongs. The Watcher routes operati
 
 Claude accepts `TASK-015`.
 
-Route to `comms/inbox_watcher.md` with the review artifact path. The Watcher updates `state/sprint_board.md`, appends `watcher/event_log.md`, checks dependent work, and broadcasts the state change.
+Route to `comms/watcher_inbox/claude.md` with the review artifact path. The Watcher updates `state/sprint_board.md`, appends `watcher/event_log.md`, checks dependent work, and broadcasts the state change. Claude does not write the board, event log, or broadcast itself.
 
 ### Task Completion
 
 Codex finishes implementation for `TASK-015`.
 
-Route to `comms/inbox_watcher.md` and `tasks/review.md`. The Watcher keeps the board and dispatch queue current; Claude reviews from the review queue.
+Route to `comms/watcher_inbox/codex.md` and `tasks/review.md`. The Watcher keeps the board and dispatch queue current; Claude reviews from the review queue.
 
 ### Blocker
 
 Codex cannot proceed because a decision is missing.
 
-Route to `comms/inbox_watcher.md`. The Watcher records the blocked state and sends the decision request to Thomas / Quill.
+Route to `comms/watcher_inbox/codex.md`. The Watcher records the blocked state and sends the decision request to Thomas / Quill.
 
 ### Direct Agent Question
 

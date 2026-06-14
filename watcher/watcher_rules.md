@@ -40,18 +40,59 @@ The Watcher may not:
 | File | Owner | Purpose |
 | --- | --- | --- |
 | `sprint.md` | Thomas / Quill | Strategic sprint goals and priorities, not operational task state. |
-| `tasks/*` | Task owners and reviewers | Authoritative individual task records. |
+| `tasks/active.md`, `tasks/backlog.md`, `tasks/review.md` | Task owners and reviewers | Authoritative individual task records. |
+| `tasks/done.md` | Watcher | Completed-task ledger; the Watcher records a task here only when an accepted review, recorded decision, or Product Owner approval supports it. |
 | `reviews/*` | Reviewers | Formal review artifacts and findings. |
 | `state/sprint_board.md` | Watcher | Derived aggregate board view mirrored from `tasks/*`. |
 | `watcher/dispatch_queue.md` | Watcher | Pending and completed dispatch instructions. |
 | `watcher/event_log.md` | Watcher | Append-only state-transition ledger. |
-| `state/state_snapshot.md` | Watcher after Watcher adoption | Concise operating summaries after meaningful state changes. |
+| `state/state_snapshot.md` | Watcher | Concise operating summaries after meaningful state changes. |
 | `state/sync_log.md` | Syncing agent | Repository sync history. |
 | `decisions/decision_log.md` | Thomas / Quill | Durable governance and product decisions. |
-| `comms/broadcast.md` | All agents; Watcher for status changes | Team announcements, review notices, and Watcher status-change broadcasts. |
-| `comms/inbox_watcher.md` | All agents to Watcher | Inputs that need routing, board updates, dispatch, or state transition processing. |
+| `comms/broadcast.md` | Agents for announcements; **Watcher for status-change broadcasts** | Team announcements/review notices (agents) and Watcher operational status changes. |
+| `comms/watcher_inbox/<agent>.md` | One sole writer per file (the named agent) | Inputs to the Watcher needing routing, board updates, dispatch, or state-transition processing. The Watcher reads all of them. |
+| `comms/inbox_watcher.md` | Legacy (retired) | Historical shared inbox, read-only; replaced by `comms/watcher_inbox/<agent>.md`. |
 
 `state/sprint_board.md` is derived from `tasks/*`. If the board and task files disagree, treat the relevant task entry under `tasks/*` as authoritative and correct the board in the next Watcher pass.
+
+## Single-Writer Serialization Model
+
+The Watcher is the **single writer** of Watcher-owned state. This prevents the concurrent-append
+races and duplicate message IDs documented in `RCA.md` (RCA-20260613-001).
+
+Core rule: **no two agents write to the same working tree or the same communication file.**
+
+- **Watcher-owned files** (only the Watcher writes these): `state/sprint_board.md`,
+  `state/state_snapshot.md`, `watcher/event_log.md`, `watcher/dispatch_queue.md`,
+  `tasks/done.md`, and status-change broadcasts in `comms/broadcast.md`.
+- **Agents write only to their own files**: their `tasks/active.md` task entries, `reviews/*`
+  (reviewers), `logs/<agent>.md`, and their own `comms/watcher_inbox/<agent>.md`. Agents do
+  **not** write Watcher-owned state directly; they route the change to the Watcher, which mirrors
+  it.
+- **One Watcher writer at a time.** Do not run the autonomous Watcher loop concurrently with a
+  manual Watcher pass or with any agent that self-mirrors. A Watcher pass is performed by a single
+  instance from a single working tree.
+- **Per-agent Watcher inboxes** replace the shared `comms/inbox_watcher.md`. Each agent appends
+  only to `comms/watcher_inbox/<agent>.md`, using agent-scoped message IDs
+  `MSG-YYYYMMDD-<AGENT>-NN` so two agents can never collide on an ID.
+- **Project repositories** (e.g., Voice_Gen): each agent uses its own working tree/clone for git
+  write actions; a reviewer agent must not commit from a developer agent's working tree.
+
+### Reviewer Boundary
+
+A reviewer (Claude CLI) **may write**: `reviews/*`, the review outcome in `tasks/review.md`,
+`logs/claude.md`, `comms/watcher_inbox/claude.md`, and `comms/inbox_codex.md` (to ask the
+developer a direct question).
+
+A reviewer **may not write**: `state/sprint_board.md`, `watcher/event_log.md`,
+`watcher/dispatch_queue.md`, `state/state_snapshot.md`, `tasks/done.md`, or status-change
+broadcasts. The reviewer records its outcome and routes it to the Watcher inbox; the Watcher
+mirrors the board, logs the event, and broadcasts.
+
+### Watcher Boundary
+
+The Watcher **may write** the Watcher-owned files above. The Watcher **may not**: review code
+quality, approve its own work, modify review outcomes, or perform project implementation.
 
 ## Broadcast Ownership
 

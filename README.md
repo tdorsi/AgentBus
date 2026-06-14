@@ -10,7 +10,7 @@ The system is intentionally simple, append-friendly, and human-readable. It is n
 - `sprint.md` - current sprint goals, priorities, assignments, blockers, and review checklist.
 - `agent_rules.md` - operating rules for all agents.
 - `tasks/` - backlog, active work, blocked work, review queue, completed tasks, and a reusable task template.
-- `comms/` - shared broadcasts, agent inboxes, and a reusable message template.
+- `comms/` - shared broadcasts, agent inboxes, per-agent Watcher inboxes (`comms/watcher_inbox/`), and a reusable message template.
 - `logs/` - append-only work logs per agent.
 - `decisions/` - decision log and reusable decision template.
 - `reviews/` - formal review artifacts, review templates, and review findings.
@@ -47,18 +47,32 @@ Watcher v1 is additive. Existing procedures remain valid: agents still claim tas
 
 ### Watcher-Owned State
 
+Only the Watcher writes these (single-writer model — see Communication Isolation below):
+
 - `state/sprint_board.md` - aggregate board derived from `tasks/*`.
+- `state/state_snapshot.md` - operating summaries.
 - `watcher/dispatch_queue.md` - work routed by the Watcher.
 - `watcher/event_log.md` - append-only state-transition ledger.
-- `comms/inbox_watcher.md` - inputs that need Watcher routing or state updates.
+- `tasks/done.md` - completed-task ledger (recorded only on accepted review / decision / PO approval).
+- status-change broadcasts in `comms/broadcast.md`.
 
-`tasks/*` remains authoritative for individual task details and history. If `state/sprint_board.md` disagrees with `tasks/*`, the Watcher corrects the board.
+`tasks/active.md`, `tasks/backlog.md`, and `tasks/review.md` remain authoritative for individual task details and history. If `state/sprint_board.md` disagrees with them, the Watcher corrects the board.
+
+### Communication Isolation
+
+To prevent concurrent-write collisions (see `RCA.md`, RCA-20260613-001): **no two agents write to the same working tree or the same communication file.**
+
+- Each agent sends to its **own** Watcher inbox file: `comms/watcher_inbox/<agent>.md` (`codex.md`, `claude.md`, `gemini.md`, `quill.md`), with agent-scoped IDs `MSG-YYYYMMDD-<AGENT>-NN`. The shared `comms/inbox_watcher.md` is retired (history only).
+- Reviewers record outcomes and route them to the Watcher; they do not write Watcher-owned state.
+- One Watcher writer at a time; do not run the autonomous loop alongside a manual pass.
+- For project repos (e.g., Voice_Gen), each agent uses its own working tree/clone for git writes; a reviewer must not commit from a developer's working tree.
 
 ### Routing Model
 
-- Review outcomes, task completions, and blockers go to `comms/inbox_watcher.md`.
+- Review outcomes, task completions, and blockers go to the sender's `comms/watcher_inbox/<agent>.md`.
 - Direct questions for Codex CLI go to `comms/inbox_codex.md`.
 - Direct questions for Claude CLI go to `comms/inbox_claude.md`.
+- Direct questions for Gemini CLI go to `comms/inbox_gemini.md`.
 - Team announcements and review notices remain in `comms/broadcast.md`.
 - Watcher-owned status changes are also broadcast in `comms/broadcast.md`.
 

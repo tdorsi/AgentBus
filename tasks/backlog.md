@@ -918,3 +918,35 @@ Document the new EPIC-003 features and record an end-to-end validation run.
 ### Blockers
 
 - None.
+
+## TASK-026: Implement AgentBus Communication Isolation (residual code + infra)
+
+Status: Ready
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Created: 2026-06-14
+Updated: 2026-06-14
+Related: `RCA.md` (RCA-20260613-001), `reviews/Agent_Bus_Action_Plan_draft.md`
+
+> ID note: the action-plan draft labeled this "TASK-016", but that ID is taken (Voice_Gen overwrite protection, accepted via REVIEW-012). Renumbered to TASK-026.
+
+### Goal
+
+Complete the communication-isolation plan. The governance/doc portions were authored by the Watcher (per-agent inboxes, `watcher_rules.md`, `routing_table.md`, `procedures/review_response.md`, README). This task covers the remaining code + infrastructure + cutover.
+
+### Acceptance Criteria
+
+- `agentbus_health.py` detects duplicate message IDs across `comms/*` and `comms/watcher_inbox/*` (where practical) and flags `state/sprint_board.md` rows that disagree with `tasks/*`.
+- Per-agent project working trees / clones established for Voice_Gen (e.g., `Voice_Gen_codex`, `Voice_Gen_claude_review`, `Voice_Gen_gemini`); no two agents share one project checkout for git writes.
+- Cutover confirmed: all agents post to `comms/watcher_inbox/<agent>.md`; no agent is instructed to append to the retired shared `comms/inbox_watcher.md`.
+- Watcher confirmed reading per-agent inboxes during a pass.
+- README and `watcher_rules.md` isolation rules verified consistent with implementation.
+
+### Work Notes
+
+- 2026-06-14: Created by Watcher (Stan) from Thomas's action plan. Governance/doc updates already landed by the Watcher; this task is the residual code/infra/cutover. Not yet dispatched — awaiting Thomas's go to assign Codex.
+
+### Blockers
+
+- None.

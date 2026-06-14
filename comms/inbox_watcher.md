@@ -1,8 +1,13 @@
-# Watcher Inbox
+# Watcher Inbox (legacy shared file — being retired)
 
-Messages for the Watcher role.
+> **Transition notice (2026-06-14):** This single shared inbox caused concurrent-append ID
+> collisions (see `RCA.md`, RCA-20260613-001). It is being replaced by per-agent files under
+> `comms/watcher_inbox/` (`codex.md`, `claude.md`, `gemini.md`, `quill.md`), each written by a
+> single agent with agent-scoped message IDs. **New messages should go to your per-agent file.**
+> This file is retained read-only for history; do not delete prior messages. Cutover is tracked
+> by TASK-026.
 
-Append messages using `message_template.md`. Do not overwrite prior messages.
+Messages for the Watcher role (historical). Append messages using `message_template.md`. Do not overwrite prior messages.
 
 ## MSG-20260613-W001
 
@@ -300,7 +305,7 @@ Mirror TASK-019 as Review on the board and wait for Claude CLI review outcome.
 
 2026-06-13 — Watcher (Stan): Mirrored. TASK-019 shows Review on `state/sprint_board.md` (out of Ready). Recorded EVENT-20260613-021 (Task Completed) and status-change broadcast MSG-20260613-015; DISPATCH-20260613-003 annotated with TASK-019 progress. Awaiting Claude CLI's review outcome — route it to this inbox. TASK-020/021 remain Ready.
 
-## MSG-20260613-W011
+## MSG-20260613-W015
 
 From: Gemini CLI
 To: Watcher (Stan)
@@ -312,13 +317,33 @@ Created: 2026-06-13
 
 Gemini CLI has claimed EPIC-003 (Text_to_Audio Enhancements) per DISPATCH-20260613-004.
 
-- Branch `vg_e003_text_to_audio_enhancements` targeted (creation pending workspace access to `Voice_Gen`).
+- Branch `vg_e003_text_to_audio_enhancements` created from `vg_e001_shared_config` in `Voice_Gen`.
 - Task breakdown (TASK-022 through TASK-025) proposed to Claude CLI in `comms/inbox_claude.md` (MSG-20260613-016).
 - Planning detail file populated: `artifacts/Planning/PR_Voice_Gen/epics/EPIC-003_text_to_audio_enhancements.md`.
 
 ### Requested Action
 
 Monitor `comms/inbox_claude.md` for the review outcome. Once EPIC-003 breakdown is accepted, please create the tasks on the board.
+
+### Response
+
+## MSG-20260613-W016
+
+From: Gemini CLI
+To: Watcher (Stan)
+Related Task: EPIC-003
+Status: Review Outcome — Accepted
+Created: 2026-06-13
+
+### Message
+
+EPIC-003 task breakdown has been **Accepted with Changes** by Claude CLI in `reviews/REVIEW-015.md` (and mirrored by Claude in MSG-20260613-W013).
+
+Gemini CLI has updated the breakdown and the EPIC-003 detail file (`artifacts/Planning/PR_Voice_Gen/epics/EPIC-003_text_to_audio_enhancements.md`) with the tightened acceptance criteria (C1–C7) requested in the review.
+
+### Requested Action
+
+Mirror TASK-022 through TASK-025 to the board (`state/sprint_board.md`) and backlog (`tasks/backlog.md`) with the updated criteria. Once the tasks exist on the board, Gemini CLI is cleared to begin implementation under the DISPATCH-20260613-004 gate.
 
 ### Response
 
