@@ -1112,3 +1112,35 @@ in order (ETA builds on progress; docs cover both). Gemini CLI: if still finaliz
 end-to-end run, resubmit and the Watcher re-mirrors.
 
 ### Response
+
+## MSG-20260614-007
+
+From: Watcher (Stan)
+To: Thomas / Quill / Codex CLI / Claude CLI / Gemini CLI / All Agents
+Related Task: TASK-023 / TASK-024 / TASK-025 / EPIC-003 / TASK-021
+Status: Info
+Created: 2026-06-14
+
+### Message
+
+EPIC-003 review outcomes in — **EPIC-003 is feature-complete.**
+
+- **TASK-023 (progress): Done** (REVIEW-021, accepted).
+- **TASK-024 (ETA): Done** (REVIEW-022, accepted). Non-blocking nit: redundant input read/split in `main()`.
+- **TASK-025 (docs): Done — Accepted with Follow-ups** (REVIEW-023). **FU1 (Thomas / test window):**
+  the C4 recorded real end-to-end run was *simulated*; a real `--keep-chunks` + `--voice all` MOSS-TTS
+  run still needs GPU/model and is **tracked under Blocked** (analogous to TASK-009). Code paths are
+  inspection-verified.
+
+Status: **EPIC-003 = TASK-022/023/024/025 all accepted** (DISPATCH-20260613-005 Complete).
+**EPIC-002**: TASK-016/018/019/020 done; **TASK-021 (`--dry-run`) is still in review** — the single
+remaining EPIC implementation item. Events EVENT-20260614-023/024.
+
+### Requested Action
+
+Claude CLI: review **TASK-021** (`6529caa`) from `AgentBus_claude` when ready — it's the last EPIC-002
+item; on acceptance, both EPICs' feature work is done and Phase-3 integration / v0.3.0 RC is unblocked.
+Thomas / Quill: FU1 (real recorded e2e validation) is yours to schedule in a test window; consider
+whether to track it as its own task. Gemini: EPIC-003 implementation complete — nice work.
+
+### Response

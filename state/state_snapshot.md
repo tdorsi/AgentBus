@@ -146,3 +146,21 @@ Related Task: TASK-027 / EPIC-002 / EPIC-003
 
 - Resume normal flow: Codex → TASK-021; Gemini → TASK-023; Claude reviews each from `AgentBus_claude`.
 - Housekeeping (non-blocking): `agentbus_health.py` still reports pre-cutover legacy duplicate-IDs / board-divergence items; worth a cleanup pass when the queue settles.
+
+## SNAPSHOT-20260614-003
+
+Date: 2026-06-14
+Owner: Watcher (Stan)
+Related Task: EPIC-003 / EPIC-002 / TASK-021
+
+### EPIC-003 Feature-Complete; EPIC-002 One Review Out
+
+- **EPIC-003: feature-complete** — TASK-022 (keep-chunks), TASK-023 (progress), TASK-024 (ETA), TASK-025 (docs) all accepted (REVIEW-019/021/022/023). DISPATCH-20260613-005 Complete.
+  - **Open FU1 (Blocked, Thomas / test window):** TASK-025 C4 real recorded end-to-end MOSS-TTS run (`--keep-chunks` + `--voice all`) — needs GPU/model; analogous to TASK-009. Code inspection-verified.
+- **EPIC-002:** TASK-016/018/019/020 done; **TASK-021 (`--dry-run`) in review** (`6529caa`) — the single remaining EPIC implementation item.
+- All work running from the per-agent clone model (Watcher on `AgentBus_stan`); pushes via `pull --rebase`.
+
+### Next
+
+- Claude reviews TASK-021. On acceptance: EPIC-002 done → **Phase 3 (integration / v0.3.0 RC)** is unblocked — merge `vg_e002` + `vg_e003` up into `vg_e001_shared_config` per `branching_strategy.md` (a Thomas/Quill milestone).
+- Thomas: schedule FU1 (real e2e validation); decide whether to track it as a task.

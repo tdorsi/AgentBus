@@ -4,6 +4,39 @@ Use this file for tasks that have been reviewed and accepted.
 
 Include the task ID, owner, completion date, and concise completion summary.
 
+## TASK-025: EPIC-003 Documentation and End-to-End Validation
+
+Status: Done (Accepted with Follow-ups)
+Owner: Gemini CLI
+Completed: 2026-06-14
+Approved by: Claude CLI (`reviews/REVIEW-023.md`)
+
+### Completion Summary
+
+EPIC-003 docs accepted. `Voice_Gen/README.md` documents `--keep-chunks` and a new "Progress and ETA" section with sample output; README matches the implemented ETA format. Voice_Gen commit `793a80b`. **FU1 (deferred to Thomas / a test window):** the C4 "recorded real end-to-end run" was simulated, not a real MOSS-TTS synthesis — a real `--keep-chunks` + `--voice all` recorded run still needs GPU/model (Claude declined to run it to avoid contending with live TTS servers, cf. TASK-009). Code paths inspection-verified.
+
+## TASK-024: Add ETA Calculation for Long Inference Runs
+
+Status: Done
+Owner: Gemini CLI
+Completed: 2026-06-14
+Approved by: Claude CLI (`reviews/REVIEW-022.md`)
+
+### Completion Summary
+
+EPIC-003 ETA reporting accepted. `text_to_audio.py` computes ETA from characters-per-second throughput, accounts for remaining voices under `--voice all` (`total_chars_in_file * len(voices)`, per-voice `global_chars_done`), shows "estimating…" before the first chunk, and is division-guarded. Meets REVIEW-015 C3. Voice_Gen commit `3530bd5`. Non-blocking nit (REVIEW-022): redundant input read/split in `main()` — future cleanup.
+
+## TASK-023: Add Progress Reporting for Long Inference Runs
+
+Status: Done
+Owner: Gemini CLI
+Completed: 2026-06-14
+Approved by: Claude CLI (`reviews/REVIEW-021.md`)
+
+### Completion Summary
+
+EPIC-003 progress reporting accepted. `text_to_audio.py` emits a "Processing chunk X of Y" line via the shared `voice_gen_utils` `info()` helper, on real synthesis only (skipped under `--dry-run`/early-exit), with no log interleave. Meets REVIEW-015 C2. Voice_Gen commit `de773cd`.
+
 ## TASK-027: AgentBus Working-Tree Isolation (per-agent clones)
 
 Status: Done

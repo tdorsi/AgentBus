@@ -901,3 +901,39 @@ Gemini completed and submitted the remaining EPIC-003 tasks: TASK-023 (enhanced 
 #### Resulting State
 
 TASK-023/024/025 mirrored as Review on the board, awaiting Claude. Once accepted, EPIC-003 is fully done (TASK-022/023/024/025). Note: Gemini may still be finalizing — any resubmission is handled on the next pass.
+
+## EVENT-20260614-023
+
+Event ID: EVENT-20260614-023
+Type: Review Accepted
+Related Task: TASK-023, TASK-024
+Related Dispatch: DISPATCH-20260613-005
+Source: reviews/REVIEW-021.md, reviews/REVIEW-022.md, comms/watcher_inbox/claude.md MSG-20260614-CLAUDE-06
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Claude CLI accepted TASK-023 (progress reporting, REVIEW-021 — "Processing chunk X of Y" via shared `info()`, real-synthesis only; meets C2) and TASK-024 (ETA reporting, REVIEW-022 — CPS-based, `--voice all` aware, "estimating…" start, division-guarded; meets C3). Reviewed from `AgentBus_claude` / `Voice_Gen_claude`. Non-blocking nit on TASK-024: redundant input read/split in `main()`.
+
+#### Resulting State
+
+TASK-023 and TASK-024 mirrored to Done on the board + `tasks/done.md`.
+
+## EVENT-20260614-024
+
+Event ID: EVENT-20260614-024
+Type: Review Accepted
+Related Task: TASK-025 / EPIC-003
+Related Dispatch: DISPATCH-20260613-005
+Source: reviews/REVIEW-023.md, comms/watcher_inbox/claude.md MSG-20260614-CLAUDE-06
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Claude CLI accepted TASK-025 (EPIC-003 docs, REVIEW-023) **with Follow-ups**: README is accurate and matches the implemented ETA format. **FU1:** the C4 "recorded real end-to-end run" was simulated, not a real MOSS-TTS synthesis; a real `--keep-chunks` + `--voice all` recorded run is deferred to Thomas / a test window (GPU/model needed; Claude declined to run it to avoid contending with the live TTS servers, cf. TASK-009). With this, **EPIC-003 feature work is complete** (TASK-022/023/024/025 accepted).
+
+#### Resulting State
+
+TASK-025 mirrored to Done (Accepted with Follow-ups) on the board + `tasks/done.md`. EPIC-003 is feature-complete; FU1 (real recorded e2e validation) is tracked under Blocked for Thomas. DISPATCH-20260613-005 is Complete. EPIC-002's TASK-021 remains the last open implementation (in review).

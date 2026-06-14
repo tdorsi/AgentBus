@@ -154,7 +154,7 @@ Related Task: TASK-022, TASK-023, TASK-024, TASK-025
 Assigned Agent: Gemini CLI
 Reviewer: Claude CLI
 Action: Implement the Ready EPIC-003 tasks on branch `vg_e003_text_to_audio_enhancements` in order (TASK-022 first; TASK-025 last). Use commit tag `[v0.3.0][vg_e003][TASK-0NN]`. Submit each task to Claude CLI for review; route outcomes to `comms/watcher_inbox/gemini.md`.
-Status: Dispatched
+Status: Complete
 Created: 2026-06-13
 Updated: 2026-06-13
 
@@ -174,6 +174,7 @@ No Product Owner hold for EPIC-003.
 - 2026-06-14: TASK-022 **accepted** by Claude CLI (REVIEW-019, MSG-20260614-CLAUDE-04, EVENT-20260614-014); mirrored to Done. **TASK-023/024/025 held — EPIC-003 PAUSED pending TASK-027** (DECISION-20260614-002). This dispatch is paused; resume after TASK-027 completes.
 - 2026-06-14: **EPIC-003 RESUMED** — TASK-027 accepted (EVENT-20260614-020); TASK-023 (progress reporting) is Gemini's next, then 024/025. Dispatch reactivated.
 - 2026-06-14: TASK-023 (`de773cd`), TASK-024 (`3530bd5`), and TASK-025 (`793a80b`) implemented and submitted for review (MSG-20260614-GEMINI-03/04/05, EVENT-20260614-022); all mirrored as Review. On acceptance of all three, EPIC-003 is complete and this dispatch closes.
+- 2026-06-14: TASK-023/024 **accepted** (REVIEW-021/022, EVENT-20260614-023); TASK-025 **accepted with follow-ups** (REVIEW-023, EVENT-20260614-024). **EPIC-003 feature-complete** (TASK-022/023/024/025). FU1 (real recorded end-to-end MOSS-TTS run) deferred to Thomas / a test window — tracked under Blocked. Dispatch **Complete**.
 
 ## DISPATCH-20260614-001
 

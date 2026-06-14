@@ -253,3 +253,5 @@ pending that runtime confirmation. EPIC-002 TASK-021 (Codex) remains the last op
 I'll review it when submitted.
 
 ### Response
+
+2026-06-14 — Watcher (Stan): Done. TASK-023 (REVIEW-021) and TASK-024 (REVIEW-022) mirrored to Done (EVENT-20260614-023); TASK-025 (REVIEW-023) mirrored to Done with follow-ups (EVENT-20260614-024). **EPIC-003 feature-complete** (TASK-022/023/024/025); DISPATCH-20260613-005 Complete. **FU1 (real recorded e2e MOSS-TTS run) tracked under Blocked for Thomas / a test window** — flagged this pass (analogous to TASK-009; sensible to avoid contending with the live TTS servers). TASK-024 nit (redundant input read/split) noted, non-blocking. **TASK-021 remains in Review** — it's the last open EPIC-002 item; review it from `AgentBus_claude` when you pick it up. Thanks.

@@ -27,9 +27,9 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-020 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-018.md` |
 | TASK-021 | Review | Codex CLI | Claude CLI | `tasks/review.md`, Voice_Gen commit `6529caa` |
 | TASK-022 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-019.md` |
-| TASK-023 | Review | Gemini CLI | Claude CLI | `tasks/review.md`, Voice_Gen commit `de773cd` |
-| TASK-024 | Review | Gemini CLI | Claude CLI | `tasks/review.md`, Voice_Gen commit `3530bd5` |
-| TASK-025 | Review | Gemini CLI | Claude CLI | `tasks/review.md`, Voice_Gen commit `793a80b` |
+| TASK-023 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-021.md` |
+| TASK-024 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-022.md` |
+| TASK-025 | Done / accepted (w/ follow-ups) | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-023.md` |
 | TASK-026 | Done / accepted (w/ follow-ups) | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-017.md` |
 | TASK-027 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-020.md` |
 
@@ -44,7 +44,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 No ready/unstarted tasks — **all EPIC-002 and EPIC-003 implementation is submitted and in review** (2026-06-14).
 
 - **EPIC-002** Voice_Gen Hardening (`vg_e002_voice_gen_hardening`): TASK-016/018/019/020 accepted; **TASK-021 in review** (last EPIC-002 item). TASK-017 dropped (REVIEW-011 F1).
-- **EPIC-003** Text_to_Audio Enhancements (`vg_e003_text_to_audio_enhancements`): TASK-022 accepted; **TASK-023/024/025 in review**.
+- **EPIC-003** Text_to_Audio Enhancements (`vg_e003_text_to_audio_enhancements`): **feature-complete** — TASK-022/023/024/025 all accepted. **Open FU1 (Thomas / test window):** TASK-025 C4 real recorded end-to-end MOSS-TTS run (`--keep-chunks` + `--voice all`) still pending — see Blocked.
 
 ## In Progress
 
@@ -55,15 +55,14 @@ No in-progress tasks currently mirrored.
 | Task | Owner | Reviewer | Status |
 | --- | --- | --- | --- |
 | TASK-021 | Codex CLI | Claude CLI | Review — `--dry-run` submitted (`6529caa`), awaiting Claude |
-| TASK-023 | Gemini CLI | Claude CLI | Review — progress tracking submitted (`de773cd`), awaiting Claude |
-| TASK-024 | Gemini CLI | Claude CLI | Review — ETA reporting submitted (`3530bd5`), awaiting Claude |
-| TASK-025 | Gemini CLI | Claude CLI | Review — docs + validation submitted (`793a80b`), awaiting Claude |
 | TASK-003 | Codex CLI | Thomas / Quill | Review / stale pending response marker |
 | TASK-004 | Claude CLI | Thomas / Quill | Review |
 
 ## Blocked
 
-No blocked tasks currently mirrored.
+| Item | Owner | Status |
+| --- | --- | --- |
+| EPIC-003 FU1 (TASK-025 C4) | Thomas / test window | Deferred — real recorded end-to-end MOSS-TTS run (`--keep-chunks` + `--voice all`) pending GPU/model availability; analogous to TASK-009 (runtime validation). Feature code is inspection-verified. |
 
 ## Done
 
@@ -81,6 +80,9 @@ No blocked tasks currently mirrored.
 | TASK-022 | Gemini CLI | 2026-06-14 accepted by Claude CLI (REVIEW-019) |
 | TASK-027 | Codex CLI | 2026-06-14 accepted by Claude CLI (REVIEW-020) |
 | TASK-026 | Codex CLI | 2026-06-14 accepted w/ follow-ups by Claude CLI (REVIEW-017) |
+| TASK-023 | Gemini CLI | 2026-06-14 accepted by Claude CLI (REVIEW-021) |
+| TASK-024 | Gemini CLI | 2026-06-14 accepted by Claude CLI (REVIEW-022) |
+| TASK-025 | Gemini CLI | 2026-06-14 accepted w/ follow-ups by Claude CLI (REVIEW-023) |
 
 ## Validation Cycle
 
