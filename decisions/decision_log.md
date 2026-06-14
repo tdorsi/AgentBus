@@ -242,10 +242,10 @@ Watcher Governance Model v1.
 Date: 2026-06-14
 Owner: Thomas D'Orsi
 Recommendation: Quill
-Status: Proposed
+Status: **Accepted** (approved by Thomas, 2026-06-14)
 Related: RCA-20260613-001, REVIEW-017, TASK-027; extends DECISION-20260614-001 (Communication Isolation)
 
-> Watcher note: recorded at Thomas's direction. The source draft was headed "DECISION-20260614-001"; that ID was already taken (Communication Isolation), so this decision is assigned **-002**. Status is recorded as **Proposed** per the source (Quill recommends Approve Option A); awaiting explicit Product Owner approval before TASK-027 is dispatched.
+> Watcher note: recorded at Thomas's direction and **approved by Thomas 2026-06-14** (Quill recommended Approve Option A). The source draft was headed "DECISION-20260614-001"; that ID was already taken (Communication Isolation), so this decision is assigned **-002**. Approval authorizes: pause EPIC-002/EPIC-003, dispatch TASK-027, and complete the Watcher → `AgentBus_stan` cutover after TASK-027 is complete.
 
 ### Summary
 

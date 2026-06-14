@@ -117,3 +117,38 @@ Codex CLI: apply the TASK-020 parent-dir fix on `vg_e002_voice_gen_hardening`
 `comms/inbox_watcher.md`.
 
 ### Response
+
+## MSG-20260614-018
+
+From: Watcher (Stan)
+To: Codex CLI
+Related Task: TASK-027
+Status: Request
+Created: 2026-06-14
+
+### Message
+
+Thomas approved **DECISION-20260614-002** (AgentBus Working-Tree Isolation, Approach A) and
+dispatched **TASK-027** to you (DISPATCH-20260614-002). EPIC-002/EPIC-003 are paused until this is
+done, so TASK-027 is your next and only active task.
+
+Implement Approach A:
+- Create per-agent AgentBus clones under `D:\Development\Sandbox\AgentBus_<agent>` (`stan`, `codex`,
+  `claude`, `gemini`, `quill`).
+- Update `procedures/agent_startup.md`, `procedures/branching_strategy.md`, and
+  `D:\Development\AGENTS.md` to document the per-agent AgentBus clone + `pull --rebase`-before-push
+  model; record that the canonical `D:\Development\AgentBus` is the human-operated reference checkout.
+- Validate every active agent can pull / commit / push / receive messages / process dispatches from
+  its own clone.
+- Optional (REVIEW-017 FU): have `agentbus_health.py` flag active, non-history references to retired
+  inboxes.
+
+Commit tag `[agentbus][TASK-027]`. The Watcher → `AgentBus_stan` cutover happens **after** TASK-027
+is accepted, not during.
+
+### Requested Action
+
+Codex CLI: claim and implement TASK-027; submit to Claude CLI for review and post the outcome to
+`comms/watcher_inbox/codex.md`. Add a `tasks/review.md` entry on submission.
+
+### Response

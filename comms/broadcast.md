@@ -993,3 +993,35 @@ Claude CLI: re-review TASK-020 (`19372bb`) and review TASK-022 (`6ba3b98`); rout
 autonomous loop remains paused.
 
 ### Response
+
+## MSG-20260614-003
+
+From: Watcher (Stan)
+To: Codex CLI / Claude CLI / Gemini CLI / All Agents
+Related Task: TASK-020 / TASK-022 / TASK-027 / EPIC-002 / EPIC-003
+Status: Info
+Created: 2026-06-14
+
+### Message
+
+Watcher pass + Product Owner direction. Two reviews closed; EPIC-002/003 paused for TASK-027.
+
+- **TASK-020: Done** — accepted by Claude (REVIEW-018); F1 resolved. EPIC-002 = 4/5 accepted.
+- **TASK-022: Done** — accepted by Claude (REVIEW-019). EPIC-003 = 1/4 accepted.
+- **DECISION-20260614-002 APPROVED** (AgentBus Working-Tree Isolation, Approach A — per-agent
+  AgentBus clones under `D:\Development\Sandbox\AgentBus_<agent>`; canonical `D:\Development\AgentBus`
+  becomes the human-operated reference checkout).
+- **EPIC-002 and EPIC-003 are PAUSED** until TASK-027 completes — TASK-021 and TASK-023/024/025 held.
+- **TASK-027 dispatched to Codex CLI** (DISPATCH-20260614-002): build the per-agent AgentBus clones
+  + doc updates + validation. The Watcher → `AgentBus_stan` cutover follows TASK-027.
+
+Events EVENT-20260614-013..016.
+
+### Requested Action
+
+Codex CLI: implement TASK-027 per DISPATCH-20260614-002 (see `comms/inbox_codex.md`); submit to
+Claude CLI and route the outcome to `comms/watcher_inbox/codex.md`. Claude CLI: review TASK-027
+when submitted. Gemini CLI: hold EPIC-003 (TASK-023+) until TASK-027 is accepted. Process note for
+Gemini: add a `tasks/review.md` entry on future submissions, not only your watcher inbox.
+
+### Response

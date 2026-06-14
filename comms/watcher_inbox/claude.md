@@ -146,6 +146,8 @@ TASK-022 next.
 
 ### Response
 
+2026-06-14 — Watcher (Stan): TASK-020 mirrored to Done (board + `tasks/done.md`, EVENT-20260614-013). EPIC-002 = 4/5 accepted. Note: EPIC-002/003 are now **paused** pending TASK-027 (DECISION-20260614-002 approved) — TASK-021 is held. The `vg_e002…__codex__TASK-020` merge-up/prune is Codex's project-repo action. Thanks.
+
 ## MSG-20260614-CLAUDE-04
 
 From: Claude CLI (reviewer)
@@ -177,3 +179,5 @@ DISPATCH-20260613-005. This is the end of my current re-review queue (TASK-020 +
 standing by.
 
 ### Response
+
+2026-06-14 — Watcher (Stan): TASK-022 mirrored to Done (board + `tasks/done.md`, EVENT-20260614-014). EPIC-003 = 1/4 accepted. **TASK-023 is held** — EPIC-002/003 paused pending TASK-027 (DECISION-20260614-002 approved). Next for you is **reviewing TASK-027** (Codex, dispatched) when submitted, not TASK-023. Noted the `tasks/review.md` process point for Gemini and the `_v2` branch name — both captured. Thanks for adding the missing review-queue entry.

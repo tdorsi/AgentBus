@@ -104,6 +104,7 @@ Updated: 2026-06-13
 - 2026-06-13: TASK-020 implemented and submitted for review — Voice_Gen commit `bf31d45`; mirrored as Review on the board (EVENT-20260613-023). TASK-021 remains Ready. Dispatch stays open until all EPIC-002 tasks are accepted.
 - 2026-06-13: TASK-020 returned **Changes Requested** by Claude CLI (REVIEW-016 F1, W014, EVENT-20260613-024) — custom `--log-file` parent dir not created. Kept in Review/changes-requested; fix routed to Codex CLI (`comms/inbox_codex.md` MSG-20260613-018). TASK-021 still Ready. Dispatch remains open.
 - 2026-06-14: Codex resubmitted the TASK-020 F1 fix (Voice_Gen commit `19372bb` on `vg_e002_voice_gen_hardening__codex__TASK-020`, MSG-20260614-CODEX-03, EVENT-20260614-009); mirrored as Review, awaiting Claude re-review. TASK-021 still Ready.
+- 2026-06-14: TASK-020 **accepted** by Claude CLI (REVIEW-018, MSG-20260614-CLAUDE-03, EVENT-20260614-013); mirrored to Done. EPIC-002 = 4/5 accepted. **TASK-021 held — EPIC-002 PAUSED pending TASK-027** (DECISION-20260614-002). This dispatch is paused; resume after TASK-027 completes.
 
 #### Correction
 
@@ -168,6 +169,7 @@ No Product Owner hold for EPIC-003.
 #### Correction
 
 - 2026-06-14 (FU1, REVIEW-017 / EVENT-20260614-008): the Action routing reference was corrected from the retired `comms/inbox_watcher.md` to `comms/watcher_inbox/gemini.md`. This was the one remaining live reference to the retired shared inbox; flagged by Claude and Codex (both correctly declined to edit Watcher-owned state), fixed here by the Watcher.
+- 2026-06-14: TASK-022 **accepted** by Claude CLI (REVIEW-019, MSG-20260614-CLAUDE-04, EVENT-20260614-014); mirrored to Done. **TASK-023/024/025 held — EPIC-003 PAUSED pending TASK-027** (DECISION-20260614-002). This dispatch is paused; resume after TASK-027 completes.
 
 ## DISPATCH-20260614-001
 
@@ -188,5 +190,26 @@ Updated: 2026-06-14
 - 2026-06-14: Scope expanded to include the AGENTS.md startup-file cutover (EVENT-20260614-003). `D:\Development\AGENTS.md` (CLI-agnostic grounding) created and `GEMINI.md` repointed by the Watcher; Codex's startup config and remaining `CLAUDE.md` cross-references are part of TASK-026.
 - 2026-06-14: Per-agent working trees established (EVENT-20260614-006) — `git worktree`s under `D:\Development\Sandbox\Voice_Gen_{codex,gemini,claude}` on per-task branches. Remaining for Codex: `agentbus_health.py` duplicate-ID/board-divergence detection, repoint Codex startup config to AGENTS.md, and cutover verification.
 - 2026-06-14: TASK-026 implemented (AgentBus commit `207e2e9`) and **accepted with follow-ups** by Claude CLI (REVIEW-017, MSG-20260614-CLAUDE-02, EVENT-20260614-007); mirrored to Done. FU1 (DISPATCH-20260613-005 routing) fixed by the Watcher. Dispatch Complete.
+
+#### Correction
+
+## DISPATCH-20260614-002
+
+Dispatch ID: DISPATCH-20260614-002
+Trigger: Thomas approved DECISION-20260614-002 (AgentBus Working-Tree Isolation, Approach A) and directed: pause EPIC-002/EPIC-003, implement TASK-027 first, complete the Watcher cutover after.
+Related Task: TASK-027
+Assigned Agent: Codex CLI
+Reviewer: Claude CLI
+Action: Implement Approach A — create per-agent AgentBus clones under `D:\Development\Sandbox\AgentBus_<agent>` (`stan`, `codex`, `claude`, `gemini`, `quill`); update `procedures/agent_startup.md`, `procedures/branching_strategy.md`, and `D:\Development\AGENTS.md`; validate each active agent can pull / commit / push / receive messages / process dispatches from its own clone. Optional (REVIEW-017 FU): have `agentbus_health.py` flag active, non-history references to retired inboxes. Submit to Claude CLI; route outcome to `comms/watcher_inbox/codex.md`.
+Status: Dispatched
+Created: 2026-06-14
+Updated: 2026-06-14
+
+#### Notes
+
+- **EPIC-002 and EPIC-003 are paused** until TASK-027 completes (TASK-021 and TASK-023/024/025 held).
+- The canonical `D:\Development\AgentBus` becomes the human-operated reference checkout; no routine autonomous work from it after cutover.
+- **Watcher → `AgentBus_stan` cutover happens after TASK-027 is complete** (per Thomas), not during.
+- Commit tag for AgentBus work: `[agentbus][TASK-027]`.
 
 #### Correction

@@ -721,3 +721,75 @@ Recorded DECISION-20260614-002 (AgentBus Working-Tree Isolation) at Thomas's dir
 #### Resulting State
 
 Decision recorded as **Proposed** (Quill recommends Approve Option A; awaiting explicit Product Owner approval). TASK-027 remains **not dispatched** pending that approval. Watcher governance, routing, board ownership, and review/dispatch processes are unchanged by this decision.
+
+## EVENT-20260614-013
+
+Event ID: EVENT-20260614-013
+Type: Review Accepted
+Related Task: TASK-020
+Related Dispatch: DISPATCH-20260613-003
+Source: reviews/REVIEW-018.md, comms/watcher_inbox/claude.md MSG-20260614-CLAUDE-03
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Claude CLI accepted the TASK-020 F1 resubmission (REVIEW-018) — `--log-file` parent-dir creation (`19372bb`) resolves REVIEW-016 F1; reviewed from the `Sandbox/Voice_Gen_claude` worktree.
+
+#### Resulting State
+
+TASK-020 mirrored to Done on the board + `tasks/done.md`. EPIC-002 now has 4 of 5 accepted (TASK-016/018/019/020); TASK-021 is the only remaining item. The `vg_e002_voice_gen_hardening__codex__TASK-020` session branch may be merged up + pruned by Codex (project-repo action).
+
+## EVENT-20260614-014
+
+Event ID: EVENT-20260614-014
+Type: Review Accepted
+Related Task: TASK-022
+Related Dispatch: DISPATCH-20260613-005
+Source: reviews/REVIEW-019.md, comms/watcher_inbox/claude.md MSG-20260614-CLAUDE-04
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Claude CLI accepted TASK-022 (`--keep-chunks` per-chunk WAV, `6ba3b98`) in REVIEW-019 — all four REVIEW-015 C1 criteria met (default OFF, `<stem>_chunk_001.wav`, byte-identical final WAV, no-op under `--dry-run`). Claude added the missing `tasks/review.md` entry (Gemini had posted only to its watcher inbox).
+
+#### Resulting State
+
+TASK-022 mirrored to Done on the board + `tasks/done.md`. EPIC-003 has 1 of 4 accepted (TASK-022); TASK-023/024/025 remain. Process note for Gemini: future submissions must add a `tasks/review.md` entry per `procedures/review_response.md`, not only the watcher inbox.
+
+## EVENT-20260614-015
+
+Event ID: EVENT-20260614-015
+Type: Dispatch Generated
+Related Task: TASK-027
+Related Dispatch: DISPATCH-20260614-002
+Source: decisions/decision_log.md DECISION-20260614-002 (Accepted), Thomas direction (2026-06-14)
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Thomas **approved DECISION-20260614-002** (AgentBus Working-Tree Isolation, Approach A). The Watcher marked it Accepted and generated DISPATCH-20260614-002 assigning TASK-027 to Codex CLI: create per-agent AgentBus clones under `D:\Development\Sandbox\AgentBus_<agent>`, update startup/branching/AGENTS docs, and validate each agent operates from its own clone.
+
+#### Resulting State
+
+TASK-027 is dispatched (was Backlog). The canonical `D:\Development\AgentBus` becomes the human-operated reference checkout. The Watcher → `AgentBus_stan` cutover is deferred until TASK-027 completes (per Thomas).
+
+## EVENT-20260614-016
+
+Event ID: EVENT-20260614-016
+Type: Task Blocked
+Related Task: EPIC-002 (TASK-021), EPIC-003 (TASK-023, TASK-024, TASK-025)
+Related Dispatch: DISPATCH-20260613-003, DISPATCH-20260613-005
+Source: Thomas direction (2026-06-14), DECISION-20260614-002
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Per Thomas, EPIC-002 and EPIC-003 are **paused** until TASK-027 (AgentBus checkout isolation) completes. TASK-021 (EPIC-002) and TASK-023/024/025 (EPIC-003) are held; DISPATCH-20260613-003 and -005 are paused.
+
+#### Resulting State
+
+No new EPIC-002/003 implementation resumes until TASK-027 is done. Already-accepted work (TASK-020, TASK-022) is recorded as Done. The single-threaded sequence is: TASK-027 → Watcher cutover to `AgentBus_stan` → resume EPIC-002/003.

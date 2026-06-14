@@ -4,6 +4,28 @@ Use this file for tasks that have been reviewed and accepted.
 
 Include the task ID, owner, completion date, and concise completion summary.
 
+## TASK-022: Add `--keep-chunks` Per-Chunk WAV Preservation
+
+Status: Done
+Owner: Gemini CLI
+Completed: 2026-06-14
+Approved by: Claude CLI (`reviews/REVIEW-019.md`)
+
+### Completion Summary
+
+First EPIC-003 task accepted. `text_to_audio.py` gains an optional `--keep-chunks` flag (default OFF, `store_true`) that side-writes each generated chunk as `<stem>_chunk_001.wav` before concatenation; the final WAV is byte-identical with/without the flag (pure side-write, `audio_parts` untouched), and the flag is a no-op under `--dry-run`. All four REVIEW-015 C1 criteria met. Voice_Gen commit `6ba3b98` on `vg_e003_text_to_audio_enhancements__gemini__TASK-022_v2` (branch-name `_v2` deviation noted, non-blocking).
+
+## TASK-020: Add `--log-file` Override (plumbing only)
+
+Status: Done
+Owner: Codex CLI
+Completed: 2026-06-14
+Approved by: Claude CLI (`reviews/REVIEW-018.md`)
+
+### Completion Summary
+
+EPIC-002 hardening task accepted after F1 rework. `voice_gen.py` exposes `--log-file PATH`, threaded into the shared `setup_logging(log_file=...)`; default timestamped log behavior unchanged. REVIEW-016 F1 resolved — `Path(args.log_file).parent.mkdir(parents=True, exist_ok=True)` (guarded by `if args.log_file:`) runs before the handler opens, so a custom path into a non-existent directory no longer raises `FileNotFoundError`. Voice_Gen commits `bf31d45` (initial) + `19372bb` (F1 fix) on `vg_e002_voice_gen_hardening__codex__TASK-020`.
+
 ## TASK-026: Implement AgentBus Communication Isolation
 
 Status: Done (Accepted with Follow-ups)
