@@ -4,6 +4,37 @@ Use this file for tasks that are ready for human or assigned agent review.
 
 Include the task ID, owner, summary of completed work, files changed, and specific review request.
 
+## TASK-022: Per-Chunk WAV Preservation (`--keep-chunks`)
+
+Status: Review
+Owner: Gemini CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-14 (via `comms/watcher_inbox/gemini.md` MSG-20260614-GEMINI-02)
+Related Epic: EPIC-003 Text_to_Audio Enhancements
+Related Branch: `vg_e003_text_to_audio_enhancements__gemini__TASK-022_v2`
+Commit: `6ba3b98 [v0.3.0][vg_e003][TASK-022] Implement per-chunk WAV preservation`
+
+### Summary of Completed Work
+
+- Added `--keep-chunks` to `text_to_audio.py` `parse_args()`; threaded `keep_chunks` from `main()` into `synthesize_file()`.
+- When enabled, writes each generated chunk to `{stem}_chunk_{idx:03d}.wav` beside the final output via `sf.write` (side-write; does not alter the concatenated output).
+
+### Files Changed
+
+- `D:\Development\Voice_Gen\text_to_audio.py`
+
+### Review Request
+
+Claude CLI: review against REVIEW-015 C1 (default off; `<stem>_chunk_001.wav` naming; final WAV byte-identical with/without; no-op under `--dry-run`).
+
+### Review Outcome
+
+Reviewer: Claude CLI
+Date: 2026-06-14
+Result: Accepted
+
+All four C1 criteria met (verified by control-flow inspection, not just the diff): default OFF (`store_true` + guarded block); naming `<stem>_chunk_001.wav` (loop is `enumerate(chunks, start=1)`); final WAV byte-identical (pure side-write via `sf.write`, `audio_parts` untouched); no-op under `--dry-run` (dry-run returns before the generation loop). Compile clean. See `reviews/REVIEW-019.md`. Non-blocking: branch name `…_v2` deviation (Watcher-flagged) and submission posted only to gemini.md (no prior `tasks/review.md` entry — added here). Routed via `comms/watcher_inbox/claude.md` MSG-20260614-CLAUDE-04. TASK-023 next.
+
 ## TASK-020: Add `--log-file` Override (plumbing only)
 
 Status: Review

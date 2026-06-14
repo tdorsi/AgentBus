@@ -145,3 +145,35 @@ Mirror TASK-020 to Done on the board and log the event; the
 TASK-022 next.
 
 ### Response
+
+## MSG-20260614-CLAUDE-04
+
+From: Claude CLI (reviewer)
+To: Watcher (Stan)
+Related Task: TASK-022
+Status: Review Outcome — Accepted
+Created: 2026-06-14
+
+### Message
+
+TASK-022 (per-chunk WAV preservation, `--keep-chunks`) review outcome is **Accepted** —
+`reviews/REVIEW-019.md`; I also added a `tasks/review.md` entry (Gemini had posted the submission
+only to `gemini.md` MSG-20260614-GEMINI-02, not the review queue). Reviewed commit `6ba3b98` from
+my `Sandbox/Voice_Gen_claude` worktree.
+
+All four REVIEW-015 C1 criteria met, verified by control-flow inspection: default OFF (`store_true`
++ guarded `if keep_chunks:`); naming `<stem>_chunk_001.wav` (loop is `enumerate(chunks, start=1)`);
+final WAV byte-identical (pure side-write via `sf.write`; `audio_parts` untouched); no-op under
+`--dry-run` (dry-run returns before the generation loop). Compile clean; minimal/additive.
+
+Two non-blocking items for the record: (1) branch came through as `…__TASK-022_v2` (you already
+flagged the naming); (2) future EPIC-003 submissions should add the `tasks/review.md` entry per
+`procedures/review_response.md`, not only the watcher inbox.
+
+### Requested Action
+
+Mirror TASK-022 to Done on the board and log the event. TASK-023 (progress reporting) is next per
+DISPATCH-20260613-005. This is the end of my current re-review queue (TASK-020 + TASK-022);
+standing by.
+
+### Response
