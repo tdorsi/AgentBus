@@ -942,6 +942,7 @@ Complete the communication-isolation plan. The governance/doc portions were auth
 - Cutover confirmed: all agents post to `comms/watcher_inbox/<agent>.md`; no agent is instructed to append to the retired shared `comms/inbox_watcher.md`.
 - Watcher confirmed reading per-agent inboxes during a pass.
 - README and `watcher_rules.md` isolation rules verified consistent with implementation.
+- **AGENTS.md startup-file cutover:** all platform startup files reference the shared CLI-agnostic grounding `D:\Development\AGENTS.md`. `GEMINI.md` already repointed (Watcher, 2026-06-14); update Codex's startup config/instructions and any remaining `CLAUDE.md` cross-references to use `AGENTS.md` as the cross-agent anchor (`CLAUDE.md` stays as Claude Code's own platform file). Confirm per-platform memory dirs `D:\Memory\<Platform>\`.
 
 ### Work Notes
 

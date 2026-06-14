@@ -541,3 +541,21 @@ Thomas authorized dispatching TASK-026 to Codex CLI and a coordinated pause/snap
 #### Resulting State
 
 TASK-026 is dispatched to Codex CLI (gated on the restart). Agents are pausing to snapshot completed work and will resume under the single-writer / per-agent-inbox model. Announced in MSG-20260614-001.
+
+## EVENT-20260614-003
+
+Event ID: EVENT-20260614-003
+Type: Correction
+Related Task: TASK-026
+Related Dispatch: DISPATCH-20260614-001
+Source: D:\Development\AGENTS.md, GEMINI.md, tasks/backlog.md
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+At Thomas's direction, established the shared CLI-agnostic grounding document `D:\Development\AGENTS.md` (the platform-neutral equivalent of `D:\Development\CLAUDE.md`) and began the startup-file cutover. Repointed `GEMINI.md`: startup grounding now reads `D:\Development\AGENTS.md`; inbox routing moved to Gemini's own `comms/watcher_inbox/gemini.md` (+ `comms/inbox_gemini.md`) with agent-scoped IDs; memory root set to `D:\Memory\Gemini\`; single-writer isolation rules added (no writing Watcher-owned state; own Voice_Gen working tree). The remaining startup-file repointing (Codex config, `CLAUDE.md` cross-references) and per-platform memory-dir confirmation were folded into TASK-026's acceptance criteria.
+
+#### Resulting State
+
+`AGENTS.md` is the shared grounding anchor; `GEMINI.md` references it and Gemini's own inboxes. `D:\Development` is not a git repo, so `AGENTS.md` is local (like `CLAUDE.md`). TASK-026 now covers the full startup-file cutover. The legacy `comms/inbox_claude.md` reference in `GEMINI.md` is removed.

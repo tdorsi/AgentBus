@@ -15,20 +15,21 @@ Before acting, you MUST:
 1. Synchronize with the repository: `git status -sb && git fetch origin`.
 2. Fast-forward if safe: `git pull --ff-only origin main`.
 3. Read the authoritative state files in order:
+    - `D:\Development\AGENTS.md` — CLI-agnostic workspace grounding (replaces `CLAUDE.md` as the cross-agent anchor).
     - `agent_rules.md`
     - `roles.md`
     - `sprint.md`
     - `state/agent_status.md`
     - `tasks/active.md`
-    - Your inbox in `comms/inbox_claude.md` (or relevant inbox).
+    - Your Watcher inbox `comms/watcher_inbox/gemini.md` and your direct inbox `comms/inbox_gemini.md`.
     - `comms/broadcast.md`
 
 ## Memory & Session Snapshots
 
 This project uses a structured memory system to maintain context across sessions.
 
-- **Storage Root:** `D:\Memory\Claude\` (Note: Shared with other agent interfaces).
-- **Session Snapshots:** At the end of every significant work session, you must save a context snapshot to `D:\Memory\Claude\Snapshots\`.
+- **Storage Root:** `D:\Memory\Gemini\` — your platform's own area under `D:\Memory\`. Do not write into another platform's memory (e.g. `D:\Memory\Claude\`).
+- **Session Snapshots:** At the end of every significant work session, you must save a context snapshot to `D:\Memory\Gemini\Snapshots\`.
 - **Naming Convention:** `YYYYMMDD_<topic>.md` (e.g., `20260613_Watcher_Implementation.md`).
 - **Snapshot Content:** Summarize what was built, key decisions made (with IDs), and the current operational state/next steps.
 
@@ -44,14 +45,15 @@ All commits must follow the standard format:
 ## Referenced Grounding
 
 For detailed procedures and architecture, refer to:
+- `D:\Development\AGENTS.md` - CLI-agnostic workspace grounding: coding behavior, environment notes (CUDA, TTS), and per-project guidance. Supersedes `CLAUDE.md` as the cross-agent reference (`CLAUDE.md` remains Claude Code's own platform file).
 - `README.md` - Overall AgentBus architecture and directory map.
-- `CLAUDE.md` - Coding standards and environment-specific notes (CUDA, TTS, etc.).
 - `procedures/` - Detailed SOPs for task claiming, updates, and reviews.
 - `roles.md` - Authoritative role assignments.
 - `watcher/watcher_rules.md` - Rules for the Watcher/Stan role.
 
 ## Communication Protocols
 
-- **Status Changes:** Route review outcomes, task completions, and blockers to `comms/inbox_watcher.md` for **Stan** to process.
-- **Peer Comm:** Use `comms/inbox_codex.md` for Codex CLI and `comms/broadcast.md` for team-wide announcements.
-- **Escalation:** Send questions for Thomas or Quill to their respective inboxes or use `broadcast.md` for high-visibility blockers.
+- **Single-writer isolation (DECISION-20260614-001):** Write only your own files. Do **not** write Watcher-owned state — `state/sprint_board.md`, `state/state_snapshot.md`, `watcher/event_log.md`, `watcher/dispatch_queue.md`, `tasks/done.md`, or status-change broadcasts — or any other agent's files. Use your own Voice_Gen working tree/clone for project-repo git writes.
+- **Status Changes:** Route review outcomes, task completions, and blockers to **your own** `comms/watcher_inbox/gemini.md` for **Stan** to process, using agent-scoped IDs `MSG-YYYYMMDD-GEMINI-NN`. The shared `comms/inbox_watcher.md` is retired (history only).
+- **Peer Comm:** Use `comms/inbox_codex.md` for Codex CLI, `comms/inbox_claude.md` for Claude CLI, and `comms/broadcast.md` for team-wide announcements.
+- **Escalation:** Send questions for Thomas or Quill to `comms/watcher_inbox/quill.md` or use `broadcast.md` for high-visibility blockers.
