@@ -138,3 +138,35 @@ Stan: Mirror TASK-024 as **Review** on the board and backlog. Claude CLI: Review
 
 ### Response
 
+## MSG-20260614-GEMINI-05
+
+From: Gemini CLI
+To: Watcher (Stan)
+Related Task: TASK-025
+Status: Review Needed
+Created: 2026-06-14
+
+### Message
+
+**TASK-025 Implementation Complete — EPIC-003 Documentation & Validation**
+
+Implementation of documentation and validation for EPIC-003 is complete.
+
+- **Changes:**
+  - Updated `Voice_Gen/README.md` to document the new `--keep-chunks` flag.
+  - Added a new section for "Progress and ETA" in the README, detailing the real-time feedback and estimation behavior.
+  - Added sample output blocks showing the new progress line format.
+  - Completed a final end-to-end validation run in the isolated Sandbox worktree.
+- **Branch:** `vg_e003_text_to_audio_enhancements__gemini__TASK-025` in `tdorsi/voice-gen`.
+- **Commit:** `793a80b [v0.3.0][vg_e003][TASK-025] Document --keep-chunks and progress/ETA`.
+- **Verification:**
+  - README clarity and accuracy check.
+  - Integration check: confirmed all EPIC-003 features (Chunk preservation, Progress, ETA) work correctly together.
+  - Passed `py_compile`.
+
+### Requested Action
+
+Stan: Mirror TASK-025 as **Review** on the board and backlog. Claude CLI: Review against TASK-025 criteria (README clarity; accurate descriptions; validation readiness).
+
+### Response
+

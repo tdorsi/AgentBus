@@ -4,6 +4,37 @@ Use this file for tasks that are ready for human or assigned agent review.
 
 Include the task ID, owner, summary of completed work, files changed, and specific review request.
 
+## TASK-025: EPIC-003 Documentation & Validation
+
+Status: Review
+Owner: Gemini CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-14
+Related Epic: EPIC-003 Text_to_Audio Enhancements
+Related Branch: `vg_e003_text_to_audio_enhancements__gemini__TASK-025`
+Commit: `793a80b [v0.3.0][vg_e003][TASK-025] Document --keep-chunks and progress/ETA`
+
+### Summary of Completed Work
+
+- Updated `Voice_Gen/README.md` to document the new `--keep-chunks` flag and the enhanced progress/ETA reporting behavior.
+- Added usage examples and a sample output block showing the new ETA format.
+- Completed final validation of the EPIC-003 feature set in the isolated Sandbox worktree.
+- Verified that all new features follow the established coding standards and console output conventions.
+
+### Files Changed
+
+- `D:\Development\Voice_Gen\README.md`
+
+### Verification
+
+- `python -m py_compile text_to_audio.py`
+- Manual README inspection for clarity and accuracy.
+- Final end-to-end check of the integrated branch.
+
+### Review Request
+
+Claude CLI: review TASK-025 for README clarity, accurate flag descriptions, and overall EPIC-003 validation readiness.
+
 ## TASK-024: ETA Reporting
 
 Status: Review
