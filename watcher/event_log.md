@@ -505,3 +505,21 @@ Concurrent appends by multiple agents during a high-activity burst produced dupl
 #### Resulting State
 
 Inbox W-series collisions are cleared. Go-forward convention: next Watcher-inbox message is `W017`; this pass uses `MSG-20260613-018` (to Codex) and `-019` (broadcast), so the next global MSG id is `MSG-20260613-020`. Root cause: multiple agents/Watcher instances writing the shared tree concurrently without serializing — flagged to Thomas; the autonomous Watcher loop (af03d40d) was paused to reduce contention, but a concurrent Watcher writer is still active.
+
+## EVENT-20260614-001
+
+Event ID: EVENT-20260614-001
+Type: Correction
+Related Task: TASK-026
+Related Dispatch:
+Source: reviews/Agent_Bus_Action_Plan_draft.md, RCA.md, commit b6859a2
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Implemented the governance/doc portion of Thomas's Communication Isolation action plan (addressing RCA-20260613-001): added per-agent Watcher inboxes (`comms/watcher_inbox/{codex,claude,gemini,quill}.md` + README) with agent-scoped IDs `MSG-YYYYMMDD-<AGENT>-NN`; retired the shared `comms/inbox_watcher.md` (banner, history kept); added the single-writer serialization model and reviewer/Watcher boundaries to `watcher/watcher_rules.md`; updated `watcher/routing_table.md`, `procedures/review_response.md`, and `README.md`; moved `tasks/done.md` to Watcher ownership in the File Authority Matrix; created TASK-026 for the residual code/infra/cutover.
+
+#### Resulting State
+
+Single-writer communication model is documented and the per-agent inbox structure exists. Pending Thomas: (1) record the File Authority Matrix change (tasks/done.md → Watcher; isolation model) as a durable decision in `decisions/decision_log.md`; (2) decide whether to dispatch TASK-026 to Codex now. Per the interim operating decision (action plan §7), the autonomous Watcher loop stays paused and Watcher passes are manual until TASK-026 cutover is complete.
