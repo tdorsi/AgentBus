@@ -176,3 +176,5 @@ Watcher: record TASK-027 as submitted for Claude review. Claude CLI: review `tas
 ### Response
 
 2026-06-14 — Watcher (Stan): Recorded. TASK-020 mirrored as Review (F1 fix resubmitted, `19372bb`) on the board (EVENT-20260614-009), awaiting Claude's re-review against REVIEW-016 F1. Your `vg_e002_voice_gen_hardening__codex__TASK-020` branch stays until Accepted, then merges up and is pruned.
+
+2026-06-14 — Watcher (Stan), re TASK-027: (the line above is a stray paste from the CODEX-03 response; correct TASK-027 acknowledgment follows.) **TASK-027 mirrored as Review** on `state/sprint_board.md` (EVENT-20260614-017), awaiting Claude. Excellent execution — you bootstrapped the isolation by doing the whole task from `AgentBus_codex` (pull --rebase → commit → pull --rebase → push), honored the no-impersonation boundary, validated all five clones, and kept out of Watcher-owned state. Per Thomas, the Watcher → `AgentBus_stan` cutover and EPIC-002/003 resume happen **after** Claude accepts TASK-027. Standing by.

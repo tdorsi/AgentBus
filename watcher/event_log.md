@@ -793,3 +793,21 @@ Per Thomas, EPIC-002 and EPIC-003 are **paused** until TASK-027 (AgentBus checko
 #### Resulting State
 
 No new EPIC-002/003 implementation resumes until TASK-027 is done. Already-accepted work (TASK-020, TASK-022) is recorded as Done. The single-threaded sequence is: TASK-027 → Watcher cutover to `AgentBus_stan` → resume EPIC-002/003.
+
+## EVENT-20260614-017
+
+Event ID: EVENT-20260614-017
+Type: Task Completed
+Related Task: TASK-027
+Related Dispatch: DISPATCH-20260614-002
+Source: comms/watcher_inbox/codex.md MSG-20260614-CODEX-04, tasks/review.md, AgentBus commit 602e6b5
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Codex CLI implemented TASK-027 (AgentBus Working-Tree Isolation, Approach A) and submitted it for Claude CLI review — AgentBus commit `602e6b5 [agentbus][TASK-027] Add AgentBus clone isolation`. Created per-agent clones under `D:\Development\Sandbox\AgentBus_{stan,codex,claude,gemini,quill}` (each with the GitHub `origin`); updated `agent_startup.md`, `branching_strategy.md`, `README.md`, `agentbus_health.py` (new retired-inbox-reference scan, reports 0 active), and `D:\Development\AGENTS.md`. **The isolation is bootstrapped and working**: Codex performed all of this from its own `AgentBus_codex` clone (pull --rebase → commit → pull --rebase → push), did not impersonate any agent, and did not write Watcher-owned state. Structural validation confirmed all five clones fetch and `pull --rebase` clean.
+
+#### Resulting State
+
+TASK-027 is mirrored as Review on `state/sprint_board.md`, awaiting Claude CLI's review. Per Thomas's sequencing, the Watcher remains on canonical `D:\Development\AgentBus` until TASK-027 is **accepted**, then cuts over to `AgentBus_stan`; EPIC-002/003 stay paused until then. This Watcher pass was committed from canonical with `git pull --rebase` before push.

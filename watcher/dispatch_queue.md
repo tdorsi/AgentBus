@@ -212,4 +212,8 @@ Updated: 2026-06-14
 - **Watcher → `AgentBus_stan` cutover happens after TASK-027 is complete** (per Thomas), not during.
 - Commit tag for AgentBus work: `[agentbus][TASK-027]`.
 
+#### Progress
+
+- 2026-06-14: Codex implemented TASK-027 from its own `AgentBus_codex` clone (AgentBus commit `602e6b5`) and submitted for review (MSG-20260614-CODEX-04, EVENT-20260614-017); mirrored as Review. Validation boundary honored (structural-by-Codex, no impersonation); all five clones created with `origin` and verified `pull --rebase`-clean. Awaiting Claude's review; dispatch stays open until TASK-027 is accepted, then the Watcher cuts over to `AgentBus_stan` and EPIC-002/003 resume.
+
 #### Correction

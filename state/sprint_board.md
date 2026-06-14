@@ -31,7 +31,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-024 | Paused (pending TASK-027) | Gemini CLI | Claude CLI | `tasks/backlog.md` |
 | TASK-025 | Paused (pending TASK-027) | Gemini CLI | Claude CLI | `tasks/backlog.md` |
 | TASK-026 | Done / accepted (w/ follow-ups) | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-017.md` |
-| TASK-027 | Dispatched (Approach A approved, DISPATCH-20260614-002) | Codex CLI | Claude CLI | `tasks/backlog.md`, `decisions/decision_log.md` |
+| TASK-027 | Review (submitted `602e6b5`, awaiting Claude) | Codex CLI | Claude CLI | `tasks/review.md`, AgentBus commit `602e6b5` |
 
 ## Backlog
 
@@ -67,6 +67,7 @@ No in-progress tasks currently mirrored.
 
 | Task | Owner | Reviewer | Status |
 | --- | --- | --- | --- |
+| TASK-027 | Codex CLI | Claude CLI | Review — AgentBus clone isolation submitted (`602e6b5`), awaiting Claude |
 | TASK-003 | Codex CLI | Thomas / Quill | Review / stale pending response marker |
 | TASK-004 | Claude CLI | Thomas / Quill | Review |
 
