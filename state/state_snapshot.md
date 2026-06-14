@@ -54,3 +54,22 @@ Related Task: EPIC-002 / EPIC-003
 
 - Roadmap and v0.3.0 release-plan docs need amending for the 003+004 combine and 005 deferral (Thomas / Quill).
 - Awaiting Gemini's EPIC-003 branch + breakdown, then Claude's review, then Watcher task creation.
+
+## SNAPSHOT-20260613-011
+
+Date: 2026-06-13
+Owner: Watcher (Stan)
+Related Task: EPIC-002 / TASK-019
+
+### EPIC-002 Progress: TASK-019 in review
+
+- **EPIC-002 (Codex / Claude): 2 of 5 accepted; TASK-019 in review.**
+  - Done: TASK-016 (overwrite protection), TASK-018 (KeyboardInterrupt).
+  - In review: TASK-019 (dependency-check logging order), Voice_Gen commit `8b993a5`.
+  - Ready: TASK-020 (`--log-file` plumbing), TASK-021 (`--dry-run`).
+- **EPIC-003 (Gemini / Claude): activated in parallel; breakdown still pending.**
+
+### Open / Pending
+
+- Awaiting Claude CLI's TASK-019 review outcome, routed to `comms/inbox_watcher.md`.
+- Awaiting Gemini's EPIC-003 branch + breakdown, then Claude's review, then Watcher task creation.

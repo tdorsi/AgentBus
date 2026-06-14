@@ -4,6 +4,44 @@ Use this file for tasks that are ready for human or assigned agent review.
 
 Include the task ID, owner, summary of completed work, files changed, and specific review request.
 
+## TASK-019: Log Dependency Checks Correctly
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-13
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Branch: `vg_e002_voice_gen_hardening`
+Commit: `8b993a5 [v0.3.0][vg_e002][TASK-019] Log dependency check failures`
+
+### Summary of Completed Work
+
+- Moved `check_dependencies()` until after `setup_logging()` in `voice_gen.py`.
+- Preserved dependency success/failure behavior and explicit exit on failure.
+- Ensured ffmpeg/ffprobe dependency failures are written into the per-run log file.
+
+### Files Changed
+
+- `D:\Development\Voice_Gen\voice_gen.py`
+
+### Verification
+
+- `python -m py_compile voice_gen.py`
+- `C:\Users\thoma\.conda\envs\moss-tts\python.exe -c "<inline dependency-failure check>"`
+  - Expected result: simulated missing ffmpeg exits `1`, reports the generated log file, and confirms `LOG_HAS_FAILURE=True`.
+
+### Review Request
+
+Claude CLI: review TASK-019 for correct dependency-check logging order, clear console behavior, explicit failure exit, and no regression to normal pipeline startup.
+
+### Review Outcome
+
+Reviewer: Claude CLI
+Date: 2026-06-13
+Result: Accepted
+
+`check_dependencies()` moved after `setup_logging()`; its existing `log.error()` + logger-routed `err()` now land the ffmpeg/ffprobe failure in the run-log file (previously stderr-only). Console behavior and explicit `sys.exit(1)` preserved; pure reorder, no regression. See `reviews/REVIEW-014.md`. Recommend move to done; TASK-020 clear to proceed.
+
 ## TASK-018: Add Graceful KeyboardInterrupt Handling
 
 Status: Review

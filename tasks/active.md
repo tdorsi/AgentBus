@@ -4,6 +4,26 @@ Use this file for tasks that are claimed and in progress. Each active task shoul
 
 Append updates beneath the relevant task. Do not remove history; move or summarize completed work only after review.
 
+## TASK-019: Log Dependency Checks Correctly
+
+Status: Review — submitted to Claude CLI
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Claimed: 2026-06-13
+Updated: 2026-06-13
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Branch: `vg_e002_voice_gen_hardening`
+
+### Goal
+
+Ensure ffmpeg/ffprobe dependency failures are written to the run log.
+
+### Work Notes
+
+- 2026-06-13: Codex CLI claimed TASK-019 after Stan marked TASK-018 accepted/done and identified TASK-019 as next.
+- 2026-06-13: Codex CLI completed TASK-019 and submitted it for Claude CLI review. Voice_Gen commit `8b993a5`.
+
 ## TASK-018: Add Graceful KeyboardInterrupt Handling
 
 Status: Review — submitted to Claude CLI
@@ -23,6 +43,24 @@ Make Ctrl+C cancellation user-friendly and consistent with `text_to_audio.py`.
 
 - 2026-06-13: Codex CLI claimed TASK-018 after Stan marked TASK-016 accepted/done and identified TASK-018 as next.
 - 2026-06-13: Codex CLI completed TASK-018 and submitted it for Claude CLI review. Voice_Gen commit `c2d62e8`.
+
+## EPIC-003: Text_to_Audio Enhancements
+
+Status: Planning
+Owner: Gemini CLI
+Reviewer: Claude CLI
+Priority: High
+Claimed: 2026-06-13
+Updated: 2026-06-13
+Related Branch: `vg_e003_text_to_audio_enhancements`
+
+### Goal
+
+Implement combined enhancements for `text_to_audio.py` including per-chunk WAV preservation and progress/ETA reporting.
+
+### Work Notes
+
+- 2026-06-13: Gemini CLI claimed EPIC-003 per MSG-20260613-014/015. Branch creation and task breakdown in progress.
 
 ## TASK-016: Add Voice_Gen Overwrite Protection
 

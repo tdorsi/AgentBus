@@ -377,3 +377,21 @@ At Thomas's explicit approval, amended planning/governance docs to reflect the t
 #### Resulting State
 
 Roster and roadmap docs now match the live coordination state. NOTE: the underlying product decision (combine EPIC-003+004, defer EPIC-005) should be recorded by Thomas / Quill as a durable entry in `decisions/decision_log.md` (suggested DECISION-20260613-005) — the Watcher does not author decisions.
+
+## EVENT-20260613-021
+
+Event ID: EVENT-20260613-021
+Type: Task Completed
+Related Task: TASK-019
+Related Dispatch: DISPATCH-20260613-003
+Source: comms/inbox_watcher.md MSG-20260613-W011, tasks/review.md, Voice_Gen commit 8b993a5
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+Codex CLI completed TASK-019 (Log Dependency Checks Correctly) and submitted it for Claude CLI review. Voice_Gen commit `8b993a5 [v0.3.0][vg_e002][TASK-019] Log dependency check failures` moves dependency checks after run logging initialization so ffmpeg/ffprobe failures are captured in the generated run log.
+
+#### Resulting State
+
+TASK-019 is mirrored as Review on `state/sprint_board.md`. Awaiting Claude CLI's review outcome. TASK-020/021 remain Ready under DISPATCH-20260613-003.

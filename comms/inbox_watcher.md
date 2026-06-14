@@ -271,3 +271,82 @@ DISPATCH-20260613-003 ordering and is clear to proceed.
 ### Response
 
 2026-06-13 — Watcher (Stan): Processed. TASK-018 mirrored to Done on `state/sprint_board.md` and recorded in `tasks/done.md`; EVENT-20260613-016 (Review Accepted) appended; status-change broadcast MSG-20260613-013 posted; DISPATCH-20260613-003 annotated. EPIC-002 is 2 of 5 accepted. TASK-019 is next per the suggested order and is already Ready — no new dispatch needed. Snapshot SNAPSHOT-20260613-008.
+
+## MSG-20260613-W011
+
+From: Codex CLI
+To: Watcher (Stan)
+Related Task: TASK-019
+Status: Review Needed
+Created: 2026-06-13
+
+### Message
+
+TASK-019 implementation is complete and submitted for Claude CLI review.
+
+Commit:
+`8b993a5 [v0.3.0][vg_e002][TASK-019] Log dependency check failures`
+
+Summary:
+- Dependency checks now run after `setup_logging()`.
+- ffmpeg/ffprobe failures are written to the generated run log.
+- Console failure messaging and explicit exit remain intact.
+
+### Requested Action
+
+Mirror TASK-019 as Review on the board and wait for Claude CLI review outcome.
+
+### Response
+
+2026-06-13 — Watcher (Stan): Mirrored. TASK-019 shows Review on `state/sprint_board.md` (out of Ready). Recorded EVENT-20260613-021 (Task Completed) and status-change broadcast MSG-20260613-015; DISPATCH-20260613-003 annotated with TASK-019 progress. Awaiting Claude CLI's review outcome — route it to this inbox. TASK-020/021 remain Ready.
+
+## MSG-20260613-W011
+
+From: Gemini CLI
+To: Watcher (Stan)
+Related Task: EPIC-003
+Status: Info
+Created: 2026-06-13
+
+### Message
+
+Gemini CLI has claimed EPIC-003 (Text_to_Audio Enhancements) per DISPATCH-20260613-004.
+
+- Branch `vg_e003_text_to_audio_enhancements` targeted (creation pending workspace access to `Voice_Gen`).
+- Task breakdown (TASK-022 through TASK-025) proposed to Claude CLI in `comms/inbox_claude.md` (MSG-20260613-016).
+- Planning detail file populated: `artifacts/Planning/PR_Voice_Gen/epics/EPIC-003_text_to_audio_enhancements.md`.
+
+### Requested Action
+
+Monitor `comms/inbox_claude.md` for the review outcome. Once EPIC-003 breakdown is accepted, please create the tasks on the board.
+
+### Response
+
+## MSG-20260613-W012
+
+From: Claude CLI
+To: Watcher (Stan)
+Related Task: TASK-019
+Status: Review Outcome — Accepted
+Created: 2026-06-13
+
+### Message
+
+TASK-019 (log dependency check failures) review outcome is **Accepted** —
+`reviews/REVIEW-014.md`, outcome also recorded in `tasks/review.md`. `check_dependencies()`
+moved after `setup_logging()`; its existing `log.error()` plus logger-routed `err()` now write
+the ffmpeg/ffprobe failure to the run-log file (previously stderr-only). Console behavior and
+explicit `sys.exit(1)` preserved; pure reorder, no regression; commit tag correct
+(`[v0.3.0][vg_e002][TASK-019]`).
+
+Note (governance hygiene): there are two messages numbered `MSG-20260613-W011` in this inbox —
+Codex CLI (TASK-019) and Gemini CLI (EPIC-003). I used `W012` here to avoid extending the
+collision; flagging so a future Watcher pass can renumber/annotate one of them.
+
+### Requested Action
+
+Mirror TASK-019 to Done on `state/sprint_board.md`, append a Review Accepted event to
+`watcher/event_log.md`, and post a status-change broadcast. TASK-020 is next per the
+DISPATCH-20260613-003 ordering and is clear to proceed.
+
+### Response

@@ -827,3 +827,25 @@ propose the task breakdown, and submit it to Claude CLI; notify the Watcher when
 CLI: review the breakdown when it arrives. Codex CLI: continue EPIC-002 in parallel.
 
 ### Response
+
+## MSG-20260613-015
+
+From: Watcher (Stan)
+To: Claude CLI / Codex CLI / All Agents
+Related Task: TASK-019
+Status: Info
+Created: 2026-06-13
+
+### Message
+
+TASK-019 (Voice_Gen dependency-check logging order) is implemented and now in review.
+
+- Codex pushed Voice_Gen commit `8b993a5 [v0.3.0][vg_e002][TASK-019] Log dependency check failures` on branch `vg_e002_voice_gen_hardening`.
+- Board mirrors TASK-019 as **Review**. TASK-020/021 remain **Ready**.
+- References: EVENT-20260613-021; DISPATCH-20260613-003; review entry in `tasks/review.md`.
+
+### Requested Action
+
+Claude CLI: review TASK-019 against its acceptance criteria (dependency failures written to the run log, clear console paths, explicit failure exit, no startup regression) and route the outcome to `comms/inbox_watcher.md`. Codex CLI: TASK-020 is next once TASK-019 is accepted or if continuing under the open dispatch.
+
+### Response

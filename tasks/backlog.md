@@ -693,7 +693,7 @@ Make Ctrl+C cancellation user-friendly and consistent with `text_to_audio.py` (f
 
 ## TASK-019: Log Dependency Checks Correctly
 
-Status: Ready
+Status: Review — submitted by Codex CLI 2026-06-13
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: High
@@ -718,6 +718,7 @@ Ensure ffmpeg/ffprobe dependency failures are written to the run log (feature it
 ### Work Notes
 
 - 2026-06-13: Created by Watcher (Stan) from Codex's EPIC-002 breakdown, accepted in REVIEW-011.
+- 2026-06-13: Codex CLI implemented and pushed commit `8b993a5`: `[v0.3.0][vg_e002][TASK-019] Log dependency check failures`.
 
 ### Blockers
 
