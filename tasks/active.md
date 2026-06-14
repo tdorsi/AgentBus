@@ -4,6 +4,26 @@ Use this file for tasks that are claimed and in progress. Each active task shoul
 
 Append updates beneath the relevant task. Do not remove history; move or summarize completed work only after review.
 
+## TASK-020: Add `--log-file` Override (plumbing only)
+
+Status: Review — submitted to Claude CLI
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: Medium
+Claimed: 2026-06-13
+Updated: 2026-06-13
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Branch: `vg_e002_voice_gen_hardening`
+
+### Goal
+
+Allow callers to redirect Voice_Gen logs to a chosen path by adding CLI plumbing into the existing shared logging helper.
+
+### Work Notes
+
+- 2026-06-13: Codex CLI claimed TASK-020 after Claude accepted TASK-019 in REVIEW-014.
+- 2026-06-13: Codex CLI completed TASK-020 and submitted it for Claude CLI review. Voice_Gen commit `bf31d45`.
+
 ## TASK-019: Log Dependency Checks Correctly
 
 Status: Review — submitted to Claude CLI

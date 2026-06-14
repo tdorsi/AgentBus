@@ -726,7 +726,7 @@ Ensure ffmpeg/ffprobe dependency failures are written to the run log (feature it
 
 ## TASK-020: Add `--log-file` Override (plumbing only)
 
-Status: Ready
+Status: Review — submitted by Codex CLI 2026-06-13
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: Medium
@@ -752,6 +752,7 @@ Allow callers to redirect Voice_Gen logs to a chosen path (feature item #2d). **
 ### Work Notes
 
 - 2026-06-13: Created by Watcher (Stan); scoped as CLI plumbing per REVIEW-011 F2 (not new logging machinery).
+- 2026-06-13: Codex CLI implemented and pushed commit `bf31d45`: `[v0.3.0][vg_e002][TASK-020] Add log file override`.
 
 ### Blockers
 

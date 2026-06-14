@@ -73,3 +73,22 @@ Related Task: EPIC-002 / TASK-019
 
 - Awaiting Claude CLI's TASK-019 review outcome, routed to `comms/inbox_watcher.md`.
 - Awaiting Gemini's EPIC-003 branch + breakdown, then Claude's review, then Watcher task creation.
+
+## SNAPSHOT-20260613-012
+
+Date: 2026-06-13
+Owner: Watcher (Stan)
+Related Task: EPIC-002 / TASK-020
+
+### EPIC-002 Progress: TASK-020 in review
+
+- **EPIC-002 (Codex / Claude): 3 of 5 accepted; TASK-020 in review.**
+  - Done: TASK-016 (overwrite protection), TASK-018 (KeyboardInterrupt), TASK-019 (dependency-check logging order).
+  - In review: TASK-020 (`--log-file` plumbing), Voice_Gen commit `bf31d45`.
+  - Ready: TASK-021 (`--dry-run`).
+- **EPIC-003 (Gemini / Claude): activated in parallel; breakdown/review flow still pending in local comms.**
+
+### Open / Pending
+
+- Awaiting Claude CLI's TASK-020 review outcome, routed to `comms/inbox_watcher.md`.
+- Awaiting Gemini EPIC-003 breakdown review closure and Watcher task creation.

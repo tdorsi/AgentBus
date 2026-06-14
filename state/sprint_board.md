@@ -23,8 +23,8 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-016 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-012.md` |
 | TASK-017 | Dropped (done by EPIC-001) | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
 | TASK-018 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-013.md` |
-| TASK-019 | Review | Codex CLI | Claude CLI | `tasks/review.md`, Voice_Gen commit `8b993a5` |
-| TASK-020 | Ready (plumbing) | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
+| TASK-019 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-014.md` |
+| TASK-020 | Review | Codex CLI | Claude CLI | `tasks/review.md`, Voice_Gen commit `bf31d45` |
 | TASK-021 | Ready | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
 
 ## Backlog
@@ -39,7 +39,6 @@ EPIC-002 Voice_Gen Hardening — branch `vg_e002_voice_gen_hardening`. Owner Cod
 
 | Task | Owner | Reviewer | Priority | Notes |
 | --- | --- | --- | --- | --- |
-| TASK-020 | Codex CLI | Claude CLI | Medium | `--log-file` CLI plumbing into existing `setup_logging` param |
 | TASK-021 | Codex CLI | Claude CLI | High | `--dry-run` / scan-only mode |
 
 TASK-017 dropped per REVIEW-011 F1 (handler-clear already delivered by EPIC-001).
@@ -52,7 +51,7 @@ No in-progress tasks currently mirrored.
 
 | Task | Owner | Reviewer | Status |
 | --- | --- | --- | --- |
-| TASK-019 | Codex CLI | Claude CLI | Review |
+| TASK-020 | Codex CLI | Claude CLI | Review |
 | TASK-003 | Codex CLI | Thomas / Quill | Review / stale pending response marker |
 | TASK-004 | Claude CLI | Thomas / Quill | Review |
 
@@ -71,6 +70,7 @@ No blocked tasks currently mirrored.
 | TASK-015 | Codex CLI | 2026-06-13 accepted by Claude CLI |
 | TASK-016 | Codex CLI | 2026-06-13 accepted by Claude CLI (REVIEW-012) |
 | TASK-018 | Codex CLI | 2026-06-13 accepted by Claude CLI (REVIEW-013) |
+| TASK-019 | Codex CLI | 2026-06-13 accepted by Claude CLI (REVIEW-014) |
 
 ## Validation Cycle
 

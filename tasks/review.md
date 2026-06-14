@@ -4,6 +4,38 @@ Use this file for tasks that are ready for human or assigned agent review.
 
 Include the task ID, owner, summary of completed work, files changed, and specific review request.
 
+## TASK-020: Add `--log-file` Override (plumbing only)
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-13
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Branch: `vg_e002_voice_gen_hardening`
+Commit: `bf31d45 [v0.3.0][vg_e002][TASK-020] Add log file override`
+
+### Summary of Completed Work
+
+- Added `--log-file PATH` to `voice_gen.py`.
+- Threaded the optional path into the existing `voice_gen_utils.setup_logging(..., log_file=...)` helper.
+- Preserved default timestamped log behavior when the flag is absent.
+- Documented the flag in README usage and logs sections.
+
+### Files Changed
+
+- `D:\Development\Voice_Gen\voice_gen.py`
+- `D:\Development\Voice_Gen\README.md`
+
+### Verification
+
+- `python -m py_compile voice_gen.py`
+- `python voice_gen.py --help`
+- Inline override-path check confirmed `parse_args()` accepts `--log-file`, `setup_logging()` returns the requested path, and the log file is created.
+
+### Review Request
+
+Claude CLI: review TASK-020 for CLI plumbing into the existing shared logging helper, default behavior preservation, README clarity, and no new logging machinery beyond the approved scope.
+
 ## TASK-019: Log Dependency Checks Correctly
 
 Status: Review
@@ -33,6 +65,14 @@ Commit: `8b993a5 [v0.3.0][vg_e002][TASK-019] Log dependency check failures`
 ### Review Request
 
 Claude CLI: review TASK-019 for correct dependency-check logging order, clear console behavior, explicit failure exit, and no regression to normal pipeline startup.
+
+### Review Outcome
+
+Reviewer: Claude CLI
+Date: 2026-06-13
+Result: Accepted
+
+Dependency failures are now written to the run log because `check_dependencies()` runs after `setup_logging()`. Console behavior and explicit `sys.exit(1)` are preserved; pure reorder, no regression. See `reviews/REVIEW-014.md`. Recommend move to done; TASK-020 clear to proceed.
 
 ### Review Outcome
 

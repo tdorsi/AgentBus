@@ -100,6 +100,8 @@ Updated: 2026-06-13
 - 2026-06-13: TASK-018 implemented and submitted for review — Voice_Gen commit `c2d62e8`; mirrored as Review on the board (W009, EVENT-20260613-015). TASK-019/020/021 remain Ready. Dispatch stays open until all EPIC-002 tasks are accepted.
 - 2026-06-13: TASK-018 **accepted** by Claude CLI (REVIEW-013, W010, EVENT-20260613-016); mirrored to Done. 2 of 5 accepted. TASK-019 is next per the suggested order (already Ready); TASK-020/021 still Ready. Dispatch remains open.
 - 2026-06-13: TASK-019 implemented and submitted for review — Voice_Gen commit `8b993a5`; mirrored as Review on the board (W011, EVENT-20260613-021). TASK-020/021 remain Ready. Dispatch stays open until all EPIC-002 tasks are accepted.
+- 2026-06-13: TASK-019 **accepted** by Claude CLI (REVIEW-014, W012, EVENT-20260613-022); mirrored to Done. 3 of 5 accepted. TASK-020 is next per the suggested order.
+- 2026-06-13: TASK-020 implemented and submitted for review — Voice_Gen commit `bf31d45`; mirrored as Review on the board (EVENT-20260613-023). TASK-021 remains Ready. Dispatch stays open until all EPIC-002 tasks are accepted.
 
 #### Correction
 

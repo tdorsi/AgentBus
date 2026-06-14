@@ -395,3 +395,39 @@ Codex CLI completed TASK-019 (Log Dependency Checks Correctly) and submitted it 
 #### Resulting State
 
 TASK-019 is mirrored as Review on `state/sprint_board.md`. Awaiting Claude CLI's review outcome. TASK-020/021 remain Ready under DISPATCH-20260613-003.
+
+## EVENT-20260613-022
+
+Event ID: EVENT-20260613-022
+Type: Review Accepted
+Related Task: TASK-019
+Related Dispatch: DISPATCH-20260613-003
+Source: reviews/REVIEW-014.md, tasks/review.md, comms/inbox_watcher.md MSG-20260613-W012
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+Claude CLI accepted TASK-019 (Log Dependency Checks Correctly) in REVIEW-014. Dependency failures are now written to the run log because `check_dependencies()` runs after `setup_logging()`; console behavior and explicit `sys.exit(1)` are preserved.
+
+#### Resulting State
+
+TASK-019 is mirrored to Done on `state/sprint_board.md` and recorded in `tasks/done.md`. EPIC-002 now has 3 of 5 tasks accepted (TASK-016, TASK-018, TASK-019). TASK-020 is next per DISPATCH-20260613-003.
+
+## EVENT-20260613-023
+
+Event ID: EVENT-20260613-023
+Type: Task Completed
+Related Task: TASK-020
+Related Dispatch: DISPATCH-20260613-003
+Source: tasks/review.md, Voice_Gen commit bf31d45
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+Codex CLI completed TASK-020 (`--log-file` plumbing) and submitted it for Claude CLI review. Voice_Gen commit `bf31d45 [v0.3.0][vg_e002][TASK-020] Add log file override` adds the CLI flag, passes the optional path into the existing shared logging helper, preserves default timestamped logs, and updates README.
+
+#### Resulting State
+
+TASK-020 is mirrored as Review on `state/sprint_board.md`. Awaiting Claude CLI's review outcome. TASK-021 remains Ready under DISPATCH-20260613-003.

@@ -849,3 +849,49 @@ TASK-019 (Voice_Gen dependency-check logging order) is implemented and now in re
 Claude CLI: review TASK-019 against its acceptance criteria (dependency failures written to the run log, clear console paths, explicit failure exit, no startup regression) and route the outcome to `comms/inbox_watcher.md`. Codex CLI: TASK-020 is next once TASK-019 is accepted or if continuing under the open dispatch.
 
 ### Response
+
+## MSG-20260613-016
+
+From: Watcher (Stan)
+To: Codex CLI / Claude CLI / All Agents
+Related Task: TASK-019 / EPIC-002
+Status: Info
+Created: 2026-06-13
+
+### Message
+
+TASK-019 (dependency-check logging order) is **accepted and done**.
+
+- Claude CLI accepted it in `reviews/REVIEW-014.md` (dependency failures written to the run log; console behavior and explicit exit preserved; no regression).
+- Board mirrors TASK-019 as **Done**; recorded in `tasks/done.md`. Event: EVENT-20260613-022.
+- **TASK-020** (`--log-file` plumbing) was next and has now been submitted for review. TASK-021 remains Ready.
+
+EPIC-002 progress: **3 of 5** tasks accepted (TASK-016, TASK-018, TASK-019); TASK-017 dropped.
+
+### Requested Action
+
+Claude CLI: review TASK-020 as submitted. Codex CLI: TASK-021 is next after TASK-020 acceptance.
+
+### Response
+
+## MSG-20260613-017
+
+From: Watcher (Stan)
+To: Claude CLI / Codex CLI / All Agents
+Related Task: TASK-020
+Status: Info
+Created: 2026-06-13
+
+### Message
+
+TASK-020 (`--log-file` override plumbing) is implemented and now in review.
+
+- Codex pushed Voice_Gen commit `bf31d45 [v0.3.0][vg_e002][TASK-020] Add log file override` on branch `vg_e002_voice_gen_hardening`.
+- Board mirrors TASK-020 as **Review**. TASK-021 remains **Ready**.
+- References: EVENT-20260613-023; DISPATCH-20260613-003; review entry in `tasks/review.md`.
+
+### Requested Action
+
+Claude CLI: review TASK-020 against its reduced plumbing scope (CLI arg plus pass-through to existing `setup_logging(log_file=...)`, default behavior unchanged, README/usage clarity) and route the outcome to `comms/inbox_watcher.md`.
+
+### Response

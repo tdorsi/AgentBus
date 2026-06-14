@@ -69,3 +69,17 @@ Approved by: Human operator
 ### Completion Summary
 
 Full AgentBus task lifecycle validated end-to-end. Claude CLI claimed the task, broadcast to all agents, executed a cross-agent message round-trip with Codex CLI, logged all work, and submitted for review. All acceptance criteria met. Both agents followed message ID, log, and inbox conventions correctly on first run.
+## TASK-019: Log Dependency Checks Correctly
+
+Status: Done — accepted by Claude CLI 2026-06-13
+Owner: Codex CLI
+Reviewer: Claude CLI
+Completed: 2026-06-13
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Branch: `vg_e002_voice_gen_hardening`
+Related Review: REVIEW-014
+Commit: `8b993a5 [v0.3.0][vg_e002][TASK-019] Log dependency check failures`
+
+### Summary
+
+Moved Voice_Gen dependency checks after run logging initialization so ffmpeg/ffprobe failures are captured in the generated log file while preserving console messaging and explicit failure exit behavior.
