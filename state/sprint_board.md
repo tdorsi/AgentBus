@@ -25,11 +25,11 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-018 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-013.md` |
 | TASK-019 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-014.md` |
 | TASK-020 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-018.md` |
-| TASK-021 | Ready (resumed) | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
+| TASK-021 | Review | Codex CLI | Claude CLI | `tasks/review.md`, Voice_Gen commit `6529caa` |
 | TASK-022 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-019.md` |
-| TASK-023 | Ready (resumed) | Gemini CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-015.md` |
-| TASK-024 | Ready (resumed) | Gemini CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-015.md` |
-| TASK-025 | Ready (resumed) | Gemini CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-015.md` |
+| TASK-023 | Review | Gemini CLI | Claude CLI | `tasks/review.md`, Voice_Gen commit `de773cd` |
+| TASK-024 | Review | Gemini CLI | Claude CLI | `tasks/review.md`, Voice_Gen commit `3530bd5` |
+| TASK-025 | Review | Gemini CLI | Claude CLI | `tasks/review.md`, Voice_Gen commit `793a80b` |
 | TASK-026 | Done / accepted (w/ follow-ups) | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-017.md` |
 | TASK-027 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-020.md` |
 
@@ -41,23 +41,10 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 
 ## Ready
 
-**EPIC-002 and EPIC-003 RESUMED** (2026-06-14) — TASK-027 accepted; the AgentBus per-agent-clone isolation is complete and the Watcher has cut over to `AgentBus_stan`.
+No ready/unstarted tasks — **all EPIC-002 and EPIC-003 implementation is submitted and in review** (2026-06-14).
 
-EPIC-002 Voice_Gen Hardening — branch `vg_e002_voice_gen_hardening`. Owner Codex CLI, Reviewer Claude CLI. TASK-016/018/019/020 accepted; **TASK-021 is the last item (next up)**.
-
-| Task | Owner | Reviewer | Priority | Notes |
-| --- | --- | --- | --- | --- |
-| TASK-021 | Codex CLI | Claude CLI | High | `--dry-run` / scan-only mode |
-
-TASK-017 dropped per REVIEW-011 F1 (handler-clear already delivered by EPIC-001).
-
-EPIC-003 Text_to_Audio Enhancements (combined w/ Progress Reporting) — branch `vg_e003_text_to_audio_enhancements`. Owner Gemini CLI, Reviewer Claude CLI. Under DISPATCH-20260613-005. TASK-022 accepted; **TASK-023 next**, then 024/025.
-
-| Task | Owner | Reviewer | Priority | Notes |
-| --- | --- | --- | --- | --- |
-| TASK-023 | Gemini CLI | Claude CLI | Medium | Progress reporting (shared console helpers; real-synthesis only) |
-| TASK-024 | Gemini CLI | Claude CLI | Medium | ETA (completed-chunk throughput; `--voice all` aware) |
-| TASK-025 | Gemini CLI | Claude CLI | Medium | Docs + recorded end-to-end validation |
+- **EPIC-002** Voice_Gen Hardening (`vg_e002_voice_gen_hardening`): TASK-016/018/019/020 accepted; **TASK-021 in review** (last EPIC-002 item). TASK-017 dropped (REVIEW-011 F1).
+- **EPIC-003** Text_to_Audio Enhancements (`vg_e003_text_to_audio_enhancements`): TASK-022 accepted; **TASK-023/024/025 in review**.
 
 ## In Progress
 
@@ -67,6 +54,10 @@ No in-progress tasks currently mirrored.
 
 | Task | Owner | Reviewer | Status |
 | --- | --- | --- | --- |
+| TASK-021 | Codex CLI | Claude CLI | Review — `--dry-run` submitted (`6529caa`), awaiting Claude |
+| TASK-023 | Gemini CLI | Claude CLI | Review — progress tracking submitted (`de773cd`), awaiting Claude |
+| TASK-024 | Gemini CLI | Claude CLI | Review — ETA reporting submitted (`3530bd5`), awaiting Claude |
+| TASK-025 | Gemini CLI | Claude CLI | Review — docs + validation submitted (`793a80b`), awaiting Claude |
 | TASK-003 | Codex CLI | Thomas / Quill | Review / stale pending response marker |
 | TASK-004 | Claude CLI | Thomas / Quill | Review |
 

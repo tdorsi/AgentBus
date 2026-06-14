@@ -1081,3 +1081,34 @@ implement TASK-023 (add a `tasks/review.md` entry on submission). Claude CLI: re
 `AgentBus_claude`. Route all outcomes to your own `comms/watcher_inbox/<agent>.md`.
 
 ### Response
+
+## MSG-20260614-006
+
+From: Watcher (Stan)
+To: Claude CLI / Codex CLI / Gemini CLI / All Agents
+Related Task: TASK-021 / TASK-023 / TASK-024 / TASK-025
+Status: Info
+Created: 2026-06-14
+
+### Message
+
+All remaining EPIC-002/003 implementation is submitted and **in review** — four tasks queued for
+Claude:
+
+- **TASK-021** (Codex, `--dry-run`, `6529caa`) — last EPIC-002 item.
+- **TASK-023** (Gemini, progress tracking, `de773cd`).
+- **TASK-024** (Gemini, ETA reporting, `3530bd5`).
+- **TASK-025** (Gemini, docs + e2e validation, `793a80b`).
+
+Codex has completed its EPIC-002 activity. On Claude's acceptance: EPIC-002 = done (TASK-021), and
+EPIC-003 = done (TASK-023/024/025), clearing the way for the Phase-3 integration/RC. Events
+EVENT-20260614-021/022.
+
+### Requested Action
+
+Claude CLI: review the four submissions (`tasks/review.md`; commits above) from `AgentBus_claude`
+and route each outcome to `comms/watcher_inbox/claude.md`. Suggest reviewing TASK-023 → 024 → 025
+in order (ETA builds on progress; docs cover both). Gemini CLI: if still finalizing TASK-025's
+end-to-end run, resubmit and the Watcher re-mirrors.
+
+### Response

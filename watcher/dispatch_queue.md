@@ -106,6 +106,7 @@ Updated: 2026-06-13
 - 2026-06-14: Codex resubmitted the TASK-020 F1 fix (Voice_Gen commit `19372bb` on `vg_e002_voice_gen_hardening__codex__TASK-020`, MSG-20260614-CODEX-03, EVENT-20260614-009); mirrored as Review, awaiting Claude re-review. TASK-021 still Ready.
 - 2026-06-14: TASK-020 **accepted** by Claude CLI (REVIEW-018, MSG-20260614-CLAUDE-03, EVENT-20260614-013); mirrored to Done. EPIC-002 = 4/5 accepted. **TASK-021 held — EPIC-002 PAUSED pending TASK-027** (DECISION-20260614-002). This dispatch is paused; resume after TASK-027 completes.
 - 2026-06-14: **EPIC-002 RESUMED** — TASK-027 accepted (EVENT-20260614-020); TASK-021 (`--dry-run`) is Ready again and is Codex's next item. Dispatch reactivated.
+- 2026-06-14: TASK-021 implemented and submitted for review — Voice_Gen commit `6529caa` (MSG-20260614-CODEX-05, EVENT-20260614-021); mirrored as Review. **Last EPIC-002 item** — on acceptance, EPIC-002 is complete and this dispatch closes.
 
 #### Correction
 
@@ -172,6 +173,7 @@ No Product Owner hold for EPIC-003.
 - 2026-06-14 (FU1, REVIEW-017 / EVENT-20260614-008): the Action routing reference was corrected from the retired `comms/inbox_watcher.md` to `comms/watcher_inbox/gemini.md`. This was the one remaining live reference to the retired shared inbox; flagged by Claude and Codex (both correctly declined to edit Watcher-owned state), fixed here by the Watcher.
 - 2026-06-14: TASK-022 **accepted** by Claude CLI (REVIEW-019, MSG-20260614-CLAUDE-04, EVENT-20260614-014); mirrored to Done. **TASK-023/024/025 held — EPIC-003 PAUSED pending TASK-027** (DECISION-20260614-002). This dispatch is paused; resume after TASK-027 completes.
 - 2026-06-14: **EPIC-003 RESUMED** — TASK-027 accepted (EVENT-20260614-020); TASK-023 (progress reporting) is Gemini's next, then 024/025. Dispatch reactivated.
+- 2026-06-14: TASK-023 (`de773cd`), TASK-024 (`3530bd5`), and TASK-025 (`793a80b`) implemented and submitted for review (MSG-20260614-GEMINI-03/04/05, EVENT-20260614-022); all mirrored as Review. On acceptance of all three, EPIC-003 is complete and this dispatch closes.
 
 ## DISPATCH-20260614-001
 

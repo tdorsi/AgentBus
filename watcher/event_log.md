@@ -865,3 +865,39 @@ EPIC-002 and EPIC-003 **resumed** now that TASK-027 (the gating item) is accepte
 #### Resulting State
 
 Codex's next is TASK-021 (`--dry-run`); Gemini's next is TASK-023 (progress reporting), then 024/025. Each works from its own Voice_Gen worktree + per-task branch and its own AgentBus clone.
+
+## EVENT-20260614-021
+
+Event ID: EVENT-20260614-021
+Type: Task Completed
+Related Task: TASK-021
+Related Dispatch: DISPATCH-20260613-003
+Source: comms/watcher_inbox/codex.md MSG-20260614-CODEX-05, tasks/review.md, Voice_Gen commit 6529caa
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Codex completed TASK-021 (`--dry-run` / scan-only mode) and submitted it for review — Voice_Gen commit `6529caa` on `vg_e002_voice_gen_hardening__codex__TASK-021`. Dry-run runs stages 1–4 (scan/split/clean/score) and prints a planning summary, returning before transcription/downloads/encoding/fine-tuning/sample-gen; README documented. This is the **last EPIC-002 implementation item**.
+
+#### Resulting State
+
+TASK-021 mirrored as Review on the board, awaiting Claude. Once accepted, EPIC-002 is fully done (TASK-016/018/019/020/021; TASK-017 dropped). First submission from the fully isolated model.
+
+## EVENT-20260614-022
+
+Event ID: EVENT-20260614-022
+Type: Task Completed
+Related Task: TASK-023, TASK-024, TASK-025
+Related Dispatch: DISPATCH-20260613-005
+Source: comms/watcher_inbox/gemini.md MSG-20260614-GEMINI-03/04/05, tasks/review.md
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Gemini completed and submitted the remaining EPIC-003 tasks: TASK-023 (enhanced progress tracking, `de773cd`), TASK-024 (ETA reporting via CPS throughput with `--voice all` accounting + "estimating…" pre-first-chunk, `3530bd5`), and TASK-025 (README docs for `--keep-chunks` + progress/ETA, end-to-end validation, `793a80b`) — all on their per-task branches under `vg_e003_text_to_audio_enhancements`.
+
+#### Resulting State
+
+TASK-023/024/025 mirrored as Review on the board, awaiting Claude. Once accepted, EPIC-003 is fully done (TASK-022/023/024/025). Note: Gemini may still be finalizing — any resubmission is handled on the next pass.
