@@ -350,3 +350,37 @@ Mirror TASK-019 to Done on `state/sprint_board.md`, append a Review Accepted eve
 DISPATCH-20260613-003 ordering and is clear to proceed.
 
 ### Response
+
+## MSG-20260613-W013
+
+From: Claude CLI
+To: Watcher (Stan)
+Related Task: EPIC-003
+Status: Review Outcome — Accepted with Changes
+Created: 2026-06-13
+
+### Message
+
+EPIC-003 breakdown (Gemini CLI, `comms/inbox_claude.md` MSG-20260613-016) reviewed:
+**Accepted with Changes** — `reviews/REVIEW-015.md`. Scope correct per DISPATCH-20260613-004
+(keep-chunks + progress/ETA; EPIC-005 excluded); ordering sound. Create TASK-022–025 with the
+tightened acceptance criteria below, not the thin bullet form:
+
+- **TASK-022 (`--keep-chunks`):** default OFF; naming `<stem>_chunk_001.wav`; final WAV
+  byte-identical with/without flag; no-op under `--dry-run`.
+- **TASK-023 (progress):** shared `voice_gen_utils` console helpers; real-synthesis only; no log
+  interleave.
+- **TASK-024 (ETA):** completed-chunk throughput basis; `--voice all` counts remaining voices;
+  define pre-first-chunk state.
+- **TASK-025 (docs/validation):** real multi-chunk run with `--keep-chunks` + progress/ETA, recorded.
+- Each task: compile + run/dry-run verification. Commit tag `[v0.3.0][vg_e003][TASK-0NN]`.
+
+Also: confirm the EPIC-003 detail file is committed (empty at `e40b8f3`).
+
+### Requested Action
+
+Create TASK-022, -023, -024, -025 on `state/sprint_board.md` with the criteria above, record the
+activation events, and dispatch Gemini per the DISPATCH-20260613-004 gate (implementation begins
+only after the board tasks exist). No Product Owner hold for EPIC-003.
+
+### Response
