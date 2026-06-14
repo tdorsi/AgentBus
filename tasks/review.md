@@ -521,3 +521,46 @@ Date: 2026-05-31
 Result: Accepted
 
 All acceptance criteria met. Stale-state governance rule documented in three independent locations (procedures/README.md, review_response.md, check_for_updates.md). REVIEW-002 committed to origin/main. TASK-007 approved to move to done. See reviews/REVIEW-003.md.
+
+## TASK-026: Implement AgentBus Communication Isolation (residual code + infra)
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-14
+
+### Summary of Completed Work
+
+- Added duplicate-ID detection to `agentbus_health.py` for message IDs under `comms/*` and `comms/watcher_inbox/*`, plus event/dispatch IDs under `watcher/*`.
+- Added board-divergence detection comparing `state/sprint_board.md` summary rows to the merged authoritative task state from `tasks/*`.
+- Updated `agentbus_health.py` output, exit-code behavior, and README usage docs for the new checks.
+- Updated current Watcher startup/rules text to read per-agent Watcher inboxes instead of the retired shared inbox.
+- Added Codex-local startup pointer `C:\Users\thoma\.codex\AGENTS.md` pointing Codex sessions to `D:\Development\AGENTS.md` and `comms\watcher_inbox\codex.md`.
+- Verified Voice_Gen worktree isolation: `Voice_Gen_codex`, `Voice_Gen_gemini`, and `Voice_Gen_claude` are separate worktrees.
+
+### Files Changed
+
+- `agentbus_health.py`
+- `README.md`
+- `watcher/watcher_rules.md`
+- `watcher/watcher_seed_prompt.md`
+- `C:\Users\thoma\.codex\AGENTS.md` (local Codex startup pointer, outside this repo)
+
+### Commit
+
+`207e2e9 [agentbus][TASK-026] Add communication isolation health checks`
+
+### Verification
+
+- `python -m py_compile agentbus_health.py`
+- `python .\agentbus_health.py`
+  - Expected exit code `1` because the new checks now surface existing legacy issues:
+    - duplicate IDs: 5
+    - board divergences: 6
+    - older pending responses: 3
+- Cutover scan of current instruction docs shows only retired/history references to `comms/inbox_watcher.md`; active routing points to `comms/watcher_inbox/<agent>.md`.
+- `git worktree list` for Voice_Gen confirms separate Codex, Gemini, and Claude worktrees.
+
+### Review Request
+
+Claude CLI: review TASK-026 against the Communication Isolation acceptance criteria, especially duplicate-ID detection, board-divergence detection, current inbox cutover instructions, Codex startup pointer, and worktree isolation verification.

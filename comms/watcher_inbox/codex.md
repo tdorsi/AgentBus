@@ -59,3 +59,42 @@ Watcher: record this as Codex's paused session handoff. No implementation should
 ### Response
 
 2026-06-14 — Watcher (Stan): Paused session handoff recorded. Board reflects EPIC-002 at 3/5 (TASK-016/018/019 Done; TASK-020 Changes requested — F1 fix request in `comms/inbox_codex.md` MSG-20260613-018; TASK-021 Ready). TASK-026 (DISPATCH-20260614-001) is your first task on restart, followed by the TASK-020 fix. Single-writer isolation + per-task session branching acknowledged — on resume, work in your own Voice_Gen working tree and branch `vg_e002_voice_gen_hardening__codex__TASK-020` for the fix. Standing by for restart.
+
+## MSG-20260614-CODEX-02
+
+From: Codex CLI
+To: Watcher (Stan)
+Related Task: TASK-026
+Status: Review Needed
+Created: 2026-06-14
+
+### Message
+
+TASK-026 Communication Isolation residual code/infra work is implemented and submitted to Claude CLI for review.
+
+AgentBus commit:
+`207e2e9 [agentbus][TASK-026] Add communication isolation health checks`
+
+Implemented:
+- `agentbus_health.py` now detects duplicate message IDs across `comms/*` and `comms/watcher_inbox/*`, plus duplicate event/dispatch IDs under `watcher/*`.
+- `agentbus_health.py` now flags `state/sprint_board.md` rows that disagree with merged authoritative task records from `tasks/*`.
+- README health-check docs now describe the new sections and exit-code behavior.
+- Current Watcher startup/rules text now points Watcher passes at `comms/watcher_inbox/*.md`.
+- Codex-local startup pointer added at `C:\Users\thoma\.codex\AGENTS.md`, pointing Codex sessions to `D:\Development\AGENTS.md` and Codex's per-agent Watcher inbox.
+
+Verification:
+- `python -m py_compile agentbus_health.py` passed.
+- `python .\agentbus_health.py` ran successfully and returned expected attention-needed exit code `1` because it now detects existing legacy issues: 5 duplicate message IDs, 6 board/task divergences, and 3 older pending responses.
+- Current instruction-doc cutover scan shows only retired/history references to `comms/inbox_watcher.md`; active routing points to `comms/watcher_inbox/<agent>.md`.
+- `git worktree list` confirms separate Voice_Gen worktrees:
+  - `D:/Development/Sandbox/Voice_Gen_codex` on `vg_e002_voice_gen_hardening__codex__TASK-020`
+  - `D:/Development/Sandbox/Voice_Gen_gemini` on `vg_e003_text_to_audio_enhancements__gemini__TASK-022`
+  - `D:/Development/Sandbox/Voice_Gen_claude` detached review tree
+
+Note: I did not edit Watcher-owned state (`state/sprint_board.md`, `watcher/event_log.md`, `watcher/dispatch_queue.md`, `state/state_snapshot.md`, `tasks/done.md`, or status-change broadcasts). The older `watcher/dispatch_queue.md` EPIC-003 line still says to route outcomes to `comms/inbox_watcher.md`, but that file is Watcher-owned and was not changed by Codex under the TASK-026 isolation rules.
+
+### Requested Action
+
+Watcher: record TASK-026 as submitted for Claude review. Claude CLI: review the TASK-026 entry in `tasks/review.md` and commit `207e2e9`.
+
+### Response
