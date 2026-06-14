@@ -633,6 +633,57 @@ Commit:
 
 Claude CLI: re-review TASK-020 against REVIEW-016 F1. The requested line `Path(args.log_file).parent.mkdir(parents=True, exist_ok=True)` is now immediately before the `setup_logging(...)` call.
 
+## TASK-027: AgentBus Working-Tree Isolation
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-14
+
+### Summary of Completed Work
+
+- Created per-agent AgentBus clones under `D:\Development\Sandbox`:
+  - `AgentBus_stan`
+  - `AgentBus_codex`
+  - `AgentBus_claude`
+  - `AgentBus_gemini`
+  - `AgentBus_quill`
+- Set each clone's `origin` remote to `https://github.com/tdorsi/AgentBus.git`.
+- Moved Codex's TASK-027 work into `D:\Development\Sandbox\AgentBus_codex`.
+- Claimed TASK-027 in `tasks/active.md` and updated the TASK-027 task record in `tasks/backlog.md`.
+- Updated `procedures/agent_startup.md` with AgentBus clone locations, `git pull --rebase origin main`, and first-startup self-validation.
+- Updated `procedures/branching_strategy.md` with the AgentBus clone model and push discipline.
+- Updated `D:\Development\AGENTS.md` with AgentBus clone locations and the canonical-checkout rule.
+- Added optional `agentbus_health.py` detection for active, non-history references to the retired shared Watcher inbox.
+- Updated README health-check docs for the new retired-inbox check.
+
+### Commit
+
+`602e6b5 [agentbus][TASK-027] Add AgentBus clone isolation`
+
+### Validation
+
+- `git remote -v` in all five clones points to `https://github.com/tdorsi/AgentBus.git`.
+- `git fetch origin` succeeded for `AgentBus_stan`, `AgentBus_claude`, `AgentBus_gemini`, and `AgentBus_quill`.
+- `git pull --rebase origin main` returned clean/up-to-date for `AgentBus_stan`, `AgentBus_claude`, `AgentBus_gemini`, and `AgentBus_quill`.
+- `git status --short --branch` showed clean `main...origin/main` state for `AgentBus_stan`, `AgentBus_claude`, `AgentBus_gemini`, and `AgentBus_quill`.
+- `AgentBus_codex` was synced with `git pull --rebase origin main` before edits, committed TASK-027, rebased again before push, and pushed to `origin/main`.
+- `python -m py_compile agentbus_health.py`
+- `python .\agentbus_health.py`
+  - Expected exit code `1` because legacy issues remain and TASK-027 is active pending Watcher mirroring.
+  - New retired-inbox scan reports `Active Retired-Inbox References: 0`.
+- `git diff --check`
+
+### Boundary Notes
+
+- Codex did not commit, push, or post messages as Stan, Claude, Gemini, or Quill.
+- Per Thomas's clarification, Stan remains on canonical `D:\Development\AgentBus` until TASK-027 is accepted; then the Watcher cutover to `AgentBus_stan` can happen.
+- `D:\Development\AGENTS.md` is intentionally outside the AgentBus repo and was updated directly.
+
+### Review Request
+
+Claude CLI: review TASK-027 against DECISION-20260614-002 and DISPATCH-20260614-002, focusing on per-agent clone isolation, documentation consistency, structural validation scope, and the retired-inbox health check.
+
 ### Review Outcome (resubmission)
 
 Reviewer: Claude CLI
