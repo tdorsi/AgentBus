@@ -175,3 +175,64 @@ Thomas runs the Voice_Gen pipeline iteratively (resume via `--from-stage`), so a
 ### Impact
 
 Releases Stan's hold on TASK-016. Stan may create the adjusted EPIC-002 board tasks per REVIEW-011 / MSG-20260613-W005, with TASK-016 including the logged `--force` criterion and the `--from-stage` resume carve-out, and TASK-021 using `--dry-run`.
+
+## DECISION-20260614-001
+
+Date: 2026-06-14
+Owner: Thomas
+Related Task: TASK-026
+Related: RCA-20260613-001 (`RCA.md`), `reviews/Agent_Bus_Action_Plan_draft.md`; extends DECISION-20260613-002 (File Authority Matrix) and DECISION-20260613-003 (additive Watcher model)
+Status: Accepted
+
+### Decision
+
+Adopt the AgentBus **Communication Isolation / Single-Writer model** to eliminate the
+concurrent-writer race in RCA-20260613-001. Specifically:
+
+1. **Core rule:** no two agents write to the same working tree or the same communication file.
+2. **Single Watcher writer.** Only the Watcher writes Watcher-owned state:
+   `state/sprint_board.md`, `state/state_snapshot.md`, `watcher/event_log.md`,
+   `watcher/dispatch_queue.md`, **`tasks/done.md`**, and status-change broadcasts in
+   `comms/broadcast.md`. `tasks/done.md` is hereby moved to Watcher ownership in the File
+   Authority Matrix (extends DECISION-20260613-002).
+3. **Per-agent Watcher inboxes.** `comms/watcher_inbox/<agent>.md` (`codex`, `claude`, `gemini`,
+   `quill`) replace the shared `comms/inbox_watcher.md` (retired, history-only). Each agent writes
+   only its own file, using agent-scoped message IDs `MSG-YYYYMMDD-<AGENT>-NN` (collision-proof by
+   construction).
+4. **Reviewer boundary.** Reviewers (Claude CLI) record outcomes in `tasks/review.md` + `reviews/`
+   and route them to their Watcher inbox; they do **not** write Watcher-owned state. The Watcher
+   mirrors the board, logs the event, records done, and broadcasts.
+5. **Project-repo isolation.** Each agent uses its own working tree/clone for git write actions on
+   project repos (e.g., Voice_Gen); a reviewer must not commit from a developer's working tree.
+6. **One Watcher writer at a time.** The autonomous Watcher loop is not run concurrently with a
+   manual Watcher pass or with any agent that self-mirrors. The loop stays paused until the
+   TASK-026 cutover completes (interim operating decision, action plan §7).
+
+### Reasoning
+
+During the 2026-06-13 EPIC-002/003 burst, multiple actors wrote Watcher-owned state concurrently
+against one shared working tree, producing duplicate message IDs (`W011`/`W012`/`MSG-015`) and a
+transiently stale board. The trigger was the Claude reviewer performing a full Watcher pass in
+commit `392f5a1` while the autonomous loop was also active. Enforcing a single writer per file and
+per-agent, collision-proof message IDs removes the race at its root while preserving the additive
+Watcher Governance Model v1.
+
+### Alternatives Considered
+
+- **Keep the shared inbox, add advisory locking** — rejected for v1 as heavier and still
+  race-prone on ID allocation; a lock file (RCA P5) remains a possible add-on.
+- **Watcher-as-service (single process owns state)** — deferred (RCA P8); larger architectural
+  change than needed now.
+- **Do nothing / rely on append-only recovery** — rejected; collisions recur under concurrency and
+  waste reconciliation effort.
+
+### Impact
+
+- Governance/doc portion implemented by the Watcher (commit `b6859a2`, EVENT-20260614-001):
+  per-agent inboxes, `watcher_rules.md` single-writer model + boundaries, `routing_table.md`,
+  `procedures/review_response.md`, `README.md`, and the File Authority Matrix change.
+- **TASK-026** (Codex, reviewer Claude; DISPATCH-20260614-001) covers the residual code/infra:
+  `agentbus_health.py` duplicate-ID + board-divergence detection, per-agent project working trees,
+  and inbox cutover verification.
+- Agents acknowledged the new rules in their 2026-06-14 session handoffs
+  (`comms/watcher_inbox/{codex,claude,gemini}.md`).
