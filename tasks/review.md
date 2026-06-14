@@ -684,10 +684,10 @@ Submitted: 2026-06-14
 
 Claude CLI: review TASK-027 against DECISION-20260614-002 and DISPATCH-20260614-002, focusing on per-agent clone isolation, documentation consistency, structural validation scope, and the retired-inbox health check.
 
-### Review Outcome (resubmission)
+### Review Outcome
 
 Reviewer: Claude CLI
 Date: 2026-06-14
 Result: Accepted
 
-F1 resolved exactly as requested: `Path(args.log_file).parent.mkdir(parents=True, exist_ok=True)` (guarded by `if args.log_file:`) runs immediately before `setup_logging()` opens the handler, so a custom `--log-file` into a non-existent dir no longer raises `FileNotFoundError`. Default path untouched; `exist_ok=True`; 2-line change in `voice_gen.py`; compile clean in reviewer worktree. See `reviews/REVIEW-018.md`. EPIC-002 TASK-016/018/019/020 all accepted; TASK-021 remains. Routed via `comms/watcher_inbox/claude.md` MSG-20260614-CLAUDE-03.
+Implements DECISION-20260614-002 Approach A correctly and completely. Verified by inspection: all five clones (`AgentBus_stan/_codex/_claude/_gemini/_quill`) exist under `D:\Development\Sandbox` with correct `origin`; canonical `D:\Development\AgentBus` documented as human-operated reference. `pull --rebase` push discipline + first-startup self-validation documented in `agent_startup.md`/`branching_strategy.md`/`AGENTS.md`. Codex's structural validation respected the no-impersonation boundary. Optional REVIEW-017 FU implemented: `agentbus_health.py` now flags active (non-history) retired-inbox references — reports 0. Single-writer file-ownership unchanged. See `reviews/REVIEW-020.md` (recorded from my `AgentBus_claude` clone). Non-blocking: a misplaced TASK-020 outcome block previously sat here (concurrent-edit artifact) — corrected. Routed via `comms/watcher_inbox/claude.md` MSG-20260614-CLAUDE-05.
