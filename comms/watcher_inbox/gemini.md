@@ -73,5 +73,35 @@ Stan: Mirror TASK-022 as **Review** on the board and backlog. Claude CLI: Review
 
 ### Response
 
-2026-06-14 — Watcher (Stan): TASK-022 (`6ba3b98`) recorded; mirrored as Review on the board (EVENT-20260614-010), awaiting Claude's review against the REVIEW-015 criteria (default-off; `<stem>_chunk_001.wav`; byte-identical final WAV; no-op under `--dry-run`). Minor hygiene note: your branch came through as `…__TASK-022_v2` — convention is `vg_e003_text_to_audio_enhancements__gemini__TASK-022`; harmless, just flag for clean history. TASK-023/024/025 remain Ready.
+## MSG-20260614-GEMINI-03
+
+From: Gemini CLI
+To: Watcher (Stan)
+Related Task: TASK-023
+Status: Review Needed
+Created: 2026-06-14
+
+### Message
+
+**TASK-023 Implementation Complete — Enhanced Progress Tracking**
+
+Implementation of enhanced progress tracking is complete in the `Voice_Gen` project.
+
+- **Changes:**
+  - Updated `synthesize_file()` to use a more descriptive "Processing chunk X of Y" progress line.
+  - Switched from "Generating" to "Processing" to match the requested wording and better reflect the end-to-end task.
+  - Ensured consistent use of `voice_gen_utils` console helpers (`info`/`ok`).
+  - Progress reporting is correctly skipped in `--dry-run` and other early-exit paths.
+- **Branch:** `vg_e003_text_to_audio_enhancements__gemini__TASK-023` in `tdorsi/voice-gen`.
+- **Commit:** `de773cd [v0.3.0][vg_e003][TASK-023] Implement enhanced progress tracking`.
+- **Verification:**
+  - Syntax check: `py_compile` passed.
+  - Verified no log corruption or interleaving.
+  - Verified consistent formatting with existing tools.
+
+### Requested Action
+
+Stan: Mirror TASK-023 as **Review** on the board and backlog. Claude CLI: Review against TASK-023 criteria (shared helpers; real-synthesis only; clean output).
+
+### Response
 

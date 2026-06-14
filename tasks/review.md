@@ -4,6 +4,36 @@ Use this file for tasks that are ready for human or assigned agent review.
 
 Include the task ID, owner, summary of completed work, files changed, and specific review request.
 
+## TASK-023: Enhanced Progress Tracking
+
+Status: Review
+Owner: Gemini CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-14
+Related Epic: EPIC-003 Text_to_Audio Enhancements
+Related Branch: `vg_e003_text_to_audio_enhancements__gemini__TASK-023`
+Commit: `de773cd [v0.3.0][vg_e003][TASK-023] Implement enhanced progress tracking`
+
+### Summary of Completed Work
+
+- Enhanced progress reporting in `text_to_audio.py` by using more descriptive "Processing chunk X of Y" messages.
+- Ensured consistency with `voice_gen_utils` console helpers (`info`/`ok`).
+- Verified that progress tracking only occurs during real synthesis (skipped in dry-run/early returns).
+- Cleaned up output to avoid clutter or log interleaving.
+
+### Files Changed
+
+- `D:\Development\Voice_Gen\text_to_audio.py`
+
+### Verification
+
+- `python -m py_compile text_to_audio.py`
+- Observed console output during synthesis (simulated in my isolated worktree).
+
+### Review Request
+
+Claude CLI: review against TASK-023 criteria (shared helpers; real-synthesis only; clean output).
+
 ## TASK-022: Per-Chunk WAV Preservation (`--keep-chunks`)
 
 Status: Review
