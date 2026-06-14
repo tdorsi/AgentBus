@@ -613,3 +613,75 @@ Per Thomas, set up per-agent project working trees (a TASK-026 acceptance item).
 #### Resulting State
 
 Filesystem/index isolation is in place for parallel work: Codex and Gemini each have their own worktree on their own per-task branch; Claude has a review worktree. AgentBus remains a single shared tree. This satisfies the per-agent-working-tree portion of TASK-026; Codex still owns the residual code/cutover (agentbus_health.py, startup-file repointing, verification).
+
+## EVENT-20260614-007
+
+Event ID: EVENT-20260614-007
+Type: Review Accepted
+Related Task: TASK-026
+Related Dispatch: DISPATCH-20260614-001
+Source: reviews/REVIEW-017.md, tasks/review.md, comms/watcher_inbox/claude.md MSG-20260614-CLAUDE-02
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Claude CLI accepted TASK-026 (Communication Isolation — code/infra/cutover) **with follow-ups** in REVIEW-017, verified by exercising `agentbus_health.py` (duplicate-ID + board-divergence detection, exit-1 gate) and `git worktree list`. Codex's AgentBus commit `207e2e9` (plus the consolidated TASK-026/020/022 metadata) is on `main`; the merged feature branch `agentbus_communication_isolation__codex__TASK-026` (`d317969`, confirmed ancestor of HEAD) was pruned.
+
+#### Resulting State
+
+TASK-026 is mirrored to Done (Accepted with Follow-ups) on `state/sprint_board.md` and recorded in `tasks/done.md`. The communication-isolation cutover is verified and in effect. One follow-up (FU1) handled in EVENT-20260614-008.
+
+## EVENT-20260614-008
+
+Event ID: EVENT-20260614-008
+Type: Correction
+Related Task: EPIC-003 / DISPATCH-20260613-005
+Related Dispatch: DISPATCH-20260613-005
+Source: REVIEW-017 FU1, watcher/dispatch_queue.md
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+FU1 from REVIEW-017: `DISPATCH-20260613-005` (live) still routed Gemini's outcomes to the retired `comms/inbox_watcher.md`. Corrected the routing reference to `comms/watcher_inbox/gemini.md` and added a dated correction note under the dispatch. This was the last live reference to the retired shared inbox; both Claude and Codex correctly declined to edit Watcher-owned state, so the Watcher made the fix.
+
+#### Resulting State
+
+The communication-isolation cutover is now fully consistent — no live references to the retired `comms/inbox_watcher.md` remain in active dispatches.
+
+## EVENT-20260614-009
+
+Event ID: EVENT-20260614-009
+Type: Task Completed
+Related Task: TASK-020
+Related Dispatch: DISPATCH-20260613-003
+Source: comms/watcher_inbox/codex.md MSG-20260614-CODEX-03, tasks/review.md, Voice_Gen commit 19372bb
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Codex resubmitted the TASK-020 F1 fix (Voice_Gen commit `19372bb` on `vg_e002_voice_gen_hardening__codex__TASK-020`): adds `Path(args.log_file).parent.mkdir(parents=True, exist_ok=True)` before `setup_logging`.
+
+#### Resulting State
+
+TASK-020 is mirrored as Review (F1 fix resubmitted) on `state/sprint_board.md`, awaiting Claude's re-review against REVIEW-016 F1. TASK-021 remains Ready.
+
+## EVENT-20260614-010
+
+Event ID: EVENT-20260614-010
+Type: Task Completed
+Related Task: TASK-022
+Related Dispatch: DISPATCH-20260613-005
+Source: comms/watcher_inbox/gemini.md MSG-20260614-GEMINI-02, tasks/review.md, Voice_Gen commit 6ba3b98
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Gemini completed TASK-022 (`--keep-chunks` per-chunk WAV preservation) and submitted it for review — Voice_Gen commit `6ba3b98` on branch `vg_e003_text_to_audio_enhancements__gemini__TASK-022_v2`. (Branch name carries a `_v2` suffix vs. the convention; noted for clean-history hygiene, non-blocking.)
+
+#### Resulting State
+
+TASK-022 is mirrored as Review on `state/sprint_board.md` (out of Ready), awaiting Claude's review against the REVIEW-015 criteria. TASK-023/024/025 remain Ready.

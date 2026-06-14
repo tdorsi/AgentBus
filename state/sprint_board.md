@@ -24,13 +24,13 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-017 | Dropped (done by EPIC-001) | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
 | TASK-018 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-013.md` |
 | TASK-019 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-014.md` |
-| TASK-020 | Changes requested | Codex CLI | Claude CLI | `tasks/review.md`, `reviews/REVIEW-016.md` |
+| TASK-020 | Review (F1 fix resubmitted) | Codex CLI | Claude CLI | `tasks/review.md`, Voice_Gen commit `19372bb` |
 | TASK-021 | Ready | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
-| TASK-022 | Ready | Gemini CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-015.md` |
+| TASK-022 | Review | Gemini CLI | Claude CLI | `tasks/review.md`, Voice_Gen commit `6ba3b98` |
 | TASK-023 | Ready | Gemini CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-015.md` |
 | TASK-024 | Ready | Gemini CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-015.md` |
 | TASK-025 | Ready | Gemini CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-015.md` |
-| TASK-026 | Dispatched (begins on restart) | Codex CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260614-001 |
+| TASK-026 | Done / accepted (w/ follow-ups) | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-017.md` |
 
 ## Backlog
 
@@ -52,7 +52,6 @@ EPIC-003 Text_to_Audio Enhancements (combined w/ Progress Reporting) — branch 
 
 | Task | Owner | Reviewer | Priority | Notes |
 | --- | --- | --- | --- | --- |
-| TASK-022 | Gemini CLI | Claude CLI | Medium | `--keep-chunks` per-chunk WAV (default off; byte-identical final WAV) |
 | TASK-023 | Gemini CLI | Claude CLI | Medium | Progress reporting (shared console helpers; real-synthesis only) |
 | TASK-024 | Gemini CLI | Claude CLI | Medium | ETA (completed-chunk throughput; `--voice all` aware) |
 | TASK-025 | Gemini CLI | Claude CLI | Medium | Docs + recorded end-to-end validation |
@@ -65,7 +64,8 @@ No in-progress tasks currently mirrored.
 
 | Task | Owner | Reviewer | Status |
 | --- | --- | --- | --- |
-| TASK-020 | Codex CLI | Claude CLI | Changes requested (REVIEW-016 F1 — routed to Codex) |
+| TASK-020 | Codex CLI | Claude CLI | Review — F1 fix resubmitted (`19372bb`), awaiting re-review |
+| TASK-022 | Gemini CLI | Claude CLI | Review — submitted (`6ba3b98`), awaiting review |
 | TASK-003 | Codex CLI | Thomas / Quill | Review / stale pending response marker |
 | TASK-004 | Claude CLI | Thomas / Quill | Review |
 
@@ -85,6 +85,7 @@ No blocked tasks currently mirrored.
 | TASK-016 | Codex CLI | 2026-06-13 accepted by Claude CLI (REVIEW-012) |
 | TASK-018 | Codex CLI | 2026-06-13 accepted by Claude CLI (REVIEW-013) |
 | TASK-019 | Codex CLI | 2026-06-13 accepted by Claude CLI (REVIEW-014) |
+| TASK-026 | Codex CLI | 2026-06-14 accepted w/ follow-ups by Claude CLI (REVIEW-017) |
 
 ## Validation Cycle
 

@@ -99,6 +99,8 @@ Watcher: record TASK-026 as submitted for Claude review. Claude CLI: review the 
 
 ### Response
 
+2026-06-14 — Watcher (Stan): TASK-026 **accepted with follow-ups** by Claude CLI (REVIEW-017); mirrored to Done (EVENT-20260614-007), DISPATCH-20260614-001 Complete. The merged AgentBus branch `agentbus_communication_isolation__codex__TASK-026` (`d317969`, ancestor of main) was pruned. FU1 (`DISPATCH-20260613-005` routing) fixed by the Watcher (EVENT-20260614-008). Thanks for leaving Watcher-owned state untouched and flagging FU1.
+
 ## MSG-20260614-CODEX-03
 
 From: Codex CLI
@@ -130,3 +132,5 @@ Verification:
 Watcher: record TASK-020 as resubmitted for Claude CLI review. Claude CLI: re-review commit `19372bb` on branch `vg_e002_voice_gen_hardening__codex__TASK-020` against REVIEW-016 F1.
 
 ### Response
+
+2026-06-14 — Watcher (Stan): Recorded. TASK-020 mirrored as Review (F1 fix resubmitted, `19372bb`) on the board (EVENT-20260614-009), awaiting Claude's re-review against REVIEW-016 F1. Your `vg_e002_voice_gen_hardening__codex__TASK-020` branch stays until Accepted, then merges up and is pruned.

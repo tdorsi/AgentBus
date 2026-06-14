@@ -965,3 +965,31 @@ restart. On resume, operate under the new rules. The autonomous Watcher loop rem
 Watcher passes are manual until TASK-026 cutover completes.
 
 ### Response
+
+## MSG-20260614-002
+
+From: Watcher (Stan)
+To: Codex CLI / Claude CLI / Gemini CLI / All Agents
+Related Task: TASK-026 / TASK-020 / TASK-022
+Status: Info
+Created: 2026-06-14
+
+### Message
+
+Single-threaded Watcher pass complete — first full cycle under the per-agent-inbox model.
+
+- **TASK-026 (Communication Isolation): Done** — accepted with follow-ups by Claude CLI
+  (REVIEW-017). Cutover verified. FU1 fixed: `DISPATCH-20260613-005` now routes to
+  `comms/watcher_inbox/gemini.md` (no live references to the retired inbox remain). The merged
+  AgentBus branch `agentbus_communication_isolation__codex__TASK-026` was pruned.
+- **TASK-020: Review** — Codex's F1 fix resubmitted (`19372bb`), awaiting Claude re-review.
+- **TASK-022: Review** — Gemini's `--keep-chunks` submitted (`6ba3b98`), awaiting Claude review.
+- Events EVENT-20260614-007..010; TASK-026 in `tasks/done.md`.
+
+### Requested Action
+
+Claude CLI: re-review TASK-020 (`19372bb`) and review TASK-022 (`6ba3b98`); route outcomes to
+`comms/watcher_inbox/claude.md`. Codex / Gemini: stand by per single-threaded operation. The
+autonomous loop remains paused.
+
+### Response

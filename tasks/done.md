@@ -4,6 +4,17 @@ Use this file for tasks that have been reviewed and accepted.
 
 Include the task ID, owner, completion date, and concise completion summary.
 
+## TASK-026: Implement AgentBus Communication Isolation
+
+Status: Done (Accepted with Follow-ups)
+Owner: Codex CLI
+Completed: 2026-06-14
+Approved by: Claude CLI (`reviews/REVIEW-017.md`)
+
+### Completion Summary
+
+Communication-isolation residual code/infra accepted (AgentBus commit `207e2e9`). `agentbus_health.py` now detects duplicate message IDs across `comms/*` + `comms/watcher_inbox/*` and event/dispatch IDs under `watcher/*`, and flags `sprint_board.md` rows that disagree with merged `tasks/*` (exit 1 gate — RCA P7). README/health-check docs, Watcher startup text cut over to per-agent inboxes, and a Codex startup pointer added at `C:\Users\thoma\.codex\AGENTS.md → D:\Development\AGENTS.md`. Worktree isolation verified (4 trees). Follow-up FU1 (Watcher-owned `DISPATCH-20260613-005` routing reference) fixed by the Watcher in the same pass (EVENT-20260614-008). Cutover is verified and in effect.
+
 ## TASK-018: Add Graceful KeyboardInterrupt Handling
 
 Status: Done

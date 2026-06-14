@@ -103,6 +103,7 @@ Updated: 2026-06-13
 - 2026-06-13: TASK-019 **accepted** by Claude CLI (REVIEW-014, W012, EVENT-20260613-022); mirrored to Done. 3 of 5 accepted. TASK-020 is next per the suggested order.
 - 2026-06-13: TASK-020 implemented and submitted for review — Voice_Gen commit `bf31d45`; mirrored as Review on the board (EVENT-20260613-023). TASK-021 remains Ready. Dispatch stays open until all EPIC-002 tasks are accepted.
 - 2026-06-13: TASK-020 returned **Changes Requested** by Claude CLI (REVIEW-016 F1, W014, EVENT-20260613-024) — custom `--log-file` parent dir not created. Kept in Review/changes-requested; fix routed to Codex CLI (`comms/inbox_codex.md` MSG-20260613-018). TASK-021 still Ready. Dispatch remains open.
+- 2026-06-14: Codex resubmitted the TASK-020 F1 fix (Voice_Gen commit `19372bb` on `vg_e002_voice_gen_hardening__codex__TASK-020`, MSG-20260614-CODEX-03, EVENT-20260614-009); mirrored as Review, awaiting Claude re-review. TASK-021 still Ready.
 
 #### Correction
 
@@ -149,7 +150,7 @@ Trigger: Claude CLI accepted the EPIC-003 breakdown with changes (REVIEW-015 / W
 Related Task: TASK-022, TASK-023, TASK-024, TASK-025
 Assigned Agent: Gemini CLI
 Reviewer: Claude CLI
-Action: Implement the Ready EPIC-003 tasks on branch `vg_e003_text_to_audio_enhancements` in order (TASK-022 first; TASK-025 last). Use commit tag `[v0.3.0][vg_e003][TASK-0NN]`. Submit each task to Claude CLI for review; route outcomes to `comms/inbox_watcher.md`.
+Action: Implement the Ready EPIC-003 tasks on branch `vg_e003_text_to_audio_enhancements` in order (TASK-022 first; TASK-025 last). Use commit tag `[v0.3.0][vg_e003][TASK-0NN]`. Submit each task to Claude CLI for review; route outcomes to `comms/watcher_inbox/gemini.md`.
 Status: Dispatched
 Created: 2026-06-13
 Updated: 2026-06-13
@@ -166,6 +167,8 @@ No Product Owner hold for EPIC-003.
 
 #### Correction
 
+- 2026-06-14 (FU1, REVIEW-017 / EVENT-20260614-008): the Action routing reference was corrected from the retired `comms/inbox_watcher.md` to `comms/watcher_inbox/gemini.md`. This was the one remaining live reference to the retired shared inbox; flagged by Claude and Codex (both correctly declined to edit Watcher-owned state), fixed here by the Watcher.
+
 ## DISPATCH-20260614-001
 
 Dispatch ID: DISPATCH-20260614-001
@@ -174,7 +177,7 @@ Related Task: TASK-026
 Assigned Agent: Codex CLI
 Reviewer: Claude CLI
 Action: After the coordinated pause/snapshot and restart under the new rules, implement TASK-026: add duplicate-ID + board-divergence detection to `agentbus_health.py`, confirm the per-agent Watcher inbox cutover, and verify the isolation rules. Submit to Claude CLI; route the outcome to `comms/watcher_inbox/codex.md`.
-Status: Dispatched
+Status: Complete
 Created: 2026-06-14
 Updated: 2026-06-14
 
@@ -184,5 +187,6 @@ Updated: 2026-06-14
 - Governance/doc portion already landed (commit b6859a2, EVENT-20260614-001); this dispatch covers the residual code/infra/cutover only.
 - 2026-06-14: Scope expanded to include the AGENTS.md startup-file cutover (EVENT-20260614-003). `D:\Development\AGENTS.md` (CLI-agnostic grounding) created and `GEMINI.md` repointed by the Watcher; Codex's startup config and remaining `CLAUDE.md` cross-references are part of TASK-026.
 - 2026-06-14: Per-agent working trees established (EVENT-20260614-006) — `git worktree`s under `D:\Development\Sandbox\Voice_Gen_{codex,gemini,claude}` on per-task branches. Remaining for Codex: `agentbus_health.py` duplicate-ID/board-divergence detection, repoint Codex startup config to AGENTS.md, and cutover verification.
+- 2026-06-14: TASK-026 implemented (AgentBus commit `207e2e9`) and **accepted with follow-ups** by Claude CLI (REVIEW-017, MSG-20260614-CLAUDE-02, EVENT-20260614-007); mirrored to Done. FU1 (DISPATCH-20260613-005 routing) fixed by the Watcher. Dispatch Complete.
 
 #### Correction
