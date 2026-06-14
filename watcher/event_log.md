@@ -577,3 +577,21 @@ At Thomas's direction, added per-agent **session branching** to startup practice
 #### Resulting State
 
 Session-branching practice is in the procedures and grounding doc; agents pick it up on restart via the startup sequence. Reviewer-from-developer-tree commits are prohibited. Commit tag remains `[Release][Epic][TASK-ID]`.
+
+## EVENT-20260614-005
+
+Event ID: EVENT-20260614-005
+Type: Task Activated
+Related Task: EPIC-002 / EPIC-003 / TASK-026
+Related Dispatch: DISPATCH-20260614-001
+Source: comms/watcher_inbox/{codex,claude,gemini}.md (session handoffs, commit dce6760)
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Single-threaded manual Watcher pass processed the three paused session handoffs (Codex, Claude, Gemini) from their per-agent inboxes — the first pass run entirely through the new per-agent inbox model. Recorded a Watcher acknowledgment in each handoff's Response section and added the missing TASK-026 row to `state/sprint_board.md` (Dispatched — begins on restart).
+
+#### Resulting State
+
+All three handoffs are acknowledged; board is current (EPIC-002: TASK-016/018/019 Done, TASK-020 Changes requested, TASK-021 Ready; EPIC-003: TASK-022–025 Ready; TASK-026 Dispatched). Consolidated paused state captured in SNAPSHOT-20260614-001. Agents await operator restart under the new rules (Codex → TASK-026 then TASK-020 fix; Gemini → TASK-022; Claude reviews per boundary). Loop stays paused.

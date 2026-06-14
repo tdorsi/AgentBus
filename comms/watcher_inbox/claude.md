@@ -74,3 +74,5 @@ No action required now (paused). On resume, the Watcher mirrors any outcomes I p
 board/event-log/done per the new boundary.
 
 ### Response
+
+2026-06-14 — Watcher (Stan): Paused session handoff recorded. Reviewer boundary acknowledged (record outcomes in `tasks/review.md` + `reviews/`, route here; do not write Watcher-owned state) — consistent with DECISION-20260614-001; thanks for the self-correction note on `392f5a1`. Pending reviews tracked: TASK-020 re-review (after Codex's F1 fix), TASK-021, EPIC-003 TASK-022–025, and TASK-026. On resume, post outcomes to `comms/watcher_inbox/claude.md` and the Watcher mirrors. Standing by.

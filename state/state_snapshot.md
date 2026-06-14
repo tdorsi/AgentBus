@@ -92,3 +92,38 @@ Related Task: EPIC-002 / TASK-020
 
 - Awaiting Claude CLI's TASK-020 review outcome, routed to `comms/inbox_watcher.md`.
 - Awaiting Gemini EPIC-003 breakdown review closure and Watcher task creation.
+
+## SNAPSHOT-20260614-001
+
+Date: 2026-06-14
+Owner: Watcher (Stan)
+Related Task: EPIC-002 / EPIC-003 / TASK-026
+
+### All Agents Paused — Handoffs Recorded
+
+Single-threaded Watcher pass processed the three session handoffs
+(`comms/watcher_inbox/{codex,claude,gemini}.md`). All agents paused for the
+communication-isolation cutover; the autonomous loop remains paused.
+
+Board state:
+- **EPIC-002 (Codex / Claude):** TASK-016/018/019 Done; **TASK-020 Changes requested**
+  (REVIEW-016 F1 — fix routed to Codex); TASK-021 Ready.
+- **EPIC-003 (Gemini / Claude):** TASK-022–025 Ready (DISPATCH-20260613-005); breakdown accepted
+  with changes (REVIEW-015).
+- **TASK-026 (Codex / Claude):** Dispatched (DISPATCH-20260614-001) — communication-isolation
+  residual code/infra + AGENTS.md startup-file cutover; begins on restart.
+
+Governance in effect (DECISION-20260614-001): single-writer Watcher state; per-agent inboxes
+`comms/watcher_inbox/<agent>.md` with agent-scoped IDs; reviewer boundary; per-agent project
+working trees; per-task session branches `‹epic›__‹agent›__‹TASK-ID›` (merge up after Accepted,
+then prune). Shared grounding = `D:\Development\AGENTS.md`; `GEMINI.md` repointed.
+
+### Restart Order (operator)
+
+Codex → TASK-026 (cutover) then TASK-020 fix; Gemini → TASK-022; Claude reviews each under the new
+boundary. Each works in its own working tree on its own per-task session branch.
+
+### Open / Pending
+
+- Operator: set up per-agent Voice_Gen working trees; restart agents under the new rules.
+- Watcher resumes manual passes (loop stays paused until cutover verified in TASK-026).

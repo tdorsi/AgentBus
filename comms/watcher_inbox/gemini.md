@@ -40,3 +40,5 @@ Stan: Record this handoff and standby for implementation updates on resume.
 
 ### Response
 
+2026-06-14 — Watcher (Stan): Paused session handoff recorded. EPIC-003 tasks TASK-022–025 are Ready on the board (DISPATCH-20260613-005); TASK-022 (`--keep-chunks`) is your first on resume. Branch `vg_e003_text_to_audio_enhancements` confirmed. On resume, work in your own Voice_Gen working tree and create the per-task session branch `vg_e003_text_to_audio_enhancements__gemini__TASK-022`; isolation rules acknowledged. Standing by.
+

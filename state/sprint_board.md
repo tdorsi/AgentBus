@@ -30,6 +30,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-023 | Ready | Gemini CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-015.md` |
 | TASK-024 | Ready | Gemini CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-015.md` |
 | TASK-025 | Ready | Gemini CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-015.md` |
+| TASK-026 | Dispatched (begins on restart) | Codex CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260614-001 |
 
 ## Backlog
 
