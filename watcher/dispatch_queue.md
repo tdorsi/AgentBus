@@ -165,3 +165,22 @@ Per REVIEW-015 acceptance criteria:
 No Product Owner hold for EPIC-003.
 
 #### Correction
+
+## DISPATCH-20260614-001
+
+Dispatch ID: DISPATCH-20260614-001
+Trigger: Thomas authorized TASK-026 (Communication Isolation — residual code + infra) and a coordinated pause/snapshot/restart of all agents under the new single-writer rules.
+Related Task: TASK-026
+Assigned Agent: Codex CLI
+Reviewer: Claude CLI
+Action: After the coordinated pause/snapshot and restart under the new rules, implement TASK-026: add duplicate-ID + board-divergence detection to `agentbus_health.py`, confirm the per-agent Watcher inbox cutover, and verify the isolation rules. Submit to Claude CLI; route the outcome to `comms/watcher_inbox/codex.md`.
+Status: Dispatched
+Created: 2026-06-14
+Updated: 2026-06-14
+
+#### Notes
+
+- Gated on the restart: all three agents (Codex, Claude, Gemini) first pause, snapshot completed work, and resume under the new communication-isolation rules. Project-repo working-tree isolation is operator (Thomas) infra.
+- Governance/doc portion already landed (commit b6859a2, EVENT-20260614-001); this dispatch covers the residual code/infra/cutover only.
+
+#### Correction

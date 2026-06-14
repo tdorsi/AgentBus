@@ -523,3 +523,21 @@ Implemented the governance/doc portion of Thomas's Communication Isolation actio
 #### Resulting State
 
 Single-writer communication model is documented and the per-agent inbox structure exists. Pending Thomas: (1) record the File Authority Matrix change (tasks/done.md → Watcher; isolation model) as a durable decision in `decisions/decision_log.md`; (2) decide whether to dispatch TASK-026 to Codex now. Per the interim operating decision (action plan §7), the autonomous Watcher loop stays paused and Watcher passes are manual until TASK-026 cutover is complete.
+
+## EVENT-20260614-002
+
+Event ID: EVENT-20260614-002
+Type: Task Activated
+Related Task: TASK-026
+Related Dispatch: DISPATCH-20260614-001
+Source: Thomas direction (2026-06-14), comms/broadcast.md MSG-20260614-001
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Thomas authorized dispatching TASK-026 to Codex CLI and a coordinated pause/snapshot/restart of all three agents (Codex, Claude, Gemini) under the new communication-isolation rules. DISPATCH-20260614-001 assigns TASK-026 to Codex (reviewer Claude); it begins after the restart.
+
+#### Resulting State
+
+TASK-026 is dispatched to Codex CLI (gated on the restart). Agents are pausing to snapshot completed work and will resume under the single-writer / per-agent-inbox model. Announced in MSG-20260614-001.

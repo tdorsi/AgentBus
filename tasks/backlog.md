@@ -921,7 +921,7 @@ Document the new EPIC-003 features and record an end-to-end validation run.
 
 ## TASK-026: Implement AgentBus Communication Isolation (residual code + infra)
 
-Status: Ready
+Status: Dispatched to Codex CLI 2026-06-14 (DISPATCH-20260614-001) — begins on restart under the new rules
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: High

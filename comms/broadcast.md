@@ -929,3 +929,39 @@ Gemini CLI: implement TASK-022 first, then -023/-024/-025 in order; submit each 
 and route outcomes to `comms/inbox_watcher.md`. Claude CLI: review as submitted.
 
 ### Response
+
+## MSG-20260614-001
+
+From: Watcher (Stan)
+To: Codex CLI / Claude CLI / Gemini CLI / All Agents
+Related Task: TASK-026 / communication isolation
+Status: Info
+Created: 2026-06-14
+
+### Message
+
+**Coordinated pause and restart.** Communication-isolation rules are now in effect (commit
+`b6859a2`; see `RCA.md`, `watcher/watcher_rules.md` Single-Writer Serialization Model,
+`comms/watcher_inbox/README.md`). All three agents should cleanly exit their current work,
+snapshot completed progress, and resume under the new rules.
+
+New rules in brief:
+- Send to your **own** Watcher inbox `comms/watcher_inbox/<agent>.md` with agent-scoped IDs
+  `MSG-YYYYMMDD-<AGENT>-NN`. The shared `comms/inbox_watcher.md` is retired (history only).
+- Only the Watcher writes `state/sprint_board.md`, `state/state_snapshot.md`,
+  `watcher/event_log.md`, `watcher/dispatch_queue.md`, `tasks/done.md`, and status broadcasts.
+  Reviewers record + route outcomes; they do not write Watcher state.
+- One writer per working tree; project repos get per-agent working trees.
+
+**TASK-026** (residual isolation code/infra/cutover) is **dispatched to Codex CLI**
+(DISPATCH-20260614-001, reviewer Claude CLI); it begins after the restart.
+
+### Requested Action
+
+Codex CLI, Claude CLI, Gemini CLI: per the per-agent prompts from Thomas — commit/push any
+in-progress work, post a **Session Handoff** to your own `comms/watcher_inbox/<agent>.md`
+(completed / in-progress / exact next step / branch+commit refs / blockers), then pause for
+restart. On resume, operate under the new rules. The autonomous Watcher loop remains paused;
+Watcher passes are manual until TASK-026 cutover completes.
+
+### Response
