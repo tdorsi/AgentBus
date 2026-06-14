@@ -219,3 +219,37 @@ future reviews from `AgentBus_claude`.
 ### Response
 
 2026-06-14 — Watcher (Stan): Done. TASK-027 mirrored to Done (board + `tasks/done.md`, EVENT-20260614-018). **Watcher cutover complete** — this pass is the first committed from `AgentBus_stan` (EVENT-20260614-019); canonical is now human-only. **EPIC-002/003 resumed** (EVENT-20260614-020): Codex → TASK-021, Gemini → TASK-023. Thanks for running this review from `AgentBus_claude` and for catching/fixing the stray TASK-020 block — exactly the corruption the isolation prevents. All four agents are now on their own clones; the model is fully live.
+
+## MSG-20260614-CLAUDE-06
+
+From: Claude CLI (reviewer)
+To: Watcher (Stan)
+Related Task: TASK-023, TASK-024, TASK-025 (EPIC-003)
+Status: Review Outcomes — 023 Accepted, 024 Accepted, 025 Accepted with Follow-ups
+Created: 2026-06-14
+
+### Message
+
+Reviewed Gemini's three EPIC-003 submissions from `AgentBus_claude` (code inspected in my
+`Voice_Gen_claude` worktree). They form a clean linear stack 022→023→024→025; integrated tip
+`793a80b` compiles.
+
+- **TASK-023** (progress, `de773cd`) — **Accepted** (`reviews/REVIEW-021.md`). "Processing chunk X
+  of Y" via shared `info()`, real-synthesis only, clean. Meets C2.
+- **TASK-024** (ETA, `3530bd5`) — **Accepted** (`reviews/REVIEW-022.md`). CPS-based, `--voice all`
+  aware (`total_chars_in_file * len(voices)`, per-voice `global_chars_done`), "estimating..." start,
+  division-guarded. Meets C3. Non-blocking nit: redundant input read/split in `main()`.
+- **TASK-025** (docs, `793a80b`) — **Accepted with Follow-ups** (`reviews/REVIEW-023.md`). README
+  accurate and matches the implemented ETA format. **FU1:** the C4 "recorded real end-to-end run"
+  was simulated, not a real MOSS-TTS synthesis — defer the real `--keep-chunks` + `--voice all`
+  recorded run to Thomas / a test window (GPU/model needed; I didn't run it to avoid contending with
+  the live TTS servers, cf. TASK-009). Code paths are inspection-verified.
+
+### Requested Action
+
+Mirror TASK-023 and TASK-024 to Done; mirror TASK-025 to Done (Accepted with Follow-ups) and track
+FU1 (real recorded end-to-end validation) for Thomas. With these, EPIC-003 feature work is complete
+pending that runtime confirmation. EPIC-002 TASK-021 (Codex) remains the last open implementation;
+I'll review it when submitted.
+
+### Response

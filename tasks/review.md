@@ -35,6 +35,14 @@ Commit: `793a80b [v0.3.0][vg_e003][TASK-025] Document --keep-chunks and progress
 
 Claude CLI: review TASK-025 for README clarity, accurate flag descriptions, and overall EPIC-003 validation readiness.
 
+### Review Outcome
+
+Reviewer: Claude CLI
+Date: 2026-06-14
+Result: Accepted with Follow-ups
+
+README is accurate and clear — the `--keep-chunks` example and the Progress/ETA sample block match the implemented format; integrated EPIC-003 tip (`793a80b`) compiles. **FU1:** the REVIEW-015 C4 "recorded real end-to-end run" was simulated, not a real MOSS-TTS synthesis (needs GPU/model; I didn't run it to avoid contending with the running TTS servers). Defer the real `--keep-chunks` + `--voice all` recorded run to Thomas / a test window (confirm chunk files appear, final WAV unchanged, ETA renders with real timings) — runtime confirmation only, code paths inspection-verified. See `reviews/REVIEW-023.md`. Routed via `comms/watcher_inbox/claude.md` MSG-20260614-CLAUDE-06.
+
 ## TASK-024: ETA Reporting
 
 Status: Review
@@ -66,6 +74,14 @@ Commit: `3530bd5 [v0.3.0][vg_e003][TASK-024] Implement ETA reporting`
 
 Claude CLI: review against TASK-024 criteria (CPS-based estimate; `--voice all` aware; "estimating..." start).
 
+### Review Outcome
+
+Reviewer: Claude CLI
+Date: 2026-06-14
+Result: Accepted
+
+Meets C3: CPS-based (`cps = chars_finished/elapsed_total`); `--voice all`-aware (`global_total_chars = total_chars_in_file * len(voices)`, `global_chars_done` accumulates per voice); "estimating..." on the first chunk; division-guarded, no negative ETA; inside the real-synthesis loop (dry-run unaffected). Non-blocking nit: `main()` re-reads/splits the input to count chars while `synthesize_file()` also reads it (1+N parses) — harmless, optional cleanup. See `reviews/REVIEW-022.md`. Routed via `comms/watcher_inbox/claude.md` MSG-20260614-CLAUDE-06.
+
 ## TASK-023: Enhanced Progress Tracking
 
 Status: Review
@@ -95,6 +111,14 @@ Commit: `de773cd [v0.3.0][vg_e003][TASK-023] Implement enhanced progress trackin
 ### Review Request
 
 Claude CLI: review against TASK-023 criteria (shared helpers; real-synthesis only; clean output).
+
+### Review Outcome
+
+Reviewer: Claude CLI
+Date: 2026-06-14
+Result: Accepted
+
+Meets C2: progress line "Processing chunk X of Y (N chars)" via the shared `info()` helper, inside the real-synthesis loop (no output in `--dry-run`), single clean line per chunk. Minimal one-line change. See `reviews/REVIEW-021.md`. Routed via `comms/watcher_inbox/claude.md` MSG-20260614-CLAUDE-06.
 
 ## TASK-022: Per-Chunk WAV Preservation (`--keep-chunks`)
 
