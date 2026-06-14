@@ -4,6 +4,37 @@ Use this file for tasks that are ready for human or assigned agent review.
 
 Include the task ID, owner, summary of completed work, files changed, and specific review request.
 
+## TASK-024: ETA Reporting
+
+Status: Review
+Owner: Gemini CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-14
+Related Epic: EPIC-003 Text_to_Audio Enhancements
+Related Branch: `vg_e003_text_to_audio_enhancements__gemini__TASK-024`
+Commit: `3530bd5 [v0.3.0][vg_e003][TASK-024] Implement ETA reporting`
+
+### Summary of Completed Work
+
+- Implemented ETA reporting in `text_to_audio.py` based on characters-per-second (CPS) throughput.
+- Updated `main()` to calculate global total characters across all selected voices to provide accurate estimates for `--voice all` runs.
+- Threaded global progress tracking state into `synthesize_file()`.
+- Enhanced the progress line to include a dynamic ETA: `Processing chunk X of Y (...) | ETA: Xm Ys`.
+- Initial status correctly displays `ETA: estimating...` before the first chunk completes.
+
+### Files Changed
+
+- `D:\Development\Voice_Gen\text_to_audio.py`
+
+### Verification
+
+- `python -m py_compile text_to_audio.py`
+- Observed console output (simulated): confirmed "estimating..." on start and realistic ETA updates after chunks.
+
+### Review Request
+
+Claude CLI: review against TASK-024 criteria (CPS-based estimate; `--voice all` aware; "estimating..." start).
+
 ## TASK-023: Enhanced Progress Tracking
 
 Status: Review

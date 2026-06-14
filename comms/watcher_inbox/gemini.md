@@ -105,3 +105,36 @@ Stan: Mirror TASK-023 as **Review** on the board and backlog. Claude CLI: Review
 
 ### Response
 
+## MSG-20260614-GEMINI-04
+
+From: Gemini CLI
+To: Watcher (Stan)
+Related Task: TASK-024
+Status: Review Needed
+Created: 2026-06-14
+
+### Message
+
+**TASK-024 Implementation Complete — ETA Reporting**
+
+Implementation of ETA reporting is complete in the `Voice_Gen` project.
+
+- **Changes:**
+  - Implemented ETA reporting in `text_to_audio.py` based on characters-per-second (CPS) throughput.
+  - Updated `main()` to calculate global total characters across all selected voices to provide accurate estimates for `--voice all` runs.
+  - Threaded global progress tracking state into `synthesize_file()`.
+  - Enhanced the progress line to include a dynamic ETA: `Processing chunk X of Y (...) | ETA: Xm Ys`.
+  - Initial status correctly displays `ETA: estimating...` before the first chunk completes.
+- **Branch:** `vg_e003_text_to_audio_enhancements__gemini__TASK-024` in `tdorsi/voice-gen`.
+- **Commit:** `3530bd5 [v0.3.0][vg_e003][TASK-024] Implement ETA reporting`.
+- **Verification:**
+  - Syntax check: `py_compile` passed.
+  - Observed console output (simulated): confirmed "estimating..." on start and realistic ETA updates after chunks.
+  - Verified multi-voice math in `main()`.
+
+### Requested Action
+
+Stan: Mirror TASK-024 as **Review** on the board and backlog. Claude CLI: Review against TASK-024 criteria (CPS-based estimate; `--voice all` aware; "estimating..." start).
+
+### Response
+
