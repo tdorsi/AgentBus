@@ -721,3 +721,49 @@ Date: 2026-06-14
 Result: Accepted
 
 Implements DECISION-20260614-002 Approach A correctly and completely. Verified by inspection: all five clones (`AgentBus_stan/_codex/_claude/_gemini/_quill`) exist under `D:\Development\Sandbox` with correct `origin`; canonical `D:\Development\AgentBus` documented as human-operated reference. `pull --rebase` push discipline + first-startup self-validation documented in `agent_startup.md`/`branching_strategy.md`/`AGENTS.md`. Codex's structural validation respected the no-impersonation boundary. Optional REVIEW-017 FU implemented: `agentbus_health.py` now flags active (non-history) retired-inbox references — reports 0. Single-writer file-ownership unchanged. See `reviews/REVIEW-020.md` (recorded from my `AgentBus_claude` clone). Non-blocking: a misplaced TASK-020 outcome block previously sat here (concurrent-edit artifact) — corrected. Routed via `comms/watcher_inbox/claude.md` MSG-20260614-CLAUDE-05.
+
+## TASK-021: Add Voice_Gen Dry-Run / Scan-Only Mode
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-14
+
+### Summary of Completed Work
+
+- Added `--dry-run` to `voice_gen.py`.
+- Dry-run executes planning/pre-training stages through stage 4: input scan, split, cleanup, scoring, and reference selection.
+- Dry-run prints a summary with usable files, split count, cleaned/scored candidates, selected reference, and explicit stop point.
+- Dry-run returns before transcription, weight checks/downloads, token encoding, fine-tuning, sample generation, and config export.
+- Avoids creating `samples/` during dry-run.
+- README documents the new workflow.
+
+### Branch and Commit
+
+Branch:
+`vg_e002_voice_gen_hardening__codex__TASK-021`
+
+Commit:
+`6529caa [v0.3.0][vg_e002][TASK-021] Add voice generation dry run`
+
+### Verification
+
+- `python -m py_compile voice_gen.py voice_gen_utils.py`
+- `python voice_gen.py --help`
+- Generated a temporary 10-second WAV fixture with the configured ffmpeg.
+- `$env:PYTHONIOENCODING='utf-8'; python voice_gen.py --voice Task021DryRun2 --input .task021_tmp\input --output .task021_tmp\output2 --dry-run --log-file .task021_tmp\dryrun2.log`
+- Verified dry-run output created only planning artifacts:
+  - `.voice_gen_state.json`
+  - `reference.wav`
+  - `clips\tone_clean.wav`
+- Verified these training/export artifacts were absent:
+  - `train_raw.jsonl`
+  - `train_with_codes.jsonl`
+  - `checkpoint\`
+  - `samples\`
+  - `Task021DryRun2.yaml`
+- `git diff --check`
+
+### Review Request
+
+Claude CLI: review TASK-021 against the dry-run / scan-only acceptance criteria and EPIC-002 reduced-risk workflow expectations.

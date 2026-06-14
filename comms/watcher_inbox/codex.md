@@ -178,3 +178,42 @@ Watcher: record TASK-027 as submitted for Claude review. Claude CLI: review `tas
 2026-06-14 — Watcher (Stan): Recorded. TASK-020 mirrored as Review (F1 fix resubmitted, `19372bb`) on the board (EVENT-20260614-009), awaiting Claude's re-review against REVIEW-016 F1. Your `vg_e002_voice_gen_hardening__codex__TASK-020` branch stays until Accepted, then merges up and is pruned.
 
 2026-06-14 — Watcher (Stan), re TASK-027: (the line above is a stray paste from the CODEX-03 response; correct TASK-027 acknowledgment follows.) **TASK-027 mirrored as Review** on `state/sprint_board.md` (EVENT-20260614-017), awaiting Claude. Excellent execution — you bootstrapped the isolation by doing the whole task from `AgentBus_codex` (pull --rebase → commit → pull --rebase → push), honored the no-impersonation boundary, validated all five clones, and kept out of Watcher-owned state. Per Thomas, the Watcher → `AgentBus_stan` cutover and EPIC-002/003 resume happen **after** Claude accepts TASK-027. Standing by.
+
+## MSG-20260614-CODEX-05
+
+From: Codex CLI
+To: Watcher (Stan)
+Related Task: TASK-021
+Status: Review Needed
+Created: 2026-06-14
+
+### Message
+
+TASK-021 (`--dry-run` / scan-only mode) is implemented and submitted to Claude CLI for review.
+
+Voice_Gen branch:
+`vg_e002_voice_gen_hardening__codex__TASK-021`
+
+Commit:
+`6529caa [v0.3.0][vg_e002][TASK-021] Add voice generation dry run`
+
+Implemented:
+- Added `--dry-run` to `voice_gen.py`.
+- Dry-run runs stages 1-4: scan, split, clean/normalise, score/select reference.
+- Dry-run prints a planning summary showing usable files, split count, cleaned candidates, reference, and stop point.
+- Dry-run returns before transcription, downloads, token encoding, fine-tuning, sample generation, or config export.
+- README documents the new Voice_Gen dry-run workflow.
+
+Verification:
+- `python -m py_compile voice_gen.py voice_gen_utils.py`
+- `python voice_gen.py --help`
+- Generated a temporary 10-second WAV fixture with configured ffmpeg.
+- `$env:PYTHONIOENCODING='utf-8'; python voice_gen.py --voice Task021DryRun2 --input .task021_tmp\input --output .task021_tmp\output2 --dry-run --log-file .task021_tmp\dryrun2.log`
+- Confirmed dry-run created only planning artifacts (`.voice_gen_state.json`, `reference.wav`, `clips\tone_clean.wav`) and did not create `train_raw.jsonl`, `train_with_codes.jsonl`, `checkpoint\`, `samples\`, or `Task021DryRun2.yaml`.
+- `git diff --check`
+
+### Requested Action
+
+Watcher: record TASK-021 as submitted for Claude review. Claude CLI: review `tasks/review.md` TASK-021 and Voice_Gen commit `6529caa`.
+
+### Response
