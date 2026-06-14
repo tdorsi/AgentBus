@@ -25,13 +25,13 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-018 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-013.md` |
 | TASK-019 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-014.md` |
 | TASK-020 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-018.md` |
-| TASK-021 | Paused (pending TASK-027) | Codex CLI | Claude CLI | `tasks/backlog.md` |
+| TASK-021 | Ready (resumed) | Codex CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-011.md` |
 | TASK-022 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-019.md` |
-| TASK-023 | Paused (pending TASK-027) | Gemini CLI | Claude CLI | `tasks/backlog.md` |
-| TASK-024 | Paused (pending TASK-027) | Gemini CLI | Claude CLI | `tasks/backlog.md` |
-| TASK-025 | Paused (pending TASK-027) | Gemini CLI | Claude CLI | `tasks/backlog.md` |
+| TASK-023 | Ready (resumed) | Gemini CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-015.md` |
+| TASK-024 | Ready (resumed) | Gemini CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-015.md` |
+| TASK-025 | Ready (resumed) | Gemini CLI | Claude CLI | `tasks/backlog.md`, `reviews/REVIEW-015.md` |
 | TASK-026 | Done / accepted (w/ follow-ups) | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-017.md` |
-| TASK-027 | Review (submitted `602e6b5`, awaiting Claude) | Codex CLI | Claude CLI | `tasks/review.md`, AgentBus commit `602e6b5` |
+| TASK-027 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-020.md` |
 
 ## Backlog
 
@@ -39,25 +39,25 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | --- | --- | --- |
 | TASK-005 | Thomas / Quill | Backlog |
 
-## Ready / Paused
+## Ready
 
-**EPIC-002 and EPIC-003 are PAUSED pending TASK-027** (DECISION-20260614-002, approved by Thomas 2026-06-14). No new EPIC-002/003 implementation resumes until the AgentBus per-agent-clone isolation is complete.
+**EPIC-002 and EPIC-003 RESUMED** (2026-06-14) — TASK-027 accepted; the AgentBus per-agent-clone isolation is complete and the Watcher has cut over to `AgentBus_stan`.
 
-EPIC-002 Voice_Gen Hardening — branch `vg_e002_voice_gen_hardening`. Owner Codex CLI, Reviewer Claude CLI. TASK-016/018/019/020 accepted; **TASK-021 held**.
+EPIC-002 Voice_Gen Hardening — branch `vg_e002_voice_gen_hardening`. Owner Codex CLI, Reviewer Claude CLI. TASK-016/018/019/020 accepted; **TASK-021 is the last item (next up)**.
 
 | Task | Owner | Reviewer | Priority | Notes |
 | --- | --- | --- | --- | --- |
-| TASK-021 | Codex CLI | Claude CLI | High | `--dry-run` / scan-only mode — **held (pending TASK-027)** |
+| TASK-021 | Codex CLI | Claude CLI | High | `--dry-run` / scan-only mode |
 
 TASK-017 dropped per REVIEW-011 F1 (handler-clear already delivered by EPIC-001).
 
-EPIC-003 Text_to_Audio Enhancements (combined w/ Progress Reporting) — branch `vg_e003_text_to_audio_enhancements`. Owner Gemini CLI, Reviewer Claude CLI. Under DISPATCH-20260613-005. TASK-022 accepted; **TASK-023/024/025 held**.
+EPIC-003 Text_to_Audio Enhancements (combined w/ Progress Reporting) — branch `vg_e003_text_to_audio_enhancements`. Owner Gemini CLI, Reviewer Claude CLI. Under DISPATCH-20260613-005. TASK-022 accepted; **TASK-023 next**, then 024/025.
 
 | Task | Owner | Reviewer | Priority | Notes |
 | --- | --- | --- | --- | --- |
-| TASK-023 | Gemini CLI | Claude CLI | Medium | Progress reporting — **held (pending TASK-027)** |
-| TASK-024 | Gemini CLI | Claude CLI | Medium | ETA — **held (pending TASK-027)** |
-| TASK-025 | Gemini CLI | Claude CLI | Medium | Docs + end-to-end validation — **held (pending TASK-027)** |
+| TASK-023 | Gemini CLI | Claude CLI | Medium | Progress reporting (shared console helpers; real-synthesis only) |
+| TASK-024 | Gemini CLI | Claude CLI | Medium | ETA (completed-chunk throughput; `--voice all` aware) |
+| TASK-025 | Gemini CLI | Claude CLI | Medium | Docs + recorded end-to-end validation |
 
 ## In Progress
 
@@ -67,7 +67,6 @@ No in-progress tasks currently mirrored.
 
 | Task | Owner | Reviewer | Status |
 | --- | --- | --- | --- |
-| TASK-027 | Codex CLI | Claude CLI | Review — AgentBus clone isolation submitted (`602e6b5`), awaiting Claude |
 | TASK-003 | Codex CLI | Thomas / Quill | Review / stale pending response marker |
 | TASK-004 | Claude CLI | Thomas / Quill | Review |
 
@@ -89,6 +88,7 @@ No blocked tasks currently mirrored.
 | TASK-019 | Codex CLI | 2026-06-13 accepted by Claude CLI (REVIEW-014) |
 | TASK-020 | Codex CLI | 2026-06-14 accepted by Claude CLI (REVIEW-018) |
 | TASK-022 | Gemini CLI | 2026-06-14 accepted by Claude CLI (REVIEW-019) |
+| TASK-027 | Codex CLI | 2026-06-14 accepted by Claude CLI (REVIEW-020) |
 | TASK-026 | Codex CLI | 2026-06-14 accepted w/ follow-ups by Claude CLI (REVIEW-017) |
 
 ## Validation Cycle

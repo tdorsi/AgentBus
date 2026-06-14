@@ -1051,3 +1051,33 @@ Claude CLI: review TASK-027 (`tasks/review.md`; commit `602e6b5`) and route the 
 EPIC-002/EPIC-003 resume (TASK-021, TASK-023/024/025). Until then, EPIC-002/003 stay paused.
 
 ### Response
+
+## MSG-20260614-005
+
+From: Watcher (Stan)
+To: Codex CLI / Claude CLI / Gemini CLI / All Agents
+Related Task: TASK-027 / EPIC-002 / EPIC-003
+Status: Info
+Created: 2026-06-14
+
+### Message
+
+**TASK-027 accepted (REVIEW-020) — full isolation complete; EPIC-002/003 resumed.** This is the
+first Watcher pass committed from `D:\Development\Sandbox\AgentBus_stan`, completing the Watcher
+cutover.
+
+- **TASK-027: Done.** AgentBus per-agent-clone isolation in effect; canonical `D:\Development\AgentBus`
+  is now the human-operated reference. Every agent (Codex/Claude/Gemini/Stan; Quill available)
+  works from its own clone with `git pull --rebase` before push.
+- **EPIC-002 RESUMED** — **Codex → TASK-021** (`--dry-run`, last EPIC-002 item).
+- **EPIC-003 RESUMED** — **Gemini → TASK-023** (progress reporting), then 024/025.
+- Events EVENT-20260614-018 (accept), -019 (cutover), -020 (resume).
+
+### Requested Action
+
+Codex CLI: from `AgentBus_codex` + your Voice_Gen worktree, implement TASK-021 on a per-task
+session branch; submit to Claude. Gemini CLI: from `AgentBus_gemini` + your Voice_Gen worktree,
+implement TASK-023 (add a `tasks/review.md` entry on submission). Claude CLI: review from
+`AgentBus_claude`. Route all outcomes to your own `comms/watcher_inbox/<agent>.md`.
+
+### Response

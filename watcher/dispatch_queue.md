@@ -105,6 +105,7 @@ Updated: 2026-06-13
 - 2026-06-13: TASK-020 returned **Changes Requested** by Claude CLI (REVIEW-016 F1, W014, EVENT-20260613-024) — custom `--log-file` parent dir not created. Kept in Review/changes-requested; fix routed to Codex CLI (`comms/inbox_codex.md` MSG-20260613-018). TASK-021 still Ready. Dispatch remains open.
 - 2026-06-14: Codex resubmitted the TASK-020 F1 fix (Voice_Gen commit `19372bb` on `vg_e002_voice_gen_hardening__codex__TASK-020`, MSG-20260614-CODEX-03, EVENT-20260614-009); mirrored as Review, awaiting Claude re-review. TASK-021 still Ready.
 - 2026-06-14: TASK-020 **accepted** by Claude CLI (REVIEW-018, MSG-20260614-CLAUDE-03, EVENT-20260614-013); mirrored to Done. EPIC-002 = 4/5 accepted. **TASK-021 held — EPIC-002 PAUSED pending TASK-027** (DECISION-20260614-002). This dispatch is paused; resume after TASK-027 completes.
+- 2026-06-14: **EPIC-002 RESUMED** — TASK-027 accepted (EVENT-20260614-020); TASK-021 (`--dry-run`) is Ready again and is Codex's next item. Dispatch reactivated.
 
 #### Correction
 
@@ -170,6 +171,7 @@ No Product Owner hold for EPIC-003.
 
 - 2026-06-14 (FU1, REVIEW-017 / EVENT-20260614-008): the Action routing reference was corrected from the retired `comms/inbox_watcher.md` to `comms/watcher_inbox/gemini.md`. This was the one remaining live reference to the retired shared inbox; flagged by Claude and Codex (both correctly declined to edit Watcher-owned state), fixed here by the Watcher.
 - 2026-06-14: TASK-022 **accepted** by Claude CLI (REVIEW-019, MSG-20260614-CLAUDE-04, EVENT-20260614-014); mirrored to Done. **TASK-023/024/025 held — EPIC-003 PAUSED pending TASK-027** (DECISION-20260614-002). This dispatch is paused; resume after TASK-027 completes.
+- 2026-06-14: **EPIC-003 RESUMED** — TASK-027 accepted (EVENT-20260614-020); TASK-023 (progress reporting) is Gemini's next, then 024/025. Dispatch reactivated.
 
 ## DISPATCH-20260614-001
 
@@ -201,7 +203,7 @@ Related Task: TASK-027
 Assigned Agent: Codex CLI
 Reviewer: Claude CLI
 Action: Implement Approach A — create per-agent AgentBus clones under `D:\Development\Sandbox\AgentBus_<agent>` (`stan`, `codex`, `claude`, `gemini`, `quill`); update `procedures/agent_startup.md`, `procedures/branching_strategy.md`, and `D:\Development\AGENTS.md`; validate each active agent can pull / commit / push / receive messages / process dispatches from its own clone. Optional (REVIEW-017 FU): have `agentbus_health.py` flag active, non-history references to retired inboxes. Submit to Claude CLI; route outcome to `comms/watcher_inbox/codex.md`.
-Status: Dispatched
+Status: Complete
 Created: 2026-06-14
 Updated: 2026-06-14
 
@@ -215,5 +217,6 @@ Updated: 2026-06-14
 #### Progress
 
 - 2026-06-14: Codex implemented TASK-027 from its own `AgentBus_codex` clone (AgentBus commit `602e6b5`) and submitted for review (MSG-20260614-CODEX-04, EVENT-20260614-017); mirrored as Review. Validation boundary honored (structural-by-Codex, no impersonation); all five clones created with `origin` and verified `pull --rebase`-clean. Awaiting Claude's review; dispatch stays open until TASK-027 is accepted, then the Watcher cuts over to `AgentBus_stan` and EPIC-002/003 resume.
+- 2026-06-14: TASK-027 **accepted** by Claude CLI (REVIEW-020, MSG-20260614-CLAUDE-05, EVENT-20260614-018); mirrored to Done. **Watcher cutover to `AgentBus_stan` complete** (EVENT-20260614-019) — this pass is the first committed from the stan clone. **EPIC-002/003 resumed** (EVENT-20260614-020). Dispatch **Complete**.
 
 #### Correction

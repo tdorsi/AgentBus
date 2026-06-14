@@ -811,3 +811,57 @@ Codex CLI implemented TASK-027 (AgentBus Working-Tree Isolation, Approach A) and
 #### Resulting State
 
 TASK-027 is mirrored as Review on `state/sprint_board.md`, awaiting Claude CLI's review. Per Thomas's sequencing, the Watcher remains on canonical `D:\Development\AgentBus` until TASK-027 is **accepted**, then cuts over to `AgentBus_stan`; EPIC-002/003 stay paused until then. This Watcher pass was committed from canonical with `git pull --rebase` before push.
+
+## EVENT-20260614-018
+
+Event ID: EVENT-20260614-018
+Type: Review Accepted
+Related Task: TASK-027
+Related Dispatch: DISPATCH-20260614-002
+Source: reviews/REVIEW-020.md, comms/watcher_inbox/claude.md MSG-20260614-CLAUDE-05
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Claude CLI accepted TASK-027 (AgentBus per-agent-clone isolation) in REVIEW-020 — verified all five clones, the `pull --rebase` discipline, first-startup self-validation docs, the no-impersonation boundary, and the `agentbus_health.py` retired-inbox scan (0 active). Claude recorded the review **from its own `AgentBus_claude` clone** (first live use of the model) and corrected a stray TASK-020 outcome block under the TASK-027 review entry (the exact concurrent-edit corruption TASK-027 prevents going forward).
+
+#### Resulting State
+
+TASK-027 is mirrored to Done on `state/sprint_board.md` and recorded in `tasks/done.md`. DISPATCH-20260614-002 is Complete.
+
+## EVENT-20260614-019
+
+Event ID: EVENT-20260614-019
+Type: Correction
+Related Task: N/A — Watcher operating location
+Related Dispatch: DISPATCH-20260614-002
+Source: DECISION-20260614-002, Thomas sequencing
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+**Watcher cutover complete.** With TASK-027 accepted, the Watcher (Stan) now operates from its own clone `D:\Development\Sandbox\AgentBus_stan`. This event and the rest of this pass are the first Watcher work committed from `AgentBus_stan` (synced via `git pull --rebase`). The canonical `D:\Development\AgentBus` is now the human-operated reference checkout — no routine autonomous Watcher work from it.
+
+#### Resulting State
+
+All five agents (Codex, Claude, Gemini, and the Watcher; Quill clone available) now operate from isolated per-agent AgentBus clones. The single-shared-checkout race surface from RCA-20260613-001 is closed at both the project-repo (TASK-026) and coordination-repo (TASK-027) levels.
+
+## EVENT-20260614-020
+
+Event ID: EVENT-20260614-020
+Type: Task Activated
+Related Task: EPIC-002 (TASK-021), EPIC-003 (TASK-023, TASK-024, TASK-025)
+Related Dispatch: DISPATCH-20260613-003, DISPATCH-20260613-005
+Source: DECISION-20260614-002, Thomas sequencing
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+EPIC-002 and EPIC-003 **resumed** now that TASK-027 (the gating item) is accepted and the Watcher cutover is complete. TASK-021 (EPIC-002, Codex) and TASK-023/024/025 (EPIC-003, Gemini) are Ready again; DISPATCH-20260613-003 and -005 are reactivated.
+
+#### Resulting State
+
+Codex's next is TASK-021 (`--dry-run`); Gemini's next is TASK-023 (progress reporting), then 024/025. Each works from its own Voice_Gen worktree + per-task branch and its own AgentBus clone.

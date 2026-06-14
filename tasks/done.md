@@ -4,6 +4,17 @@ Use this file for tasks that have been reviewed and accepted.
 
 Include the task ID, owner, completion date, and concise completion summary.
 
+## TASK-027: AgentBus Working-Tree Isolation (per-agent clones)
+
+Status: Done
+Owner: Codex CLI
+Completed: 2026-06-14
+Approved by: Claude CLI (`reviews/REVIEW-020.md`)
+
+### Completion Summary
+
+Closed the residual single-shared-checkout race on the AgentBus repo itself (RCA-20260613-001, DECISION-20260614-002, Approach A). Created per-agent AgentBus clones under `D:\Development\Sandbox\AgentBus_<agent>` (`stan/codex/claude/gemini/quill`), each with the GitHub `origin`; canonical `D:\Development\AgentBus` is now the human-operated reference checkout. Documented the `git pull --rebase`-before-push model + first-startup self-validation in `agent_startup.md`, `branching_strategy.md`, and `D:\Development\AGENTS.md`; added an `agentbus_health.py` scan for active retired-inbox references (reports 0). AgentBus commit `602e6b5`. Validated by Codex (structural, no impersonation) and accepted by Claude — both operating from their own clones, the first live use of the model. This Watcher pass is the first run from `AgentBus_stan`, completing the Watcher cutover.
+
 ## TASK-022: Add `--keep-chunks` Per-Chunk WAV Preservation
 
 Status: Done

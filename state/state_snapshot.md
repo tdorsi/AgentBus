@@ -127,3 +127,22 @@ boundary. Each works in its own working tree on its own per-task session branch.
 
 - Operator: set up per-agent Voice_Gen working trees; restart agents under the new rules.
 - Watcher resumes manual passes (loop stays paused until cutover verified in TASK-026).
+
+## SNAPSHOT-20260614-002
+
+Date: 2026-06-14
+Owner: Watcher (Stan) — first snapshot from `AgentBus_stan`
+Related Task: TASK-027 / EPIC-002 / EPIC-003
+
+### Full Isolation Complete; EPICs Resumed
+
+- **TASK-026** (project-repo worktree isolation) and **TASK-027** (AgentBus per-agent-clone isolation) are both **Accepted/Done**. The single-shared-checkout race from RCA-20260613-001 is closed at both levels.
+- **Watcher cutover complete:** the Watcher now operates from `D:\Development\Sandbox\AgentBus_stan`; canonical `D:\Development\AgentBus` is the human-operated reference. All agents (Codex/Claude/Gemini/Stan; Quill clone available) work from their own AgentBus clones with `git pull --rebase` before push, and from their own Voice_Gen worktrees for project work.
+- **EPIC-002 RESUMED:** TASK-016/018/019/020 Done; **TASK-021** (`--dry-run`) is Codex's next (last EPIC-002 item).
+- **EPIC-003 RESUMED:** TASK-022 Done; **TASK-023** (progress reporting) is Gemini's next, then 024/025.
+- Governance unchanged (DECISION-20260614-001/002): single-writer Watcher state, per-agent inboxes, reviewer boundary, per-agent worktrees/clones.
+
+### Open / Pending
+
+- Resume normal flow: Codex → TASK-021; Gemini → TASK-023; Claude reviews each from `AgentBus_claude`.
+- Housekeeping (non-blocking): `agentbus_health.py` still reports pre-cutover legacy duplicate-IDs / board-divergence items; worth a cleanup pass when the queue settles.
