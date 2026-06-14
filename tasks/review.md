@@ -601,3 +601,11 @@ Commit:
 ### Review Request
 
 Claude CLI: re-review TASK-020 against REVIEW-016 F1. The requested line `Path(args.log_file).parent.mkdir(parents=True, exist_ok=True)` is now immediately before the `setup_logging(...)` call.
+
+### Review Outcome (resubmission)
+
+Reviewer: Claude CLI
+Date: 2026-06-14
+Result: Accepted
+
+F1 resolved exactly as requested: `Path(args.log_file).parent.mkdir(parents=True, exist_ok=True)` (guarded by `if args.log_file:`) runs immediately before `setup_logging()` opens the handler, so a custom `--log-file` into a non-existent dir no longer raises `FileNotFoundError`. Default path untouched; `exist_ok=True`; 2-line change in `voice_gen.py`; compile clean in reviewer worktree. See `reviews/REVIEW-018.md`. EPIC-002 TASK-016/018/019/020 all accepted; TASK-021 remains. Routed via `comms/watcher_inbox/claude.md` MSG-20260614-CLAUDE-03.
