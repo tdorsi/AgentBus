@@ -20,6 +20,11 @@ BOARD_ROW_RE = re.compile(
     r"^\|\s*(TASK-\d+)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|$",
     re.MULTILINE,
 )
+RETIRED_WATCHER_INBOX_RE = re.compile(r"comms[\\/]+inbox_watcher\.md")
+HISTORY_CONTEXT_RE = re.compile(
+    r"\b(retired|history|historical|archive|archived|legacy|source:|correction|corrected|replace|replaces|replaced)\b",
+    re.IGNORECASE,
+)
 
 
 @dataclass
@@ -77,6 +82,13 @@ class BoardDivergence:
     task_value: str
     board_source: str
     task_source: Path
+
+
+@dataclass
+class InboxReference:
+    source: Path
+    line: int
+    text: str
 
 
 def read_text(path: Path) -> str:
@@ -291,6 +303,35 @@ def board_divergences(tasks: list[Task], board: dict[str, BoardRow]) -> list[Boa
     return divergences
 
 
+def active_inbox_reference_files(root: Path) -> list[Path]:
+    relative_paths = [
+        "README.md",
+        "agent_rules.md",
+        "GEMINI.md",
+        "procedures/agent_startup.md",
+        "procedures/branching_strategy.md",
+        "procedures/review_response.md",
+        "watcher/watcher_rules.md",
+        "watcher/watcher_seed_prompt.md",
+        "watcher/routing_table.md",
+        "watcher/dispatch_queue.md",
+    ]
+    return [root / relative for relative in relative_paths]
+
+
+def active_inbox_references(root: Path) -> list[InboxReference]:
+    references: list[InboxReference] = []
+    for path in active_inbox_reference_files(root):
+        text = read_text(path)
+        for index, line in enumerate(text.splitlines(), start=1):
+            if not RETIRED_WATCHER_INBOX_RE.search(line):
+                continue
+            if HISTORY_CONTEXT_RE.search(line):
+                continue
+            references.append(InboxReference(path.relative_to(root), index, line.strip()))
+    return references
+
+
 def key_files(root: Path) -> list[Path]:
     relative_paths = [
         "sprint.md",
@@ -373,6 +414,16 @@ def print_board_divergence_section(divergences: list[BoardDivergence]) -> None:
         print(f"    Tasks: {divergence.task_value} ({task_source})")
 
 
+def print_inbox_reference_section(references: list[InboxReference]) -> None:
+    print("\nActive Retired-Inbox References")
+    if not references:
+        print("  None")
+        return
+    for reference in references:
+        print(f"  {reference.source}:{reference.line}")
+        print(f"    {reference.text}")
+
+
 def print_update_section(root: Path) -> None:
     print("\nLast Update Timing")
     for path in key_files(root):
@@ -390,6 +441,7 @@ def run(root: Path, recent_decisions: int) -> int:
     decisions = parse_decisions(root)
     duplicates = duplicate_ids(parse_ids(root))
     divergences = board_divergences(tasks, parse_board(root))
+    inbox_references = active_inbox_references(root)
 
     active_tasks = [task for task in tasks if "active" in task.status.lower()]
     blocked_tasks = [task for task in tasks if "blocked" in task.status.lower()]
@@ -399,17 +451,27 @@ def run(root: Path, recent_decisions: int) -> int:
     print(f"Tasks: {len(tasks)} | Active: {len(active_tasks)} | Blocked: {len(blocked_tasks)}")
     print(f"Messages: {len(messages)} | Need Response: {sum(1 for msg in messages if msg.needs_response)}")
     print(f"Decisions: {len(decisions)}")
-    print(f"Duplicate IDs: {len(duplicates)} | Board Divergences: {len(divergences)}")
+    print(
+        f"Duplicate IDs: {len(duplicates)} | Board Divergences: {len(divergences)} | "
+        f"Active Retired-Inbox References: {len(inbox_references)}"
+    )
 
     print_task_section("Active Tasks", active_tasks)
     print_task_section("Blocked Tasks", blocked_tasks)
     print_message_section(messages)
     print_duplicate_id_section(duplicates)
     print_board_divergence_section(divergences)
+    print_inbox_reference_section(inbox_references)
     print_decision_section(decisions, recent_decisions)
     print_update_section(root)
 
-    has_issue = blocked_tasks or any(message.needs_response for message in messages) or duplicates or divergences
+    has_issue = (
+        blocked_tasks
+        or any(message.needs_response for message in messages)
+        or duplicates
+        or divergences
+        or inbox_references
+    )
     return 1 if has_issue else 0
 
 

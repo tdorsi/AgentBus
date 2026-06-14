@@ -4,6 +4,24 @@ Use this file for tasks that are claimed and in progress. Each active task shoul
 
 Append updates beneath the relevant task. Do not remove history; move or summarize completed work only after review.
 
+## TASK-027: AgentBus Working-Tree Isolation
+
+Status: Active — claimed by Codex CLI 2026-06-14
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Claimed: 2026-06-14
+Updated: 2026-06-14
+Related: DECISION-20260614-002, DISPATCH-20260614-002, REVIEW-017
+
+### Goal
+
+Close the residual shared-checkout race on AgentBus itself by establishing per-agent AgentBus clones under `D:\Development\Sandbox`.
+
+### Work Notes
+
+- 2026-06-14: Codex CLI claimed TASK-027 after Thomas approved Approach A. Voice_Gen work remains paused; Codex is now working from `D:\Development\Sandbox\AgentBus_codex`.
+
 ## TASK-020: Add `--log-file` Override (plumbing only)
 
 Status: Review — submitted to Claude CLI

@@ -954,8 +954,8 @@ Complete the communication-isolation plan. The governance/doc portions were auth
 
 ## TASK-027: AgentBus Working-Tree Isolation (close the residual shared-checkout race)
 
-Status: Backlog — Approach A selected (DECISION-20260614-002); awaiting PO approval to dispatch
-Owner: Codex CLI (proposed)
+Status: Active — claimed by Codex CLI 2026-06-14 (DISPATCH-20260614-002)
+Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: High
 Created: 2026-06-14
@@ -976,16 +976,18 @@ The AgentBus repo's coordination updates commit directly to `main` (not per-task
 
 ### Acceptance Criteria
 
-- No two agents share one AgentBus working tree/index for commits (or, if approach B, a documented single-writer discipline is enforced).
-- Concurrent AgentBus coordination updates cannot stack/contaminate each other; pushes to `origin/main` serialize safely via `pull --rebase`.
-- The chosen approach is documented in `procedures/branching_strategy.md` (or `agent_startup.md`) and `D:\Development\AGENTS.md`, with per-agent AgentBus checkout locations if approach A.
-- `agent_startup.md` reflects the AgentBus checkout/clone step alongside the existing Voice_Gen worktree step.
+- Per-agent AgentBus clones exist under `D:\Development\Sandbox\AgentBus_<agent>` (`stan`, `codex`, `claude`, `gemini`, `quill`), each with `origin` configured; canonical `D:\Development\AgentBus` is the human-operated reference checkout after cutover.
+- No two agents share one AgentBus working tree/index; pushes to `origin/main` serialize via `git pull --rebase` before push.
+- Validation is structural by Codex, with no impersonation: Codex verifies and documents all five clones have the correct `origin` remote, successful `git fetch`, clean `git pull --rebase`, and expected clean branch state. Codex does not commit, push, or post messages as another agent.
+- Per-agent self-validation on first startup is documented: each agent validates its own pull -> trivial change -> commit -> push -> inbox/dispatch read path from its own clone.
+- Docs updated: `procedures/agent_startup.md` (AgentBus clone step + first-startup self-validation), `procedures/branching_strategy.md`, and `D:\Development\AGENTS.md` (clone locations, `pull --rebase` before push, canonical reference checkout).
 - (Optional, from REVIEW-017 FU note) `agentbus_health.py` flags active, non-history references to retired/foreign inboxes.
 - Existing single-writer file-ownership rules (DECISION-20260614-001) remain in force and consistent.
 
 ### Work Notes
 
 - 2026-06-14: Drafted by Watcher (Stan) at Thomas's direction, from Claude's REVIEW-017 root-cause note. Not dispatched; a durable `DECISION` extension may accompany the approach choice (Thomas / Quill).
+- 2026-06-14: Thomas approved DECISION-20260614-002 and DISPATCH-20260614-002. Codex CLI claimed TASK-027 from its isolated AgentBus clone.
 
 ### Blockers
 

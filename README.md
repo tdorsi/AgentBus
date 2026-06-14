@@ -161,7 +161,7 @@ Workspace: /path/to/agentbus
 Tasks: 5 | Active: 1 | Blocked: 0
 Messages: 4 | Need Response: 1
 Decisions: 2
-Duplicate IDs: 0 | Board Divergences: 0
+Duplicate IDs: 0 | Board Divergences: 0 | Active Retired-Inbox References: 0
 
 Active Tasks
   TASK-003: Build AgentBus Health Check CLI
@@ -178,6 +178,9 @@ Duplicate IDs
   None
 
 Board Divergences
+  None
+
+Active Retired-Inbox References
   None
 
 Recent Decisions
@@ -201,6 +204,8 @@ Last Update Timing
 
 **Board Divergences** — rows where `state/sprint_board.md` disagrees with the most authoritative matching task entry in `tasks/*`.
 
+**Active Retired-Inbox References** — active operational docs that still instruct agents to use the retired shared Watcher inbox, excluding clearly historical or correction context.
+
 **Recent Decisions** — the N most recent entries from `decisions/decision_log.md`.
 
 **Last Update Timing** — last-modified timestamps for key coordination files. Useful for spotting files that have gone stale.
@@ -209,8 +214,8 @@ Last Update Timing
 
 | Code | Meaning |
 |------|---------|
-| `0` | Workspace is healthy — no blocked tasks, no messages awaiting response, no duplicate IDs, and no board divergences |
-| `1` | Attention needed — blocked tasks, messages needing response, duplicate IDs, or board divergences |
+| `0` | Workspace is healthy — no blocked tasks, no messages awaiting response, no duplicate IDs, no board divergences, and no active retired-inbox references |
+| `1` | Attention needed — blocked tasks, messages needing response, duplicate IDs, board divergences, or active retired-inbox references |
 | `2` | Not a valid AgentBus workspace (missing `agent_rules.md` or `tasks/`) |
 
 The exit code makes the CLI scriptable:

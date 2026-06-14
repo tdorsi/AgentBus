@@ -230,8 +230,8 @@ Includes:
 # Agent Session Branches
 
 Builds on the working-tree isolation in DECISION-20260614-001. Applies to **project repositories**
-(e.g. Voice_Gen), not to the AgentBus coordination repo (AgentBus uses a single shared tree and the
-per-file single-writer model).
+(e.g. Voice_Gen). AgentBus coordination repo isolation is covered separately below under
+`AgentBus Coordination Clones`.
 
 ## Rule
 
@@ -362,3 +362,42 @@ AgentBus remains the authoritative source for:
 * Project governance
 
 Both systems must remain synchronized through commits, reviews, and documented decisions.
+
+---
+
+# AgentBus Coordination Clones
+
+DECISION-20260614-002 extends working-tree isolation to the AgentBus coordination repo itself.
+AgentBus coordination files still flow through `origin/main`, but each agent works from its own
+clone so no two agents share a working tree, index, stash, or rebase state.
+
+## AgentBus Clone Rule
+
+Use these checkouts for routine AgentBus coordination work:
+
+```text
+D:\Development\AgentBus                  <- human-operated reference checkout
+D:\Development\Sandbox\AgentBus_stan     <- Watcher / Stan clone after TASK-027 cutover
+D:\Development\Sandbox\AgentBus_codex    <- Codex CLI clone
+D:\Development\Sandbox\AgentBus_claude   <- Claude CLI clone
+D:\Development\Sandbox\AgentBus_gemini   <- Gemini CLI clone
+D:\Development\Sandbox\AgentBus_quill    <- Quill / Thomas clone
+```
+
+The canonical `D:\Development\AgentBus` checkout is for human review, administration, Product
+Owner / PM inspection, and temporary Watcher use until the TASK-027 acceptance cutover. Autonomous
+agents should not do routine AgentBus edits from the canonical checkout after cutover.
+
+## AgentBus Push Discipline
+
+AgentBus coordination work commits directly to `main`. Before pushing from an agent clone:
+
+1. Confirm you are in your own `AgentBus_<agent>` clone.
+2. Run `git fetch origin`.
+3. Run `git pull --rebase origin main`.
+4. Commit only files inside your write boundary.
+5. Push to `origin main`.
+
+If the push is rejected, fetch and rebase again, resolve only conflicts in files you are allowed to
+write, then push. Do not stage or clean another agent's clone, and do not commit from the canonical
+reference checkout as an autonomous agent.
