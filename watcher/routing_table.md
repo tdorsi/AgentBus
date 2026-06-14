@@ -9,6 +9,7 @@ Use this table when deciding where a message belongs. The Watcher routes operati
 | Task blocker | `comms/inbox_watcher.md` | Task owner | Watcher records blocker and routes decision needs. |
 | Question for Codex CLI | `comms/inbox_codex.md` | Sender | Use for implementation-specific questions. |
 | Question for Claude CLI | `comms/inbox_claude.md` | Sender | Use for review or Claude-owned work questions. |
+| Question for Gemini CLI | `comms/inbox_gemini.md` | Sender | Use for EPIC-003 / Gemini-owned implementation questions. |
 | Question for Thomas / Quill | `comms/broadcast.md` or directed human channel | Sender or Watcher | Use broadcast only when the whole team needs visibility. |
 | Team announcement | `comms/broadcast.md` | Any agent | Includes review-ready notices and broad coordination updates. |
 | Watcher status change | `comms/broadcast.md` | Watcher | Includes dispatches, blocker state, accepted-review transitions, and epic completion. |

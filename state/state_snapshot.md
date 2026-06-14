@@ -37,3 +37,20 @@ Related Task: EPIC-002 / Voice_Gen v0.3.0
 
 - EPIC-003 scope (thin after EPIC-001 absorbed feature items 4a/4c/4d).
 - EPIC-003 owner and the parallel-execution model with the current single-implementer team (Codex implements, Claude reviews).
+
+## SNAPSHOT-20260613-010
+
+Date: 2026-06-13
+Owner: Watcher (Stan)
+Related Task: EPIC-002 / EPIC-003
+
+### Two Epics in Parallel; Gemini Added
+
+- **Gemini CLI** joined as a third agent (implementer). Coordination surfaces live: `comms/inbox_gemini.md`, routing-table row. (Onboarding files `GEMINI.md`/`agent_status.md`/`sync_log.md` are Gemini's to commit.)
+- **EPIC-002 (Codex / Claude): 2 of 5 accepted** — TASK-016, TASK-018 done; TASK-017 dropped; TASK-019 next, TASK-020/021 Ready under DISPATCH-20260613-003.
+- **EPIC-003 (Gemini / Claude): activated, breakdown pending.** Combined scope per Thomas (2026-06-13): #4b per-chunk WAV + progress/ETA reporting (EPIC-004 pulled forward); EPIC-005 deferred. Branch `vg_e003_text_to_audio_enhancements`; tasks will be TASK-022+. DISPATCH-20260613-004; EVENT-20260613-018/019.
+
+### Open / Pending
+
+- Roadmap and v0.3.0 release-plan docs need amending for the 003+004 combine and 005 deferral (Thomas / Quill).
+- Awaiting Gemini's EPIC-003 branch + breakdown, then Claude's review, then Watcher task creation.

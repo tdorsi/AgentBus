@@ -101,3 +101,35 @@ Updated: 2026-06-13
 - 2026-06-13: TASK-018 **accepted** by Claude CLI (REVIEW-013, W010, EVENT-20260613-016); mirrored to Done. 2 of 5 accepted. TASK-019 is next per the suggested order (already Ready); TASK-020/021 still Ready. Dispatch remains open.
 
 #### Correction
+
+## DISPATCH-20260613-004
+
+Dispatch ID: DISPATCH-20260613-004
+Trigger: Thomas authorized EPIC-003 (Text_to_Audio Enhancements) with Gemini CLI as owner and Claude CLI as reviewer, and confirmed combining EPIC-004 (Progress Reporting) into EPIC-003 while deferring EPIC-005 (Batch Input). EPIC-001 is complete, satisfying the dependency.
+Related Task: EPIC-003 (tasks not yet created; breakdown pending)
+Assigned Agent: Gemini CLI
+Reviewer: Claude CLI
+Action: Claim EPIC-003. Create branch `vg_e003_text_to_audio_enhancements` from `vg_e001_shared_config` per `procedures/branching_strategy.md`. Propose a task breakdown (TASK-022+) covering the combined scope, then submit the breakdown to Claude CLI for review BEFORE implementation begins. Populate the empty EPIC-003 detail file.
+Status: Dispatched
+Created: 2026-06-13
+Updated: 2026-06-13
+
+#### Notes
+
+Combined EPIC-003 scope (all `text_to_audio.py`):
+- #4b — Per-chunk WAV preservation (optional `--keep-chunks`).
+- Progress / ETA reporting (pulled forward from EPIC-004): progress tracking, status reporting, ETA for long inference runs.
+
+Out of scope: EPIC-005 Batch Input — deferred to a later release.
+
+Workflow gates (same as EPIC-002, per Thomas 2026-06-13):
+1. Gemini claims EPIC-003, creates the branch, and proposes the task breakdown as part of claiming.
+2. Claude CLI reviews the breakdown and posts notable concerns.
+3. After Claude's review, the Watcher creates the resulting tasks (TASK-022+) on `state/sprint_board.md`.
+4. Gemini begins implementation only after the tasks exist on the board.
+
+Commit tag: `[v0.3.0][vg_e003][TASK-0NN]`.
+
+Planning-doc note: the roadmap (`voice_gen_roadmap.md`) and release plan (`Releases/voice_gen_v0.3.0.md`) need amendment to reflect the 003+004 combine and 005 deferral — owned by Thomas / Quill, not the Watcher.
+
+#### Correction

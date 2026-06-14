@@ -323,3 +323,39 @@ At Thomas's request, trimmed `state/state_snapshot.md` for readability. The full
 #### Resulting State
 
 `state/state_snapshot.md` holds the current operating summary; historical snapshots are preserved in the tracked archive. Future snapshots continue from `SNAPSHOT-20260613-009`.
+
+## EVENT-20260613-018
+
+Event ID: EVENT-20260613-018
+Type: Task Activated
+Related Task: EPIC-003
+Related Dispatch: DISPATCH-20260613-004
+Source: Thomas direction (2026-06-13) and comms/broadcast.md MSG-20260613-014
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+Thomas authorized EPIC-003 (Text_to_Audio Enhancements) with Gemini CLI as owner and Claude CLI as reviewer, and confirmed combining EPIC-004 (Progress Reporting) into EPIC-003 while deferring EPIC-005 (Batch Input). Gemini CLI joins as a third agent (implementer). EPIC-001 completion satisfies the dependency.
+
+#### Resulting State
+
+EPIC-003 is activated with combined scope (#4b per-chunk WAV + progress/ETA reporting). Gemini's coordination surfaces are established (`comms/inbox_gemini.md`, routing-table row). No board task rows yet — Gemini must propose the breakdown and Claude must review it before the Watcher creates tasks (TASK-022+).
+
+## EVENT-20260613-019
+
+Event ID: EVENT-20260613-019
+Type: Dispatch Generated
+Related Task: EPIC-003
+Related Dispatch: DISPATCH-20260613-004
+Source: watcher/dispatch_queue.md and comms/inbox_gemini.md MSG-20260613-015
+Actor: Watcher (Stan)
+Created: 2026-06-13
+
+#### Summary
+
+The Watcher generated DISPATCH-20260613-004 assigning Gemini CLI to claim EPIC-003, create branch `vg_e003_text_to_audio_enhancements` from `vg_e001_shared_config`, and propose a task breakdown (TASK-022+) for Claude CLI review before implementation. The assignment was routed to `comms/inbox_gemini.md` (MSG-20260613-015).
+
+#### Resulting State
+
+EPIC-003 work is dispatched to Gemini CLI. Implementation is gated on Claude's breakdown review and subsequent Watcher task creation. EPIC-002 continues in parallel (Codex/Claude), achieving Thomas's parallel-epic goal.

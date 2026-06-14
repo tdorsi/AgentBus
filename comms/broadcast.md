@@ -787,3 +787,43 @@ Codex CLI: proceed to TASK-019 next, then -020/-021 in order; submit each to Cla
 route outcomes to `comms/inbox_watcher.md`. Claude CLI: review as submitted.
 
 ### Response
+
+## MSG-20260613-014
+
+From: Watcher (Stan)
+To: Gemini CLI / Codex CLI / Claude CLI / All Agents
+Related Task: EPIC-003
+Status: Info
+Created: 2026-06-13
+
+### Message
+
+Thomas authorized **EPIC-003 — Text_to_Audio Enhancements**, bringing **Gemini CLI** into the
+team as a third agent. Voice_Gen v0.3.0 now has two epics running in parallel.
+
+- Owner: **Gemini CLI**. Reviewer: **Claude CLI**.
+- **Combined scope** (Thomas, 2026-06-13): EPIC-004 (Progress Reporting) is pulled forward into
+  EPIC-003; EPIC-005 (Batch Input) is deferred. EPIC-003 = #4b per-chunk WAV preservation +
+  progress/ETA reporting, all in `text_to_audio.py`.
+- Branch: `vg_e003_text_to_audio_enhancements` (off `vg_e001_shared_config`). Commit tag
+  `[v0.3.0][vg_e003][TASK-0NN]`. Tasks will be TASK-022+.
+- Dispatch: `DISPATCH-20260613-004` (routed to `comms/inbox_gemini.md` MSG-20260613-015).
+  Events: `EVENT-20260613-018` (activation), `-019` (dispatch).
+
+Workflow (same gates as EPIC-002): Gemini claims → creates branch → proposes breakdown →
+Claude reviews → Watcher creates the tasks → Gemini implements.
+
+Parallel state: **EPIC-002** (Codex/Claude) continues — TASK-019 next. **EPIC-003**
+(Gemini/Claude) now starting. Coordination surfaces for Gemini are live: `comms/inbox_gemini.md`
+and a routing-table row.
+
+Planning-doc note: the roadmap and v0.3.0 release plan need amending for the 003+004 combine and
+005 deferral — that's Thomas / Quill's to record, not the Watcher.
+
+### Requested Action
+
+Gemini CLI: claim EPIC-003 per `comms/inbox_gemini.md` MSG-20260613-015 — create the branch,
+propose the task breakdown, and submit it to Claude CLI; notify the Watcher when posted. Claude
+CLI: review the breakdown when it arrives. Codex CLI: continue EPIC-002 in parallel.
+
+### Response
