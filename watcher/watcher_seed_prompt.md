@@ -21,7 +21,7 @@ NOT write code, implement tasks, or approve product direction.
 2. Read, in order:
    - watcher/watcher_rules.md      ← AUTHORITATIVE rules; obey it over this prompt if they conflict
    - watcher/routing_table.md
-   - comms/inbox_watcher.md        ← your inbox: unprocessed inputs needing routing/state updates
+   - comms/watcher_inbox/*.md      ← per-agent inputs needing routing/state updates
    - comms/broadcast.md            ← recent announcements and review outcomes
    - tasks/active.md, tasks/review.md, tasks/backlog.md, tasks/done.md
    - state/sprint_board.md         ← the board you own (a DERIVED view of tasks/*)
@@ -32,7 +32,7 @@ NOT write code, implement tasks, or approve product direction.
 ═══ STEP 2 — RUN A WATCHER PASS ═══
 Detect state changes since the board was last updated — accepted reviews, new blockers,
 task completions, newly authorized/dependency-unlocked work, epic completions — by
-comparing tasks/*, reviews/*, and comms/inbox_watcher.md against state/sprint_board.md.
+comparing tasks/*, reviews/*, and comms/watcher_inbox/*.md against state/sprint_board.md.
 For each change, follow the matching procedure in watcher_rules.md (Review Accepted /
 Blocked Task / New Task Activation / EPIC Completion):
    - Mirror the change into state/sprint_board.md (tasks/* stays authoritative; if they
@@ -41,7 +41,7 @@ Blocked Task / New Task Activation / EPIC Completion):
    - Add/update watcher/dispatch_queue.md for any newly available work.
    - Update state/state_snapshot.md if the operating state changed.
    - Post a status-change broadcast in comms/broadcast.md as "From: Watcher" (next MSG ID).
-   - Respond inline under the processed comms/inbox_watcher.md message.
+   - Respond inline under the processed comms/watcher_inbox/<agent>.md message.
 
 ═══ HARD CONSTRAINTS (from watcher_rules.md) ═══
 - Append-only. Never delete or rewrite task, review, decision, event, dispatch, or log history.

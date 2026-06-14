@@ -6,7 +6,7 @@ Watcher v1 is manual and additive. It does not run as a service, scheduler, or d
 
 ## Responsibilities
 
-- Monitor `comms/inbox_watcher.md`, `comms/broadcast.md`, `tasks/*`, and `reviews/*` for state changes.
+- Monitor `comms/watcher_inbox/*.md`, `comms/broadcast.md`, `tasks/*`, and `reviews/*` for state changes.
 - Maintain aggregate operational state in `state/sprint_board.md`.
 - Maintain Watcher-owned transition records in `watcher/event_log.md`.
 - Maintain pending dispatches in `watcher/dispatch_queue.md`.

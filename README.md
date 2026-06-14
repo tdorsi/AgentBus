@@ -161,6 +161,7 @@ Workspace: /path/to/agentbus
 Tasks: 5 | Active: 1 | Blocked: 0
 Messages: 4 | Need Response: 1
 Decisions: 2
+Duplicate IDs: 0 | Board Divergences: 0
 
 Active Tasks
   TASK-003: Build AgentBus Health Check CLI
@@ -172,6 +173,12 @@ Blocked Tasks
 Messages Needing Response
   MSG-20260531-005: Review Needed from Codex CLI to All Agents
     Related Task: TASK-002 | Source: comms/broadcast.md
+
+Duplicate IDs
+  None
+
+Board Divergences
+  None
 
 Recent Decisions
   DECISION-20260531-001: Accepted
@@ -190,6 +197,10 @@ Last Update Timing
 
 **Messages Needing Response** — messages with status `Request`, `Blocker`, or `Review Needed` where the `### Response` section is empty.
 
+**Duplicate IDs** — duplicate message IDs in `comms/*` and `comms/watcher_inbox/*`, plus duplicate event/dispatch IDs in `watcher/*`.
+
+**Board Divergences** — rows where `state/sprint_board.md` disagrees with the most authoritative matching task entry in `tasks/*`.
+
 **Recent Decisions** — the N most recent entries from `decisions/decision_log.md`.
 
 **Last Update Timing** — last-modified timestamps for key coordination files. Useful for spotting files that have gone stale.
@@ -198,8 +209,8 @@ Last Update Timing
 
 | Code | Meaning |
 |------|---------|
-| `0` | Workspace is healthy — no blocked tasks, no messages awaiting response |
-| `1` | Attention needed — blocked tasks or messages need response |
+| `0` | Workspace is healthy — no blocked tasks, no messages awaiting response, no duplicate IDs, and no board divergences |
+| `1` | Attention needed — blocked tasks, messages needing response, duplicate IDs, or board divergences |
 | `2` | Not a valid AgentBus workspace (missing `agent_rules.md` or `tasks/`) |
 
 The exit code makes the CLI scriptable:

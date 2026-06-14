@@ -11,9 +11,15 @@ from pathlib import Path
 
 
 TASK_RE = re.compile(r"^## (TASK-\d+):\s*(.+)$", re.MULTILINE)
-MSG_RE = re.compile(r"^## (MSG-\d{8}-\d+)\s*$", re.MULTILINE)
+MSG_RE = re.compile(r"^## (MSG-\d{8}-(?:[A-Z]+-)?[A-Z]?\d+)\s*$", re.MULTILINE)
+EVENT_RE = re.compile(r"^## (EVENT-\d{8}-\d+)\s*$", re.MULTILINE)
+DISPATCH_RE = re.compile(r"^## (DISPATCH-\d{8}-\d+)\s*$", re.MULTILINE)
 DECISION_RE = re.compile(r"^## (DECISION-\d{8}-\d+)\s*$", re.MULTILINE)
 FIELD_RE = re.compile(r"^(Status|Owner|From|To|Related Task|Created|Date):\s*(.*)$", re.MULTILINE)
+BOARD_ROW_RE = re.compile(
+    r"^\|\s*(TASK-\d+)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|$",
+    re.MULTILINE,
+)
 
 
 @dataclass
@@ -47,6 +53,32 @@ class Decision:
     source: Path
 
 
+@dataclass
+class IdOccurrence:
+    identifier: str
+    source: Path
+    line: int
+
+
+@dataclass
+class BoardRow:
+    task_id: str
+    status: str
+    owner: str
+    reviewer: str
+    source: str
+
+
+@dataclass
+class BoardDivergence:
+    task_id: str
+    field: str
+    board_value: str
+    task_value: str
+    board_source: str
+    task_source: Path
+
+
 def read_text(path: Path) -> str:
     if not path.exists():
         return ""
@@ -69,6 +101,8 @@ def fields(section: str) -> dict[str, str]:
 def parse_tasks(root: Path) -> list[Task]:
     tasks: list[Task] = []
     for path in sorted((root / "tasks").glob("*.md")):
+        if path.name == "task_template.md":
+            continue
         text = read_text(path)
         for match, body in split_sections(text, TASK_RE):
             meta = fields(body)
@@ -114,8 +148,9 @@ def response_body(section: str) -> str:
 
 def parse_messages(root: Path) -> list[Message]:
     messages: list[Message] = []
-    for path in sorted((root / "comms").glob("*.md")):
-        if path.name == "message_template.md":
+    paths = list((root / "comms").glob("*.md")) + list((root / "comms" / "watcher_inbox").glob("*.md"))
+    for path in sorted(paths):
+        if path.name in {"message_template.md", "README.md"}:
             continue
         text = read_text(path)
         for match, body in split_sections(text, MSG_RE):
@@ -155,6 +190,107 @@ def parse_decisions(root: Path) -> list[Decision]:
     return decisions
 
 
+def line_number(text: str, index: int) -> int:
+    return text.count("\n", 0, index) + 1
+
+
+def parse_ids(root: Path) -> list[IdOccurrence]:
+    occurrences: list[IdOccurrence] = []
+    search_paths = [
+        ((root / "comms").glob("*.md"), MSG_RE),
+        ((root / "comms" / "watcher_inbox").glob("*.md"), MSG_RE),
+        ((root / "watcher").glob("*.md"), EVENT_RE),
+        ((root / "watcher").glob("*.md"), DISPATCH_RE),
+    ]
+    for paths, pattern in search_paths:
+        for path in sorted(paths):
+            text = read_text(path)
+            for match in pattern.finditer(text):
+                occurrences.append(
+                    IdOccurrence(
+                        identifier=match.group(1),
+                        source=path.relative_to(root),
+                        line=line_number(text, match.start()),
+                    )
+                )
+    return occurrences
+
+
+def duplicate_ids(occurrences: list[IdOccurrence]) -> dict[str, list[IdOccurrence]]:
+    grouped: dict[str, list[IdOccurrence]] = {}
+    for occurrence in occurrences:
+        grouped.setdefault(occurrence.identifier, []).append(occurrence)
+    return {identifier: items for identifier, items in grouped.items() if len(items) > 1}
+
+
+def parse_board(root: Path) -> dict[str, BoardRow]:
+    text = read_text(root / "state" / "sprint_board.md")
+    summary = text.split("\n## ", 1)[0]
+    rows: dict[str, BoardRow] = {}
+    for match in BOARD_ROW_RE.finditer(summary):
+        task_id = match.group(1)
+        if task_id == "Task":
+            continue
+        rows[task_id] = BoardRow(
+            task_id=task_id,
+            status=match.group(2).strip(),
+            owner=match.group(3).strip(),
+            reviewer=match.group(4).strip(),
+            source=match.group(5).strip(),
+        )
+    return rows
+
+
+def normalize_status(status: str) -> str:
+    value = status.lower()
+    if "dropped" in value:
+        return "dropped"
+    if "blocked" in value:
+        return "blocked"
+    if "done" in value or "accepted" in value or "complete" in value:
+        return "done"
+    if "changes requested" in value or "review" in value:
+        return "review"
+    if "active" in value or "progress" in value or "claimed" in value:
+        return "active"
+    if "dispatched" in value:
+        return "dispatched"
+    if "ready" in value:
+        return "ready"
+    if "backlog" in value:
+        return "backlog"
+    return value.strip()
+
+
+def normalize_person(value: str) -> str:
+    return " ".join(value.lower().split())
+
+
+def board_divergences(tasks: list[Task], board: dict[str, BoardRow]) -> list[BoardDivergence]:
+    divergences: list[BoardDivergence] = []
+    task_by_id = {task.task_id: task for task in tasks}
+    for task_id, task in task_by_id.items():
+        row = board.get(task_id)
+        if row is None:
+            divergences.append(
+                BoardDivergence(task_id, "presence", "missing from board", "present in tasks", "", task.source)
+            )
+            continue
+        if normalize_status(row.status) != normalize_status(task.status):
+            divergences.append(
+                BoardDivergence(task_id, "status", row.status, task.status, row.source, task.source)
+            )
+        if normalize_person(row.owner) != normalize_person(task.owner):
+            divergences.append(BoardDivergence(task_id, "owner", row.owner, task.owner, row.source, task.source))
+
+    for task_id, row in board.items():
+        if task_id not in task_by_id:
+            divergences.append(
+                BoardDivergence(task_id, "presence", "present on board", "missing from tasks", row.source, Path(""))
+            )
+    return divergences
+
+
 def key_files(root: Path) -> list[Path]:
     relative_paths = [
         "sprint.md",
@@ -168,6 +304,10 @@ def key_files(root: Path) -> list[Path]:
         "comms/inbox_codex.md",
         "comms/inbox_claude.md",
         "comms/inbox_local_agent.md",
+        "comms/watcher_inbox/codex.md",
+        "comms/watcher_inbox/claude.md",
+        "comms/watcher_inbox/gemini.md",
+        "comms/watcher_inbox/quill.md",
         "decisions/decision_log.md",
     ]
     return [root / relative for relative in relative_paths]
@@ -210,6 +350,29 @@ def print_decision_section(decisions: list[Decision], limit: int) -> None:
         print(f"    Date: {decision.date} | Owner: {decision.owner} | Task: {decision.related_task}")
 
 
+def print_duplicate_id_section(duplicates: dict[str, list[IdOccurrence]]) -> None:
+    print("\nDuplicate IDs")
+    if not duplicates:
+        print("  None")
+        return
+    for identifier, occurrences in sorted(duplicates.items()):
+        print(f"  {identifier}")
+        for occurrence in occurrences:
+            print(f"    {occurrence.source}:{occurrence.line}")
+
+
+def print_board_divergence_section(divergences: list[BoardDivergence]) -> None:
+    print("\nBoard Divergences")
+    if not divergences:
+        print("  None")
+        return
+    for divergence in divergences:
+        print(f"  {divergence.task_id}: {divergence.field}")
+        task_source = divergence.task_source if str(divergence.task_source) else "tasks/*"
+        print(f"    Board: {divergence.board_value} ({divergence.board_source or 'state/sprint_board.md'})")
+        print(f"    Tasks: {divergence.task_value} ({task_source})")
+
+
 def print_update_section(root: Path) -> None:
     print("\nLast Update Timing")
     for path in key_files(root):
@@ -225,6 +388,8 @@ def run(root: Path, recent_decisions: int) -> int:
     tasks = merge_tasks(parse_tasks(root))
     messages = parse_messages(root)
     decisions = parse_decisions(root)
+    duplicates = duplicate_ids(parse_ids(root))
+    divergences = board_divergences(tasks, parse_board(root))
 
     active_tasks = [task for task in tasks if "active" in task.status.lower()]
     blocked_tasks = [task for task in tasks if "blocked" in task.status.lower()]
@@ -234,14 +399,18 @@ def run(root: Path, recent_decisions: int) -> int:
     print(f"Tasks: {len(tasks)} | Active: {len(active_tasks)} | Blocked: {len(blocked_tasks)}")
     print(f"Messages: {len(messages)} | Need Response: {sum(1 for msg in messages if msg.needs_response)}")
     print(f"Decisions: {len(decisions)}")
+    print(f"Duplicate IDs: {len(duplicates)} | Board Divergences: {len(divergences)}")
 
     print_task_section("Active Tasks", active_tasks)
     print_task_section("Blocked Tasks", blocked_tasks)
     print_message_section(messages)
+    print_duplicate_id_section(duplicates)
+    print_board_divergence_section(divergences)
     print_decision_section(decisions, recent_decisions)
     print_update_section(root)
 
-    return 1 if blocked_tasks or any(message.needs_response for message in messages) else 0
+    has_issue = blocked_tasks or any(message.needs_response for message in messages) or duplicates or divergences
+    return 1 if has_issue else 0
 
 
 def main() -> int:
