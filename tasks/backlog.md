@@ -954,12 +954,12 @@ Complete the communication-isolation plan. The governance/doc portions were auth
 
 ## TASK-027: AgentBus Working-Tree Isolation (close the residual shared-checkout race)
 
-Status: Backlog (drafted; not yet dispatched)
+Status: Backlog — Approach A selected (DECISION-20260614-002); awaiting PO approval to dispatch
 Owner: Codex CLI (proposed)
 Reviewer: Claude CLI
 Priority: High
 Created: 2026-06-14
-Related: `RCA.md` (RCA-20260613-001), DECISION-20260614-001, REVIEW-017 (Claude's root-cause note), TASK-026
+Related: `RCA.md` (RCA-20260613-001), DECISION-20260614-001, **DECISION-20260614-002** (Approach A chosen), REVIEW-017 (Claude's root-cause note), TASK-026
 
 ### Goal
 
@@ -972,7 +972,7 @@ The AgentBus repo's coordination updates commit directly to `main` (not per-task
 - **(A, recommended) Per-agent AgentBus clones** — each agent (and the Watcher) operates in its own clone of AgentBus, commits its own files, and runs `git pull --rebase` immediately before `git push origin main`. Concurrent pushes serialize naturally via git (non-fast-forward → rebase → push); the shared-index contamination disappears. Pairs with the existing per-file single-writer ownership.
 - **(B, fallback) Strict single-writer discipline** on one shared AgentBus checkout — commit-and-push atomically, one writer at a time, pull --rebase before each push. Lighter setup, but reintroduces serialization and relies on discipline.
 
-Final approach is a design decision (Thomas / Quill or as the task's first step).
+**Approach A selected** per DECISION-20260614-002: per-agent AgentBus clones under `D:\Development\Sandbox\AgentBus_<agent>` (`AgentBus_stan`, `AgentBus_codex`, `AgentBus_claude`, `AgentBus_gemini`, `AgentBus_quill`); each agent works only in its own clone with `git pull --rebase` before push. The canonical `D:\Development\AgentBus` becomes the **human-operated reference checkout** (manual review / admin / PO / PM / inspection — no routine autonomous work). Approach B (single-writer discipline on one shared checkout) is the rejected fallback.
 
 ### Acceptance Criteria
 

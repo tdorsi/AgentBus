@@ -236,3 +236,60 @@ Watcher Governance Model v1.
   and inbox cutover verification.
 - Agents acknowledged the new rules in their 2026-06-14 session handoffs
   (`comms/watcher_inbox/{codex,claude,gemini}.md`).
+
+## DECISION-20260614-002
+
+Date: 2026-06-14
+Owner: Thomas D'Orsi
+Recommendation: Quill
+Status: Proposed
+Related: RCA-20260613-001, REVIEW-017, TASK-027; extends DECISION-20260614-001 (Communication Isolation)
+
+> Watcher note: recorded at Thomas's direction. The source draft was headed "DECISION-20260614-001"; that ID was already taken (Communication Isolation), so this decision is assigned **-002**. Status is recorded as **Proposed** per the source (Quill recommends Approve Option A); awaiting explicit Product Owner approval before TASK-027 is dispatched.
+
+### Summary
+
+Adopt **per-agent AgentBus clones** to eliminate working-tree and staging-area contention between agents. Follows RCA-20260613-001, REVIEW-017, and TASK-027. The current single-checkout model risks one agent committing, rebasing, stashing, or otherwise interacting with another agent's uncommitted work. Goal: preserve the AgentBus governance model while isolating each agent's git workspace.
+
+### Decision
+
+AgentBus uses dedicated per-agent clones under `D:\Development\Sandbox`:
+
+```text
+D:\Development\Sandbox\
+├── AgentBus_stan
+├── AgentBus_codex
+├── AgentBus_claude
+├── AgentBus_gemini
+└── AgentBus_quill
+```
+
+Each agent operates exclusively within its assigned AgentBus clone.
+
+### Canonical Repository
+
+`D:\Development\AgentBus` becomes the **human-operated reference checkout** — manual review, administration, Product Owner / PM activities, repository inspection. No autonomous agent performs routine work from this checkout.
+
+### Operating Model
+
+Each agent, from its own clone: `git pull --rebase` → make changes → commit → push. Agents must never commit, stage, or run cleanup commands against another agent's clone.
+
+### Governance (unchanged)
+
+Does not change Watcher governance, routing model, sprint-board ownership, review process, or dispatch process. The Watcher remains sole owner of `state/sprint_board.md`, `state/state_snapshot.md`, `watcher/event_log.md`, `watcher/dispatch_queue.md`, `tasks/done.md`.
+
+### Rationale
+
+Mirrors the isolation model already adopted for Voice_Gen workspaces under `D:\Development\Sandbox` (`Voice_Gen_codex/_claude/_gemini`). Benefits: independent working tree / staging area / local git state per agent; consistency with existing structure; prevents accidental commits of another agent's work, shared staging-area contamination, rebase conflicts from unrelated local edits, and cross-agent git operations. No changes to the task model, Watcher architecture, or review process — workspace isolation only.
+
+### Implementation Guidance (TASK-027)
+
+1. Per-agent AgentBus clone creation. 2. Startup documentation updates. 3. `AGENTS.md` updates. 4. Branching-strategy updates. 5. Agent startup-procedure updates. 6. Validate every active agent can pull / commit / push / receive messages / process dispatches from its isolated clone.
+
+### Expected End State
+
+Per-agent project workspaces (`Voice_Gen_*`) and per-agent AgentBus clones (`AgentBus_stan/_codex/_claude/_gemini/_quill`) all sync to the shared remote `origin/main`. Preserves AgentBus as the coordination layer while eliminating local working-tree contention.
+
+### Approval Recommendation
+
+Approve Option A; proceed with TASK-027; implement per-agent AgentBus clones under `D:\Development\Sandbox` before resuming normal multi-agent execution.

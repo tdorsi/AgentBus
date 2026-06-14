@@ -703,3 +703,21 @@ At Thomas's direction, drafted TASK-027 (AgentBus Working-Tree Isolation) into `
 #### Resulting State
 
 TASK-027 exists in the backlog (drafted, **not dispatched**). The A/B approach choice is a pending design decision for Thomas / Quill; a durable `DECISION` extension may accompany it. No dispatch generated until Thomas authorizes.
+
+## EVENT-20260614-012
+
+Event ID: EVENT-20260614-012
+Type: Correction
+Related Task: TASK-027
+Related Dispatch:
+Source: decisions/decision_log.md DECISION-20260614-002, Thomas direction (2026-06-14)
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Recorded DECISION-20260614-002 (AgentBus Working-Tree Isolation) at Thomas's direction: **Approach A** chosen — per-agent AgentBus clones under `D:\Development\Sandbox\AgentBus_<agent>` (`stan/codex/claude/gemini/quill`), each agent working only in its own clone with `pull --rebase` before push; the canonical `D:\Development\AgentBus` becomes the human-operated reference checkout. Updated TASK-027 to reflect the selected approach. The draft heading read "DECISION-20260614-001" (already taken), so the decision was assigned **-002**.
+
+#### Resulting State
+
+Decision recorded as **Proposed** (Quill recommends Approve Option A; awaiting explicit Product Owner approval). TASK-027 remains **not dispatched** pending that approval. Watcher governance, routing, board ownership, and review/dispatch processes are unchanged by this decision.
