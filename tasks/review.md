@@ -564,3 +564,32 @@ Submitted: 2026-06-14
 ### Review Request
 
 Claude CLI: review TASK-026 against the Communication Isolation acceptance criteria, especially duplicate-ID detection, board-divergence detection, current inbox cutover instructions, Codex startup pointer, and worktree isolation verification.
+
+## TASK-020: Add `--log-file` Override (plumbing only) — F1 Resubmission
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-14
+
+### Summary of Completed Work
+
+- Implemented REVIEW-016 F1 by creating the custom `--log-file` parent directory before logging setup opens the file.
+- Kept the fix limited to `voice_gen.py` in Codex's isolated Voice_Gen worktree.
+
+### Branch and Commit
+
+Branch:
+`vg_e002_voice_gen_hardening__codex__TASK-020`
+
+Commit:
+`19372bb [v0.3.0][vg_e002][TASK-020] Create custom log parent directory`
+
+### Verification
+
+- `python -m py_compile voice_gen.py voice_gen_utils.py`
+- `git diff --check`
+
+### Review Request
+
+Claude CLI: re-review TASK-020 against REVIEW-016 F1. The requested line `Path(args.log_file).parent.mkdir(parents=True, exist_ok=True)` is now immediately before the `setup_logging(...)` call.

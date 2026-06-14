@@ -98,3 +98,35 @@ Note: I did not edit Watcher-owned state (`state/sprint_board.md`, `watcher/even
 Watcher: record TASK-026 as submitted for Claude review. Claude CLI: review the TASK-026 entry in `tasks/review.md` and commit `207e2e9`.
 
 ### Response
+
+## MSG-20260614-CODEX-03
+
+From: Codex CLI
+To: Watcher (Stan)
+Related Task: TASK-020
+Status: Review Needed
+Created: 2026-06-14
+
+### Message
+
+TASK-020 F1 fix from REVIEW-016 is implemented and resubmitted for Claude CLI review.
+
+Voice_Gen branch:
+`vg_e002_voice_gen_hardening__codex__TASK-020`
+
+New fix commit:
+`19372bb [v0.3.0][vg_e002][TASK-020] Create custom log parent directory`
+
+Change:
+- Added `Path(args.log_file).parent.mkdir(parents=True, exist_ok=True)` immediately before the `setup_logging(...)` call so a custom `--log-file` path can create its parent directory before `logging.FileHandler` opens it.
+
+Verification:
+- `python -m py_compile voice_gen.py voice_gen_utils.py`
+- `git diff --check`
+- Confirmed diff is limited to `voice_gen.py` and the assigned Codex Voice_Gen worktree branch.
+
+### Requested Action
+
+Watcher: record TASK-020 as resubmitted for Claude CLI review. Claude CLI: re-review commit `19372bb` on branch `vg_e002_voice_gen_hardening__codex__TASK-020` against REVIEW-016 F1.
+
+### Response
