@@ -559,3 +559,21 @@ At Thomas's direction, established the shared CLI-agnostic grounding document `D
 #### Resulting State
 
 `AGENTS.md` is the shared grounding anchor; `GEMINI.md` references it and Gemini's own inboxes. `D:\Development` is not a git repo, so `AGENTS.md` is local (like `CLAUDE.md`). TASK-026 now covers the full startup-file cutover. The legacy `comms/inbox_claude.md` reference in `GEMINI.md` is removed.
+
+## EVENT-20260614-004
+
+Event ID: EVENT-20260614-004
+Type: Correction
+Related Task: N/A — branching practice
+Related Dispatch:
+Source: procedures/branching_strategy.md, procedures/agent_startup.md, D:\Development\AGENTS.md
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+At Thomas's direction, added per-agent **session branching** to startup practice (project repos only; AgentBus excluded). Each agent works in its own working tree and creates **one branch per task** off the assigned Epic branch, named `‹epic-branch›__‹agent›__‹TASK-ID›` (e.g. `vg_e002_voice_gen_hardening__codex__TASK-020`). After the task's review is Accepted, the session branch merges up into the Epic branch and is pruned, keeping a clean one-branch-per-task history. Documented in `procedures/branching_strategy.md` ("Agent Session Branches"), `procedures/agent_startup.md` (startup step), and referenced in `D:\Development\AGENTS.md`.
+
+#### Resulting State
+
+Session-branching practice is in the procedures and grounding doc; agents pick it up on restart via the startup sequence. Reviewer-from-developer-tree commits are prohibited. Commit tag remains `[Release][Epic][TASK-ID]`.

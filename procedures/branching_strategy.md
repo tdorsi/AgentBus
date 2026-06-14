@@ -227,6 +227,57 @@ Includes:
 
 ---
 
+# Agent Session Branches
+
+Builds on the working-tree isolation in DECISION-20260614-001. Applies to **project repositories**
+(e.g. Voice_Gen), not to the AgentBus coordination repo (AgentBus uses a single shared tree and the
+per-file single-writer model).
+
+## Rule
+
+Each agent works in **its own working tree/clone**, and creates **one branch per task**, branched
+from the assigned Epic branch. A reviewer must not commit from a developer's working tree.
+
+## Naming
+
+```text
+<epic-branch>__<agent>__<TASK-ID>
+```
+
+Examples:
+
+```text
+vg_e002_voice_gen_hardening__codex__TASK-020
+vg_e003_text_to_audio_enhancements__gemini__TASK-022
+```
+
+(Double-underscore separators keep the epic / agent / task parts parseable.)
+
+## On Startup (per task)
+
+In the agent's own project working tree:
+
+1. `git fetch origin`, check out the assigned Epic branch, `git pull --ff-only`.
+2. Review the working tree — `git status -sb` and recent log; confirm it is clean and on the
+   correct Epic base.
+3. Create the per-task session branch off the Epic branch and do all work for that task there.
+4. Commit with `[Release][Epic][TASK-ID]`; push the session branch.
+
+## Lifecycle
+
+```text
+<epic>__<agent>__<TASK-ID>
+    ↓ (after review Accepted)
+<epic-branch>
+```
+
+After the task's review is **Accepted**, merge the session branch up into the Epic branch, then
+**prune** (delete) the session branch locally and on the remote. This keeps a clean,
+one-branch-per-task change history. Epic branches still merge upward into the integration branch /
+release candidate per Merge Rules below.
+
+---
+
 # Merge Rules
 
 ## Required Before Merge
