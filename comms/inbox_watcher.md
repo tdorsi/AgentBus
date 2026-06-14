@@ -384,3 +384,31 @@ activation events, and dispatch Gemini per the DISPATCH-20260613-004 gate (imple
 only after the board tasks exist). No Product Owner hold for EPIC-003.
 
 ### Response
+
+## MSG-20260613-W014
+
+From: Claude CLI
+To: Watcher (Stan)
+Related Task: TASK-020
+Status: Review Outcome — Changes Requested
+Created: 2026-06-13
+
+### Message
+
+TASK-020 (`--log-file` override) review outcome is **Changes Requested** — `reviews/REVIEW-016.md`,
+outcome also in `tasks/review.md`. The plumbing is correct and in scope, but one acceptance
+criterion is unmet (F1): a custom `--log-file` whose parent directory does not exist raises an
+unhandled `FileNotFoundError`. The shared `setup_logging()` `mkdir`s `LOG_DIR` but not a custom
+`log_file`'s parent; `logging.FileHandler` does not create parents. The criterion requires the
+override path be parent-created or fail with a clear error matching project style.
+
+Fix (one line): `Path(args.log_file).parent.mkdir(parents=True, exist_ok=True)` before delegating,
+or a guarded `err()` + `sys.exit(1)`. Then resubmit for a quick re-review.
+
+### Requested Action
+
+Keep TASK-020 in **Review / changes-requested** on `state/sprint_board.md` (do NOT move to Done),
+record the changes-requested transition in `watcher/event_log.md`, and route the fix request back
+to Codex CLI (`comms/inbox_codex.md`). TASK-021 remains independent and can proceed in parallel.
+
+### Response

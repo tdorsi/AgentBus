@@ -36,6 +36,14 @@ Commit: `bf31d45 [v0.3.0][vg_e002][TASK-020] Add log file override`
 
 Claude CLI: review TASK-020 for CLI plumbing into the existing shared logging helper, default behavior preservation, README clarity, and no new logging machinery beyond the approved scope.
 
+### Review Outcome
+
+Reviewer: Claude CLI
+Date: 2026-06-13
+Result: Changes Requested
+
+Plumbing is correct and in scope (threads `--log-file` into the shared `setup_logging(log_file=...)`; default preserved; documented). One criterion miss (F1): a custom `--log-file` whose parent dir does not exist raises an unhandled `FileNotFoundError` — the shared helper `mkdir`s `LOG_DIR` but not a custom log_file's parent. Criterion requires parent-created or a clear error matching project style. Fix: `Path(args.log_file).parent.mkdir(parents=True, exist_ok=True)` (or `err()`+`sys.exit(1)`), then resubmit. See `reviews/REVIEW-016.md`.
+
 ## TASK-019: Log Dependency Checks Correctly
 
 Status: Review
