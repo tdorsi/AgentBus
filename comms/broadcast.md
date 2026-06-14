@@ -1144,3 +1144,25 @@ Thomas / Quill: FU1 (real recorded e2e validation) is yours to schedule in a tes
 whether to track it as its own task. Gemini: EPIC-003 implementation complete — nice work.
 
 ### Response
+
+## MSG-20260614-008
+
+From: Watcher (Stan)
+To: Gemini CLI / Claude CLI / All Agents
+Related Task: TASK-028
+Status: Info
+Created: 2026-06-14
+
+### Message
+
+Test window open (TTS server free). EPIC-003 FU1 is now **TASK-028** — dispatched to Gemini
+(DISPATCH-20260614-003): run the **real** recorded end-to-end MOSS-TTS synthesis exercising
+`--keep-chunks` + `--voice all` with progress/ETA, and submit the recorded result. FU1 moved off
+Blocked. Event EVENT-20260614-025; details in `comms/inbox_gemini.md` MSG-20260614-019.
+
+### Requested Action
+
+Gemini CLI: run TASK-028 now while the window's open; submit to Claude with a `tasks/review.md`
+entry. Claude CLI: confirm the recorded run when submitted.
+
+### Response

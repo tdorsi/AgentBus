@@ -992,3 +992,34 @@ The AgentBus repo's coordination updates commit directly to `main` (not per-task
 ### Blockers
 
 - None (design choice A vs B pending).
+
+## TASK-028: EPIC-003 Runtime End-to-End Validation (TASK-025 FU1)
+
+Status: Dispatched 2026-06-14 (DISPATCH-20260614-003)
+Owner: Gemini CLI
+Reviewer: Claude CLI
+Priority: Medium
+Created: 2026-06-14
+Related: TASK-025 / REVIEW-023 FU1, EPIC-003; precedent TASK-009 (deferred runtime validation)
+Related Files: `D:\Development\Voice_Gen\text_to_audio.py`, `D:\Development\Voice_Gen\README.md`
+
+### Goal
+
+Perform the **real** (not simulated) end-to-end MOSS-TTS run that TASK-025's C4 deferred — exercising `--keep-chunks` together with progress + ETA, and `--voice all`, and record the result. Thomas confirmed the TTS server is open and not in use (2026-06-14), so the window is available now.
+
+### Acceptance Criteria
+
+- A real MOSS-TTS synthesis run completes via `text_to_audio.py` against the live server (no simulation).
+- `--keep-chunks` writes numbered chunk WAVs (`<stem>_chunk_001.wav` …); the final concatenated WAV is correct/consistent with/without the flag.
+- `--voice all` is exercised across the configured voices.
+- Real progress + ETA output is observed (the actual `Processing chunk X of Y … | ETA: …` line; "estimating…" at start).
+- The run is **recorded** (console/log output and/or produced artifacts) and referenced in the submission, so acceptance rests on a real run rather than inspection.
+- Coordinate to avoid disrupting other TTS usage; do not stop a server another agent/Thomas is using.
+
+### Work Notes
+
+- 2026-06-14: Created by Watcher (Stan) at Thomas's direction to discharge TASK-025 FU1 now that a test window is open. Owner Gemini (EPIC-003 feature owner); reviewer Claude.
+
+### Blockers
+
+- None (test window open).

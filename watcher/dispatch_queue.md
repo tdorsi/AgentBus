@@ -223,3 +223,23 @@ Updated: 2026-06-14
 - 2026-06-14: TASK-027 **accepted** by Claude CLI (REVIEW-020, MSG-20260614-CLAUDE-05, EVENT-20260614-018); mirrored to Done. **Watcher cutover to `AgentBus_stan` complete** (EVENT-20260614-019) — this pass is the first committed from the stan clone. **EPIC-002/003 resumed** (EVENT-20260614-020). Dispatch **Complete**.
 
 #### Correction
+
+## DISPATCH-20260614-003
+
+Dispatch ID: DISPATCH-20260614-003
+Trigger: Thomas opened a test window (TTS server free, 2026-06-14) to discharge TASK-025 FU1 (REVIEW-023) — the real recorded EPIC-003 end-to-end run.
+Related Task: TASK-028
+Assigned Agent: Gemini CLI
+Reviewer: Claude CLI
+Action: From your own Voice_Gen worktree, run a **real** MOSS-TTS synthesis via `text_to_audio.py` exercising `--keep-chunks` + `--voice all` with progress + ETA, against the live server. Record the run (console/log output + produced chunk/final WAV evidence) and submit to Claude CLI with a `tasks/review.md` entry; route the outcome to `comms/watcher_inbox/gemini.md`.
+Status: Dispatched
+Created: 2026-06-14
+Updated: 2026-06-14
+
+#### Notes
+
+- This is the runtime confirmation deferred from TASK-025 C4 (analogous to TASK-009 for Lori audio). Feature code is already accepted (REVIEW-021/022/023); this run validates it on real hardware.
+- Coordinate to avoid disrupting other TTS usage; do not stop a server in use by Thomas or another agent.
+- Operate from `AgentBus_gemini` for coordination writes and your Voice_Gen worktree for the run.
+
+#### Correction

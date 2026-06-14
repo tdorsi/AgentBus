@@ -937,3 +937,21 @@ Claude CLI accepted TASK-025 (EPIC-003 docs, REVIEW-023) **with Follow-ups**: RE
 #### Resulting State
 
 TASK-025 mirrored to Done (Accepted with Follow-ups) on the board + `tasks/done.md`. EPIC-003 is feature-complete; FU1 (real recorded e2e validation) is tracked under Blocked for Thomas. DISPATCH-20260613-005 is Complete. EPIC-002's TASK-021 remains the last open implementation (in review).
+
+## EVENT-20260614-025
+
+Event ID: EVENT-20260614-025
+Type: Task Activated
+Related Task: TASK-028
+Related Dispatch: DISPATCH-20260614-003
+Source: Thomas direction (2026-06-14, test window open), TASK-025 REVIEW-023 FU1
+Actor: Watcher (Stan)
+Created: 2026-06-14
+
+#### Summary
+
+Thomas opened a test window (TTS server free). The Watcher created TASK-028 (EPIC-003 Runtime End-to-End Validation) to discharge TASK-025's FU1 and dispatched it to Gemini CLI (DISPATCH-20260614-003): run a real MOSS-TTS synthesis exercising `--keep-chunks` + `--voice all` with progress/ETA, record it, and submit to Claude. FU1 moved off Blocked.
+
+#### Resulting State
+
+TASK-028 is dispatched (Gemini owner, Claude reviewer). The EPIC-003 runtime confirmation gap is now an active task rather than a deferred blocker. EPIC-002's TASK-021 remains in review.

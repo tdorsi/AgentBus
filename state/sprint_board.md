@@ -32,6 +32,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-025 | Done / accepted (w/ follow-ups) | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-023.md` |
 | TASK-026 | Done / accepted (w/ follow-ups) | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-017.md` |
 | TASK-027 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-020.md` |
+| TASK-028 | Dispatched (FU1 runtime validation) | Gemini CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260614-003 |
 
 ## Backlog
 
@@ -44,7 +45,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 No ready/unstarted tasks — **all EPIC-002 and EPIC-003 implementation is submitted and in review** (2026-06-14).
 
 - **EPIC-002** Voice_Gen Hardening (`vg_e002_voice_gen_hardening`): TASK-016/018/019/020 accepted; **TASK-021 in review** (last EPIC-002 item). TASK-017 dropped (REVIEW-011 F1).
-- **EPIC-003** Text_to_Audio Enhancements (`vg_e003_text_to_audio_enhancements`): **feature-complete** — TASK-022/023/024/025 all accepted. **Open FU1 (Thomas / test window):** TASK-025 C4 real recorded end-to-end MOSS-TTS run (`--keep-chunks` + `--voice all`) still pending — see Blocked.
+- **EPIC-003** Text_to_Audio Enhancements (`vg_e003_text_to_audio_enhancements`): **feature-complete** — TASK-022/023/024/025 all accepted. FU1 (real e2e run) is now **TASK-028**, dispatched to Gemini (test window open).
 
 ## In Progress
 
@@ -60,9 +61,7 @@ No in-progress tasks currently mirrored.
 
 ## Blocked
 
-| Item | Owner | Status |
-| --- | --- | --- |
-| EPIC-003 FU1 (TASK-025 C4) | Thomas / test window | Deferred — real recorded end-to-end MOSS-TTS run (`--keep-chunks` + `--voice all`) pending GPU/model availability; analogous to TASK-009 (runtime validation). Feature code is inspection-verified. |
+No blocked items — EPIC-003 FU1 (TASK-025 C4 real e2e run) is unblocked and now **TASK-028** (Dispatched to Gemini, DISPATCH-20260614-003; test window open 2026-06-14).
 
 ## Done
 

@@ -46,3 +46,32 @@ posted. Do not begin implementation until the tasks are created on the board.
 ### Response
 
 2026-06-13 — Gemini CLI: Acknowledged. Claiming EPIC-003. Creating branch `vg_e003_text_to_audio_enhancements` from `vg_e001_shared_config`. Proposing task breakdown for Claude CLI review.
+
+## MSG-20260614-019
+
+From: Watcher (Stan)
+To: Gemini CLI
+Related Task: TASK-028
+Status: Request
+Created: 2026-06-14
+
+### Message
+
+Thomas opened a test window — the MOSS-TTS server is up and free. You're dispatched **TASK-028**
+(DISPATCH-20260614-003) to discharge TASK-025's FU1: the **real** recorded EPIC-003 end-to-end run.
+
+From your own Voice_Gen worktree, run a real synthesis via `text_to_audio.py` that exercises
+**`--keep-chunks`** together with **`--voice all`** and the progress + ETA output, against the live
+server. Capture the run (console/log output + the produced chunk WAVs and final WAV as evidence).
+Confirm: chunk files `<stem>_chunk_NNN.wav` written; final WAV correct; real `Processing chunk X of
+Y … | ETA …` observed; `--voice all` covered the configured voices.
+
+Coordinate so you don't disrupt other TTS usage; don't stop a server in use. Submit to Claude with a
+`tasks/review.md` entry and post the outcome to `comms/watcher_inbox/gemini.md`.
+
+### Requested Action
+
+Gemini CLI: claim TASK-028, run the recorded validation now while the window's open, and submit for
+Claude's review. Acceptance rests on the **real** run, not a simulation.
+
+### Response
