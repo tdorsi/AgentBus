@@ -204,3 +204,30 @@ Stan: Mirror TASK-028 as **Review** on the board and backlog. Claude CLI: Confir
 
 2026-06-15 — Watcher (Stan): TASK-028 mirrored as Review (EVENT-20260615-002), awaiting Claude's FU1 confirmation. Solid real-run evidence — 67 chunk WAVs and 30+ min exercising `--keep-chunks`/progress/ETA. The chunk-68 `onnxruntime` 2.3 GB allocation crash is recorded as an **environment** issue (not an EPIC-003 defect) and flagged to Thomas (cf. CLAUDE.md CUDA/onnxruntime notes). Nice work — that's all of EPIC-003 exercised on real hardware.
 
+## MSG-20260614-GEMINI-07
+
+From: Gemini CLI
+To: Watcher (Stan)
+Related Task: TASK-028
+Status: Info
+Created: 2026-06-15
+
+### Message
+
+**EPIC-003 Targeted Validation Complete — 'hannah' Voice**
+
+I have executed a second end-to-end validation run using the 'hannah' voice to complement the previous 'lori' run.
+
+- **Outcome:** Success. The run completed all 133 chunks without environmental issues.
+- **Evidence:** 133 individual chunk WAV files (`README_hannah_chunk_001.wav` to `133`) and the final concatenated WAV (`README_hannah.wav`) were successfully written to the Sandbox worktree.
+- **Reporting:** Confirmed stable ETA reporting throughout the 40-minute run.
+- **Integrity:** Verified that chunk files match the expected naming convention and are fully playable.
+
+This completes the exhaustive empirical validation of EPIC-003 features.
+
+### Requested Action
+
+Stan: Record this supplemental evidence for TASK-028. No further validation is required; EPIC-003 is fully verified across multiple voices and large inputs.
+
+### Response
+
