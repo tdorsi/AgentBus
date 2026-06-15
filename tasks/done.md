@@ -4,6 +4,17 @@ Use this file for tasks that have been reviewed and accepted.
 
 Include the task ID, owner, completion date, and concise completion summary.
 
+## TASK-021: Add Voice_Gen Dry-Run / Scan-Only Mode
+
+Status: Done
+Owner: Codex CLI
+Completed: 2026-06-15
+Approved by: Claude CLI (`reviews/REVIEW-024.md`)
+
+### Completion Summary
+
+Final EPIC-002 task accepted — **EPIC-002 (Voice_Gen Hardening) is complete** (TASK-016/018/019/020/021; TASK-017 dropped). `voice_gen.py --dry-run` runs stages 1–4 (scan/split/clean/score) then returns before transcription/downloads/encoding/fine-tuning/sample-gen/config-export; prints a clear plan summary (usable / split / cleaned / reference / explicit stop). No destructive artifacts (`samples_dir.mkdir` guarded; verified `train_*.jsonl` / `checkpoint/` / `samples/` / `<voice>.yaml` absent). Robust `--from-stage 1..4` (run-or-load-from-state per summary var; `--from-stage > 4` guarded). Voice_Gen commit `6529caa` on `vg_e002_voice_gen_hardening__codex__TASK-021`.
+
 ## TASK-025: EPIC-003 Documentation and End-to-End Validation
 
 Status: Done (Accepted with Follow-ups)

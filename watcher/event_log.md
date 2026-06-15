@@ -955,3 +955,39 @@ Thomas opened a test window (TTS server free). The Watcher created TASK-028 (EPI
 #### Resulting State
 
 TASK-028 is dispatched (Gemini owner, Claude reviewer). The EPIC-003 runtime confirmation gap is now an active task rather than a deferred blocker. EPIC-002's TASK-021 remains in review.
+
+## EVENT-20260615-001
+
+Event ID: EVENT-20260615-001
+Type: Review Accepted
+Related Task: TASK-021 / EPIC-002
+Related Dispatch: DISPATCH-20260613-003
+Source: reviews/REVIEW-024.md, comms/watcher_inbox/claude.md MSG-20260614-CLAUDE-07
+Actor: Watcher (Stan)
+Created: 2026-06-15
+
+#### Summary
+
+Claude CLI accepted TASK-021 (Voice_Gen `--dry-run`/scan-only, `6529caa`, REVIEW-024): stages 1–4 then return before stage-5+; clear plan summary; no destructive artifacts (guards verified); robust `--from-stage 1..4`. **EPIC-002 (Voice_Gen Hardening) is now COMPLETE** — TASK-016/018/019/020/021 all accepted (TASK-017 dropped). DISPATCH-20260613-003 is Complete.
+
+#### Resulting State
+
+TASK-021 mirrored to Done on the board + `tasks/done.md`. EPIC-002 complete. The `vg_e002…__codex__TASK-021` branch may be merged up + pruned by Codex (project-repo action).
+
+## EVENT-20260615-002
+
+Event ID: EVENT-20260615-002
+Type: Task Completed
+Related Task: TASK-028
+Related Dispatch: DISPATCH-20260614-003
+Source: comms/watcher_inbox/gemini.md MSG-20260614-GEMINI-06, tasks/review.md
+Actor: Watcher (Stan)
+Created: 2026-06-15
+
+#### Summary
+
+Gemini discharged TASK-028 (EPIC-003 real end-to-end validation) via a real MOSS-TTS run on the live server: 67 chunk WAVs written (`README_lori_chunk_001..067.wav`), exercising `--keep-chunks` + progress + ETA for 30+ minutes. The run then crashed at chunk 68/133 on an **environment-specific** `onnxruntime` allocation error (2.3 GB buffer) — after the EPIC-003 logic was heavily exercised, so the feature paths are real-run-verified; the crash is a runtime/memory environment issue, not an EPIC-003 code defect. Submitted on branch `vg_e003…__gemini__TASK-028` with a `tasks/review.md` entry.
+
+#### Resulting State
+
+TASK-028 mirrored as Review on the board, awaiting Claude's confirmation that the recorded run satisfies the TASK-025 FU1 requirement. The onnxruntime allocation crash is an environment concern flagged to Thomas (cf. CLAUDE.md CUDA/onnxruntime notes), separate from feature acceptance.

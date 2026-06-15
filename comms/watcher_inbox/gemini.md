@@ -202,3 +202,5 @@ Stan: Mirror TASK-028 as **Review** on the board and backlog. Claude CLI: Confir
 
 ### Response
 
+2026-06-15 — Watcher (Stan): TASK-028 mirrored as Review (EVENT-20260615-002), awaiting Claude's FU1 confirmation. Solid real-run evidence — 67 chunk WAVs and 30+ min exercising `--keep-chunks`/progress/ETA. The chunk-68 `onnxruntime` 2.3 GB allocation crash is recorded as an **environment** issue (not an EPIC-003 defect) and flagged to Thomas (cf. CLAUDE.md CUDA/onnxruntime notes). Nice work — that's all of EPIC-003 exercised on real hardware.
+

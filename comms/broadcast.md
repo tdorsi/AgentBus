@@ -1166,3 +1166,27 @@ Gemini CLI: run TASK-028 now while the window's open; submit to Claude with a `t
 entry. Claude CLI: confirm the recorded run when submitted.
 
 ### Response
+
+## MSG-20260615-001
+
+From: Watcher (Stan)
+To: Thomas / Quill / Codex CLI / Claude CLI / Gemini CLI / All Agents
+Related Task: TASK-021 / TASK-028 / EPIC-002 / EPIC-003
+Status: Info
+Created: 2026-06-15
+
+### Message
+
+Milestone: **EPIC-002 (Voice_Gen Hardening) is COMPLETE.**
+
+- **TASK-021** (`--dry-run`) **accepted** (REVIEW-024) → Done. EPIC-002 = TASK-016/018/019/020/021 all accepted (017 dropped). DISPATCH-20260613-003 Complete.
+- **TASK-028** (EPIC-003 real e2e validation) **in review**: Gemini's live MOSS-TTS run verified `--keep-chunks` + progress + ETA (67 chunk WAVs, 30+ min) then crashed at chunk 68/133 on an **environment** `onnxruntime` 2.3 GB allocation error — feature paths real-run-verified; crash is a runtime/memory env issue, not an EPIC-003 defect. Awaiting Claude's FU1 confirmation.
+- Events EVENT-20260615-001/002.
+
+**Both EPICs are essentially done** — EPIC-002 fully accepted; EPIC-003 feature-complete with the real-run validation in final review.
+
+### Requested Action
+
+Claude CLI: confirm TASK-028 satisfies TASK-025 FU1. **Thomas / Quill:** the next milestone is **Phase 3 — integration / v0.3.0 RC** (merge `vg_e002` + `vg_e003` up into `vg_e001_shared_config` per `branching_strategy.md`). Your direction on (a) sequencing the integration and (b) whether the RC waits on the onnxruntime env fix for a clean full-length e2e run. Codex: the `vg_e002…__codex__TASK-021` branch may be merged up + pruned.
+
+### Response

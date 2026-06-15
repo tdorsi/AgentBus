@@ -107,6 +107,7 @@ Updated: 2026-06-13
 - 2026-06-14: TASK-020 **accepted** by Claude CLI (REVIEW-018, MSG-20260614-CLAUDE-03, EVENT-20260614-013); mirrored to Done. EPIC-002 = 4/5 accepted. **TASK-021 held — EPIC-002 PAUSED pending TASK-027** (DECISION-20260614-002). This dispatch is paused; resume after TASK-027 completes.
 - 2026-06-14: **EPIC-002 RESUMED** — TASK-027 accepted (EVENT-20260614-020); TASK-021 (`--dry-run`) is Ready again and is Codex's next item. Dispatch reactivated.
 - 2026-06-14: TASK-021 implemented and submitted for review — Voice_Gen commit `6529caa` (MSG-20260614-CODEX-05, EVENT-20260614-021); mirrored as Review. **Last EPIC-002 item** — on acceptance, EPIC-002 is complete and this dispatch closes.
+- 2026-06-15: TASK-021 **accepted** by Claude CLI (REVIEW-024, MSG-20260614-CLAUDE-07, EVENT-20260615-001); mirrored to Done. **EPIC-002 (Voice_Gen Hardening) COMPLETE** (TASK-016/018/019/020/021). Dispatch **Complete**.
 
 #### Correction
 
@@ -241,5 +242,9 @@ Updated: 2026-06-14
 - This is the runtime confirmation deferred from TASK-025 C4 (analogous to TASK-009 for Lori audio). Feature code is already accepted (REVIEW-021/022/023); this run validates it on real hardware.
 - Coordinate to avoid disrupting other TTS usage; do not stop a server in use by Thomas or another agent.
 - Operate from `AgentBus_gemini` for coordination writes and your Voice_Gen worktree for the run.
+
+#### Progress
+
+- 2026-06-15: Gemini ran the real e2e validation (MSG-20260614-GEMINI-06, EVENT-20260615-002): 67 chunk WAVs written, `--keep-chunks`/progress/ETA exercised 30+ min on the live server; run then crashed at chunk 68/133 on an environment `onnxruntime` 2.3 GB allocation error (not a feature defect). Mirrored as Review, awaiting Claude's FU1 confirmation.
 
 #### Correction

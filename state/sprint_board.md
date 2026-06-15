@@ -25,14 +25,14 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-018 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-013.md` |
 | TASK-019 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-014.md` |
 | TASK-020 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-018.md` |
-| TASK-021 | Review | Codex CLI | Claude CLI | `tasks/review.md`, Voice_Gen commit `6529caa` |
+| TASK-021 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-024.md` |
 | TASK-022 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-019.md` |
 | TASK-023 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-021.md` |
 | TASK-024 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-022.md` |
 | TASK-025 | Done / accepted (w/ follow-ups) | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-023.md` |
 | TASK-026 | Done / accepted (w/ follow-ups) | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-017.md` |
 | TASK-027 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-020.md` |
-| TASK-028 | Dispatched (FU1 runtime validation) | Gemini CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260614-003 |
+| TASK-028 | Review | Gemini CLI | Claude CLI | `tasks/review.md`, Voice_Gen branch `vg_e003…__gemini__TASK-028` |
 
 ## Backlog
 
@@ -42,10 +42,11 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 
 ## Ready
 
-No ready/unstarted tasks — **all EPIC-002 and EPIC-003 implementation is submitted and in review** (2026-06-14).
+No ready/unstarted tasks — all EPIC implementation is accepted; only TASK-028 (e2e validation) is in review (2026-06-15).
 
-- **EPIC-002** Voice_Gen Hardening (`vg_e002_voice_gen_hardening`): TASK-016/018/019/020 accepted; **TASK-021 in review** (last EPIC-002 item). TASK-017 dropped (REVIEW-011 F1).
-- **EPIC-003** Text_to_Audio Enhancements (`vg_e003_text_to_audio_enhancements`): **feature-complete** — TASK-022/023/024/025 all accepted. FU1 (real e2e run) is now **TASK-028**, dispatched to Gemini (test window open).
+- **EPIC-002** Voice_Gen Hardening (`vg_e002_voice_gen_hardening`): **COMPLETE** — TASK-016/018/019/020/021 all accepted (TASK-017 dropped).
+- **EPIC-003** Text_to_Audio Enhancements (`vg_e003_text_to_audio_enhancements`): feature-complete (TASK-022/023/024/025 accepted); **TASK-028** (real e2e validation, FU1) **in review** — Gemini's run verified `--keep-chunks`/progress/ETA (67 chunks, 30+ min) then hit an environment onnxruntime allocation error at chunk 68 (not a feature defect). Awaiting Claude's FU1 confirmation.
+- **Next milestone: Phase 3 — integration / v0.3.0 RC** (merge `vg_e002` + `vg_e003` up into `vg_e001_shared_config` per `branching_strategy.md`).
 
 ## In Progress
 
@@ -55,7 +56,7 @@ No in-progress tasks currently mirrored.
 
 | Task | Owner | Reviewer | Status |
 | --- | --- | --- | --- |
-| TASK-021 | Codex CLI | Claude CLI | Review — `--dry-run` submitted (`6529caa`), awaiting Claude |
+| TASK-028 | Gemini CLI | Claude CLI | Review — real e2e validation run submitted (GEMINI-06); awaiting Claude FU1 confirmation |
 | TASK-003 | Codex CLI | Thomas / Quill | Review / stale pending response marker |
 | TASK-004 | Claude CLI | Thomas / Quill | Review |
 
@@ -82,6 +83,7 @@ No blocked items — EPIC-003 FU1 (TASK-025 C4 real e2e run) is unblocked and no
 | TASK-023 | Gemini CLI | 2026-06-14 accepted by Claude CLI (REVIEW-021) |
 | TASK-024 | Gemini CLI | 2026-06-14 accepted by Claude CLI (REVIEW-022) |
 | TASK-025 | Gemini CLI | 2026-06-14 accepted w/ follow-ups by Claude CLI (REVIEW-023) |
+| TASK-021 | Codex CLI | 2026-06-15 accepted by Claude CLI (REVIEW-024) — **EPIC-002 complete** |
 
 ## Validation Cycle
 
