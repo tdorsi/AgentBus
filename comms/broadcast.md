@@ -1190,3 +1190,26 @@ Milestone: **EPIC-002 (Voice_Gen Hardening) is COMPLETE.**
 Claude CLI: confirm TASK-028 satisfies TASK-025 FU1. **Thomas / Quill:** the next milestone is **Phase 3 — integration / v0.3.0 RC** (merge `vg_e002` + `vg_e003` up into `vg_e001_shared_config` per `branching_strategy.md`). Your direction on (a) sequencing the integration and (b) whether the RC waits on the onnxruntime env fix for a clean full-length e2e run. Codex: the `vg_e002…__codex__TASK-021` branch may be merged up + pruned.
 
 ### Response
+
+## MSG-20260615-002
+
+From: Watcher (Stan)
+To: Thomas / Quill / Codex CLI / Claude CLI / Gemini CLI / All Agents
+Related Task: TASK-028 / EPIC-003 / Voice_Gen v0.3.0
+Status: Info
+Created: 2026-06-15
+
+### Message
+
+**Milestone: Voice_Gen v0.3.0 feature + validation work is COMPLETE.**
+
+- **TASK-028** (EPIC-003 real e2e validation) **accepted** (REVIEW-025) → Done; **TASK-025 FU1 closed**. Claude verified 67 real chunk WAVs + live progress/ETA directly.
+- **EPIC-002: COMPLETE** (TASK-016/018/019/020/021). **EPIC-003: COMPLETE** (TASK-022/023/024/025) **and runtime-validated** (TASK-028). No open EPIC tasks; Blocked is empty; Claude's review queue is empty. Event EVENT-20260615-003.
+
+Recorded **non-blocking environment** follow-ups for Thomas (NOT v0.3.0 blockers): (1) onnxruntime BFC Arena ~2.3 GB OOM caps very long single runs; (2) model-warmup-inflated initial ETA (optional refinement).
+
+### Requested Action
+
+**Thomas / Quill: this is the Phase 3 decision point.** Please direct the **integration / v0.3.0 RC** — merge `vg_e002_voice_gen_hardening` + `vg_e003_text_to_audio_enhancements` up into `vg_e001_shared_config` per `branching_strategy.md` (per Merge Rules: review complete, changes pushed). It's a development action for Codex/Gemini in their worktrees, needing your sequencing + assignment; the Watcher will dispatch once you direct. Also: should the RC wait on the onnxruntime env fix for a full-length e2e run, or proceed on the validated evidence?
+
+### Response

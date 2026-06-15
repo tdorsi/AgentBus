@@ -32,7 +32,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-025 | Done / accepted (w/ follow-ups) | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-023.md` |
 | TASK-026 | Done / accepted (w/ follow-ups) | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-017.md` |
 | TASK-027 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-020.md` |
-| TASK-028 | Review | Gemini CLI | Claude CLI | `tasks/review.md`, Voice_Gen branch `vg_e003…__gemini__TASK-028` |
+| TASK-028 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-025.md` |
 
 ## Backlog
 
@@ -42,11 +42,12 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 
 ## Ready
 
-No ready/unstarted tasks — all EPIC implementation is accepted; only TASK-028 (e2e validation) is in review (2026-06-15).
+**Voice_Gen v0.3.0 feature + validation work is DONE** (2026-06-15). No open EPIC tasks.
 
-- **EPIC-002** Voice_Gen Hardening (`vg_e002_voice_gen_hardening`): **COMPLETE** — TASK-016/018/019/020/021 all accepted (TASK-017 dropped).
-- **EPIC-003** Text_to_Audio Enhancements (`vg_e003_text_to_audio_enhancements`): feature-complete (TASK-022/023/024/025 accepted); **TASK-028** (real e2e validation, FU1) **in review** — Gemini's run verified `--keep-chunks`/progress/ETA (67 chunks, 30+ min) then hit an environment onnxruntime allocation error at chunk 68 (not a feature defect). Awaiting Claude's FU1 confirmation.
-- **Next milestone: Phase 3 — integration / v0.3.0 RC** (merge `vg_e002` + `vg_e003` up into `vg_e001_shared_config` per `branching_strategy.md`).
+- **EPIC-002** Voice_Gen Hardening: **COMPLETE** — TASK-016/018/019/020/021 accepted (TASK-017 dropped).
+- **EPIC-003** Text_to_Audio Enhancements: **COMPLETE** — TASK-022/023/024/025 accepted **and runtime-validated** by TASK-028 (REVIEW-025; FU1 closed). 67 real chunk WAVs + live progress/ETA confirmed.
+- **Next milestone: Phase 3 — integration / v0.3.0 RC** — merge `vg_e002_voice_gen_hardening` + `vg_e003_text_to_audio_enhancements` up into `vg_e001_shared_config` per `branching_strategy.md`. **A development action (Codex/Gemini in worktrees) awaiting Thomas / Quill sequencing.**
+- Non-blocking env follow-ups for Thomas (not v0.3.0 blockers): (1) onnxruntime BFC Arena ~2.3 GB OOM caps very long single runs — separate env fix if full-length runs needed; (2) inflated initial ETA from model-warmup — optional future refinement (post-first-chunk/rolling-window CPS).
 
 ## In Progress
 
@@ -56,13 +57,12 @@ No in-progress tasks currently mirrored.
 
 | Task | Owner | Reviewer | Status |
 | --- | --- | --- | --- |
-| TASK-028 | Gemini CLI | Claude CLI | Review — real e2e validation run submitted (GEMINI-06); awaiting Claude FU1 confirmation |
 | TASK-003 | Codex CLI | Thomas / Quill | Review / stale pending response marker |
 | TASK-004 | Claude CLI | Thomas / Quill | Review |
 
 ## Blocked
 
-No blocked items — EPIC-003 FU1 (TASK-025 C4 real e2e run) is unblocked and now **TASK-028** (Dispatched to Gemini, DISPATCH-20260614-003; test window open 2026-06-14).
+No blocked items. (EPIC-003 FU1 closed by TASK-028, REVIEW-025.)
 
 ## Done
 
@@ -84,6 +84,7 @@ No blocked items — EPIC-003 FU1 (TASK-025 C4 real e2e run) is unblocked and no
 | TASK-024 | Gemini CLI | 2026-06-14 accepted by Claude CLI (REVIEW-022) |
 | TASK-025 | Gemini CLI | 2026-06-14 accepted w/ follow-ups by Claude CLI (REVIEW-023) |
 | TASK-021 | Codex CLI | 2026-06-15 accepted by Claude CLI (REVIEW-024) — **EPIC-002 complete** |
+| TASK-028 | Gemini CLI | 2026-06-15 accepted by Claude CLI (REVIEW-025) — **EPIC-003 runtime-validated; FU1 closed** |
 
 ## Validation Cycle
 

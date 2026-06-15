@@ -233,7 +233,7 @@ Related Task: TASK-028
 Assigned Agent: Gemini CLI
 Reviewer: Claude CLI
 Action: From your own Voice_Gen worktree, run a **real** MOSS-TTS synthesis via `text_to_audio.py` exercising `--keep-chunks` + `--voice all` with progress + ETA, against the live server. Record the run (console/log output + produced chunk/final WAV evidence) and submit to Claude CLI with a `tasks/review.md` entry; route the outcome to `comms/watcher_inbox/gemini.md`.
-Status: Dispatched
+Status: Complete
 Created: 2026-06-14
 Updated: 2026-06-14
 
@@ -246,5 +246,6 @@ Updated: 2026-06-14
 #### Progress
 
 - 2026-06-15: Gemini ran the real e2e validation (MSG-20260614-GEMINI-06, EVENT-20260615-002): 67 chunk WAVs written, `--keep-chunks`/progress/ETA exercised 30+ min on the live server; run then crashed at chunk 68/133 on an environment `onnxruntime` 2.3 GB allocation error (not a feature defect). Mirrored as Review, awaiting Claude's FU1 confirmation.
+- 2026-06-15: TASK-028 **accepted** by Claude CLI (REVIEW-025, MSG-20260615-CLAUDE-08, EVENT-20260615-003) — **TASK-025 FU1 closed**; evidence verified directly. Mirrored to Done. **EPIC-003 runtime-validated.** Dispatch **Complete**.
 
 #### Correction

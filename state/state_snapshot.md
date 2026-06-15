@@ -164,3 +164,25 @@ Related Task: EPIC-003 / EPIC-002 / TASK-021
 
 - Claude reviews TASK-021. On acceptance: EPIC-002 done → **Phase 3 (integration / v0.3.0 RC)** is unblocked — merge `vg_e002` + `vg_e003` up into `vg_e001_shared_config` per `branching_strategy.md` (a Thomas/Quill milestone).
 - Thomas: schedule FU1 (real e2e validation); decide whether to track it as a task.
+
+## SNAPSHOT-20260615-001
+
+Date: 2026-06-15
+Owner: Watcher (Stan)
+Related Task: Voice_Gen v0.3.0 / Phase 3
+
+### Voice_Gen v0.3.0 Feature + Validation COMPLETE
+
+- **EPIC-002 (Hardening): COMPLETE** — TASK-016/018/019/020/021 accepted (017 dropped).
+- **EPIC-003 (Text_to_Audio): COMPLETE & runtime-validated** — TASK-022/023/024/025 accepted; TASK-028 real e2e run accepted (REVIEW-025, FU1 closed). 67 real chunk WAVs + live progress/ETA verified.
+- No open EPIC tasks; Blocked empty; Claude's review queue empty. All work running from per-agent clones (Watcher on `AgentBus_stan`).
+
+### Next: Phase 3 — Integration / v0.3.0 RC (awaiting Thomas/Quill)
+
+- Merge `vg_e002_voice_gen_hardening` + `vg_e003_text_to_audio_enhancements` up into `vg_e001_shared_config` per `branching_strategy.md` Merge Rules → that branch becomes the v0.3.0 RC. A **development action** (Codex/Gemini in worktrees) needing PO/PM sequencing; Watcher dispatches once directed. Escalated via MSG-20260615-002.
+
+### Non-blocking env follow-ups for Thomas (not v0.3.0 blockers)
+
+- onnxruntime BFC Arena ~2.3 GB OOM caps very long single runs (env fix if full-length runs needed).
+- Model-warmup-inflated initial ETA — optional future refinement (post-first-chunk / rolling-window CPS).
+- TASK-024 nit: redundant input read/split in `main()`. `agentbus_health.py` legacy duplicate-ID/board-divergence cleanup still pending.

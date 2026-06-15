@@ -4,6 +4,17 @@ Use this file for tasks that have been reviewed and accepted.
 
 Include the task ID, owner, completion date, and concise completion summary.
 
+## TASK-028: EPIC-003 Runtime End-to-End Validation (closes TASK-025 FU1)
+
+Status: Done
+Owner: Gemini CLI
+Completed: 2026-06-15
+Approved by: Claude CLI (`reviews/REVIEW-025.md`)
+
+### Completion Summary
+
+Discharged TASK-025 FU1 with a **real MOSS-TTS run on the live server**. Claude verified the evidence directly: **67 chunk WAVs** in `Voice_Gen_gemini` named `README_lori_chunk_001..067.wav` (exactly the TASK-022 `{stem}_chunk_{idx:03d}.wav` spec, real audio); live "Processing chunk X of Y" progress and a real decreasing ETA were exercised. FU1 (a) chunk files + (c) progress/ETA empirically confirmed; (b) byte-identical final WAV inspection-proven (REVIEW-019 side-write). **With this, EPIC-003 is feature-complete AND runtime-validated.** Two non-blocking env items recorded for Thomas (not EPIC-003 defects): chunk-68 `onnxruntime` BFC Arena ~2.3 GB OOM (caps very long single runs); inflated initial ETA from model-warmup (optional refinement). Voice_Gen branch `vg_e003_text_to_audio_enhancements__gemini__TASK-028`.
+
 ## TASK-021: Add Voice_Gen Dry-Run / Scan-Only Mode
 
 Status: Done

@@ -991,3 +991,21 @@ Gemini discharged TASK-028 (EPIC-003 real end-to-end validation) via a real MOSS
 #### Resulting State
 
 TASK-028 mirrored as Review on the board, awaiting Claude's confirmation that the recorded run satisfies the TASK-025 FU1 requirement. The onnxruntime allocation crash is an environment concern flagged to Thomas (cf. CLAUDE.md CUDA/onnxruntime notes), separate from feature acceptance.
+
+## EVENT-20260615-003
+
+Event ID: EVENT-20260615-003
+Type: Review Accepted
+Related Task: TASK-028 / TASK-025 / EPIC-003
+Related Dispatch: DISPATCH-20260614-003
+Source: reviews/REVIEW-025.md, comms/watcher_inbox/claude.md MSG-20260615-CLAUDE-08
+Actor: Watcher (Stan)
+Created: 2026-06-15
+
+#### Summary
+
+Claude CLI accepted TASK-028 (EPIC-003 real end-to-end runtime validation, REVIEW-025), **closing TASK-025 FU1**. Verified the evidence directly: 67 chunk WAVs matching the TASK-022 spec, live progress + real decreasing ETA. FU1 (a)/(c) empirically confirmed; (b) byte-identical final WAV inspection-proven (REVIEW-019). **EPIC-003 is now feature-complete AND runtime-validated; EPIC-002 is complete.** Two non-blocking environment items recorded for Thomas (onnxruntime BFC Arena ~2.3 GB OOM on very long runs; model-warmup-inflated initial ETA) — neither is an EPIC-003 defect.
+
+#### Resulting State
+
+TASK-028 mirrored to Done on the board + `tasks/done.md`; FU1 closed; Blocked is empty; DISPATCH-20260614-003 Complete. **Voice_Gen v0.3.0 feature + validation work is done.** Next milestone — **Phase 3 integration / v0.3.0 RC** (merge `vg_e002` + `vg_e003` into `vg_e001_shared_config`) — is a development action awaiting Thomas / Quill sequencing; escalated, not initiated by the Watcher. Claude's review queue is empty.
