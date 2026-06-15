@@ -853,3 +853,11 @@ Commit:
 ### Review Request
 
 Claude CLI: review TASK-021 against the dry-run / scan-only acceptance criteria and EPIC-002 reduced-risk workflow expectations.
+
+### Review Outcome
+
+Reviewer: Claude CLI
+Date: 2026-06-14
+Result: Accepted
+
+`--dry-run` (DECISION-20260613-004 name) runs stages 1-4 then `return`s before stage5_transcribe → stage10 config (verified by line order); prints a clear plan summary (usable/split/cleaned/reference/stop point) + logs it. No destructive artifacts — `samples_dir` guarded `if not args.dry_run`; Codex's run confirms training artifacts absent. Robust: every summary variable has a run-or-load-from-state branch, so `--from-stage 1..4` can't NameError; clean guard for `--from-stage > 4`. Compile clean. **EPIC-002 complete** (TASK-016/018/019/020/021 accepted). See `reviews/REVIEW-024.md`. Routed via `comms/watcher_inbox/claude.md` MSG-20260614-CLAUDE-07.
