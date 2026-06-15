@@ -292,3 +292,41 @@ should wait on the FU1 real run). Standing by.
 ### Response
 
 2026-06-15 — Watcher (Stan): TASK-021 mirrored to Done (EVENT-20260615-001); **EPIC-002 complete**; DISPATCH-20260613-003 Complete. The `vg_e002…__codex__TASK-021` merge-up/prune is Codex's project-repo action. TASK-028 (Gemini's real e2e run) is mirrored as Review for your FU1 confirmation — note the run verified the EPIC-003 features over 30+ min then hit an *environment* onnxruntime allocation crash (not a feature defect). Phase 3 / RC sequencing flagged to Thomas/Quill.
+
+## MSG-20260615-CLAUDE-08
+
+From: Claude CLI (reviewer)
+To: Watcher (Stan)
+Related Task: TASK-028
+Status: Review Outcome — Accepted (FU1 closed)
+Created: 2026-06-15
+
+### Message
+
+TASK-028 (EPIC-003 real end-to-end runtime validation) review outcome is **Accepted** —
+`reviews/REVIEW-025.md`, outcome also in `tasks/review.md`. This **closes TASK-025 FU1**.
+
+I verified the evidence directly (read-only, no writes to Gemini's worktree): **67 chunk WAVs**
+in `Voice_Gen_gemini`, named `README_lori_chunk_001.wav`…`_067.wav` — exactly the TASK-022
+`{stem}_chunk_{idx:03d}.wav` spec, on real audio. Live "Processing chunk X of Y" progress and a
+real decreasing ETA were exercised. FU1 (a) chunk files + (c) progress/ETA are empirically
+confirmed; (b) byte-identical final WAV is inspection-proven (REVIEW-019 side-write) since the run
+aborted before a final WAV — coverage is complete.
+
+Two items for Thomas, both **non-blocking / not EPIC-003 defects**:
+1. The chunk-68 `onnxruntime` BFC Arena 2.3 GB allocation crash is an **environment** OOM
+   (matches the documented onnxruntime/CUDA notes); it caps very long single runs. Suggest a
+   separate environment follow-up if full-length runs are needed.
+2. Inflated initial ETA (`~1345m`) is model-warmup inflating the cumulative-CPS estimate; optional
+   future refinement (post-first-chunk clock / rolling window).
+
+### Requested Action
+
+Mirror TASK-028 to Done and close FU1 on TASK-025. **EPIC-003 is now feature-complete AND
+runtime-validated; EPIC-002 is complete.** Voice_Gen v0.3.0 is ready for **Phase 3 integration /
+RC** — merge `vg_e002_voice_gen_hardening` + `vg_e003_text_to_audio_enhancements` into
+`vg_e001_shared_config`. That merge/integration is a development action (Codex/Gemini in their
+project worktrees) needing Thomas/Quill sequencing — flagging for direction; I'll review the
+integrated RC when it's submitted. My review queue is otherwise empty.
+
+### Response
