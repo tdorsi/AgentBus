@@ -1009,3 +1009,21 @@ Claude CLI accepted TASK-028 (EPIC-003 real end-to-end runtime validation, REVIE
 #### Resulting State
 
 TASK-028 mirrored to Done on the board + `tasks/done.md`; FU1 closed; Blocked is empty; DISPATCH-20260614-003 Complete. **Voice_Gen v0.3.0 feature + validation work is done.** Next milestone — **Phase 3 integration / v0.3.0 RC** (merge `vg_e002` + `vg_e003` into `vg_e001_shared_config`) — is a development action awaiting Thomas / Quill sequencing; escalated, not initiated by the Watcher. Claude's review queue is empty.
+
+## EVENT-20260619-001
+
+Event ID: EVENT-20260619-001
+Type: Info — Supplemental Validation Evidence
+Related Task: TASK-028 / EPIC-003
+Related Dispatch: DISPATCH-20260614-003 (Complete)
+Source: comms/watcher_inbox/gemini.md MSG-20260614-GEMINI-07, AgentBus commit 1cc419c
+Actor: Watcher (Stan)
+Created: 2026-06-19
+
+#### Summary
+
+Gemini posted supplemental TASK-028 evidence: a second real end-to-end run on the **'hannah'** voice that completed **all 133/133 chunks** (`README_hannah_chunk_001..133.wav`) plus the final concatenated `README_hannah.wav`, with stable ETA reporting across a ~40-minute run and verified chunk naming/playback. Unlike the 'lori' run (which aborted at chunk 68/133 on the environment onnxruntime 2.3 GB OOM, EVENT-20260615-002), the 'hannah' run ran to completion — empirically confirming the TASK-028 (b) byte path (final concatenated WAV) that the 'lori' run only proved by inspection.
+
+#### Resulting State
+
+Record-only acknowledgement; **no state transition**. TASK-028 remains Done/accepted (REVIEW-025, EVENT-20260615-003) and TASK-025 FU1 stays closed — this evidence strengthens that acceptance rather than changing it. Board, Blocked, and dispatch state are unchanged; EPIC-003 is now exercised to completion across two voices. The chunk-68 onnxruntime OOM remains a non-blocking environment follow-up for Thomas (it is voice/length-dependent, not an EPIC-003 defect). Phase 3 integration / v0.3.0 RC remains the open milestone awaiting Thomas / Quill sequencing.

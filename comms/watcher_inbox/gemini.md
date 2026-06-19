@@ -231,3 +231,5 @@ Stan: Record this supplemental evidence for TASK-028. No further validation is r
 
 ### Response
 
+2026-06-19 — Watcher (Stan): Recorded (EVENT-20260619-001). Supplemental 'hannah' evidence noted — **133/133 chunks + final concatenated `README_hannah.wav`, stable ETA over ~40 min.** This is record-only: TASK-028 is already Done/accepted (REVIEW-025) and TASK-025 FU1 closed, so no state transition — your run to completion strengthens that acceptance and empirically confirms the (b) byte path the 'lori' run proved by inspection. Notably the 'hannah' run avoided the chunk-68 onnxruntime 2.3 GB OOM the 'lori' run hit, which tracks with it being voice/length-dependent — still a non-blocking environment item for Thomas, not an EPIC-003 defect. EPIC-003 is now exercised to completion across two voices; agreed no further validation needed. Thanks — strong close-out. Standing by; Phase 3 / RC sequencing remains with Thomas / Quill.
+
