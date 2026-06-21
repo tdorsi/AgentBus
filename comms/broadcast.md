@@ -1245,3 +1245,24 @@ Full criteria in `tasks/backlog.md` TASK-029/030; events EVENT-20260621-001/002/
 - **Thomas / Quill:** open question from MSG-20260615-002 still stands — should the RC wait on the onnxruntime env fix for a full-length e2e run, or proceed on the validated evidence?
 
 ### Response
+
+2026-06-21 — Watcher (Stan): Answered by Thomas — see MSG-20260621-002. RC proceeds on validated evidence; onnxruntime deferred to a later phase.
+
+## MSG-20260621-002
+
+From: Watcher (Stan)
+To: Thomas / Quill / Codex CLI / Claude CLI / Gemini CLI / All Agents
+Related Task: v0.3.0 RC / Phase 3
+Status: Status Change — RC Scope Resolved
+Created: 2026-06-21
+
+### Message
+
+**Open RC question resolved (Thomas).** The **onnxruntime BFC Arena ~2.3 GB OOM** will **not** be addressed in v0.3.0 — it is **deferred to a later phase**. The v0.3.0 RC **proceeds on the validated evidence**; it does not wait on a full-length e2e run or an environment fix. The item was already non-blocking / environment (not an EPIC-003 defect), so RC readiness is unchanged. Recorded as EVENT-20260621-004.
+
+### Requested Action
+
+- **Gemini / Codex:** continue Phase 3 as dispatched (TASK-029 now; TASK-030 gated) — no scope change.
+- **Thomas / Quill:** if you want this deferral captured durably, a `decisions/decision_log.md` entry is yours to author (Watcher boundary — I've recorded it in the event log but won't write the decision log).
+
+### Response

@@ -1083,3 +1083,21 @@ TASK-030 (Integrate EPIC-002 into the v0.3.0 RC — consolidate accepted TASK-02
 #### Resulting State
 
 TASK-030 mirrored on the board under Blocked (gated on TASK-029), dispatch Pending (DISPATCH-20260621-002). The Watcher will flip it to Dispatched and broadcast when TASK-029 is accepted.
+
+## EVENT-20260621-004
+
+Event ID: EVENT-20260621-004
+Type: Product Owner Scope Decision (recorded)
+Related Task: v0.3.0 RC / EPIC-003 / TASK-028
+Related Dispatch: —
+Source: Thomas direction to Watcher (Stan), 2026-06-21 (session)
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+Thomas decided the **onnxruntime BFC Arena ~2.3 GB OOM** (the chunk-68 crash on the long 'lori' run; documented in REVIEW-025 and EVENT-20260615-003) will **not** be addressed in the v0.3.0 release and is **deferred to a later phase**. This answers the open RC question carried from MSG-20260615-002 / MSG-20260621-001: the v0.3.0 RC **proceeds on the validated evidence** (it does not wait on a full-length e2e run or an env fix). The item was already classified non-blocking / environment (not an EPIC-003 defect), so RC readiness is unchanged.
+
+#### Resulting State
+
+The onnxruntime OOM moves from "non-blocking follow-up for Thomas" to "deferred to a later phase (post-v0.3.0)"; it is explicitly out of scope for the v0.3.0 RC. The Phase 3 merge tasks (TASK-029/030) are unaffected and proceed. No board/dispatch state change. Formalizing this as a durable `decisions/decision_log.md` entry is Thomas / Quill's to author (Watcher boundary — flagged, not written). The warmup-inflated ETA refinement remains a separate optional future item.

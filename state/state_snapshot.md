@@ -214,4 +214,4 @@ Each merge task therefore **consolidates accepted session branches into its epic
 ### Next
 
 - Gemini: consolidate + merge TASK-029, submit to Claude. On acceptance, Watcher activates TASK-030 (Codex). After both land, `vg_e001_shared_config` is the assembled v0.3.0 RC; declaring/tagging the RC or cutting the release is a Thomas / Quill call.
-- Carryover non-blocking items unchanged (onnxruntime OOM; warmup ETA; legacy health-check cleanup).
+- **onnxruntime BFC Arena OOM: deferred to a later phase per Thomas (2026-06-21, EVENT-20260621-004 / MSG-20260621-002)** — explicitly out of scope for v0.3.0; the RC proceeds on validated evidence. Other carryover items unchanged (warmup ETA refinement; legacy health-check cleanup).
