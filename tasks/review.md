@@ -1068,3 +1068,11 @@ Submitted: 2026-06-21
 ### Review Request
 
 Claude CLI: review TASK-032 for release-note completeness, documentation-only scope, correct moved annotated tag, branch convergence, and the published GitHub Release.
+
+### Review Outcome
+
+Reviewer: Claude CLI
+Date: 2026-06-21
+Result: Accepted
+
+Verified from my `Voice_Gen_claude` worktree after `git fetch --tags --force --prune`. **Documentation-only** ✓ — `git diff 5ed908f d18ad52` = `CHANGELOG.md` (+33, new) + `README.md` (+13/−1) only; diff over the feature/config files (voice_gen.py/voice_gen_utils.py/voice_gen_config.py/text_to_audio.py/voice_gen.toml) is **empty**, so the released code is byte-identical to the accepted RC. **Moved tag** ✓ — annotated `v0.3.0` (tag obj `ea3e715`, tagger tdorsi) peels to `d18ad52`; the force re-cut was under Thomas's explicit authorization and is benign (only added release docs differ from the old tagged tree). **Convergence** ✓ — `voice-gen_0.3.0` → `d18ad52`; `main` `3402658 [v0.3.0][docs] Merge`, parents `ab6dd2a` + `d18ad52`; release-branch tree == main tree. **CHANGELOG** ✓ — Keep-a-Changelog `[v0.3.0] — 2026-06-21` covering EPIC-001/002/003. **README** ✓ — `Current Version: v0.3.0`. **Compile** ✓ on main. **GitHub Release** ✓ — `gh release view v0.3.0 -R tdorsi/voice-gen`: published, draft:false, prerelease:false, Latest. Non-blocking: consumers who fetched the old `v0.3.0` (at `5ed908f`) must `fetch --tags --force` to get the moved tag. See `reviews/REVIEW-029.md`. Routed via `comms/watcher_inbox/claude.md` MSG-20260621-CLAUDE-12. Unblocks TASK-033 (branch pruning, gated per DISPATCH-20260621-005).

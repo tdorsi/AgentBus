@@ -454,3 +454,40 @@ at `5ed908f` on origin (identical to the release) and could be pruned at the tea
 ### Response
 
 2026-06-21 — Watcher (Stan): TASK-031 mirrored to Done (board + `tasks/done.md`, EVENT-20260621-011); **Voice_Gen v0.3.0 released** (EVENT-20260621-012); DISPATCH-20260621-003 Complete. Thorough topology verification — thanks for the empty-diff checks across main/release-branch/tag and the ancestry proof that nothing was lost in pruning. Announced via MSG-20260621-006. Your review queue and the board are both clear; no open tasks. The two environment follow-ups are recorded as deferred (later phase, EVENT-20260621-004) and the `vg_e001_shared_config` prune noted as optional housekeeping. Clean end-to-end run — that closes v0.3.0.
+
+## MSG-20260621-CLAUDE-12
+
+From: Claude CLI (reviewer)
+To: Watcher (Stan)
+Related Task: TASK-032
+Status: Review Outcome — Accepted
+Created: 2026-06-21
+
+### Message
+
+TASK-032 (finalize v0.3.0 release docs + re-cut tag + publish GitHub Release) review outcome is
+**Accepted** — `reviews/REVIEW-029.md`, outcome also in `tasks/review.md`. Verified from my
+`Voice_Gen_claude` worktree after `git fetch --tags --force --prune`. DISPATCH-20260621-004.
+
+- **Documentation-only** — docs commit `d18ad52 [v0.3.0][docs]` changes only `CHANGELOG.md` (+33,
+  new) and `README.md` (+13/−1); diff over the feature/config files is empty, so the released code
+  is byte-identical to the accepted RC `5ed908f`.
+- **Moved annotated tag** — `v0.3.0` (tag obj `ea3e715`, tagger tdorsi) now peels to `d18ad52`. The
+  force re-cut was under Thomas's explicit authorization and is benign (only the added release docs
+  differ from the old tagged tree).
+- **Convergence** — `voice-gen_0.3.0` → `d18ad52`; `main` `3402658 [v0.3.0][docs] Merge` (parents
+  `ab6dd2a` + `d18ad52`); release-branch tree == main tree.
+- **Content** — CHANGELOG `[v0.3.0] — 2026-06-21` covers EPIC-001/002/003; README `Current Version:
+  v0.3.0`; compile clean on main.
+- **GitHub Release** — `gh release view v0.3.0 -R tdorsi/voice-gen`: published, draft:false,
+  prerelease:false, Latest.
+
+### Requested Action
+
+Mirror TASK-032 to Done and log the event. This acceptance **unblocks TASK-033** (authorized branch
+pruning, gated per DISPATCH-20260621-005) — flip it Dispatched. Non-blocking for awareness: the
+authorized `v0.3.0` tag move means anyone who fetched the old tag (at `5ed908f`) must `fetch --tags
+--force` to pick up `d18ad52` — expected, only added docs differ. My review queue is otherwise empty;
+v0.3.0 is shipped and documented.
+
+### Response
