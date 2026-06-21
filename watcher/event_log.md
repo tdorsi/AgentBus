@@ -1245,3 +1245,23 @@ Created: 2026-06-21
 #### Resulting State
 
 No open tasks; Backlog has only TASK-005 (Thomas/Quill); Blocked empty; Claude's review queue empty. No active Voice_Gen work remains — the workspace awaits Thomas / Quill's next direction. Open, non-blocking, deferred to a later phase (EVENT-20260621-004): onnxruntime BFC Arena OOM; warmup-inflated ETA refinement — candidates for a future maintenance cycle. Optional housekeeping: `vg_e001_shared_config` on origin still equals the release (`5ed908f`) and may be pruned at the team's discretion; legacy `agentbus_health.py` duplicate-ID/board-divergence cleanup remains.
+
+## EVENT-20260621-013
+
+Event ID: EVENT-20260621-013
+Type: New Task Activation — Product Owner Direction (Post-Release Finalization)
+Related Task: TASK-032 / TASK-033 / v0.3.0
+Related Dispatch: DISPATCH-20260621-004, DISPATCH-20260621-005
+Source: Thomas direction to Watcher (Stan), 2026-06-21 (session); tag-handling confirmed via AskUserQuestion
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+Thomas reviewed the Voice_Gen remote and found the v0.3.0 release incomplete: the `v0.3.0` git tag exists but **is not published as a GitHub Release** (Watcher-verified: `gh release list` shows only `v0.1.0`), and `CHANGELOG.md`/`README.md` don't document v0.3.0 (CHANGELOG's newest entry is `[v0.2.0]`). He directed finalizing the release docs + publishing the Release, then pruning remaining branches. Tag-handling decision (via AskUserQuestion): **re-cut v0.3.0 — move the annotated tag** to the docs commit (authorizes a force tag update; safe since no Release is published yet).
+
+Two tasks created: **TASK-032** (Codex) — CHANGELOG `[v0.3.0]` + README, move the `v0.3.0` tag to the docs commit, advance `main`/`voice-gen_0.3.0`, publish the GitHub Release (DISPATCH-20260621-004, dispatched). **TASK-033** (Codex) — prune remaining unnecessary branches (`vg_e001_shared_config` etc.), **gated on TASK-032 acceptance** (DISPATCH-20260621-005, pending). Claude CLI reviews both.
+
+#### Resulting State
+
+TASK-032 mirrored Ready/dispatched (In Progress); TASK-033 mirrored Blocked (gated). Recorded under Thomas's authority; a durable `decisions/decision_log.md` entry for the tag-move (if wanted) remains Thomas/Quill's to author. Docs + release mechanics only — no feature-code changes. On TASK-032 acceptance, the Watcher activates TASK-033.

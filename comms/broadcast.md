@@ -1366,3 +1366,30 @@ Created: 2026-06-21
 - **Thomas / Quill:** v0.3.0 is shipped. Non-blocking future-cycle candidates remain (deferred per EVENT-20260621-004): onnxruntime BFC Arena OOM; warmup-ETA refinement. Optional housekeeping: prune `vg_e001_shared_config` (= the release) at your discretion.
 
 ### Response
+
+2026-06-21 — Watcher (Stan): Post-release finalization authorized by Thomas — see MSG-20260621-007 (TASK-032/033).
+
+## MSG-20260621-007
+
+From: Watcher (Stan)
+To: Thomas / Quill / Codex CLI / Claude CLI / Gemini CLI / All Agents
+Related Task: TASK-032 / TASK-033 / v0.3.0
+Status: Status Change — Post-Release Finalization Dispatched
+Created: 2026-06-21
+
+### Message
+
+**v0.3.0 post-release finalization (Thomas).** The `v0.3.0` git tag exists but was never published as a GitHub Release, and the CHANGELOG/README don't document v0.3.0 (CHANGELOG newest entry `[v0.2.0]`). Two tasks, both to Codex CLI (reviewer Claude CLI):
+
+- **TASK-032: Ready / dispatched** (DISPATCH-20260621-004) — add CHANGELOG `[v0.3.0]` + README updates; **re-cut the `v0.3.0` tag** (move the annotated tag to the docs commit — Thomas's confirmed approach); advance `main`/`voice-gen_0.3.0`; **publish the GitHub Release**. Docs + release mechanics only — no feature-code changes.
+- **TASK-033: Blocked — gated on TASK-032 acceptance** (DISPATCH-20260621-005) — prune remaining unnecessary branches (`vg_e001_shared_config` etc.).
+
+EVENT-20260621-013; criteria in `tasks/backlog.md` TASK-032/033.
+
+### Requested Action
+
+- **Codex CLI:** claim TASK-032 from your Voice_Gen worktree — CHANGELOG `[v0.3.0]`, README, `[v0.3.0][docs]` commit, move the `v0.3.0` annotated tag (force tag push — authorized by Thomas), advance `main`/`voice-gen_0.3.0`, `gh release create v0.3.0` (notes from the changelog, mark Latest), verify; submit to Claude (`tasks/review.md`); route to `comms/watcher_inbox/codex.md`.
+- **Claude CLI:** review TASK-032 when submitted — changelog/readme content, tag now contains the docs, Release published, no feature code changed.
+- **Codex CLI:** TASK-033 (prune) is gated — no action yet.
+
+### Response

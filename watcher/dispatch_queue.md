@@ -318,9 +318,47 @@ Updated: 2026-06-21
 - Watcher-verified (2026-06-21): all epic/session branches are merged up into the RC `5ed908f`; `main` (`2eb1d32`) is a clean ancestor of the RC (FF-able), but the release merge into `main` should carry an explicit `[v0.3.0][RELEASE]` marker per `branching_strategy.md` Commit Message Policy — hence `--no-ff`.
 - This is the final step of Voice_Gen v0.3.0. After acceptance, `v0.3.0` is released and `main` reflects current production.
 
-#### Progress
+#### Progress (DISPATCH-20260621-003)
 
 - 2026-06-21: Codex completed and submitted the release cut (MSG-20260621-CODEX-07, EVENT-20260621-010). Watcher-verified on origin: annotated tag `v0.3.0` → `5ed908f`; `voice-gen_0.3.0` = `5ed908f`; `main` @ `ab6dd2a` (`[v0.3.0][RELEASE]`, RC is ancestor); merged session/epic branches pruned (only `main`, `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0` remain). Mirrored as Review; awaiting Claude.
 - 2026-06-21: **TASK-031 accepted** by Claude CLI (REVIEW-028, MSG-20260621-CLAUDE-11, EVENT-20260621-011) — all three trees (main/release-branch/tag) byte-identical to the accepted RC, no unmerged work lost in pruning, prior releases retained, compiles. Mirrored to Done. **Voice_Gen v0.3.0 RELEASED** (EVENT-20260621-012). Dispatch **Complete**.
+
+#### Correction
+
+## DISPATCH-20260621-004
+
+Dispatch ID: DISPATCH-20260621-004
+Trigger: Thomas observed (2026-06-21) that the `v0.3.0` git tag is not published as a GitHub Release and the CHANGELOG/README don't document v0.3.0; he authorized finalizing the release docs and confirmed the **re-cut / move-tag** approach.
+Related Task: TASK-032
+Assigned Agent: Codex CLI
+Reviewer: Claude CLI
+Action: From your own Voice_Gen worktree/clone (docs + release mechanics only — no feature-code changes): **(1)** add a `[v0.3.0]` section to `CHANGELOG.md` (EPIC-001/002/003 changes, dated 2026-06-21, existing changelog style) and update `README.md` to reflect v0.3.0. **(2)** Commit the docs (`[v0.3.0][docs]`). **(3) Re-cut the tag:** move the annotated `v0.3.0` tag to the docs commit (`git tag -f -a v0.3.0`, force-push the tag) so the tagged tree contains the v0.3.0 docs. **(4)** Ensure `main` and `voice-gen_0.3.0` both contain the docs commit (tag/main/release branch converge). **(5) Publish** the v0.3.0 GitHub Release via `gh release create v0.3.0` with notes from the new CHANGELOG section, marked Latest. **(6)** Verify: tag peels to the docs commit, `git show v0.3.0:CHANGELOG.md` has the `[v0.3.0]` section, `gh release view v0.3.0` exists, `py_compile` clean. Submit to Claude CLI (`tasks/review.md`); route outcome to `comms/watcher_inbox/codex.md`.
+Status: Dispatched
+Created: 2026-06-21
+Updated: 2026-06-21
+
+#### Notes
+
+- Moving an already-accepted tag + force-push is **explicitly authorized by Thomas** (2026-06-21, re-cut approach); safe because no GitHub Release is published yet (no consumers).
+- Watcher-verified: only `v0.1.0` has a published Release (`gh release list`); CHANGELOG newest entry is `[v0.2.0]`.
+- TASK-033 (branch prune) is gated on this task's acceptance.
+
+#### Correction
+
+## DISPATCH-20260621-005
+
+Dispatch ID: DISPATCH-20260621-005
+Trigger: Thomas sequenced branch pruning after the v0.3.0 docs/Release are finalized ("once those items are updated we can review and prune").
+Related Task: TASK-033
+Assigned Agent: Codex CLI
+Reviewer: Claude CLI
+Action: After TASK-032 is **accepted**, review the remaining origin + local branches and prune the unnecessary ones (at minimum `vg_e001_shared_config`, which == the released tree). Ancestry-check each deletion candidate first; keep `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`, and any branch a tag/release depends on; do not delete tags. Record what was pruned with evidence; submit to Claude CLI (`tasks/review.md`); route outcome to `comms/watcher_inbox/codex.md`.
+Status: Pending — gated on TASK-032 acceptance
+Created: 2026-06-21
+Updated: 2026-06-21
+
+#### Notes
+
+- Session/epic branches were already pruned in TASK-031; remaining origin heads are `main`, `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0`. The Watcher will flip this to Dispatched when TASK-032 is accepted.
 
 #### Correction

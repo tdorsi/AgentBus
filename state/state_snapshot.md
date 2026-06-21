@@ -302,3 +302,22 @@ TASK-031 accepted (REVIEW-028, EVENT-20260621-011); release confirmed (EVENT-202
 - **No open tasks.** Backlog: only TASK-005 (Thomas/Quill, pre-existing). Blocked empty; Claude's review queue empty. No active Voice_Gen work — **workspace awaits Thomas / Quill's next direction.**
 - Non-blocking, deferred to a later phase (EVENT-20260621-004): onnxruntime BFC Arena OOM; warmup-ETA refinement — future maintenance-cycle candidates.
 - Optional housekeeping: `vg_e001_shared_config` on origin still equals the release (`5ed908f`) — prunable at team discretion; legacy `agentbus_health.py` duplicate-ID/board-divergence cleanup; owners may move TASK-031 `review.md` entry to done to clear the expected board-vs-tasks lag.
+
+## SNAPSHOT-20260621-006
+
+Date: 2026-06-21
+Owner: Watcher (Stan)
+Related Task: v0.3.0 post-release finalization / TASK-032 / TASK-033
+
+### Post-Release Finalization Activated
+
+Thomas reviewed the remote and found the v0.3.0 release incomplete: the `v0.3.0` **git tag** exists but no **GitHub Release** is published (only `v0.1.0` is), and `CHANGELOG.md` (newest entry `[v0.2.0]`) / `README.md` don't document v0.3.0. Two tasks created:
+
+- **TASK-032 (Codex, reviewer Claude): Ready/dispatched** (DISPATCH-20260621-004) — add CHANGELOG `[v0.3.0]` + README updates; **re-cut/move the annotated `v0.3.0` tag** to the docs commit (Thomas's confirmed approach — force tag update authorized, no Release published yet); advance `main`/`voice-gen_0.3.0`; **publish the GitHub Release** via `gh release create`. Docs + release mechanics only.
+- **TASK-033 (Codex, reviewer Claude): Blocked** (DISPATCH-20260621-005) — prune remaining unnecessary branches (`vg_e001_shared_config` etc.); gated on TASK-032 acceptance per Thomas's sequencing.
+
+### State / Next
+
+- v0.3.0 is released (tag/branches in place); this finalization completes the docs + GitHub Release and tidies branches.
+- Codex executes TASK-032 → Claude reviews → on acceptance Watcher activates TASK-033 (prune).
+- Deferred/optional unchanged: onnxruntime OOM (later phase, EVENT-20260621-004); warmup-ETA; legacy health-check cleanup.

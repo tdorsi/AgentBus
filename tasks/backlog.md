@@ -1135,3 +1135,78 @@ The RC `vg_e001_shared_config` @ `5ed908f` contains EPIC-001 + EPIC-003 + EPIC-0
 ### Blockers
 
 - None. (RC assembled and accepted; Phase 3 complete.)
+
+## TASK-032: Finalize v0.3.0 Release Docs — CHANGELOG + README, re-cut tag, publish GitHub Release
+
+Status: Ready — dispatched to Codex CLI 2026-06-21 (DISPATCH-20260621-004)
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Created: 2026-06-21
+Updated: 2026-06-21
+Related: TASK-031 (release cut), v0.3.0 tag/release; Voice_Gen `CHANGELOG.md`, `README.md`
+Related Branch: `voice-gen_0.3.0` / `main` / tag `v0.3.0`
+
+### Goal
+
+Complete the v0.3.0 release properly: document v0.3.0 in the CHANGELOG and README, make the `v0.3.0` tag point at the commit that contains those docs, and publish the v0.3.0 **GitHub Release** (currently only the git tag exists — no published Release; the CHANGELOG's newest entry is `[v0.2.0]`).
+
+### Context (Watcher-verified 2026-06-21)
+
+- Tags on origin: `v0.1.0`, `v0.3.0`. **GitHub Releases: only `v0.1.0` is published** (`gh release list` → just v0.1.0, marked Latest). No v0.3.0 Release.
+- `CHANGELOG.md` exists at the release tree (`5ed908f`) but its latest section is `[v0.2.0] — 2026-06-01`; there is **no `[v0.3.0]` section**.
+- README was updated during the epics (EPIC-002/003 flags) but needs a v0.3.0-level reflection (version note / feature summary as appropriate).
+- **Thomas's decision (2026-06-21): re-cut v0.3.0 — move the tag** so the tagged release contains the docs. This authorizes a force-update of the existing `v0.3.0` tag (no GitHub Release is published yet, so no consumers).
+
+### Acceptance Criteria
+
+- **CHANGELOG.md:** add a `[v0.3.0]` section (dated 2026-06-21) documenting the release — EPIC-001 (shared config: `voice_gen_utils.py`/`voice_gen_config.py`/`voice_gen.toml`, config-driven voices/paths), EPIC-002 (overwrite protection + `--force`, graceful KeyboardInterrupt, dependency-check log order, `--log-file`, `--dry-run`), EPIC-003 (`--keep-chunks`, progress reporting, ETA). Follow the existing changelog format/Keep-a-Changelog style.
+- **README.md:** reflect v0.3.0 (e.g. a version/Changelog pointer or feature summary), consistent with the documented flags; documentation only.
+- **Re-cut the tag:** commit the docs on the release line; **move the annotated `v0.3.0` tag** to the new docs commit (`git tag -f -a v0.3.0`, force-push the tag) so the tag's tree contains the v0.3.0 CHANGELOG/README. Keep it an annotated tag.
+- **Advance branches:** `main` and `voice-gen_0.3.0` both contain the docs commit (so the tag, `main`, and the release branch converge). Use a commit tag like `[v0.3.0][docs]`; keep prior history intact.
+- **Publish the GitHub Release:** create the `v0.3.0` Release from the (moved) tag via `gh release create v0.3.0` with a title and notes drawn from the new CHANGELOG `[v0.3.0]` section; mark it Latest. After this, `gh release list` shows v0.3.0.
+- **No feature-code changes** — docs + release mechanics only.
+- **Verify:** `v0.3.0` tag peels to the docs commit; `git show v0.3.0:CHANGELOG.md` contains the `[v0.3.0]` section; `main` and `voice-gen_0.3.0` contain it; `gh release view v0.3.0` exists; `py_compile` clean (sanity).
+- Work from your own Voice_Gen worktree/clone. Submit to Claude CLI with a `tasks/review.md` entry; route the outcome to `comms/watcher_inbox/codex.md`.
+
+### Work Notes
+
+- 2026-06-21: Created by Watcher (Stan) at Thomas's direction after he observed the v0.3.0 tag is not published under GitHub Releases and the CHANGELOG/README don't cover v0.3.0. Tag-handling decision (re-cut / move tag) confirmed by Thomas via AskUserQuestion.
+
+### Blockers
+
+- None.
+
+## TASK-033: Prune Remaining Unnecessary Voice_Gen Branches
+
+Status: Blocked — gated on TASK-032 acceptance (queued, DISPATCH-20260621-005)
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: Medium
+Created: 2026-06-21
+Updated: 2026-06-21
+Related: TASK-031/032 (release), `procedures/branching_strategy.md`
+Related Branch: `vg_e001_shared_config` (+ any other redundant heads)
+
+### Goal
+
+After the v0.3.0 release docs/tag/Release are finalized and accepted (TASK-032), review the remaining origin branches and prune the unnecessary ones, per Thomas's sequencing ("once those items are updated we can review and prune").
+
+### Context (Watcher-verified 2026-06-21)
+
+Remaining origin heads: `main`, `vg_e001_shared_config` (= the release commit `5ed908f`, now redundant — Claude flagged it prunable in REVIEW-028), `voice-gen_0.2.0` (prior release), `voice-gen_0.3.0` (release). Session/epic branches were already pruned in TASK-031.
+
+### Acceptance Criteria
+
+- Review the remaining origin + local branches; confirm each candidate for deletion is fully merged / redundant (e.g. `vg_e001_shared_config` == the released tree) with an ancestry check before deleting.
+- Prune the unnecessary branch(es) — at minimum `vg_e001_shared_config` — on origin and locally.
+- **Keep:** `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`, and any branch a tag/release depends on. Do not delete tags.
+- Record what was pruned and the ancestry evidence. Submit to Claude CLI with a `tasks/review.md` entry; route the outcome to `comms/watcher_inbox/codex.md`.
+
+### Work Notes
+
+- 2026-06-21: Created by Watcher (Stan) at Thomas's direction. Gated on TASK-032; Watcher will activate/dispatch once TASK-032 is accepted.
+
+### Blockers
+
+- Gated on TASK-032 acceptance.
