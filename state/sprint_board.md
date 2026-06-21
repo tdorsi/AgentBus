@@ -33,8 +33,8 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-026 | Done / accepted (w/ follow-ups) | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-017.md` |
 | TASK-027 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `tasks/review.md`, `reviews/REVIEW-020.md` |
 | TASK-028 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-025.md` |
-| TASK-029 | Ready / dispatched | Gemini CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260621-001 |
-| TASK-030 | Blocked (gated on TASK-029) | Codex CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260621-002 |
+| TASK-029 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-026.md` |
+| TASK-030 | Ready / dispatched | Codex CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260621-002 |
 
 ## Backlog
 
@@ -44,11 +44,11 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 
 ## Ready
 
-**Phase 3 — integration / v0.3.0 RC — is ACTIVE** (authorized by Thomas 2026-06-21). EPIC-002 + EPIC-003 feature work is complete and runtime-validated; the two epic branches now merge up into `vg_e001_shared_config` to assemble the v0.3.0 RC, in Thomas's order: **vg_e003 first, then vg_e002**.
+**Phase 3 — integration / v0.3.0 RC — is ACTIVE** (authorized by Thomas 2026-06-21). EPIC-002 + EPIC-003 feature work is complete and runtime-validated; the two epic branches merge up into `vg_e001_shared_config` to assemble the v0.3.0 RC, in Thomas's order: **vg_e003 first, then vg_e002**. **One merge remains (TASK-030).**
 
-- **TASK-029 (Gemini CLI):** merge `vg_e003_text_to_audio_enhancements` → `vg_e001_shared_config`. **Ready / dispatched now** (DISPATCH-20260621-001).
-- **TASK-030 (Codex CLI):** merge `vg_e002_voice_gen_hardening` → `vg_e001_shared_config`. **Blocked — gated on TASK-029 acceptance** (DISPATCH-20260621-002); activates once TASK-029 lands.
-- **Integration-readiness gap found this pass (Watcher-verified 2026-06-21):** neither epic branch is consolidated. `vg_e003` is **not on origin** and its accepted work lives only in the session stack (integrated tip `793a80b`); `origin/vg_e002` (`19372bb`) is **missing accepted TASK-021** (`6529caa`). Each merge task therefore consolidates accepted session branches into its epic branch **before** merging up — folded into TASK-029/030 acceptance criteria.
+- **TASK-029 (Gemini CLI):** merge `vg_e003_text_to_audio_enhancements` → `vg_e001_shared_config`. **DONE / accepted** (REVIEW-026, merge `ffc7b5e`; integrated tree byte-identical to the accepted EPIC-003 stack). DISPATCH-20260621-001 Complete.
+- **TASK-030 (Codex CLI):** merge `vg_e002_voice_gen_hardening` → `vg_e001_shared_config` on top of the EPIC-003-integrated tip. **Ready / dispatched now** — gate satisfied by TASK-029 acceptance (DISPATCH-20260621-002). Consolidate accepted TASK-021 (`6529caa`) into the epic branch first, then merge up. **This is the final merge — its acceptance assembles the full v0.3.0 RC.**
+- After TASK-030 lands, `vg_e001_shared_config` is the assembled v0.3.0 RC; declaring/tagging the RC or cutting the release is a Thomas / Quill call.
 - **EPIC-002** Voice_Gen Hardening: COMPLETE — TASK-016/018/019/020/021 accepted (TASK-017 dropped).
 - **EPIC-003** Text_to_Audio Enhancements: COMPLETE — TASK-022/023/024/025 accepted and runtime-validated by TASK-028 (REVIEW-025; FU1 closed). 67 real 'lori' chunk WAVs + a full 133/133 'hannah' completion (EVENT-20260619-001).
 - Non-blocking env follow-ups for Thomas (not v0.3.0 blockers): (1) onnxruntime BFC Arena ~2.3 GB OOM caps very long single runs — separate env fix if full-length runs needed; (2) inflated initial ETA from model-warmup — optional future refinement (post-first-chunk/rolling-window CPS).
@@ -57,7 +57,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 
 | Task | Owner | Reviewer | Status |
 | --- | --- | --- | --- |
-| TASK-029 | Gemini CLI | Claude CLI | Ready / dispatched — merge `vg_e003` → `vg_e001_shared_config` (DISPATCH-20260621-001) |
+| TASK-030 | Codex CLI | Claude CLI | Ready / dispatched — merge `vg_e002` → `vg_e001_shared_config` (final RC merge, DISPATCH-20260621-002) |
 
 ## Review
 
@@ -68,9 +68,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 
 ## Blocked
 
-| Task | Owner | Reviewer | Status |
-| --- | --- | --- | --- |
-| TASK-030 | Codex CLI | Claude CLI | Gated on TASK-029 (EPIC-003 integration) acceptance — merge `vg_e002` → `vg_e001_shared_config` (DISPATCH-20260621-002) |
+No blocked items. (TASK-030 gate satisfied by TASK-029 acceptance, REVIEW-026.)
 
 ## Done
 
@@ -93,6 +91,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-025 | Gemini CLI | 2026-06-14 accepted w/ follow-ups by Claude CLI (REVIEW-023) |
 | TASK-021 | Codex CLI | 2026-06-15 accepted by Claude CLI (REVIEW-024) — **EPIC-002 complete** |
 | TASK-028 | Gemini CLI | 2026-06-15 accepted by Claude CLI (REVIEW-025) — **EPIC-003 runtime-validated; FU1 closed** |
+| TASK-029 | Gemini CLI | 2026-06-21 accepted by Claude CLI (REVIEW-026) — **EPIC-003 merged into v0.3.0 RC** (`ffc7b5e`) |
 
 ## Validation Cycle
 

@@ -1266,3 +1266,29 @@ Created: 2026-06-21
 - **Thomas / Quill:** if you want this deferral captured durably, a `decisions/decision_log.md` entry is yours to author (Watcher boundary — I've recorded it in the event log but won't write the decision log).
 
 ### Response
+
+2026-06-21 — Watcher (Stan): Acknowledged; no scope change. TASK-029 has since been accepted and TASK-030 activated — see MSG-20260621-003.
+
+## MSG-20260621-003
+
+From: Watcher (Stan)
+To: Thomas / Quill / Codex CLI / Claude CLI / Gemini CLI / All Agents
+Related Task: TASK-029 / TASK-030 / v0.3.0 RC
+Status: Status Change — TASK-029 Done; TASK-030 Activated
+Created: 2026-06-21
+
+### Message
+
+**Phase 3 — first merge landed; one merge remains.**
+
+- **TASK-029 (Gemini): DONE / accepted** (REVIEW-026). EPIC-003 merged up into `vg_e001_shared_config` (`--no-ff` merge `ffc7b5e`); Claude verified the integrated tree is byte-identical to the accepted EPIC-003 stack, in-scope, compiles, and passes a `--dry-run --keep-chunks` smoke. DISPATCH-20260621-001 Complete. EVENT-20260621-005.
+- **TASK-030 (Codex): now READY / dispatched** — the gate is satisfied. DISPATCH-20260621-002 flipped Pending → Dispatched. EVENT-20260621-006. **This is the final Phase 3 merge — its acceptance assembles the complete v0.3.0 RC.**
+
+### Requested Action
+
+- **Codex CLI:** claim TASK-030 from your Voice_Gen worktree. (1) Consolidate accepted **TASK-021** (`6529caa`) up into `vg_e002_voice_gen_hardening` and push — `origin/vg_e002` (`19372bb`) is missing it. (2) Merge `vg_e002_voice_gen_hardening` into `vg_e001_shared_config` (now at `ffc7b5e`, contains EPIC-003), resolving EPIC-002-scope conflicts. (3) Verify (`py_compile` + `voice_gen.py --help` + `--dry-run`); confirm EPIC-002 + EPIC-003 coexist. Merge commit `[v0.3.0][vg_e002]`; push `vg_e001_shared_config`; submit to Claude (`tasks/review.md`); route outcome to `comms/watcher_inbox/codex.md`.
+- **Claude CLI:** review TASK-030 (conflict resolution + integrated-RC smoke) from your review worktree when submitted.
+- **Gemini CLI:** TASK-029 done — you may prune the merged EPIC-003 session branches (project-repo action). No further action.
+- **Thomas / Quill:** after TASK-030 is accepted, `vg_e001_shared_config` is the assembled v0.3.0 RC; declaring/tagging the RC or cutting the release is your call.
+
+### Response

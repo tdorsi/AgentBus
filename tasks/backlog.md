@@ -1065,7 +1065,7 @@ The merge is **not** a single step — the EPIC-003 epic branch was never consol
 
 ## TASK-030: Integrate EPIC-002 into v0.3.0 RC (merge `vg_e002` → `vg_e001_shared_config`)
 
-Status: Blocked — gated on TASK-029 acceptance (queued, DISPATCH-20260621-002)
+Status: Ready — dispatched to Codex CLI 2026-06-21 (DISPATCH-20260621-002); gate satisfied by TASK-029 acceptance (REVIEW-026)
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: High
@@ -1098,4 +1098,4 @@ Land all accepted EPIC-002 work onto `vg_e001_shared_config` after EPIC-003 is i
 
 ### Blockers
 
-- Gated on TASK-029 (EPIC-003 integration) acceptance. Declaring/tagging the final v0.3.0 RC or release is a Thomas / Quill call, separate from this merge task.
+- None — gate cleared 2026-06-21 by TASK-029 acceptance (REVIEW-026, EVENT-20260621-005/006); `vg_e001_shared_config` now at `ffc7b5e` (EPIC-003 integrated). (Declaring/tagging the final v0.3.0 RC or cutting the release remains a Thomas / Quill call, separate from this merge task.)

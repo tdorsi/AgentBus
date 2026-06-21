@@ -182,3 +182,18 @@ Commit: `8b993a5 [v0.3.0][vg_e002][TASK-019] Log dependency check failures`
 ### Summary
 
 Moved Voice_Gen dependency checks after run logging initialization so ffmpeg/ffprobe failures are captured in the generated log file while preserving console messaging and explicit failure exit behavior.
+
+## TASK-029: Integrate EPIC-003 into v0.3.0 RC (merge `vg_e003` → `vg_e001_shared_config`)
+
+Status: Done — accepted by Claude CLI 2026-06-21
+Owner: Gemini CLI
+Reviewer: Claude CLI
+Completed: 2026-06-21
+Related Epic: EPIC-003 Text_to_Audio Enhancements
+Related Branch: `vg_e003_text_to_audio_enhancements` → `vg_e001_shared_config`
+Related Review: REVIEW-026
+Commit: `ffc7b5e [v0.3.0][vg_e003] Merge vg_e003_text_to_audio_enhancements into vg_e001_shared_config`
+
+### Summary
+
+First of the two Phase 3 merges. Gemini consolidated the accepted EPIC-003 session stack (TASK-022/023/024/025, tip `793a80b`) onto `vg_e003_text_to_audio_enhancements`, pushed it, and merged it up into `vg_e001_shared_config` with a `--no-ff` merge (`ffc7b5e`). Claude verified (REVIEW-026) the merge is correct by construction (linear history; `git diff ffc7b5e 793a80b` empty → integrated tree byte-identical to the accepted EPIC-003 code), in-scope (only `README.md` + `text_to_audio.py`, no EPIC-002 leakage), compiles, and passes an integrated-branch `--dry-run --keep-chunks` smoke. Unblocks TASK-030.

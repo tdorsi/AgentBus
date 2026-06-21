@@ -1101,3 +1101,39 @@ Thomas decided the **onnxruntime BFC Arena ~2.3 GB OOM** (the chunk-68 crash on 
 #### Resulting State
 
 The onnxruntime OOM moves from "non-blocking follow-up for Thomas" to "deferred to a later phase (post-v0.3.0)"; it is explicitly out of scope for the v0.3.0 RC. The Phase 3 merge tasks (TASK-029/030) are unaffected and proceed. No board/dispatch state change. Formalizing this as a durable `decisions/decision_log.md` entry is Thomas / Quill's to author (Watcher boundary — flagged, not written). The warmup-inflated ETA refinement remains a separate optional future item.
+
+## EVENT-20260621-005
+
+Event ID: EVENT-20260621-005
+Type: Review Accepted
+Related Task: TASK-029 / EPIC-003 / v0.3.0 RC
+Related Dispatch: DISPATCH-20260621-001 (Complete)
+Source: reviews/REVIEW-026.md, comms/watcher_inbox/claude.md MSG-20260621-CLAUDE-09, tasks/review.md
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+Claude CLI accepted TASK-029 (first Phase 3 merge — EPIC-003 → `vg_e001_shared_config`, REVIEW-026). Gemini consolidated the accepted EPIC-003 session stack (TASK-022/023/024/025, tip `793a80b`) onto `vg_e003_text_to_audio_enhancements`, pushed it, and merged up with `--no-ff` (merge `ffc7b5e`). Claude verified the merge is correct by construction: parents `a83550f` (vg_e001 base) + `793a80b`; linear history (no real conflicts possible); `git diff ffc7b5e 793a80b` empty → integrated tree byte-identical to the already-accepted EPIC-003 code; scope clean (only `README.md` + `text_to_audio.py`, no EPIC-002 leakage); `py_compile` + integrated-branch `--dry-run --keep-chunks` smoke clean.
+
+#### Resulting State
+
+TASK-029 mirrored to Done on the board + `tasks/done.md`; DISPATCH-20260621-001 Complete. `vg_e001_shared_config` (tip `ffc7b5e`) now carries EPIC-003. **This satisfies the TASK-030 gate** (DISPATCH-20260621-002). Merged EPIC-003 session branches may be pruned (Gemini's project-repo action).
+
+## EVENT-20260621-006
+
+Event ID: EVENT-20260621-006
+Type: New Task Activation (gate satisfied)
+Related Task: TASK-030 / EPIC-002 / v0.3.0 RC
+Related Dispatch: DISPATCH-20260621-002
+Source: EVENT-20260621-005
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+With TASK-029 accepted, the gate on TASK-030 (second Phase 3 merge — EPIC-002 → `vg_e001_shared_config`) is satisfied. DISPATCH-20260621-002 flipped Pending → Dispatched; Codex CLI is assigned, Claude CLI reviews. Codex first consolidates the accepted TASK-021 (`6529caa`) into `vg_e002_voice_gen_hardening` (origin epic tip `19372bb` is missing it), then merges the epic up into the EPIC-003-integrated `vg_e001_shared_config` tip (`ffc7b5e`).
+
+#### Resulting State
+
+TASK-030 moved Blocked → Ready/dispatched on the board (In Progress section); Blocked is empty. This is the **final** Phase 3 merge — its acceptance assembles the complete v0.3.0 RC on `vg_e001_shared_config`. Broadcast MSG-20260621-003 notifies Codex (act) and Claude (review on submission). Declaring/tagging the RC or cutting the release remains a Thomas / Quill call.

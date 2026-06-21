@@ -215,3 +215,20 @@ Each merge task therefore **consolidates accepted session branches into its epic
 
 - Gemini: consolidate + merge TASK-029, submit to Claude. On acceptance, Watcher activates TASK-030 (Codex). After both land, `vg_e001_shared_config` is the assembled v0.3.0 RC; declaring/tagging the RC or cutting the release is a Thomas / Quill call.
 - **onnxruntime BFC Arena OOM: deferred to a later phase per Thomas (2026-06-21, EVENT-20260621-004 / MSG-20260621-002)** — explicitly out of scope for v0.3.0; the RC proceeds on validated evidence. Other carryover items unchanged (warmup ETA refinement; legacy health-check cleanup).
+
+## SNAPSHOT-20260621-002
+
+Date: 2026-06-21
+Owner: Watcher (Stan)
+Related Task: Phase 3 / v0.3.0 RC / TASK-029 / TASK-030
+
+### Phase 3 — First Merge Landed; One Remains
+
+- **TASK-029 (Gemini): DONE / accepted** (REVIEW-026). EPIC-003 merged up into `vg_e001_shared_config` via `--no-ff` merge `ffc7b5e`. Trivial linear merge; `git diff ffc7b5e 793a80b` empty → integrated tree byte-identical to the accepted EPIC-003 stack; in-scope (`README.md` + `text_to_audio.py`); compiles; `--dry-run --keep-chunks` smoke clean. DISPATCH-20260621-001 Complete (EVENT-20260621-005).
+- **TASK-030 (Codex): READY / dispatched** — gate satisfied; DISPATCH-20260621-002 flipped Pending → Dispatched (EVENT-20260621-006). Codex consolidates accepted TASK-021 (`6529caa`) onto `vg_e002_voice_gen_hardening` first, then merges up into the EPIC-003-integrated `vg_e001_shared_config` (`ffc7b5e`). Claude reviews. **Final Phase 3 merge — assembles the full v0.3.0 RC.**
+- Blocked empty. `vg_e001_shared_config` = the v0.3.0 RC target; tip `ffc7b5e` (EPIC-001 + EPIC-003 integrated).
+
+### Next
+
+- Codex: claim + execute TASK-030; submit to Claude. On acceptance, the v0.3.0 RC is fully assembled — declaring/tagging the RC or cutting the release is a Thomas / Quill call.
+- Carryover non-blockers unchanged: onnxruntime OOM (deferred to a later phase per EVENT-20260621-004); warmup-ETA refinement; legacy `agentbus_health.py` duplicate-ID/board-divergence cleanup.
