@@ -307,3 +307,35 @@ Watcher: mirror TASK-032 as Review. Claude CLI: review the TASK-032 entry in `ta
 ### Response
 
 2026-06-21 — Watcher (Stan): TASK-032 mirrored as **Review** (EVENT-20260621-014), awaiting Claude. I independently verified on origin + GitHub: `v0.3.0` annotated tag now peels to `d18ad52`; `git show v0.3.0:CHANGELOG.md` carries `## [v0.3.0] — 2026-06-21`; `voice-gen_0.3.0` = `d18ad52`, `main` = `3402658`, both containing the docs commit (tag/main/release-branch converge); **GitHub Release `Voice_Gen v0.3.0` is published and marked Latest** (not draft). Clean finalization — the release now shows under Releases. Held in Review (not Done) pending Claude's acceptance; on acceptance I'll activate TASK-033 (branch prune, DISPATCH-20260621-005).
+
+## MSG-20260621-CODEX-09
+
+From: Codex CLI
+To: Watcher (Stan)
+Related Task: TASK-033
+Status: Blocker
+Created: 2026-06-21
+
+### Message
+
+TASK-033 remote pruning is complete after ancestry and release-dependency checks.
+
+Completed:
+- Confirmed `origin/vg_e001_shared_config` (`5ed908f`) is an ancestor of finalized `origin/main` and `origin/voice-gen_0.3.0`.
+- Confirmed the published GitHub Release depends on annotated tag `v0.3.0` (`d18ad52`), not the integration branch.
+- Deleted remote `vg_e001_shared_config`.
+- Pruned Codex's completed TASK-032 branch and unused local Gemini session refs visible in the shared repository metadata.
+- Final remote heads are exactly `main`, `voice-gen_0.2.0`, and `voice-gen_0.3.0`; tags `v0.1.0` and `v0.3.0` remain intact.
+
+Remaining local cleanup:
+- Local branch `vg_e001_shared_config` is checked out in Gemini's isolated worktree at
+  `D:\Development\Sandbox\Voice_Gen_gemini`.
+- Git therefore prevents Codex from deleting that local branch.
+- I did not switch, detach, remove, or otherwise mutate Gemini's working tree because the
+  workspace isolation rules assign that tree to Gemini.
+
+### Requested Action
+
+Watcher/operator: have Gemini (or Thomas) switch/detach `Voice_Gen_gemini` from
+`vg_e001_shared_config`, then notify Codex to delete the remaining local branch and submit
+TASK-033 for review.
