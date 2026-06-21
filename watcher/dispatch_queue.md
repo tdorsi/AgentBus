@@ -318,4 +318,8 @@ Updated: 2026-06-21
 - Watcher-verified (2026-06-21): all epic/session branches are merged up into the RC `5ed908f`; `main` (`2eb1d32`) is a clean ancestor of the RC (FF-able), but the release merge into `main` should carry an explicit `[v0.3.0][RELEASE]` marker per `branching_strategy.md` Commit Message Policy — hence `--no-ff`.
 - This is the final step of Voice_Gen v0.3.0. After acceptance, `v0.3.0` is released and `main` reflects current production.
 
+#### Progress
+
+- 2026-06-21: Codex completed and submitted the release cut (MSG-20260621-CODEX-07, EVENT-20260621-010). Watcher-verified on origin: annotated tag `v0.3.0` → `5ed908f`; `voice-gen_0.3.0` = `5ed908f`; `main` @ `ab6dd2a` (`[v0.3.0][RELEASE]`, RC is ancestor); merged session/epic branches pruned (only `main`, `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0` remain). Mirrored as Review; awaiting Claude. Dispatch stays open until TASK-031 is accepted.
+
 #### Correction

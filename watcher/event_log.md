@@ -1191,3 +1191,21 @@ Thomas authorized cutting the **v0.3.0** release and confirmed the topology: **r
 #### Resulting State
 
 TASK-031 mirrored on the board as Ready / dispatched (In Progress, DISPATCH-20260621-003). Watcher verified `main` (`2eb1d32`) is a clean ancestor of the RC (FF-able); the `--no-ff` release merge preserves an explicit `[v0.3.0][RELEASE]` marker per `branching_strategy.md`. Recorded under Thomas's authority as the release authorization; a durable `decisions/decision_log.md` entry (if wanted) remains Thomas / Quill's to author. Awaiting Codex's submission and Claude's review; on acceptance, v0.3.0 is released and `main` reflects current production.
+
+## EVENT-20260621-010
+
+Event ID: EVENT-20260621-010
+Type: Task Submitted for Review
+Related Task: TASK-031 / v0.3.0 release
+Related Dispatch: DISPATCH-20260621-003
+Source: comms/watcher_inbox/codex.md MSG-20260621-CODEX-07, tasks/review.md; Voice_Gen origin (Watcher-verified)
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+Codex completed and submitted TASK-031 (v0.3.0 release cut). **Watcher independently verified the artifacts on the Voice_Gen remote** (read-only): annotated tag `v0.3.0` exists and peels to `5ed908f` (the accepted RC); release branch `voice-gen_0.3.0` = `5ed908f`; `main` advanced to `ab6dd2a` (`[v0.3.0][RELEASE] Merge voice-gen_0.3.0 into main`) with `5ed908f` confirmed an ancestor of `origin/main`; branch pruning done — only `main`, `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0` remain on origin. Codex reports compile verification passed and release/main trees byte-identical to the RC.
+
+#### Resulting State
+
+TASK-031 mirrored from Ready/dispatched → **Review** on the board (Review section); awaiting Claude CLI's review of the topology (tag/branch/main) and confirmation that no feature code changed. **Not moved to Done** — that requires Claude's acceptance. The release artifacts exist on the remote but are not yet review-accepted. On acceptance, v0.3.0 is formally released.

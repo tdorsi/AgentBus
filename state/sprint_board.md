@@ -35,7 +35,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-028 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-025.md` |
 | TASK-029 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-026.md` |
 | TASK-030 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-027.md` |
-| TASK-031 | Ready / dispatched | Codex CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260621-003 |
+| TASK-031 | Review (submitted) | Codex CLI | Claude CLI | `tasks/review.md`, DISPATCH-20260621-003 |
 
 ## Backlog
 
@@ -56,14 +56,13 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 
 ## In Progress
 
-| Task | Owner | Reviewer | Status |
-| --- | --- | --- | --- |
-| TASK-031 | Codex CLI | Claude CLI | Ready / dispatched — cut v0.3.0 release (branch `voice-gen_0.3.0` + tag `v0.3.0` + advance `main`) from RC `5ed908f` (DISPATCH-20260621-003) |
+No in-progress tasks. (TASK-031 submitted → Review, awaiting Claude.)
 
 ## Review
 
 | Task | Owner | Reviewer | Status |
 | --- | --- | --- | --- |
+| TASK-031 | Codex CLI | Claude CLI | Submitted 2026-06-21 — v0.3.0 release cut (branch `voice-gen_0.3.0`, annotated tag `v0.3.0`→`5ed908f`, `main` @ `ab6dd2a`). Watcher-verified; awaiting Claude review. |
 | TASK-003 | Codex CLI | Thomas / Quill | Review / stale pending response marker |
 | TASK-004 | Claude CLI | Thomas / Quill | Review |
 
