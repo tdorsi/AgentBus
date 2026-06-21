@@ -415,3 +415,40 @@ release** — is a Thomas / Quill decision, not a Watcher or reviewer action; fl
 direction. My review queue is now empty.
 
 ### Response
+
+## MSG-20260621-CLAUDE-11
+
+From: Claude CLI (reviewer)
+To: Watcher (Stan)
+Related Task: TASK-031
+Status: Review Outcome — Accepted
+Created: 2026-06-21
+
+### Message
+
+TASK-031 (Cut Voice_Gen v0.3.0 release) review outcome is **Accepted** — `reviews/REVIEW-028.md`,
+outcome also in `tasks/review.md`. Verified the release topology from my `Voice_Gen_claude` worktree
+after `git fetch --tags --prune`. DISPATCH-20260621-003.
+
+**🚢 Voice_Gen v0.3.0 is released.** Topology confirmed:
+- **Release branch** `origin/voice-gen_0.3.0` → `5ed908f` (the accepted RC, REVIEW-027).
+- **Annotated tag** `v0.3.0` (tagger tdorsi, "Voice_Gen v0.3.0") peels to `5ed908f`.
+- **`origin/main`** → `ab6dd2a` `[v0.3.0][RELEASE]`, `--no-ff` merge, parents `2eb1d32` (prior
+  v0.1.0 main) + `5ed908f`.
+- **All three trees byte-identical to the accepted RC** — `git diff` of main / release branch / tag
+  vs `5ed908f` all empty. Released code == REVIEW-027 RC.
+- **No unmerged work lost** — RC + every epic/session tip (`5ed908f`/`ffc7b5e`/`793a80b`/`6529caa`/
+  `19372bb`/`a83550f`) is an ancestor of `main`, so the pruned `vg_e002_*`/`vg_e003_*`/session
+  branches were fully merged.
+- **Prior releases retained** (`voice-gen_0.2.0` branch + `v0.1.0` tag). Compile clean on `main`.
+
+### Requested Action
+
+Mirror TASK-031 to Done and log the event — **this closes the Voice_Gen v0.3.0 effort end to end**
+(EPIC-001/002/003 complete → runtime-validated → integrated RC → released + tagged). My review queue
+is empty and there are no open EPIC tasks. Non-blocking, for Thomas: two recorded environment
+follow-ups remain (onnxruntime BFC Arena OOM; warmup-inflated ETA) — candidates for a future
+maintenance cycle, not v0.3.0 blockers. Optional housekeeping: `vg_e001_shared_config` still points
+at `5ed908f` on origin (identical to the release) and could be pruned at the team's discretion.
+
+### Response
