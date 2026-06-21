@@ -1292,3 +1292,29 @@ Created: 2026-06-21
 - **Thomas / Quill:** after TASK-030 is accepted, `vg_e001_shared_config` is the assembled v0.3.0 RC; declaring/tagging the RC or cutting the release is your call.
 
 ### Response
+
+2026-06-21 — Watcher (Stan): TASK-030 accepted (REVIEW-027) — RC assembled. See MSG-20260621-004.
+
+## MSG-20260621-004
+
+From: Watcher (Stan)
+To: Thomas / Quill / Codex CLI / Claude CLI / Gemini CLI / All Agents
+Related Task: Phase 3 / v0.3.0 RC / TASK-029 / TASK-030
+Status: Status Change — Phase 3 COMPLETE; v0.3.0 RC Assembled
+Created: 2026-06-21
+
+### Message
+
+**🎯 Phase 3 is complete — the Voice_Gen v0.3.0 release candidate is assembled.**
+
+- **TASK-030 (Codex): DONE / accepted** (REVIEW-027). EPIC-002 merged up onto the EPIC-003 RC tip — `--no-ff` merge `5ed908f`. The one real conflict surface (`README.md`, edited by both epics) was resolved as a **correct union**; both epics' source is byte-identical to its accepted tip (no code lost); compiles + integrated RC dry-run smoke clean. DISPATCH-20260621-002 Complete. EVENT-20260621-007.
+- **v0.3.0 RC = `vg_e001_shared_config` @ `5ed908f`** = EPIC-001 (Shared Config) + EPIC-003 (Text_to_Audio Enhancements) + EPIC-002 (Voice_Gen Hardening). EVENT-20260621-008.
+- All of Voice_Gen v0.3.0 — features, runtime validation, and integration — is done. No open tasks; Blocked empty; Claude's review queue empty.
+
+### Requested Action
+
+- **Thomas / Quill:** the RC is ready. **Declaring/tagging and cutting the final v0.3.0 release is your decision** (not a Watcher/reviewer action). If you want a release/tag task tracked, direct it and the Watcher will dispatch it. Deferred to a later phase per your 2026-06-21 call: the onnxruntime BFC Arena OOM (out of scope for v0.3.0).
+- **Codex / Gemini:** you may prune the merged EPIC-002 / EPIC-003 session branches (project-repo housekeeping). Optionally move your TASK-029/030 `active.md`/`review.md` entries to done to clear the expected board-vs-tasks lag.
+- **Claude CLI:** review queue empty — no action.
+
+### Response

@@ -282,7 +282,7 @@ Related Task: TASK-030
 Assigned Agent: Codex CLI
 Reviewer: Claude CLI
 Action: After TASK-029 (EPIC-003 integration) is **accepted**, integrate EPIC-002 into the v0.3.0 RC from your own Voice_Gen worktree. **(1) Consolidate:** merge the accepted `vg_e002_voice_gen_hardening__codex__TASK-021` (tip `6529caa`) up into the `vg_e002_voice_gen_hardening` epic branch and push (origin epic tip `19372bb` is missing TASK-021). **(2) Merge upward:** merge `vg_e002_voice_gen_hardening` into `vg_e001_shared_config` (which by then contains EPIC-003), resolving EPIC-002-scope conflicts. **(3) Verify:** `py_compile` + `voice_gen.py --help` + `--dry-run` smoke; confirm EPIC-002 and EPIC-003 features coexist. Merge commit `[v0.3.0][vg_e002]`; push `vg_e001_shared_config` (assembled v0.3.0 RC). Submit to Claude CLI with a `tasks/review.md` entry; route the outcome to `comms/watcher_inbox/codex.md`. Prune merged session branches after acceptance.
-Status: Dispatched
+Status: Complete
 Created: 2026-06-21
 Updated: 2026-06-21
 
@@ -290,6 +290,12 @@ Updated: 2026-06-21
 
 - Held until TASK-029 lands so EPIC-002 merges on top of the EPIC-003-integrated `vg_e001_shared_config` tip. The Watcher will flip this to Dispatched and broadcast when TASK-029 is accepted.
 - **2026-06-21: GATE SATISFIED — activated.** TASK-029 accepted (REVIEW-026, EVENT-20260621-005); `vg_e001_shared_config` now contains EPIC-003 (tip `ffc7b5e`). TASK-030 flipped Pending → Dispatched; Codex notified via broadcast MSG-20260621-003 (EVENT-20260621-006). This is the **final** Phase 3 merge — its acceptance assembles the full v0.3.0 RC.
+
+#### Progress
+
+- 2026-06-21: Codex consolidated accepted TASK-021 (`6529caa`) onto `vg_e002_voice_gen_hardening`, merged EPIC-002 up onto the EPIC-003 RC tip (`ffc7b5e`) with `--no-ff` (merge `5ed908f`), pushed `vg_e001_shared_config`, and submitted for review. **TASK-030 accepted** by Claude CLI (REVIEW-027, MSG-20260621-CLAUDE-10, EVENT-20260621-007) — README conflict resolved as a correct union, both epics' source byte-identical, compiles + integrated RC smoke clean. Mirrored to Done. Dispatch **Complete**. **v0.3.0 RC assembled at `vg_e001_shared_config` `5ed908f` (EVENT-20260621-008).**
+
+Status updated to **Complete** (2026-06-21).
 - Watcher-verified branch state (2026-06-21): `6529caa` (TASK-021, accepted REVIEW-024) is **not** an ancestor of `origin/vg_e002_voice_gen_hardening` — consolidation required first.
 - Declaring/tagging the final v0.3.0 RC or cutting the release is a Thomas / Quill decision, separate from this merge task.
 

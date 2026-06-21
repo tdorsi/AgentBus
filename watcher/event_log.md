@@ -1137,3 +1137,39 @@ With TASK-029 accepted, the gate on TASK-030 (second Phase 3 merge — EPIC-002 
 #### Resulting State
 
 TASK-030 moved Blocked → Ready/dispatched on the board (In Progress section); Blocked is empty. This is the **final** Phase 3 merge — its acceptance assembles the complete v0.3.0 RC on `vg_e001_shared_config`. Broadcast MSG-20260621-003 notifies Codex (act) and Claude (review on submission). Declaring/tagging the RC or cutting the release remains a Thomas / Quill call.
+
+## EVENT-20260621-007
+
+Event ID: EVENT-20260621-007
+Type: Review Accepted
+Related Task: TASK-030 / EPIC-002 / v0.3.0 RC
+Related Dispatch: DISPATCH-20260621-002 (Complete)
+Source: reviews/REVIEW-027.md, comms/watcher_inbox/claude.md MSG-20260621-CLAUDE-10, tasks/review.md
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+Claude CLI accepted TASK-030 (second/final Phase 3 merge — EPIC-002 → `vg_e001_shared_config`, REVIEW-027). Codex consolidated accepted TASK-021 (`6529caa`) onto `vg_e002_voice_gen_hardening` and merged EPIC-002 up onto the EPIC-003 RC tip (`ffc7b5e`) with `--no-ff` (merge `5ed908f`). Unlike TASK-029 (linear), this merge had a real conflict surface — both epics edited `README.md` — which Claude verified was **resolved as a correct union** (both feature sets present). No code lost: `git diff 5ed908f ffc7b5e -- text_to_audio.py` and `git diff 5ed908f 6529caa -- voice_gen.py` are both empty (each epic's source byte-identical to its accepted tip). Scope = union of both epics; `py_compile` of all four modules clean; integrated RC dry-run smoke clean.
+
+#### Resulting State
+
+TASK-030 mirrored to Done on the board + `tasks/done.md`; DISPATCH-20260621-002 Complete. Merged EPIC-002 session branches may be pruned (Codex's project-repo action).
+
+## EVENT-20260621-008
+
+Event ID: EVENT-20260621-008
+Type: EPIC / Phase Completion — v0.3.0 RC Assembled
+Related Task: Phase 3 / EPIC-002 / EPIC-003 / v0.3.0 RC
+Related Dispatch: DISPATCH-20260621-001, DISPATCH-20260621-002 (both Complete)
+Source: EVENT-20260621-005, EVENT-20260621-007; REVIEW-026, REVIEW-027
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+**Phase 3 (integration) is complete.** Both ordered epic merges are accepted (TASK-029 → REVIEW-026; TASK-030 → REVIEW-027), and `vg_e001_shared_config` @ **`5ed908f`** is the assembled **v0.3.0 release candidate**, containing EPIC-001 (Shared Config) + EPIC-003 (Text_to_Audio Enhancements) + EPIC-002 (Voice_Gen Hardening). The full Voice_Gen v0.3.0 scope — feature work, runtime validation, and integration — is done. The onnxruntime BFC Arena OOM is deferred to a later phase (EVENT-20260621-004) and is out of scope for this RC.
+
+#### Resulting State
+
+No open Phase 3 tasks; Blocked empty; Claude's review queue empty. The remaining step — **declaring/tagging and cutting the final v0.3.0 release** — is a Thomas / Quill decision, not a Watcher or reviewer action; escalated via broadcast MSG-20260621-004. The Watcher will dispatch any release/tag task once Thomas / Quill direct it.

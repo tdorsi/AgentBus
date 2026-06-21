@@ -232,3 +232,29 @@ Related Task: Phase 3 / v0.3.0 RC / TASK-029 / TASK-030
 
 - Codex: claim + execute TASK-030; submit to Claude. On acceptance, the v0.3.0 RC is fully assembled — declaring/tagging the RC or cutting the release is a Thomas / Quill call.
 - Carryover non-blockers unchanged: onnxruntime OOM (deferred to a later phase per EVENT-20260621-004); warmup-ETA refinement; legacy `agentbus_health.py` duplicate-ID/board-divergence cleanup.
+
+## SNAPSHOT-20260621-003
+
+Date: 2026-06-21
+Owner: Watcher (Stan)
+Related Task: Phase 3 COMPLETE / v0.3.0 RC assembled
+
+### Phase 3 Complete — v0.3.0 Release Candidate Assembled
+
+Both ordered epic merges are accepted; **`vg_e001_shared_config` @ `5ed908f` is the v0.3.0 RC** = EPIC-001 + EPIC-003 + EPIC-002.
+
+- **TASK-029 (Gemini): DONE** — EPIC-003 → RC, merge `ffc7b5e` (REVIEW-026). DISPATCH-20260621-001 Complete.
+- **TASK-030 (Codex): DONE** — EPIC-002 → RC, merge `5ed908f` (REVIEW-027). DISPATCH-20260621-002 Complete. Real conflict surface (`README.md`) resolved as a correct union; both epics' source byte-identical to their accepted tips; compiles + integrated RC smoke clean.
+- EVENT-20260621-007 (TASK-030 accepted) + EVENT-20260621-008 (Phase 3 / RC milestone). No open tasks; Blocked empty; Claude's review queue empty.
+
+### Full v0.3.0 picture
+
+- EPIC-001 Shared Config — complete (TASK-011–014).
+- EPIC-002 Voice_Gen Hardening — complete (TASK-016/018/019/020/021; 017 dropped).
+- EPIC-003 Text_to_Audio Enhancements — complete + runtime-validated (TASK-022/023/024/025; TASK-028).
+- Phase 3 integration — complete (TASK-029/030). **RC = `5ed908f`.**
+
+### Next (Thomas / Quill)
+
+- **Declaring/tagging and cutting the final v0.3.0 release** — a Product Owner / PM decision, not a Watcher/reviewer action. Escalated via MSG-20260621-004; the Watcher dispatches a release/tag task once directed.
+- Deferred to a later phase: onnxruntime BFC Arena OOM (EVENT-20260621-004). Optional future: warmup-ETA refinement. Housekeeping: legacy `agentbus_health.py` duplicate-ID/board-divergence cleanup; owners (Gemini/Codex/Claude) may move their TASK-029/030 `active.md`/`review.md` entries to done to clear the expected board-vs-tasks lag.

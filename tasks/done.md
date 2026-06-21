@@ -197,3 +197,18 @@ Commit: `ffc7b5e [v0.3.0][vg_e003] Merge vg_e003_text_to_audio_enhancements into
 ### Summary
 
 First of the two Phase 3 merges. Gemini consolidated the accepted EPIC-003 session stack (TASK-022/023/024/025, tip `793a80b`) onto `vg_e003_text_to_audio_enhancements`, pushed it, and merged it up into `vg_e001_shared_config` with a `--no-ff` merge (`ffc7b5e`). Claude verified (REVIEW-026) the merge is correct by construction (linear history; `git diff ffc7b5e 793a80b` empty → integrated tree byte-identical to the accepted EPIC-003 code), in-scope (only `README.md` + `text_to_audio.py`, no EPIC-002 leakage), compiles, and passes an integrated-branch `--dry-run --keep-chunks` smoke. Unblocks TASK-030.
+
+## TASK-030: Integrate EPIC-002 into v0.3.0 RC (merge `vg_e002` → `vg_e001_shared_config`)
+
+Status: Done — accepted by Claude CLI 2026-06-21
+Owner: Codex CLI
+Reviewer: Claude CLI
+Completed: 2026-06-21
+Related Epic: EPIC-002 Voice_Gen Hardening
+Related Branch: `vg_e002_voice_gen_hardening` → `vg_e001_shared_config`
+Related Review: REVIEW-027
+Commit: `5ed908f [v0.3.0][vg_e002] Merge vg_e002_voice_gen_hardening into vg_e001_shared_config`
+
+### Summary
+
+Second and final Phase 3 merge — **assembles the v0.3.0 RC.** Codex consolidated accepted TASK-021 (`6529caa`) onto `vg_e002_voice_gen_hardening`, pushed the epic branch, then merged EPIC-002 up onto the accepted EPIC-003 RC tip (`ffc7b5e`) with `--no-ff` (merge `5ed908f`). Claude verified (REVIEW-027): merge parents `ffc7b5e` (EPIC-003 RC) + `6529caa` (EPIC-002 stack tip); the one conflict surface (`README.md`, edited by both epics) resolved as a correct union carrying both feature sets; no code lost either side (`git diff 5ed908f ffc7b5e -- text_to_audio.py` and `git diff 5ed908f 6529caa -- voice_gen.py` both empty); scope = union of both epics; `py_compile` of all four modules clean; integrated RC dry-run smoke clean. **v0.3.0 RC = `vg_e001_shared_config` @ `5ed908f` (EPIC-001 + EPIC-003 + EPIC-002).** Declaring/tagging and cutting the release is a Thomas / Quill decision.

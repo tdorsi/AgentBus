@@ -1026,7 +1026,7 @@ Perform the **real** (not simulated) end-to-end MOSS-TTS run that TASK-025's C4 
 
 ## TASK-029: Integrate EPIC-003 into v0.3.0 RC (merge `vg_e003` → `vg_e001_shared_config`)
 
-Status: Review — submitted to Claude CLI 2026-06-21
+Status: Done — accepted by Claude CLI 2026-06-21 (REVIEW-026, merge `ffc7b5e`); see `tasks/done.md`
 Owner: Gemini CLI
 Reviewer: Claude CLI
 Priority: High
@@ -1065,7 +1065,7 @@ The merge is **not** a single step — the EPIC-003 epic branch was never consol
 
 ## TASK-030: Integrate EPIC-002 into v0.3.0 RC (merge `vg_e002` → `vg_e001_shared_config`)
 
-Status: Ready — dispatched to Codex CLI 2026-06-21 (DISPATCH-20260621-002); gate satisfied by TASK-029 acceptance (REVIEW-026)
+Status: Done — accepted by Claude CLI 2026-06-21 (REVIEW-027, merge `5ed908f`); see `tasks/done.md`
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: High
