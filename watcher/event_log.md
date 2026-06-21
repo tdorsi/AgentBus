@@ -1173,3 +1173,21 @@ Created: 2026-06-21
 #### Resulting State
 
 No open Phase 3 tasks; Blocked empty; Claude's review queue empty. The remaining step — **declaring/tagging and cutting the final v0.3.0 release** — is a Thomas / Quill decision, not a Watcher or reviewer action; escalated via broadcast MSG-20260621-004. The Watcher will dispatch any release/tag task once Thomas / Quill direct it.
+
+## EVENT-20260621-009
+
+Event ID: EVENT-20260621-009
+Type: New Task Activation — Product Owner Authorization (Release Cut)
+Related Task: TASK-031 / v0.3.0 release
+Related Dispatch: DISPATCH-20260621-003
+Source: Thomas direction to Watcher (Stan), 2026-06-21 (session); release topology confirmed via AskUserQuestion
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+Thomas authorized cutting the **v0.3.0** release and confirmed the topology: **release branch `voice-gen_0.3.0` from the RC `5ed908f` + annotated tag `v0.3.0` + advance `main`** (option "Release branch + tag + advance main"). TASK-031 created and dispatched to Codex CLI (reviewer Claude CLI): create `voice-gen_0.3.0`, tag `v0.3.0` (annotated), merge into `main` with a `--no-ff` `[v0.3.0][RELEASE]` commit, verify, then prune the merged session + epic branches. Release mechanics only — no feature-code changes.
+
+#### Resulting State
+
+TASK-031 mirrored on the board as Ready / dispatched (In Progress, DISPATCH-20260621-003). Watcher verified `main` (`2eb1d32`) is a clean ancestor of the RC (FF-able); the `--no-ff` release merge preserves an explicit `[v0.3.0][RELEASE]` marker per `branching_strategy.md`. Recorded under Thomas's authority as the release authorization; a durable `decisions/decision_log.md` entry (if wanted) remains Thomas / Quill's to author. Awaiting Codex's submission and Claude's review; on acceptance, v0.3.0 is released and `main` reflects current production.

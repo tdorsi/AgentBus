@@ -1099,3 +1099,39 @@ Land all accepted EPIC-002 work onto `vg_e001_shared_config` after EPIC-003 is i
 ### Blockers
 
 - None — gate cleared 2026-06-21 by TASK-029 acceptance (REVIEW-026, EVENT-20260621-005/006); `vg_e001_shared_config` now at `ffc7b5e` (EPIC-003 integrated). (Declaring/tagging the final v0.3.0 RC or cutting the release remains a Thomas / Quill call, separate from this merge task.)
+
+## TASK-031: Cut Voice_Gen v0.3.0 Release — release branch, tag, advance main
+
+Status: Ready — dispatched to Codex CLI 2026-06-21 (DISPATCH-20260621-003)
+Owner: Codex CLI
+Reviewer: Claude CLI
+Priority: High
+Created: 2026-06-21
+Updated: 2026-06-21
+Related: Phase 3 complete (TASK-029/030), v0.3.0 RC = `vg_e001_shared_config` @ `5ed908f`, `procedures/branching_strategy.md` (Commit Message Policy: release merges `[Release][RELEASE]`)
+Related Branch: `vg_e001_shared_config` (RC) → `voice-gen_0.3.0` (new release branch) → `main`
+
+### Goal
+
+Cut the Voice_Gen **v0.3.0** release from the assembled RC, per Thomas's direction (release topology confirmed 2026-06-21): create the release branch, tag `v0.3.0`, and advance `main` to the release. **Release mechanics only — no feature-code changes.**
+
+### Context
+
+The RC `vg_e001_shared_config` @ `5ed908f` contains EPIC-001 + EPIC-003 + EPIC-002 (all branches merged up; verified by Watcher 2026-06-21). `main` (`2eb1d32`, v0.1.0) is a clean ancestor of the RC, so it can fast-forward — but the release merge into `main` should carry an explicit `[v0.3.0][RELEASE]` marker per the Commit Message Policy. Release pattern mirrors the existing `voice-gen_0.2.0` branch.
+
+### Acceptance Criteria
+
+- **Release branch:** create `voice-gen_0.3.0` from the RC tip `5ed908f` and push it to origin (mirrors the `voice-gen_0.2.0` precedent).
+- **Tag:** create an **annotated** tag `v0.3.0` on the release commit (`5ed908f` / `voice-gen_0.3.0` tip) with a short release message; push the tag to origin.
+- **Advance main:** merge `voice-gen_0.3.0` into `main` so `main` reflects current production. Use `--no-ff` with a `[v0.3.0][RELEASE]` merge commit (FF is technically possible, but the policy wants an explicit release commit). Push `main`.
+- **Verify:** `git tag` shows `v0.3.0` at the expected commit; `git merge-base --is-ancestor 5ed908f origin/main` is true (main contains the RC); `voice-gen_0.3.0` tip == `5ed908f` content; `py_compile` of the four Voice_Gen modules on the release tip is clean (sanity, no behavior change).
+- **Cleanup (branch pruning):** after the release is cut, prune the now-fully-merged session + epic branches on origin and locally — `…__codex__TASK-021/030`, `…__gemini__TASK-022_v2/023/024/025`, and the epic branches `vg_e002_voice_gen_hardening`, `vg_e003_text_to_audio_enhancements`. Keep `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0`, and `main`.
+- Work from your own Voice_Gen worktree/clone; do not modify feature code. Submit to Claude CLI with a `tasks/review.md` entry; route the outcome to `comms/watcher_inbox/codex.md`.
+
+### Work Notes
+
+- 2026-06-21: Created by Watcher (Stan) at Thomas's direction. Release topology confirmed by Thomas: release branch `voice-gen_0.3.0` from `5ed908f` + annotated tag `v0.3.0` + advance `main`. Watcher verified `main` is a clean ancestor of the RC (FF-able).
+
+### Blockers
+
+- None. (RC assembled and accepted; Phase 3 complete.)

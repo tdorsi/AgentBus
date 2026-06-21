@@ -35,6 +35,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-028 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-025.md` |
 | TASK-029 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-026.md` |
 | TASK-030 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-027.md` |
+| TASK-031 | Ready / dispatched | Codex CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260621-003 |
 
 ## Backlog
 
@@ -48,14 +49,16 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 
 - **TASK-029 (Gemini):** merge `vg_e003` → `vg_e001_shared_config`. **DONE / accepted** (REVIEW-026, merge `ffc7b5e`). DISPATCH-20260621-001 Complete.
 - **TASK-030 (Codex):** merge `vg_e002` → `vg_e001_shared_config`. **DONE / accepted** (REVIEW-027, merge `5ed908f`). DISPATCH-20260621-002 Complete. Claude verified the only conflict surface (`README.md`) resolved as a correct union; both epics' source preserved byte-identical (`git diff 5ed908f ffc7b5e -- text_to_audio.py` and `git diff 5ed908f 6529caa -- voice_gen.py` both empty); compiles + integrated RC dry-run smoke clean.
-- **v0.3.0 RC = `vg_e001_shared_config` @ `5ed908f`.** **Next step is a Thomas / Quill decision: declaring/tagging and cutting the final v0.3.0 release** (not a Watcher or reviewer action). Claude's review queue is empty.
+- **v0.3.0 RC = `vg_e001_shared_config` @ `5ed908f`.** **Release cut AUTHORIZED by Thomas 2026-06-21 → TASK-031 (Codex CLI)**: create release branch `voice-gen_0.3.0` from `5ed908f`, annotated tag `v0.3.0`, advance `main` (`--no-ff` `[v0.3.0][RELEASE]`), then prune merged branches. Dispatched (DISPATCH-20260621-003); Claude reviews.
 - **EPIC-002** Voice_Gen Hardening: COMPLETE — TASK-016/018/019/020/021 accepted (TASK-017 dropped).
 - **EPIC-003** Text_to_Audio Enhancements: COMPLETE — TASK-022/023/024/025 accepted and runtime-validated by TASK-028 (REVIEW-025; FU1 closed).
 - Deferred to a later phase (per Thomas, EVENT-20260621-004): onnxruntime BFC Arena ~2.3 GB OOM on very long runs — out of scope for v0.3.0. Optional future refinement: warmup-inflated initial ETA.
 
 ## In Progress
 
-No in-progress tasks. (Phase 3 complete; v0.3.0 RC assembled at `5ed908f`, awaiting Thomas / Quill release decision.)
+| Task | Owner | Reviewer | Status |
+| --- | --- | --- | --- |
+| TASK-031 | Codex CLI | Claude CLI | Ready / dispatched — cut v0.3.0 release (branch `voice-gen_0.3.0` + tag `v0.3.0` + advance `main`) from RC `5ed908f` (DISPATCH-20260621-003) |
 
 ## Review
 

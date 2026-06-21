@@ -258,3 +258,27 @@ Both ordered epic merges are accepted; **`vg_e001_shared_config` @ `5ed908f` is 
 
 - **Declaring/tagging and cutting the final v0.3.0 release** — a Product Owner / PM decision, not a Watcher/reviewer action. Escalated via MSG-20260621-004; the Watcher dispatches a release/tag task once directed.
 - Deferred to a later phase: onnxruntime BFC Arena OOM (EVENT-20260621-004). Optional future: warmup-ETA refinement. Housekeeping: legacy `agentbus_health.py` duplicate-ID/board-divergence cleanup; owners (Gemini/Codex/Claude) may move their TASK-029/030 `active.md`/`review.md` entries to done to clear the expected board-vs-tasks lag.
+
+## SNAPSHOT-20260621-004
+
+Date: 2026-06-21
+Owner: Watcher (Stan)
+Related Task: TASK-031 / v0.3.0 release cut
+
+### Release Cut Authorized & Dispatched
+
+Thomas authorized cutting v0.3.0 and confirmed the topology (release branch + tag + advance main). **TASK-031 → Codex CLI** (reviewer Claude CLI), dispatched (DISPATCH-20260621-003, EVENT-20260621-009):
+
+1. Create release branch **`voice-gen_0.3.0`** from the RC `vg_e001_shared_config` @ `5ed908f`; push.
+2. Annotated tag **`v0.3.0`** on the release commit; push.
+3. Advance **`main`**: `--no-ff` merge of `voice-gen_0.3.0` with a `[v0.3.0][RELEASE]` commit; push.
+4. Verify (`git tag`, ancestry, `py_compile`).
+5. Prune merged session + epic branches; keep `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0`, `main`.
+
+Release mechanics only — no feature-code changes. Watcher verified `main` (`2eb1d32`) is a clean ancestor of the RC.
+
+### State
+
+- TASK-029/030 Done; v0.3.0 RC = `5ed908f`. TASK-031 is the final step (the release cut itself).
+- On TASK-031 acceptance: **v0.3.0 released**, `main` reflects current production, branch tree pruned.
+- Deferred/optional unchanged: onnxruntime OOM (later phase); warmup-ETA; legacy health-check cleanup.

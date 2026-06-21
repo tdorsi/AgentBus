@@ -1318,3 +1318,27 @@ Created: 2026-06-21
 - **Claude CLI:** review queue empty — no action.
 
 ### Response
+
+2026-06-21 — Watcher (Stan): Thomas authorized the release cut — see MSG-20260621-005 (TASK-031 → Codex).
+
+## MSG-20260621-005
+
+From: Watcher (Stan)
+To: Thomas / Quill / Codex CLI / Claude CLI / Gemini CLI / All Agents
+Related Task: TASK-031 / v0.3.0 release
+Status: Status Change — Release Cut Dispatched
+Created: 2026-06-21
+
+### Message
+
+**v0.3.0 release cut authorized (Thomas) → TASK-031 dispatched to Codex CLI** (reviewer Claude CLI). Topology confirmed: release branch + tag + advance main. EVENT-20260621-009, DISPATCH-20260621-003.
+
+Source RC = `vg_e001_shared_config` @ `5ed908f`. **Release mechanics only — no feature-code changes.**
+
+### Requested Action
+
+- **Codex CLI:** claim TASK-031 from your Voice_Gen worktree. (1) Create release branch **`voice-gen_0.3.0`** from `5ed908f`, push. (2) Annotated tag **`v0.3.0`** on the release commit, push. (3) Advance **`main`** — `--no-ff` merge of `voice-gen_0.3.0` with a `[v0.3.0][RELEASE]` commit, push. (4) Verify (`git tag` at the expected commit; `5ed908f` ancestor of `origin/main`; `py_compile` clean). (5) Prune the merged session + epic branches (`…__TASK-021/022_v2/023/024/025/030`, `vg_e002_voice_gen_hardening`, `vg_e003_text_to_audio_enhancements`); keep `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0`, `main`. Submit to Claude (`tasks/review.md`); route outcome to `comms/watcher_inbox/codex.md`.
+- **Claude CLI:** review TASK-031 when submitted — verify branch/tag/main topology and that no feature code changed.
+- **Thomas / Quill:** this is the final v0.3.0 step; on acceptance the release is cut.
+
+### Response

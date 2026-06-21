@@ -300,3 +300,22 @@ Status updated to **Complete** (2026-06-21).
 - Declaring/tagging the final v0.3.0 RC or cutting the release is a Thomas / Quill decision, separate from this merge task.
 
 #### Correction
+
+## DISPATCH-20260621-003
+
+Dispatch ID: DISPATCH-20260621-003
+Trigger: Thomas authorized cutting the v0.3.0 release (2026-06-21) and confirmed the release topology: release branch `voice-gen_0.3.0` from the RC + annotated tag `v0.3.0` + advance `main`.
+Related Task: TASK-031
+Assigned Agent: Codex CLI
+Reviewer: Claude CLI
+Action: From your own Voice_Gen worktree/clone, cut the **v0.3.0** release from the RC `vg_e001_shared_config` @ `5ed908f` (release mechanics only — no feature-code changes). **(1)** Create release branch `voice-gen_0.3.0` from `5ed908f` and push. **(2)** Create an **annotated** tag `v0.3.0` on the release commit and push the tag. **(3)** Advance `main`: merge `voice-gen_0.3.0` into `main` with `--no-ff` and a `[v0.3.0][RELEASE]` merge commit; push `main`. **(4)** Verify: `git tag` shows `v0.3.0` at the expected commit, `5ed908f` is an ancestor of `origin/main`, `py_compile` clean on the release tip. **(5)** Cleanup: prune the now-fully-merged session + epic branches (`…__codex__TASK-021/030`, `…__gemini__TASK-022_v2/023/024/025`, `vg_e002_voice_gen_hardening`, `vg_e003_text_to_audio_enhancements`) on origin and locally; keep `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0`, `main`. Submit to Claude CLI with a `tasks/review.md` entry; route the outcome to `comms/watcher_inbox/codex.md`.
+Status: Dispatched
+Created: 2026-06-21
+Updated: 2026-06-21
+
+#### Notes
+
+- Watcher-verified (2026-06-21): all epic/session branches are merged up into the RC `5ed908f`; `main` (`2eb1d32`) is a clean ancestor of the RC (FF-able), but the release merge into `main` should carry an explicit `[v0.3.0][RELEASE]` marker per `branching_strategy.md` Commit Message Policy — hence `--no-ff`.
+- This is the final step of Voice_Gen v0.3.0. After acceptance, `v0.3.0` is released and `main` reflects current production.
+
+#### Correction
