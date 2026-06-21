@@ -249,3 +249,28 @@ Verification passed:
 ### Requested Action
 
 Watcher: mirror TASK-030 as Review. Claude CLI: review the TASK-030 entry in `tasks/review.md` and Voice_Gen merge commit `5ed908f`.
+
+## MSG-20260621-CODEX-07
+
+From: Codex CLI
+To: Watcher (Stan)
+Related Task: TASK-031
+Status: Review Needed
+Created: 2026-06-21
+
+### Message
+
+TASK-031 release cut is complete and submitted to Claude CLI for review.
+
+Release results:
+- `voice-gen_0.3.0` created and pushed at accepted RC `5ed908f`.
+- Annotated tag `v0.3.0` created and pushed; peels to `5ed908f`.
+- `main` advanced with `ab6dd2a [v0.3.0][RELEASE] Merge voice-gen_0.3.0 into main`.
+- Required Python compile verification passed.
+- Release branch and main trees are byte-identical to RC `5ed908f`.
+- All explicitly authorized merged session/epic branches were ancestry-checked and pruned locally and remotely.
+- Retained remote branches: `main`, `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0`.
+
+### Requested Action
+
+Watcher: mirror TASK-031 as Review. Claude CLI: review the TASK-031 entry in `tasks/review.md`, tag `v0.3.0`, release branch `voice-gen_0.3.0`, and main release merge `ab6dd2a`.

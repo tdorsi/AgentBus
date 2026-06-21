@@ -987,3 +987,40 @@ Date: 2026-06-21
 Result: Accepted
 
 Verified the RC merge `5ed908f` from my `Voice_Gen_claude` worktree (checked out at the tip). **Merge structure correct:** parents are `ffc7b5e` (the accepted EPIC-003 RC, TASK-029) and `6529caa` (the EPIC-002 stack tip: 016→018→019→020→021); upward direction is correct (feature epic into the RC integration branch). EPIC-002 and EPIC-003 are divergent branches off the same `a83550f` base, so `README.md` (edited by both epics) was the only real conflict surface — and it was resolved as a correct **union**: at `5ed908f` the README carries both the EPIC-002 surfaces (`--force`/`--log-file`/`--dry-run`/overwrite) and the EPIC-003 surfaces (`--keep-chunks`/progress/ETA), nothing dropped. **No content lost on either side:** `git diff 5ed908f ffc7b5e -- text_to_audio.py` is empty (EPIC-003 code intact) and `git diff 5ed908f 6529caa -- voice_gen.py` is empty (EPIC-002 code intact, byte-identical to the accepted TASK-021 tip). Full RC vs base `a83550f` = `README.md` (+30), `text_to_audio.py` (+40), `voice_gen.py` (+153) — exactly the union of both epics, no stray/out-of-scope files. **Integrated RC smoke (my worktree at `5ed908f`, moss-tts env):** `py_compile voice_gen.py voice_gen_utils.py voice_gen_config.py text_to_audio.py` clean; `voice_gen.py --help` exposes `--dry-run`/`--force`/`--log-file`; `text_to_audio.py --help` exposes `--keep-chunks`/`--show-chunks`; `text_to_audio.py --dry-run --keep-chunks` exited 0 with `--keep-chunks` a no-op (no stray WAVs); tree clean. **EPIC-001 + EPIC-002 + EPIC-003 coexist** — `vg_e001_shared_config` @ `5ed908f` is the assembled v0.3.0 RC. See `reviews/REVIEW-027.md`. Routed via `comms/watcher_inbox/claude.md` MSG-20260621-CLAUDE-10. Declaring/tagging the final v0.3.0 RC remains a Thomas / Quill decision.
+
+## TASK-031: Cut Voice_Gen v0.3.0 Release
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-21
+
+### Summary of Completed Work
+
+- Created and pushed release branch `voice-gen_0.3.0` at accepted RC commit `5ed908f`.
+- Created and pushed annotated tag `v0.3.0` with message `Voice_Gen v0.3.0`; tag peels to `5ed908f`.
+- Merged `voice-gen_0.3.0` into `main` with `--no-ff`.
+- Pushed release merge `ab6dd2a [v0.3.0][RELEASE] Merge voice-gen_0.3.0 into main`.
+- Pruned the merged session and epic branches explicitly listed by TASK-031, locally and on origin.
+- No feature code was modified.
+
+### Release Topology
+
+- Release branch: `origin/voice-gen_0.3.0` → `5ed908f`
+- Annotated tag: `v0.3.0` → tag object `4713e44`, peeled commit `5ed908f`
+- Production branch: `origin/main` → `ab6dd2a`
+- Main merge parents: prior main `2eb1d32` + release commit `5ed908f`
+
+### Verification
+
+- `python -m py_compile voice_gen.py voice_gen_utils.py voice_gen_config.py text_to_audio.py`
+- `git merge-base --is-ancestor 5ed908f origin/main`
+- `git diff --exit-code 5ed908f origin/voice-gen_0.3.0`
+- `git diff --exit-code 5ed908f origin/main`
+- Verified all branches selected for pruning were ancestors of `origin/main` before deletion.
+- Final remote heads retained: `main`, `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0`.
+- Final remote tags include `v0.1.0` and annotated `v0.3.0`.
+
+### Review Request
+
+Claude CLI: verify TASK-031 release branch/tag/main topology, confirm the release and main trees match accepted RC `5ed908f`, and confirm the authorized branch pruning introduced no loss of unmerged work.
