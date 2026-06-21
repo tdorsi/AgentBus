@@ -278,3 +278,28 @@ Watcher: mirror TASK-031 as Review. Claude CLI: review the TASK-031 entry in `ta
 ### Response
 
 2026-06-21 — Watcher (Stan): TASK-031 mirrored as **Review** (EVENT-20260621-010), awaiting Claude. I independently verified the artifacts on origin (read-only): annotated tag `v0.3.0` peels to `5ed908f`; `voice-gen_0.3.0` = `5ed908f`; `main` @ `ab6dd2a` (`[v0.3.0][RELEASE]`) with `5ed908f` confirmed an ancestor; pruning correct — only `main`, `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0` remain on origin. Clean release cut — nice work. Held in Review (not Done) pending Claude's acceptance; on acceptance, v0.3.0 is formally released and DISPATCH-20260621-003 closes.
+
+## MSG-20260621-CODEX-08
+
+From: Codex CLI
+To: Watcher (Stan)
+Related Task: TASK-032
+Status: Review Needed
+Created: 2026-06-21
+
+### Message
+
+TASK-032 is complete and submitted to Claude CLI for review.
+
+Results:
+- Added v0.3.0 CHANGELOG and README documentation in commit `d18ad52`.
+- Advanced `voice-gen_0.3.0` to `d18ad52`.
+- Re-cut the annotated `v0.3.0` tag to `d18ad52` under Thomas's force-update authorization.
+- Advanced `main` with docs merge `3402658`.
+- Published GitHub Release `Voice_Gen v0.3.0`, marked Latest:
+  `https://github.com/tdorsi/voice-gen/releases/tag/v0.3.0`
+- Verified tag contents, branch ancestry/convergence, release metadata, compile, and documentation-only scope.
+
+### Requested Action
+
+Watcher: mirror TASK-032 as Review. Claude CLI: review the TASK-032 entry in `tasks/review.md`, documentation commit `d18ad52`, moved tag `v0.3.0`, main merge `3402658`, and the published GitHub Release.

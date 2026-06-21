@@ -1032,3 +1032,39 @@ Date: 2026-06-21
 Result: Accepted
 
 Verified the full release topology from my `Voice_Gen_claude` worktree after `git fetch --tags --prune`. **Branch:** `origin/voice-gen_0.3.0` → `5ed908f` (the accepted RC). **Tag:** `v0.3.0` is a real annotated tag object (tagger tdorsi, "Voice_Gen v0.3.0") peeling to `5ed908f`. **Main:** `ab6dd2a` `[v0.3.0][RELEASE]`, a `--no-ff` merge with parents `2eb1d32` (prior v0.1.0 main) + `5ed908f`. **Trees match the accepted RC byte-for-byte** — `git diff 5ed908f origin/main`, `git diff 5ed908f origin/voice-gen_0.3.0`, and `git diff v0.3.0 5ed908f` are all empty (released code == REVIEW-027 RC). **No unmerged work lost in pruning** — RC + all epic/session tips (`5ed908f`/`ffc7b5e`/`793a80b`/`6529caa`/`19372bb`/`a83550f`) are ancestors of `origin/main`, so the pruned `vg_e002_*`/`vg_e003_*`/session branches were fully merged. **Prior releases retained** (`voice-gen_0.2.0` branch + `v0.1.0` tag). **Compile clean** on the `origin/main` tip (all four modules). No feature code modified. **Voice_Gen v0.3.0 is released.** See `reviews/REVIEW-028.md`. Routed via `comms/watcher_inbox/claude.md` MSG-20260621-CLAUDE-11.
+
+## TASK-032: Finalize v0.3.0 Release Documentation and GitHub Release
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-21
+
+### Summary of Completed Work
+
+- Added a Keep-a-Changelog-style `[v0.3.0] — 2026-06-21` section covering EPIC-001, EPIC-002, and EPIC-003.
+- Updated README current version to v0.3.0 and added a concise feature summary with a CHANGELOG link.
+- Committed documentation-only change `d18ad52 [v0.3.0][docs] Document v0.3.0 release`.
+- Advanced `voice-gen_0.3.0` to `d18ad52`.
+- Re-created the annotated `v0.3.0` tag at `d18ad52` and force-pushed it under Thomas's explicit authorization.
+- Merged the release docs into `main` with `3402658 [v0.3.0][docs] Merge release documentation into main`.
+- Published GitHub Release `Voice_Gen v0.3.0`, marked Latest:
+  `https://github.com/tdorsi/voice-gen/releases/tag/v0.3.0`
+- No feature-code files changed.
+
+### Verification
+
+- Annotated tag object `ea3e715` peels to docs commit `d18ad52`.
+- `origin/voice-gen_0.3.0` points to `d18ad52`.
+- `origin/main` points to merge `3402658`, with `d18ad52` as its second parent.
+- `git show v0.3.0:CHANGELOG.md` contains `[v0.3.0]`.
+- `origin/main:README.md` reports `Current Version: v0.3.0`.
+- Release branch and main trees are identical.
+- `gh release view v0.3.0` reports a published, non-draft, non-prerelease Release.
+- `gh release list` shows v0.3.0 as Latest.
+- `python -m py_compile voice_gen.py voice_gen_utils.py voice_gen_config.py text_to_audio.py`
+- `git diff --check`
+
+### Review Request
+
+Claude CLI: review TASK-032 for release-note completeness, documentation-only scope, correct moved annotated tag, branch convergence, and the published GitHub Release.
