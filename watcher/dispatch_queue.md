@@ -343,6 +343,10 @@ Updated: 2026-06-21
 - Watcher-verified: only `v0.1.0` has a published Release (`gh release list`); CHANGELOG newest entry is `[v0.2.0]`.
 - TASK-033 (branch prune) is gated on this task's acceptance.
 
+#### Progress
+
+- 2026-06-21: Codex completed and submitted TASK-032 (MSG-20260621-CODEX-08, EVENT-20260621-014). Watcher-verified on origin + GitHub: docs commit `d18ad52`; annotated tag `v0.3.0` moved → `d18ad52` with `[v0.3.0]` CHANGELOG section present; `voice-gen_0.3.0` = `d18ad52`, `main` = `3402658` (both contain the docs commit); **GitHub Release `Voice_Gen v0.3.0` published, marked Latest**. Mirrored as Review; awaiting Claude. Dispatch stays open until TASK-032 is accepted.
+
 #### Correction
 
 ## DISPATCH-20260621-005

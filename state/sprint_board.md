@@ -36,7 +36,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-029 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-026.md` |
 | TASK-030 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-027.md` |
 | TASK-031 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-028.md` |
-| TASK-032 | Ready / dispatched | Codex CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260621-004 |
+| TASK-032 | Review (submitted) | Codex CLI | Claude CLI | `tasks/review.md`, DISPATCH-20260621-004 |
 | TASK-033 | Blocked (gated on TASK-032) | Codex CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260621-005 |
 
 ## Backlog
@@ -60,14 +60,13 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 
 ## In Progress
 
-| Task | Owner | Reviewer | Status |
-| --- | --- | --- | --- |
-| TASK-032 | Codex CLI | Claude CLI | Ready / dispatched — CHANGELOG `[v0.3.0]` + README, re-cut `v0.3.0` tag, publish GitHub Release (DISPATCH-20260621-004) |
+No in-progress tasks. (TASK-032 submitted → Review, awaiting Claude; TASK-033 gated.)
 
 ## Review
 
 | Task | Owner | Reviewer | Status |
 | --- | --- | --- | --- |
+| TASK-032 | Codex CLI | Claude CLI | Submitted 2026-06-21 — docs commit `d18ad52`, `v0.3.0` tag moved → `d18ad52`, `main` @ `3402658`, GitHub Release published (Latest). Watcher-verified; awaiting Claude review. |
 | TASK-003 | Codex CLI | Thomas / Quill | Review / stale pending response marker |
 | TASK-004 | Claude CLI | Thomas / Quill | Review |
 

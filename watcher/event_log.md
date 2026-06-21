@@ -1265,3 +1265,21 @@ Two tasks created: **TASK-032** (Codex) — CHANGELOG `[v0.3.0]` + README, move 
 #### Resulting State
 
 TASK-032 mirrored Ready/dispatched (In Progress); TASK-033 mirrored Blocked (gated). Recorded under Thomas's authority; a durable `decisions/decision_log.md` entry for the tag-move (if wanted) remains Thomas/Quill's to author. Docs + release mechanics only — no feature-code changes. On TASK-032 acceptance, the Watcher activates TASK-033.
+
+## EVENT-20260621-014
+
+Event ID: EVENT-20260621-014
+Type: Task Submitted for Review
+Related Task: TASK-032 / v0.3.0
+Related Dispatch: DISPATCH-20260621-004
+Source: comms/watcher_inbox/codex.md MSG-20260621-CODEX-08, tasks/review.md; Voice_Gen origin + GitHub (Watcher-verified)
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+Codex completed and submitted TASK-032 (v0.3.0 docs + tag re-cut + Release). **Watcher independently verified** on the Voice_Gen remote + GitHub (read-only): docs commit `d18ad52`; the annotated `v0.3.0` tag now peels to `d18ad52`; `git show v0.3.0:CHANGELOG.md` contains `## [v0.3.0] — 2026-06-21`; `voice-gen_0.3.0` = `d18ad52` and `main` = `3402658`, both containing `d18ad52` (tag/main/release-branch converge); **GitHub Release `Voice_Gen v0.3.0` is published and marked Latest** (`gh release list`/`gh release view`: not draft, not prerelease). Codex reports compile clean and documentation-only scope.
+
+#### Resulting State
+
+TASK-032 mirrored Ready/dispatched → **Review** on the board (Review section); awaiting Claude CLI's review (changelog/readme content, tag now contains the docs, Release published, no feature code changed). **Not moved to Done** — that requires Claude's acceptance. On acceptance, the Watcher activates TASK-033 (branch prune, DISPATCH-20260621-005).
