@@ -938,3 +938,44 @@ Date: 2026-06-14
 Result: Accepted
 
 `--dry-run` (DECISION-20260613-004 name) runs stages 1-4 then `return`s before stage5_transcribe → stage10 config (verified by line order); prints a clear plan summary (usable/split/cleaned/reference/stop point) + logs it. No destructive artifacts — `samples_dir` guarded `if not args.dry_run`; Codex's run confirms training artifacts absent. Robust: every summary variable has a run-or-load-from-state branch, so `--from-stage 1..4` can't NameError; clean guard for `--from-stage > 4`. Compile clean. **EPIC-002 complete** (TASK-016/018/019/020/021 accepted). See `reviews/REVIEW-024.md`. Routed via `comms/watcher_inbox/claude.md` MSG-20260614-CLAUDE-07.
+
+## TASK-030: Integrate EPIC-002 into v0.3.0 RC
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-21
+
+### Summary of Completed Work
+
+- Fast-forwarded accepted TASK-021 (`6529caa`) into `vg_e002_voice_gen_hardening` and pushed the consolidated epic branch.
+- Created Codex integration branch `vg_e001_shared_config__codex__TASK-030` from accepted EPIC-003 RC tip `ffc7b5e`.
+- Merged `vg_e002_voice_gen_hardening` upward with `--no-ff`.
+- Pushed merge commit `5ed908f` to `origin/vg_e001_shared_config`, assembling EPIC-001 + EPIC-003 + EPIC-002 on the v0.3.0 RC target.
+- Pushed the TASK-030 review branch to origin.
+
+### Branch and Commit
+
+Review branch:
+`vg_e001_shared_config__codex__TASK-030`
+
+RC branch:
+`vg_e001_shared_config`
+
+Merge commit:
+`5ed908f [v0.3.0][vg_e002] Merge vg_e002_voice_gen_hardening into vg_e001_shared_config`
+
+### Verification
+
+- `python -m py_compile voice_gen.py voice_gen_utils.py voice_gen_config.py text_to_audio.py`
+- `python voice_gen.py --help`
+- Voice_Gen dry-run with a generated 10-second WAV fixture completed stages 1–4 and stopped before training/export.
+- Dry-run output contained only `.voice_gen_state.json`, `reference.wav`, and `clips/tone_clean.wav`.
+- `text_to_audio.py --voice hannah --dry-run --keep-chunks` completed successfully on the integrated branch.
+- Confirmed EPIC-002 surfaces (`--dry-run`, `--force`, `--log-file`) and EPIC-003 surfaces (`--keep-chunks`, progress, ETA) coexist.
+- `git diff --check`
+- Remote RC tip was revalidated as `ffc7b5e` immediately before push.
+
+### Review Request
+
+Claude CLI: review TASK-030 for correct EPIC-002 consolidation, upward merge direction, conflict-free integration on top of accepted TASK-029, and integrated RC smoke-test evidence.

@@ -219,3 +219,33 @@ Watcher: record TASK-021 as submitted for Claude review. Claude CLI: review `tas
 ### Response
 
 2026-06-14 — Watcher (Stan): TASK-021 mirrored as Review (`6529caa`, EVENT-20260614-021), awaiting Claude. Last EPIC-002 item — on acceptance, EPIC-002 is complete. That wraps your EPIC-002 activity; nice work. (Mirrored from `AgentBus_stan`, the Watcher's clone.)
+
+## MSG-20260621-CODEX-06
+
+From: Codex CLI
+To: Watcher (Stan)
+Related Task: TASK-030
+Status: Review Needed
+Created: 2026-06-21
+
+### Message
+
+TASK-030 is complete and submitted to Claude CLI for review.
+
+Voice_Gen integration:
+- Consolidated accepted TASK-021 (`6529caa`) into `vg_e002_voice_gen_hardening` and pushed the epic branch.
+- Merged EPIC-002 upward onto the accepted EPIC-003 RC tip (`ffc7b5e`) with `--no-ff`.
+- Pushed `5ed908f [v0.3.0][vg_e002] Merge vg_e002_voice_gen_hardening into vg_e001_shared_config` to `origin/vg_e001_shared_config`.
+- Review branch: `vg_e001_shared_config__codex__TASK-030`.
+
+Verification passed:
+- Python compile checks for both workflows.
+- `voice_gen.py --help`.
+- Real stages 1–4 Voice_Gen `--dry-run` smoke using a generated WAV fixture.
+- `text_to_audio.py --voice hannah --dry-run --keep-chunks`.
+- EPIC-002 and EPIC-003 feature-surface coexistence scan.
+- `git diff --check`.
+
+### Requested Action
+
+Watcher: mirror TASK-030 as Review. Claude CLI: review the TASK-030 entry in `tasks/review.md` and Voice_Gen merge commit `5ed908f`.
