@@ -309,7 +309,7 @@ Related Task: TASK-031
 Assigned Agent: Codex CLI
 Reviewer: Claude CLI
 Action: From your own Voice_Gen worktree/clone, cut the **v0.3.0** release from the RC `vg_e001_shared_config` @ `5ed908f` (release mechanics only — no feature-code changes). **(1)** Create release branch `voice-gen_0.3.0` from `5ed908f` and push. **(2)** Create an **annotated** tag `v0.3.0` on the release commit and push the tag. **(3)** Advance `main`: merge `voice-gen_0.3.0` into `main` with `--no-ff` and a `[v0.3.0][RELEASE]` merge commit; push `main`. **(4)** Verify: `git tag` shows `v0.3.0` at the expected commit, `5ed908f` is an ancestor of `origin/main`, `py_compile` clean on the release tip. **(5)** Cleanup: prune the now-fully-merged session + epic branches (`…__codex__TASK-021/030`, `…__gemini__TASK-022_v2/023/024/025`, `vg_e002_voice_gen_hardening`, `vg_e003_text_to_audio_enhancements`) on origin and locally; keep `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0`, `main`. Submit to Claude CLI with a `tasks/review.md` entry; route the outcome to `comms/watcher_inbox/codex.md`.
-Status: Dispatched
+Status: Complete
 Created: 2026-06-21
 Updated: 2026-06-21
 
@@ -320,6 +320,7 @@ Updated: 2026-06-21
 
 #### Progress
 
-- 2026-06-21: Codex completed and submitted the release cut (MSG-20260621-CODEX-07, EVENT-20260621-010). Watcher-verified on origin: annotated tag `v0.3.0` → `5ed908f`; `voice-gen_0.3.0` = `5ed908f`; `main` @ `ab6dd2a` (`[v0.3.0][RELEASE]`, RC is ancestor); merged session/epic branches pruned (only `main`, `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0` remain). Mirrored as Review; awaiting Claude. Dispatch stays open until TASK-031 is accepted.
+- 2026-06-21: Codex completed and submitted the release cut (MSG-20260621-CODEX-07, EVENT-20260621-010). Watcher-verified on origin: annotated tag `v0.3.0` → `5ed908f`; `voice-gen_0.3.0` = `5ed908f`; `main` @ `ab6dd2a` (`[v0.3.0][RELEASE]`, RC is ancestor); merged session/epic branches pruned (only `main`, `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0` remain). Mirrored as Review; awaiting Claude.
+- 2026-06-21: **TASK-031 accepted** by Claude CLI (REVIEW-028, MSG-20260621-CLAUDE-11, EVENT-20260621-011) — all three trees (main/release-branch/tag) byte-identical to the accepted RC, no unmerged work lost in pruning, prior releases retained, compiles. Mirrored to Done. **Voice_Gen v0.3.0 RELEASED** (EVENT-20260621-012). Dispatch **Complete**.
 
 #### Correction

@@ -212,3 +212,17 @@ Commit: `5ed908f [v0.3.0][vg_e002] Merge vg_e002_voice_gen_hardening into vg_e00
 ### Summary
 
 Second and final Phase 3 merge — **assembles the v0.3.0 RC.** Codex consolidated accepted TASK-021 (`6529caa`) onto `vg_e002_voice_gen_hardening`, pushed the epic branch, then merged EPIC-002 up onto the accepted EPIC-003 RC tip (`ffc7b5e`) with `--no-ff` (merge `5ed908f`). Claude verified (REVIEW-027): merge parents `ffc7b5e` (EPIC-003 RC) + `6529caa` (EPIC-002 stack tip); the one conflict surface (`README.md`, edited by both epics) resolved as a correct union carrying both feature sets; no code lost either side (`git diff 5ed908f ffc7b5e -- text_to_audio.py` and `git diff 5ed908f 6529caa -- voice_gen.py` both empty); scope = union of both epics; `py_compile` of all four modules clean; integrated RC dry-run smoke clean. **v0.3.0 RC = `vg_e001_shared_config` @ `5ed908f` (EPIC-001 + EPIC-003 + EPIC-002).** Declaring/tagging and cutting the release is a Thomas / Quill decision.
+
+## TASK-031: Cut Voice_Gen v0.3.0 Release — release branch, tag, advance main
+
+Status: Done — accepted by Claude CLI 2026-06-21
+Owner: Codex CLI
+Reviewer: Claude CLI
+Completed: 2026-06-21
+Related Review: REVIEW-028
+Related: v0.3.0 release; RC `5ed908f`
+Artifacts: branch `voice-gen_0.3.0` (`5ed908f`); annotated tag `v0.3.0` → `5ed908f`; `main` @ `ab6dd2a` `[v0.3.0][RELEASE]`
+
+### Summary
+
+**Voice_Gen v0.3.0 released.** Codex cut the release from the accepted RC `5ed908f` per Thomas's confirmed topology: created release branch `voice-gen_0.3.0` (= `5ed908f`), an **annotated** tag `v0.3.0` (peels to `5ed908f`), and advanced `main` to `ab6dd2a` via a `--no-ff` `[v0.3.0][RELEASE]` merge (parents `2eb1d32` prior v0.1.0 main + `5ed908f`); then pruned the fully-merged session/epic branches. Claude verified (REVIEW-028): all three of main/release-branch/tag are byte-identical to the accepted RC (`git diff` vs `5ed908f` all empty); no unmerged work lost (RC + every epic/session tip is an ancestor of `main`); prior releases retained (`voice-gen_0.2.0`, `v0.1.0`); compiles on the release tip; no feature code changed. Retained remote heads: `main`, `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0`. Closes the Voice_Gen v0.3.0 effort end to end (EPIC-001/002/003 → validated → integrated → released).

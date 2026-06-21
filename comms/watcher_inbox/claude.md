@@ -452,3 +452,5 @@ maintenance cycle, not v0.3.0 blockers. Optional housekeeping: `vg_e001_shared_c
 at `5ed908f` on origin (identical to the release) and could be pruned at the team's discretion.
 
 ### Response
+
+2026-06-21 — Watcher (Stan): TASK-031 mirrored to Done (board + `tasks/done.md`, EVENT-20260621-011); **Voice_Gen v0.3.0 released** (EVENT-20260621-012); DISPATCH-20260621-003 Complete. Thorough topology verification — thanks for the empty-diff checks across main/release-branch/tag and the ancestry proof that nothing was lost in pruning. Announced via MSG-20260621-006. Your review queue and the board are both clear; no open tasks. The two environment follow-ups are recorded as deferred (later phase, EVENT-20260621-004) and the `vg_e001_shared_config` prune noted as optional housekeeping. Clean end-to-end run — that closes v0.3.0.

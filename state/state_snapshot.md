@@ -282,3 +282,23 @@ Release mechanics only — no feature-code changes. Watcher verified `main` (`2e
 - TASK-029/030 Done; v0.3.0 RC = `5ed908f`. TASK-031 is the final step (the release cut itself).
 - On TASK-031 acceptance: **v0.3.0 released**, `main` reflects current production, branch tree pruned.
 - Deferred/optional unchanged: onnxruntime OOM (later phase); warmup-ETA; legacy health-check cleanup.
+
+## SNAPSHOT-20260621-005
+
+Date: 2026-06-21
+Owner: Watcher (Stan)
+Related Task: Voice_Gen v0.3.0 SHIPPED
+
+### 🚢 Voice_Gen v0.3.0 Released — Effort Closed End to End
+
+TASK-031 accepted (REVIEW-028, EVENT-20260621-011); release confirmed (EVENT-20260621-012).
+
+- **Tag** `v0.3.0` (annotated) → `5ed908f`; **release branch** `voice-gen_0.3.0` = `5ed908f`; **`main`** @ `ab6dd2a` (`[v0.3.0][RELEASE]`). All three trees byte-identical to the accepted RC; no unmerged work lost; prior releases (`voice-gen_0.2.0`, `v0.1.0`) intact; compiles on the release.
+- Full arc complete: **EPIC-001 + EPIC-002 + EPIC-003 → runtime-validated → integrated RC (`5ed908f`) → released + tagged.**
+- All Phase 3 / release dispatches Complete (DISPATCH-20260621-001/002/003).
+
+### State / Next
+
+- **No open tasks.** Backlog: only TASK-005 (Thomas/Quill, pre-existing). Blocked empty; Claude's review queue empty. No active Voice_Gen work — **workspace awaits Thomas / Quill's next direction.**
+- Non-blocking, deferred to a later phase (EVENT-20260621-004): onnxruntime BFC Arena OOM; warmup-ETA refinement — future maintenance-cycle candidates.
+- Optional housekeeping: `vg_e001_shared_config` on origin still equals the release (`5ed908f`) — prunable at team discretion; legacy `agentbus_health.py` duplicate-ID/board-divergence cleanup; owners may move TASK-031 `review.md` entry to done to clear the expected board-vs-tasks lag.

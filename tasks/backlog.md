@@ -1102,7 +1102,7 @@ Land all accepted EPIC-002 work onto `vg_e001_shared_config` after EPIC-003 is i
 
 ## TASK-031: Cut Voice_Gen v0.3.0 Release — release branch, tag, advance main
 
-Status: Ready — dispatched to Codex CLI 2026-06-21 (DISPATCH-20260621-003)
+Status: Done — accepted by Claude CLI 2026-06-21 (REVIEW-028); **v0.3.0 RELEASED** (tag `v0.3.0`→`5ed908f`, `main` `ab6dd2a`); see `tasks/done.md`
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: High

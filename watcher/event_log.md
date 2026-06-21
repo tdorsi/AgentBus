@@ -1209,3 +1209,39 @@ Codex completed and submitted TASK-031 (v0.3.0 release cut). **Watcher independe
 #### Resulting State
 
 TASK-031 mirrored from Ready/dispatched → **Review** on the board (Review section); awaiting Claude CLI's review of the topology (tag/branch/main) and confirmation that no feature code changed. **Not moved to Done** — that requires Claude's acceptance. The release artifacts exist on the remote but are not yet review-accepted. On acceptance, v0.3.0 is formally released.
+
+## EVENT-20260621-011
+
+Event ID: EVENT-20260621-011
+Type: Review Accepted
+Related Task: TASK-031 / v0.3.0 release
+Related Dispatch: DISPATCH-20260621-003 (Complete)
+Source: reviews/REVIEW-028.md, comms/watcher_inbox/claude.md MSG-20260621-CLAUDE-11, tasks/review.md
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+Claude CLI accepted TASK-031 (v0.3.0 release cut, REVIEW-028). Verified from `Voice_Gen_claude` after `git fetch --tags --prune`: release branch `voice-gen_0.3.0` → `5ed908f`; annotated tag `v0.3.0` (tagger tdorsi) peels to `5ed908f`; `main` → `ab6dd2a` (`[v0.3.0][RELEASE]`, `--no-ff`, parents `2eb1d32` + `5ed908f`). All three trees byte-identical to the accepted RC (`git diff` vs `5ed908f` all empty). No unmerged work lost — RC + every epic/session tip is an ancestor of `main`, so the pruned branches were fully merged. Prior releases retained (`voice-gen_0.2.0`, `v0.1.0`); compiles on the release tip; no feature code changed.
+
+#### Resulting State
+
+TASK-031 mirrored to Done on the board + `tasks/done.md`; DISPATCH-20260621-003 Complete; Review queue empty.
+
+## EVENT-20260621-012
+
+Event ID: EVENT-20260621-012
+Type: Release / Milestone — Voice_Gen v0.3.0 SHIPPED
+Related Task: v0.3.0 (EPIC-001 / EPIC-002 / EPIC-003 / Phase 3 / TASK-031)
+Related Dispatch: DISPATCH-20260621-001/002/003 (all Complete)
+Source: REVIEW-026/027/028; EVENT-20260621-005/007/008/011
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+**🚢 Voice_Gen v0.3.0 is released.** The full effort is closed end to end: EPIC-001 (Shared Config), EPIC-002 (Voice_Gen Hardening), EPIC-003 (Text_to_Audio Enhancements) — all complete, runtime-validated, integrated into the RC (`5ed908f`), and now released and tagged. Release artifacts on origin: annotated tag `v0.3.0` → `5ed908f`, release branch `voice-gen_0.3.0`, `main` @ `ab6dd2a`.
+
+#### Resulting State
+
+No open tasks; Backlog has only TASK-005 (Thomas/Quill); Blocked empty; Claude's review queue empty. No active Voice_Gen work remains — the workspace awaits Thomas / Quill's next direction. Open, non-blocking, deferred to a later phase (EVENT-20260621-004): onnxruntime BFC Arena OOM; warmup-inflated ETA refinement — candidates for a future maintenance cycle. Optional housekeeping: `vg_e001_shared_config` on origin still equals the release (`5ed908f`) and may be pruned at the team's discretion; legacy `agentbus_health.py` duplicate-ID/board-divergence cleanup remains.

@@ -35,7 +35,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-028 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-025.md` |
 | TASK-029 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-026.md` |
 | TASK-030 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-027.md` |
-| TASK-031 | Review (submitted) | Codex CLI | Claude CLI | `tasks/review.md`, DISPATCH-20260621-003 |
+| TASK-031 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-028.md` |
 
 ## Backlog
 
@@ -45,14 +45,13 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 
 ## Ready
 
-**Phase 3 — integration — is COMPLETE; the v0.3.0 RC is ASSEMBLED** (2026-06-21). Both epic merges are accepted and `vg_e001_shared_config` @ **`5ed908f`** now contains EPIC-001 + EPIC-003 + EPIC-002.
+**🚢 Voice_Gen v0.3.0 is RELEASED** (2026-06-21). All epics complete → runtime-validated → integrated → released + tagged. **No open tasks; Blocked empty; Claude's review queue empty.**
 
-- **TASK-029 (Gemini):** merge `vg_e003` → `vg_e001_shared_config`. **DONE / accepted** (REVIEW-026, merge `ffc7b5e`). DISPATCH-20260621-001 Complete.
-- **TASK-030 (Codex):** merge `vg_e002` → `vg_e001_shared_config`. **DONE / accepted** (REVIEW-027, merge `5ed908f`). DISPATCH-20260621-002 Complete. Claude verified the only conflict surface (`README.md`) resolved as a correct union; both epics' source preserved byte-identical (`git diff 5ed908f ffc7b5e -- text_to_audio.py` and `git diff 5ed908f 6529caa -- voice_gen.py` both empty); compiles + integrated RC dry-run smoke clean.
-- **v0.3.0 RC = `vg_e001_shared_config` @ `5ed908f`.** **Release cut AUTHORIZED by Thomas 2026-06-21 → TASK-031 (Codex CLI)**: create release branch `voice-gen_0.3.0` from `5ed908f`, annotated tag `v0.3.0`, advance `main` (`--no-ff` `[v0.3.0][RELEASE]`), then prune merged branches. Dispatched (DISPATCH-20260621-003); Claude reviews.
-- **EPIC-002** Voice_Gen Hardening: COMPLETE — TASK-016/018/019/020/021 accepted (TASK-017 dropped).
-- **EPIC-003** Text_to_Audio Enhancements: COMPLETE — TASK-022/023/024/025 accepted and runtime-validated by TASK-028 (REVIEW-025; FU1 closed).
-- Deferred to a later phase (per Thomas, EVENT-20260621-004): onnxruntime BFC Arena ~2.3 GB OOM on very long runs — out of scope for v0.3.0. Optional future refinement: warmup-inflated initial ETA.
+- **Release:** tag **`v0.3.0`** (annotated) → `5ed908f`; release branch **`voice-gen_0.3.0`** = `5ed908f`; **`main`** @ `ab6dd2a` (`[v0.3.0][RELEASE]`). All three trees byte-identical to the accepted RC (REVIEW-028). TASK-031 Done; DISPATCH-20260621-003 Complete.
+- **Phase 3 integration:** TASK-029 (EPIC-003 → RC, `ffc7b5e`, REVIEW-026) + TASK-030 (EPIC-002 → RC, `5ed908f`, REVIEW-027) — both accepted; RC assembled then released.
+- **EPIC-001** Shared Config — complete (TASK-011–014). **EPIC-002** Voice_Gen Hardening — complete (TASK-016/018/019/020/021; 017 dropped). **EPIC-003** Text_to_Audio Enhancements — complete + runtime-validated (TASK-022/023/024/025; TASK-028).
+- Retained remote heads: `main`, `vg_e001_shared_config` (= release, prunable at team discretion), `voice-gen_0.2.0`, `voice-gen_0.3.0`. Prior releases intact (`voice-gen_0.2.0`, `v0.1.0`).
+- Deferred to a later phase (per Thomas, EVENT-20260621-004): onnxruntime BFC Arena ~2.3 GB OOM on very long runs. Optional future: warmup-inflated initial ETA. No active Voice_Gen work remains — awaiting Thomas / Quill's next direction.
 
 ## In Progress
 
@@ -62,7 +61,6 @@ No in-progress tasks. (TASK-031 submitted → Review, awaiting Claude.)
 
 | Task | Owner | Reviewer | Status |
 | --- | --- | --- | --- |
-| TASK-031 | Codex CLI | Claude CLI | Submitted 2026-06-21 — v0.3.0 release cut (branch `voice-gen_0.3.0`, annotated tag `v0.3.0`→`5ed908f`, `main` @ `ab6dd2a`). Watcher-verified; awaiting Claude review. |
 | TASK-003 | Codex CLI | Thomas / Quill | Review / stale pending response marker |
 | TASK-004 | Claude CLI | Thomas / Quill | Review |
 
@@ -93,6 +91,7 @@ No blocked items. (TASK-030 gate satisfied by TASK-029 acceptance, REVIEW-026.)
 | TASK-028 | Gemini CLI | 2026-06-15 accepted by Claude CLI (REVIEW-025) — **EPIC-003 runtime-validated; FU1 closed** |
 | TASK-029 | Gemini CLI | 2026-06-21 accepted by Claude CLI (REVIEW-026) — **EPIC-003 merged into v0.3.0 RC** (`ffc7b5e`) |
 | TASK-030 | Codex CLI | 2026-06-21 accepted by Claude CLI (REVIEW-027) — **EPIC-002 merged; v0.3.0 RC assembled** (`5ed908f`) |
+| TASK-031 | Codex CLI | 2026-06-21 accepted by Claude CLI (REVIEW-028) — **🚢 Voice_Gen v0.3.0 RELEASED** (tag `v0.3.0`→`5ed908f`; `main` `ab6dd2a`) |
 
 ## Validation Cycle
 

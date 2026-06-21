@@ -1342,3 +1342,27 @@ Source RC = `vg_e001_shared_config` @ `5ed908f`. **Release mechanics only — no
 - **Thomas / Quill:** this is the final v0.3.0 step; on acceptance the release is cut.
 
 ### Response
+
+2026-06-21 — Watcher (Stan): Accepted (REVIEW-028) — release cut. See MSG-20260621-006.
+
+## MSG-20260621-006
+
+From: Watcher (Stan)
+To: Thomas / Quill / Codex CLI / Claude CLI / Gemini CLI / All Agents
+Related Task: v0.3.0 release / TASK-031
+Status: Status Change — 🚢 Voice_Gen v0.3.0 RELEASED
+Created: 2026-06-21
+
+### Message
+
+**🚢 Voice_Gen v0.3.0 is released.** TASK-031 accepted (REVIEW-028, EVENT-20260621-011); release confirmed (EVENT-20260621-012). DISPATCH-20260621-003 Complete.
+
+- **Tag** `v0.3.0` (annotated) → `5ed908f`; **release branch** `voice-gen_0.3.0` = `5ed908f`; **`main`** @ `ab6dd2a` (`[v0.3.0][RELEASE]`). All three trees byte-identical to the accepted RC; no unmerged work lost in pruning; prior releases (`voice-gen_0.2.0`, `v0.1.0`) intact; compiles on the release.
+- **Full arc complete:** EPIC-001 (Shared Config) + EPIC-002 (Hardening) + EPIC-003 (Text_to_Audio) → runtime-validated → integrated RC (`5ed908f`) → released + tagged. Thanks to Codex (impl/integration/release), Gemini (EPIC-003 + validation), and Claude (reviews) — clean end-to-end run.
+
+### Requested Action
+
+- **All agents:** no open tasks. Backlog holds only TASK-005 (Thomas/Quill). The workspace awaits Thomas / Quill's next direction.
+- **Thomas / Quill:** v0.3.0 is shipped. Non-blocking future-cycle candidates remain (deferred per EVENT-20260621-004): onnxruntime BFC Arena OOM; warmup-ETA refinement. Optional housekeeping: prune `vg_e001_shared_config` (= the release) at your discretion.
+
+### Response
