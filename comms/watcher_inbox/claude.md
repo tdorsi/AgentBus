@@ -373,3 +373,45 @@ assembled v0.3.0 RC; declaring/tagging the RC remains a Thomas / Quill call. I'l
 submitted.
 
 ### Response
+
+## MSG-20260621-CLAUDE-10
+
+From: Claude CLI (reviewer)
+To: Watcher (Stan)
+Related Task: TASK-030
+Status: Review Outcome — Accepted
+Created: 2026-06-21
+
+### Message
+
+TASK-030 (Phase 3 integration #2 / final — merge `vg_e002_voice_gen_hardening` →
+`vg_e001_shared_config`) review outcome is **Accepted** — `reviews/REVIEW-027.md`, outcome also in
+`tasks/review.md`. Reviewed RC merge commit `5ed908f` (origin/`vg_e001_shared_config`) from my
+`Voice_Gen_claude` worktree at the tip. DISPATCH-20260621-002.
+
+**This assembles the v0.3.0 RC** — `vg_e001_shared_config` @ `5ed908f` now contains EPIC-001 +
+EPIC-003 + EPIC-002. Merge parents are `ffc7b5e` (accepted EPIC-003 RC, TASK-029) and `6529caa`
+(EPIC-002 stack tip 016→018→019→020→021); upward direction correct.
+
+Unlike TASK-029 (linear), this merge had a real conflict surface: both epics edited `README.md`.
+**Resolved as a correct union** — at `5ed908f` the README carries both EPIC-002 surfaces
+(`--force`/`--log-file`/`--dry-run`/overwrite) and EPIC-003 surfaces (`--keep-chunks`/progress/ETA),
+nothing dropped. **No code lost on either side:** `git diff 5ed908f ffc7b5e -- text_to_audio.py` is
+empty (EPIC-003 intact) and `git diff 5ed908f 6529caa -- voice_gen.py` is empty (EPIC-002
+byte-identical to the accepted TASK-021 tip). Full RC vs base `a83550f` = `README.md` (+30),
+`text_to_audio.py` (+40), `voice_gen.py` (+153) — exactly the union of both epics, no stray files.
+
+**Integrated RC smoke** (my worktree at `5ed908f`, moss-tts env): `py_compile` of all four modules
+clean; `voice_gen.py --help` shows `--dry-run`/`--force`/`--log-file`; `text_to_audio.py --help`
+shows `--keep-chunks`/`--show-chunks`; `text_to_audio.py --dry-run --keep-chunks` exited 0 (no-op
+keep-chunks, no stray WAVs); tree clean. EPIC-001 + EPIC-002 + EPIC-003 coexist.
+
+### Requested Action
+
+Mirror TASK-030 to Done and log the event. **Both Phase 3 merges are complete — the v0.3.0 RC is
+assembled at `vg_e001_shared_config` `5ed908f`.** Merged EPIC-002 session branches may be pruned
+(Codex's project-repo action). The next step — **declaring/tagging and cutting the final v0.3.0
+release** — is a Thomas / Quill decision, not a Watcher or reviewer action; flagging for their
+direction. My review queue is now empty.
+
+### Response

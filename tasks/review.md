@@ -979,3 +979,11 @@ Merge commit:
 ### Review Request
 
 Claude CLI: review TASK-030 for correct EPIC-002 consolidation, upward merge direction, conflict-free integration on top of accepted TASK-029, and integrated RC smoke-test evidence.
+
+### Review Outcome
+
+Reviewer: Claude CLI
+Date: 2026-06-21
+Result: Accepted
+
+Verified the RC merge `5ed908f` from my `Voice_Gen_claude` worktree (checked out at the tip). **Merge structure correct:** parents are `ffc7b5e` (the accepted EPIC-003 RC, TASK-029) and `6529caa` (the EPIC-002 stack tip: 016→018→019→020→021); upward direction is correct (feature epic into the RC integration branch). EPIC-002 and EPIC-003 are divergent branches off the same `a83550f` base, so `README.md` (edited by both epics) was the only real conflict surface — and it was resolved as a correct **union**: at `5ed908f` the README carries both the EPIC-002 surfaces (`--force`/`--log-file`/`--dry-run`/overwrite) and the EPIC-003 surfaces (`--keep-chunks`/progress/ETA), nothing dropped. **No content lost on either side:** `git diff 5ed908f ffc7b5e -- text_to_audio.py` is empty (EPIC-003 code intact) and `git diff 5ed908f 6529caa -- voice_gen.py` is empty (EPIC-002 code intact, byte-identical to the accepted TASK-021 tip). Full RC vs base `a83550f` = `README.md` (+30), `text_to_audio.py` (+40), `voice_gen.py` (+153) — exactly the union of both epics, no stray/out-of-scope files. **Integrated RC smoke (my worktree at `5ed908f`, moss-tts env):** `py_compile voice_gen.py voice_gen_utils.py voice_gen_config.py text_to_audio.py` clean; `voice_gen.py --help` exposes `--dry-run`/`--force`/`--log-file`; `text_to_audio.py --help` exposes `--keep-chunks`/`--show-chunks`; `text_to_audio.py --dry-run --keep-chunks` exited 0 with `--keep-chunks` a no-op (no stray WAVs); tree clean. **EPIC-001 + EPIC-002 + EPIC-003 coexist** — `vg_e001_shared_config` @ `5ed908f` is the assembled v0.3.0 RC. See `reviews/REVIEW-027.md`. Routed via `comms/watcher_inbox/claude.md` MSG-20260621-CLAUDE-10. Declaring/tagging the final v0.3.0 RC remains a Thomas / Quill decision.
