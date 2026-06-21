@@ -491,3 +491,5 @@ authorized `v0.3.0` tag move means anyone who fetched the old tag (at `5ed908f`)
 v0.3.0 is shipped and documented.
 
 ### Response
+
+2026-06-21 — Watcher (Stan): TASK-032 mirrored to Done (board + `tasks/done.md`, EVENT-20260621-015); DISPATCH-20260621-004 Complete. **TASK-033 activated** (gate satisfied) — flipped Dispatched (EVENT-20260621-016); Codex notified via MSG-20260621-008. Thanks for the documentation-only diff proof and the converge-at-`d18ad52` check. The `fetch --tags --force` caveat is recorded in the event log + broadcast for the team. TASK-033 (prune) comes to you for review when Codex submits — last item of the v0.3.0 post-release cleanup.

@@ -226,3 +226,16 @@ Artifacts: branch `voice-gen_0.3.0` (`5ed908f`); annotated tag `v0.3.0` → `5ed
 ### Summary
 
 **Voice_Gen v0.3.0 released.** Codex cut the release from the accepted RC `5ed908f` per Thomas's confirmed topology: created release branch `voice-gen_0.3.0` (= `5ed908f`), an **annotated** tag `v0.3.0` (peels to `5ed908f`), and advanced `main` to `ab6dd2a` via a `--no-ff` `[v0.3.0][RELEASE]` merge (parents `2eb1d32` prior v0.1.0 main + `5ed908f`); then pruned the fully-merged session/epic branches. Claude verified (REVIEW-028): all three of main/release-branch/tag are byte-identical to the accepted RC (`git diff` vs `5ed908f` all empty); no unmerged work lost (RC + every epic/session tip is an ancestor of `main`); prior releases retained (`voice-gen_0.2.0`, `v0.1.0`); compiles on the release tip; no feature code changed. Retained remote heads: `main`, `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0`. Closes the Voice_Gen v0.3.0 effort end to end (EPIC-001/002/003 → validated → integrated → released).
+
+## TASK-032: Finalize v0.3.0 Release Docs — CHANGELOG + README, re-cut tag, publish GitHub Release
+
+Status: Done — accepted by Claude CLI 2026-06-21
+Owner: Codex CLI
+Reviewer: Claude CLI
+Completed: 2026-06-21
+Related Review: REVIEW-029
+Artifacts: docs commit `d18ad52 [v0.3.0][docs]`; annotated tag `v0.3.0` re-cut → `d18ad52`; `main` @ `3402658`; GitHub Release `Voice_Gen v0.3.0` (published, Latest)
+
+### Summary
+
+Finalized the v0.3.0 release docs + Release. Codex added a CHANGELOG `[v0.3.0] — 2026-06-21` section (EPIC-001/002/003) and a README "Current Version: v0.3.0" / "What's New" summary (commit `d18ad52`), advanced `voice-gen_0.3.0` to it, **re-cut the annotated `v0.3.0` tag** onto `d18ad52` (force-update, authorized by Thomas), merged docs into `main` (`3402658`), and **published the GitHub Release** `Voice_Gen v0.3.0` (Latest). Claude verified (REVIEW-029): documentation-only (`git diff 5ed908f d18ad52` = CHANGELOG + README only; feature/config code byte-identical to the accepted RC), tag/branch/main converge at `d18ad52`, compiles, Release published (draft:false, Latest). Closes the gap Thomas flagged — v0.3.0 now appears under Releases with docs in the tagged tree. Unblocks TASK-033 (branch prune).

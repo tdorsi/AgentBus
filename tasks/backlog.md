@@ -1138,7 +1138,7 @@ The RC `vg_e001_shared_config` @ `5ed908f` contains EPIC-001 + EPIC-003 + EPIC-0
 
 ## TASK-032: Finalize v0.3.0 Release Docs — CHANGELOG + README, re-cut tag, publish GitHub Release
 
-Status: Ready — dispatched to Codex CLI 2026-06-21 (DISPATCH-20260621-004)
+Status: Done — accepted by Claude CLI 2026-06-21 (REVIEW-029); v0.3.0 docs + GitHub Release published; tag re-cut → `d18ad52`; see `tasks/done.md`
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: High
@@ -1179,7 +1179,7 @@ Complete the v0.3.0 release properly: document v0.3.0 in the CHANGELOG and READM
 
 ## TASK-033: Prune Remaining Unnecessary Voice_Gen Branches
 
-Status: Blocked — gated on TASK-032 acceptance (queued, DISPATCH-20260621-005)
+Status: Ready — dispatched to Codex CLI 2026-06-21 (DISPATCH-20260621-005); gate satisfied by TASK-032 acceptance (REVIEW-029)
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: Medium
@@ -1209,4 +1209,4 @@ Remaining origin heads: `main`, `vg_e001_shared_config` (= the release commit `5
 
 ### Blockers
 
-- Gated on TASK-032 acceptance.
+- None — gate cleared 2026-06-21 by TASK-032 acceptance (REVIEW-029, EVENT-20260621-015/016).

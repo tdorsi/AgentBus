@@ -36,8 +36,8 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-029 | Done / accepted | Gemini CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-026.md` |
 | TASK-030 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-027.md` |
 | TASK-031 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-028.md` |
-| TASK-032 | Review (submitted) | Codex CLI | Claude CLI | `tasks/review.md`, DISPATCH-20260621-004 |
-| TASK-033 | Blocked (gated on TASK-032) | Codex CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260621-005 |
+| TASK-032 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-029.md` |
+| TASK-033 | Ready / dispatched | Codex CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260621-005 |
 
 ## Backlog
 
@@ -50,8 +50,8 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 **🚢 Voice_Gen v0.3.0 is RELEASED** (2026-06-21); **post-release finalization in progress** (docs + GitHub Release + prune).
 
 - **Post-release work (Thomas 2026-06-21):** the `v0.3.0` git tag exists but was never published as a GitHub Release, and the CHANGELOG/README don't cover v0.3.0.
-  - **TASK-032 (Codex):** add CHANGELOG `[v0.3.0]` + README updates, **re-cut/move the `v0.3.0` tag** to the docs commit (Thomas's confirmed approach), advance `main`/`voice-gen_0.3.0`, publish the GitHub Release. **Ready / dispatched** (DISPATCH-20260621-004); Claude reviews.
-  - **TASK-033 (Codex):** prune remaining unnecessary branches (`vg_e001_shared_config` etc.). **Blocked — gated on TASK-032 acceptance** (DISPATCH-20260621-005).
+  - **TASK-032 (Codex):** CHANGELOG `[v0.3.0]` + README, re-cut `v0.3.0` tag → docs commit `d18ad52`, advance `main`/`voice-gen_0.3.0`, publish GitHub Release. **DONE / accepted** (REVIEW-029) — docs-only verified, Release published & Latest. DISPATCH-20260621-004 Complete.
+  - **TASK-033 (Codex):** prune remaining unnecessary branches (`vg_e001_shared_config` etc.). **Ready / dispatched** — gate satisfied by TASK-032 acceptance (DISPATCH-20260621-005); Claude reviews.
 - **Release (current):** tag **`v0.3.0`** (annotated) → `5ed908f`; release branch **`voice-gen_0.3.0`** = `5ed908f`; **`main`** @ `ab6dd2a` (`[v0.3.0][RELEASE]`). All three trees byte-identical to the accepted RC (REVIEW-028). TASK-031 Done; DISPATCH-20260621-003 Complete. (Tag will move to the docs commit under TASK-032.)
 - **Phase 3 integration:** TASK-029 (EPIC-003 → RC, `ffc7b5e`, REVIEW-026) + TASK-030 (EPIC-002 → RC, `5ed908f`, REVIEW-027) — both accepted; RC assembled then released.
 - **EPIC-001** Shared Config — complete (TASK-011–014). **EPIC-002** Voice_Gen Hardening — complete (TASK-016/018/019/020/021; 017 dropped). **EPIC-003** Text_to_Audio Enhancements — complete + runtime-validated (TASK-022/023/024/025; TASK-028).
@@ -60,21 +60,20 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 
 ## In Progress
 
-No in-progress tasks. (TASK-032 submitted → Review, awaiting Claude; TASK-033 gated.)
+| Task | Owner | Reviewer | Status |
+| --- | --- | --- | --- |
+| TASK-033 | Codex CLI | Claude CLI | Ready / dispatched — prune remaining unnecessary branches (`vg_e001_shared_config` etc.); gate satisfied by TASK-032 acceptance (DISPATCH-20260621-005) |
 
 ## Review
 
 | Task | Owner | Reviewer | Status |
 | --- | --- | --- | --- |
-| TASK-032 | Codex CLI | Claude CLI | Submitted 2026-06-21 — docs commit `d18ad52`, `v0.3.0` tag moved → `d18ad52`, `main` @ `3402658`, GitHub Release published (Latest). Watcher-verified; awaiting Claude review. |
 | TASK-003 | Codex CLI | Thomas / Quill | Review / stale pending response marker |
 | TASK-004 | Claude CLI | Thomas / Quill | Review |
 
 ## Blocked
 
-| Task | Owner | Reviewer | Status |
-| --- | --- | --- | --- |
-| TASK-033 | Codex CLI | Claude CLI | Gated on TASK-032 acceptance — prune remaining unnecessary branches (`vg_e001_shared_config` etc.) (DISPATCH-20260621-005) |
+No blocked items. (TASK-033 gate satisfied by TASK-032 acceptance, REVIEW-029.)
 
 ## Done
 
@@ -100,6 +99,7 @@ No in-progress tasks. (TASK-032 submitted → Review, awaiting Claude; TASK-033 
 | TASK-029 | Gemini CLI | 2026-06-21 accepted by Claude CLI (REVIEW-026) — **EPIC-003 merged into v0.3.0 RC** (`ffc7b5e`) |
 | TASK-030 | Codex CLI | 2026-06-21 accepted by Claude CLI (REVIEW-027) — **EPIC-002 merged; v0.3.0 RC assembled** (`5ed908f`) |
 | TASK-031 | Codex CLI | 2026-06-21 accepted by Claude CLI (REVIEW-028) — **🚢 Voice_Gen v0.3.0 RELEASED** (tag `v0.3.0`→`5ed908f`; `main` `ab6dd2a`) |
+| TASK-032 | Codex CLI | 2026-06-21 accepted by Claude CLI (REVIEW-029) — **v0.3.0 docs + GitHub Release published**; tag re-cut → `d18ad52`; `main` `3402658` |
 
 ## Validation Cycle
 

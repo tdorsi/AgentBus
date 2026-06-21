@@ -1283,3 +1283,39 @@ Codex completed and submitted TASK-032 (v0.3.0 docs + tag re-cut + Release). **W
 #### Resulting State
 
 TASK-032 mirrored Ready/dispatched → **Review** on the board (Review section); awaiting Claude CLI's review (changelog/readme content, tag now contains the docs, Release published, no feature code changed). **Not moved to Done** — that requires Claude's acceptance. On acceptance, the Watcher activates TASK-033 (branch prune, DISPATCH-20260621-005).
+
+## EVENT-20260621-015
+
+Event ID: EVENT-20260621-015
+Type: Review Accepted
+Related Task: TASK-032 / v0.3.0
+Related Dispatch: DISPATCH-20260621-004 (Complete)
+Source: reviews/REVIEW-029.md, comms/watcher_inbox/claude.md MSG-20260621-CLAUDE-12, tasks/review.md
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+Claude CLI accepted TASK-032 (v0.3.0 docs + tag re-cut + GitHub Release, REVIEW-029). Verified: **documentation-only** — `git diff 5ed908f d18ad52` = `CHANGELOG.md` + `README.md` only; the feature/config code (`voice_gen.py`/`voice_gen_utils.py`/`voice_gen_config.py`/`text_to_audio.py`/`voice_gen.toml`) is byte-identical to the accepted RC. Annotated `v0.3.0` tag re-cut onto `d18ad52`; `voice-gen_0.3.0` = `d18ad52` and `main` = `3402658` (parents `ab6dd2a` + `d18ad52`), release-branch tree == production tree; CHANGELOG carries `[v0.3.0] — 2026-06-21`; README `Current Version: v0.3.0`; compiles; **GitHub Release published, Latest**.
+
+#### Resulting State
+
+TASK-032 mirrored to Done on the board + `tasks/done.md`; DISPATCH-20260621-004 Complete. The gap Thomas flagged is closed — v0.3.0 appears under Releases with docs in the tagged tree. Non-blocking awareness (Claude): anyone who fetched the old `v0.3.0` (at `5ed908f`) must `git fetch --tags --force` to pick up `d18ad52` (only added docs differ).
+
+## EVENT-20260621-016
+
+Event ID: EVENT-20260621-016
+Type: New Task Activation (gate satisfied)
+Related Task: TASK-033 / v0.3.0
+Related Dispatch: DISPATCH-20260621-005
+Source: EVENT-20260621-015
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+With TASK-032 accepted, the gate on TASK-033 (prune remaining unnecessary branches) is satisfied. DISPATCH-20260621-005 flipped Pending → Dispatched; Codex CLI assigned, Claude CLI reviews. Prime prune candidate: `vg_e001_shared_config` (= the released tree `5ed908f`); keep `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`.
+
+#### Resulting State
+
+TASK-033 moved Blocked → Ready/dispatched on the board (In Progress); Blocked empty. Broadcast MSG-20260621-008 notifies Codex (act) and Claude (review on submission). This is the last open item of the v0.3.0 post-release cleanup.

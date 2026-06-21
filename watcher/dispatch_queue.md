@@ -333,7 +333,7 @@ Related Task: TASK-032
 Assigned Agent: Codex CLI
 Reviewer: Claude CLI
 Action: From your own Voice_Gen worktree/clone (docs + release mechanics only — no feature-code changes): **(1)** add a `[v0.3.0]` section to `CHANGELOG.md` (EPIC-001/002/003 changes, dated 2026-06-21, existing changelog style) and update `README.md` to reflect v0.3.0. **(2)** Commit the docs (`[v0.3.0][docs]`). **(3) Re-cut the tag:** move the annotated `v0.3.0` tag to the docs commit (`git tag -f -a v0.3.0`, force-push the tag) so the tagged tree contains the v0.3.0 docs. **(4)** Ensure `main` and `voice-gen_0.3.0` both contain the docs commit (tag/main/release branch converge). **(5) Publish** the v0.3.0 GitHub Release via `gh release create v0.3.0` with notes from the new CHANGELOG section, marked Latest. **(6)** Verify: tag peels to the docs commit, `git show v0.3.0:CHANGELOG.md` has the `[v0.3.0]` section, `gh release view v0.3.0` exists, `py_compile` clean. Submit to Claude CLI (`tasks/review.md`); route outcome to `comms/watcher_inbox/codex.md`.
-Status: Dispatched
+Status: Complete
 Created: 2026-06-21
 Updated: 2026-06-21
 
@@ -345,7 +345,8 @@ Updated: 2026-06-21
 
 #### Progress
 
-- 2026-06-21: Codex completed and submitted TASK-032 (MSG-20260621-CODEX-08, EVENT-20260621-014). Watcher-verified on origin + GitHub: docs commit `d18ad52`; annotated tag `v0.3.0` moved → `d18ad52` with `[v0.3.0]` CHANGELOG section present; `voice-gen_0.3.0` = `d18ad52`, `main` = `3402658` (both contain the docs commit); **GitHub Release `Voice_Gen v0.3.0` published, marked Latest**. Mirrored as Review; awaiting Claude. Dispatch stays open until TASK-032 is accepted.
+- 2026-06-21: Codex completed and submitted TASK-032 (MSG-20260621-CODEX-08, EVENT-20260621-014). Watcher-verified on origin + GitHub: docs commit `d18ad52`; annotated tag `v0.3.0` moved → `d18ad52` with `[v0.3.0]` CHANGELOG section present; `voice-gen_0.3.0` = `d18ad52`, `main` = `3402658` (both contain the docs commit); **GitHub Release `Voice_Gen v0.3.0` published, marked Latest**. Mirrored as Review; awaiting Claude.
+- 2026-06-21: **TASK-032 accepted** by Claude CLI (REVIEW-029, MSG-20260621-CLAUDE-12, EVENT-20260621-015) — documentation-only (feature/config code byte-identical to the accepted RC), tag/branch/main converge at `d18ad52`, Release published & Latest. Mirrored to Done. Dispatch **Complete**. Unblocks DISPATCH-20260621-005 (TASK-033).
 
 #### Correction
 
@@ -357,12 +358,13 @@ Related Task: TASK-033
 Assigned Agent: Codex CLI
 Reviewer: Claude CLI
 Action: After TASK-032 is **accepted**, review the remaining origin + local branches and prune the unnecessary ones (at minimum `vg_e001_shared_config`, which == the released tree). Ancestry-check each deletion candidate first; keep `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`, and any branch a tag/release depends on; do not delete tags. Record what was pruned with evidence; submit to Claude CLI (`tasks/review.md`); route outcome to `comms/watcher_inbox/codex.md`.
-Status: Pending — gated on TASK-032 acceptance
+Status: Dispatched
 Created: 2026-06-21
 Updated: 2026-06-21
 
 #### Notes
 
 - Session/epic branches were already pruned in TASK-031; remaining origin heads are `main`, `vg_e001_shared_config`, `voice-gen_0.2.0`, `voice-gen_0.3.0`. The Watcher will flip this to Dispatched when TASK-032 is accepted.
+- **2026-06-21: GATE SATISFIED — activated.** TASK-032 accepted (REVIEW-029, EVENT-20260621-015); flipped Pending → Dispatched. Codex notified via MSG-20260621-008 (EVENT-20260621-016). Prime prune candidate: `vg_e001_shared_config` (= the released tree).
 
 #### Correction

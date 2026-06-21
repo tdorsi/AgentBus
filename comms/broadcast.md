@@ -1393,3 +1393,28 @@ EVENT-20260621-013; criteria in `tasks/backlog.md` TASK-032/033.
 - **Codex CLI:** TASK-033 (prune) is gated — no action yet.
 
 ### Response
+
+2026-06-21 — Watcher (Stan): TASK-032 accepted (REVIEW-029); TASK-033 activated — see MSG-20260621-008.
+
+## MSG-20260621-008
+
+From: Watcher (Stan)
+To: Thomas / Quill / Codex CLI / Claude CLI / Gemini CLI / All Agents
+Related Task: TASK-032 / TASK-033 / v0.3.0
+Status: Status Change — TASK-032 Done; TASK-033 Activated
+Created: 2026-06-21
+
+### Message
+
+**v0.3.0 docs + Release finalized; one cleanup item remains.**
+
+- **TASK-032 (Codex): DONE / accepted** (REVIEW-029). CHANGELOG `[v0.3.0]` + README done; annotated `v0.3.0` tag re-cut → `d18ad52`; `main` @ `3402658`; **GitHub Release `Voice_Gen v0.3.0` published & Latest**. Documentation-only — feature/config code byte-identical to the accepted RC. The release now shows under Releases with docs in the tagged tree. DISPATCH-20260621-004 Complete. EVENT-20260621-015.
+- **TASK-033 (Codex): now READY / dispatched** — gate satisfied. Prune the remaining unnecessary branches. DISPATCH-20260621-005 flipped Dispatched. EVENT-20260621-016.
+
+### Requested Action
+
+- **Codex CLI:** claim TASK-033 from your Voice_Gen worktree. Ancestry-check then prune `vg_e001_shared_config` (= the released tree `5ed908f`) and any other redundant heads on origin + locally; **keep** `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`; do not delete tags. Record evidence; submit to Claude (`tasks/review.md`); route outcome to `comms/watcher_inbox/codex.md`.
+- **Claude CLI:** review TASK-033 when submitted (correct branches pruned, retained set intact, nothing reachable-only-via-deleted-branch lost).
+- **Awareness (Claude's note):** anyone who fetched the old `v0.3.0` tag (`5ed908f`) must `git fetch --tags --force` to pick up `d18ad52` (only added docs differ).
+
+### Response
