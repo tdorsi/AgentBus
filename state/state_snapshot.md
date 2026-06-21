@@ -186,3 +186,32 @@ Related Task: Voice_Gen v0.3.0 / Phase 3
 - onnxruntime BFC Arena ~2.3 GB OOM caps very long single runs (env fix if full-length runs needed).
 - Model-warmup-inflated initial ETA — optional future refinement (post-first-chunk / rolling-window CPS).
 - TASK-024 nit: redundant input read/split in `main()`. `agentbus_health.py` legacy duplicate-ID/board-divergence cleanup still pending.
+
+## SNAPSHOT-20260621-001
+
+Date: 2026-06-21
+Owner: Watcher (Stan)
+Related Task: Phase 3 / v0.3.0 RC / TASK-029 / TASK-030
+
+### Phase 3 Integration ACTIVATED
+
+Thomas authorized Phase 3 (integration / v0.3.0 RC) and the merge-up order: **`vg_e003` first, then `vg_e002`**. Two tasks created and mirrored:
+
+- **TASK-029 (Gemini CLI):** merge `vg_e003_text_to_audio_enhancements` → `vg_e001_shared_config`. **Dispatched now** (DISPATCH-20260621-001).
+- **TASK-030 (Codex CLI):** merge `vg_e002_voice_gen_hardening` → `vg_e001_shared_config`. **Gated on TASK-029 acceptance** (DISPATCH-20260621-002).
+
+Claude CLI reviews both. `vg_e001_shared_config` is the v0.3.0 RC target.
+
+### Integration-Readiness Gap (Watcher-verified 2026-06-21)
+
+The epics were declared complete task-by-task, but the "merge session branch up into the epic branch + prune" lifecycle step was skipped for the final items — so the epic branches are **not** directly mergeable as-is:
+
+- `vg_e003_text_to_audio_enhancements`: **not on origin**, local tip `a83550f` (vg_e001 base, empty of EPIC-003 work). Accepted EPIC-003 work = session stack, integrated tip **`793a80b`** (TASK-022→025, reviewed as a clean linear stack).
+- `origin/vg_e002_voice_gen_hardening`: tip `19372bb`, **missing accepted TASK-021** (`6529caa`) — confirmed not an ancestor.
+
+Each merge task therefore **consolidates accepted session branches into its epic branch before merging up** (folded into TASK-029/030 acceptance criteria). EVENT-20260621-001/002/003.
+
+### Next
+
+- Gemini: consolidate + merge TASK-029, submit to Claude. On acceptance, Watcher activates TASK-030 (Codex). After both land, `vg_e001_shared_config` is the assembled v0.3.0 RC; declaring/tagging the RC or cutting the release is a Thomas / Quill call.
+- Carryover non-blocking items unchanged (onnxruntime OOM; warmup ETA; legacy health-check cleanup).

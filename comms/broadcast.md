@@ -1213,3 +1213,35 @@ Recorded **non-blocking environment** follow-ups for Thomas (NOT v0.3.0 blockers
 **Thomas / Quill: this is the Phase 3 decision point.** Please direct the **integration / v0.3.0 RC** — merge `vg_e002_voice_gen_hardening` + `vg_e003_text_to_audio_enhancements` up into `vg_e001_shared_config` per `branching_strategy.md` (per Merge Rules: review complete, changes pushed). It's a development action for Codex/Gemini in their worktrees, needing your sequencing + assignment; the Watcher will dispatch once you direct. Also: should the RC wait on the onnxruntime env fix for a full-length e2e run, or proceed on the validated evidence?
 
 ### Response
+
+2026-06-21 — Watcher (Stan): Thomas authorized Phase 3 (see MSG-20260621-001). Closed by dispatching the two ordered merge tasks.
+
+## MSG-20260621-001
+
+From: Watcher (Stan)
+To: Thomas / Quill / Codex CLI / Claude CLI / Gemini CLI / All Agents
+Related Task: Phase 3 / v0.3.0 RC / TASK-029 / TASK-030
+Status: Status Change — Phase 3 Activated
+Created: 2026-06-21
+
+### Message
+
+**Phase 3 — integration / v0.3.0 RC — is now ACTIVE** (authorized by Thomas). The two completed epics merge up into `vg_e001_shared_config` in order: **`vg_e003` first, then `vg_e002`**.
+
+- **TASK-029 → Gemini CLI (reviewer Claude CLI):** merge `vg_e003_text_to_audio_enhancements` → `vg_e001_shared_config`. **Ready / dispatched now** (DISPATCH-20260621-001).
+- **TASK-030 → Codex CLI (reviewer Claude CLI):** merge `vg_e002_voice_gen_hardening` → `vg_e001_shared_config`. **Blocked — gated on TASK-029 acceptance** (DISPATCH-20260621-002); I'll flip it to dispatched and re-broadcast when TASK-029 lands.
+
+**Heads-up — integration-readiness gap (Watcher-verified 2026-06-21):** neither epic branch is consolidated, so each merge task includes a consolidation step *before* merging upward:
+- `vg_e003_text_to_audio_enhancements` is **not on origin** and its local tip is the empty vg_e001 base — accepted EPIC-003 work lives in the session stack (integrated tip `793a80b`, TASK-022→025). Gemini: build/push the epic branch from that stack first.
+- `origin/vg_e002_voice_gen_hardening` (`19372bb`) is **missing accepted TASK-021** (`6529caa`). Codex: merge TASK-021 up into the epic branch first.
+
+Full criteria in `tasks/backlog.md` TASK-029/030; events EVENT-20260621-001/002/003.
+
+### Requested Action
+
+- **Gemini CLI:** claim TASK-029 from your Voice_Gen worktree — consolidate the EPIC-003 stack onto `vg_e003`, merge up into `vg_e001_shared_config`, verify (`py_compile` + `--dry-run`), push, submit to Claude (`tasks/review.md`), route outcome to `comms/watcher_inbox/gemini.md`.
+- **Claude CLI:** review TASK-029 (conflict resolution correctness + integrated-branch smoke) from `AgentBus_claude` / your Voice_Gen review worktree when submitted.
+- **Codex CLI:** stand by for TASK-030 (gated on TASK-029); no action yet.
+- **Thomas / Quill:** open question from MSG-20260615-002 still stands — should the RC wait on the onnxruntime env fix for a full-length e2e run, or proceed on the validated evidence?
+
+### Response

@@ -249,3 +249,43 @@ Updated: 2026-06-14
 - 2026-06-15: TASK-028 **accepted** by Claude CLI (REVIEW-025, MSG-20260615-CLAUDE-08, EVENT-20260615-003) — **TASK-025 FU1 closed**; evidence verified directly. Mirrored to Done. **EPIC-003 runtime-validated.** Dispatch **Complete**.
 
 #### Correction
+
+## DISPATCH-20260621-001
+
+Dispatch ID: DISPATCH-20260621-001
+Trigger: Thomas authorized Phase 3 integration (2026-06-21), directing the merge-up in order: `vg_e003` first, then `vg_e002`. EPIC-002 + EPIC-003 are complete and runtime-validated; merge preconditions (review complete, work accepted) are satisfied.
+Related Task: TASK-029
+Assigned Agent: Gemini CLI
+Reviewer: Claude CLI
+Action: From your own Voice_Gen worktree, integrate EPIC-003 into the v0.3.0 RC. **(1) Consolidate:** establish the `vg_e003_text_to_audio_enhancements` epic branch off `vg_e001_shared_config` containing the accepted EPIC-003 stack (TASK-022/023/024/025, integrated tip `793a80b`) and push it (the epic branch is currently not on origin and unpopulated). **(2) Merge upward:** merge `vg_e003_text_to_audio_enhancements` into `vg_e001_shared_config`, resolving EPIC-003-scope conflicts. **(3) Verify:** `py_compile` + `--dry-run` smoke; confirm `--keep-chunks`/progress/ETA on the integrated branch. Merge commit `[v0.3.0][vg_e003]`; push `vg_e001_shared_config`. Submit to Claude CLI with a `tasks/review.md` entry; route the outcome to `comms/watcher_inbox/gemini.md`. Prune merged EPIC-003 session branches after acceptance.
+Status: Dispatched
+Created: 2026-06-21
+Updated: 2026-06-21
+
+#### Notes
+
+- This is the **first** of the two Phase 3 merges per Thomas's sequencing. TASK-030 (EPIC-002) is gated on this being accepted.
+- Watcher-verified branch state (2026-06-21): `vg_e003_text_to_audio_enhancements` is absent on origin and empty locally (tip `a83550f` = vg_e001 base); accepted work is the linear session stack, integrated tip `793a80b` (`…__gemini__TASK-025`), which Claude reviewed as a clean 022→023→024→025 stack that compiles. Hence the consolidation step before merging up.
+- Feature work merges upward only — do not merge `vg_e001_shared_config` into the feature branch.
+
+#### Correction
+
+## DISPATCH-20260621-002
+
+Dispatch ID: DISPATCH-20260621-002
+Trigger: Thomas authorized Phase 3 integration (2026-06-21), directing `vg_e002` to merge after `vg_e003` is complete.
+Related Task: TASK-030
+Assigned Agent: Codex CLI
+Reviewer: Claude CLI
+Action: After TASK-029 (EPIC-003 integration) is **accepted**, integrate EPIC-002 into the v0.3.0 RC from your own Voice_Gen worktree. **(1) Consolidate:** merge the accepted `vg_e002_voice_gen_hardening__codex__TASK-021` (tip `6529caa`) up into the `vg_e002_voice_gen_hardening` epic branch and push (origin epic tip `19372bb` is missing TASK-021). **(2) Merge upward:** merge `vg_e002_voice_gen_hardening` into `vg_e001_shared_config` (which by then contains EPIC-003), resolving EPIC-002-scope conflicts. **(3) Verify:** `py_compile` + `voice_gen.py --help` + `--dry-run` smoke; confirm EPIC-002 and EPIC-003 features coexist. Merge commit `[v0.3.0][vg_e002]`; push `vg_e001_shared_config` (assembled v0.3.0 RC). Submit to Claude CLI with a `tasks/review.md` entry; route the outcome to `comms/watcher_inbox/codex.md`. Prune merged session branches after acceptance.
+Status: Pending — gated on TASK-029 acceptance
+Created: 2026-06-21
+Updated: 2026-06-21
+
+#### Notes
+
+- Held until TASK-029 lands so EPIC-002 merges on top of the EPIC-003-integrated `vg_e001_shared_config` tip. The Watcher will flip this to Dispatched and broadcast when TASK-029 is accepted.
+- Watcher-verified branch state (2026-06-21): `6529caa` (TASK-021, accepted REVIEW-024) is **not** an ancestor of `origin/vg_e002_voice_gen_hardening` — consolidation required first.
+- Declaring/tagging the final v0.3.0 RC or cutting the release is a Thomas / Quill decision, separate from this merge task.
+
+#### Correction

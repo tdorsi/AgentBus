@@ -1027,3 +1027,59 @@ Gemini posted supplemental TASK-028 evidence: a second real end-to-end run on th
 #### Resulting State
 
 Record-only acknowledgement; **no state transition**. TASK-028 remains Done/accepted (REVIEW-025, EVENT-20260615-003) and TASK-025 FU1 stays closed — this evidence strengthens that acceptance rather than changing it. Board, Blocked, and dispatch state are unchanged; EPIC-003 is now exercised to completion across two voices. The chunk-68 onnxruntime OOM remains a non-blocking environment follow-up for Thomas (it is voice/length-dependent, not an EPIC-003 defect). Phase 3 integration / v0.3.0 RC remains the open milestone awaiting Thomas / Quill sequencing.
+
+## EVENT-20260621-001
+
+Event ID: EVENT-20260621-001
+Type: New Task Activation — Product Owner Authorization (Phase 3)
+Related Task: EPIC-002 / EPIC-003 / TASK-029 / TASK-030
+Related Dispatch: DISPATCH-20260621-001, DISPATCH-20260621-002
+Source: Thomas direction to Watcher (Stan), 2026-06-21 (session)
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+Thomas authorized **Phase 3 — integration / v0.3.0 RC**, directing the epic merge-up in order: **`vg_e003` first, then `vg_e002` once vg_e003 is complete**, with tasks added for Gemini (EPIC-003) and Codex (EPIC-002) respectively. This discharges the open milestone escalated in broadcast MSG-20260615-002.
+
+**Integration-readiness gap found during this pass (Watcher-verified against the Voice_Gen remote):** neither epic branch was consolidated. `vg_e003_text_to_audio_enhancements` **does not exist on origin** and the local branch is empty (tip `a83550f` = vg_e001 base); the accepted EPIC-003 work lives only in the session-branch stack (integrated tip `793a80b`). `origin/vg_e002_voice_gen_hardening` (tip `19372bb`) is **missing the accepted TASK-021** (`6529caa`), which sits only on its session branch. The per-task "merge up into the epic branch + prune" lifecycle step was skipped for the final items, so each merge task includes a consolidation step before merging upward.
+
+#### Resulting State
+
+Two tasks created in `tasks/backlog.md` and mirrored on the board: **TASK-029** (Gemini, merge `vg_e003` → `vg_e001_shared_config`) and **TASK-030** (Codex, merge `vg_e002` → `vg_e001_shared_config`). TASK-029 dispatched now (DISPATCH-20260621-001); TASK-030 queued and gated on TASK-029 acceptance (DISPATCH-20260621-002). Phase 3 is now the active milestone. Recorded as operational sequencing under Thomas's authority (no governance DECISION required); decision_log remains Thomas/Quill-owned.
+
+## EVENT-20260621-002
+
+Event ID: EVENT-20260621-002
+Type: New Task Activation
+Related Task: TASK-029
+Related Dispatch: DISPATCH-20260621-001
+Source: EVENT-20260621-001, tasks/backlog.md
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+TASK-029 (Integrate EPIC-003 into the v0.3.0 RC — consolidate the accepted EPIC-003 session stack onto `vg_e003_text_to_audio_enhancements`, then merge up into `vg_e001_shared_config`) created and dispatched to Gemini CLI; Claude CLI reviews. This is the first of the two ordered Phase 3 merges.
+
+#### Resulting State
+
+TASK-029 mirrored on the board as Ready / dispatched (In Progress section, DISPATCH-20260621-001). Awaiting Gemini's consolidation + merge submission and Claude's review.
+
+## EVENT-20260621-003
+
+Event ID: EVENT-20260621-003
+Type: New Task Activation (gated)
+Related Task: TASK-030
+Related Dispatch: DISPATCH-20260621-002
+Source: EVENT-20260621-001, tasks/backlog.md
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+TASK-030 (Integrate EPIC-002 into the v0.3.0 RC — consolidate accepted TASK-021 onto `vg_e002_voice_gen_hardening`, then merge up into `vg_e001_shared_config`) created for Codex CLI; Claude CLI reviews. Gated on TASK-029 acceptance so EPIC-002 merges on top of the EPIC-003-integrated tip.
+
+#### Resulting State
+
+TASK-030 mirrored on the board under Blocked (gated on TASK-029), dispatch Pending (DISPATCH-20260621-002). The Watcher will flip it to Dispatched and broadcast when TASK-029 is accepted.
