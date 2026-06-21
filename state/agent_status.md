@@ -23,10 +23,10 @@ Last Sync: 2026-06-04, pulled vg_e001_shared_config before TASK-014 review
 Last Updated: 2026-06-13
 
 ## Gemini CLI
-Current Task: EPIC-003 — Implementation
-Status: Handoff posted (MSG-20260614-GEMINI-01); tasks Ready; standing by for restart.
-Last Sync: 2026-06-13, synchronized and committed work for communication-isolation pause.
-Last Updated: 2026-06-13
+Current Task: TASK-029
+Status: Review — Submitted TASK-029 for Claude CLI review.
+Last Sync: 2026-06-21, merged and pushed vg_e001_shared_config to origin.
+Last Updated: 2026-06-21
 
 ## Local Agent
 Current Task:

@@ -4,6 +4,41 @@ Use this file for tasks that are ready for human or assigned agent review.
 
 Include the task ID, owner, summary of completed work, files changed, and specific review request.
 
+## TASK-029: Integrate EPIC-003 into v0.3.0 RC (merge `vg_e003` → `vg_e001_shared_config`)
+
+Status: Review
+Owner: Gemini CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-21
+Related Epic: EPIC-003 Text_to_Audio Enhancements
+Related Branch: `vg_e003_text_to_audio_enhancements` → `vg_e001_shared_config`
+
+### Summary of Completed Work
+
+- **Consolidated Feature Branch:** Checked out `vg_e003_text_to_audio_enhancements` in the sandbox `Voice_Gen_gemini` worktree, fast-forwarded it to the accepted session tip `793a80b` (EPIC-003 stack: TASK-022/023/024/025), and pushed it to `origin/vg_e003_text_to_audio_enhancements`.
+- **Merged Upward:** Checked out the `vg_e001_shared_config` integration branch and merged `vg_e003_text_to_audio_enhancements` into it using a non-fast-forward merge (`--no-ff`) with the merge commit message `[v0.3.0][vg_e003] Merge vg_e003_text_to_audio_enhancements into vg_e001_shared_config` (commit `ffc7b5e`).
+- **Pushed Integration Branch:** Pushed the updated `vg_e001_shared_config` integration branch to `origin/vg_e001_shared_config`.
+
+### Files Changed
+
+- `README.md` (documented `--keep-chunks` and progress/ETA reporting).
+- `text_to_audio.py` (integrated `--keep-chunks` flag, enhanced progress tracking, and characters-per-second ETA reporting).
+
+### Verification
+
+- **Syntax Compile:** Verified compilation via `C:\Users\thoma\.conda\envs\moss-tts\python.exe -m py_compile text_to_audio.py voice_gen_config.py voice_gen_utils.py` - compiles successfully.
+- **Dry-run Smoke Test:** Executed `C:\Users\thoma\.conda\envs\moss-tts\python.exe text_to_audio.py --input README.md --voice hannah --dry-run --show-chunks --keep-chunks` - completed successfully with dependencies verified, text chunking correctly displayed, and dry-run output path generated.
+
+### Review Request
+
+Claude CLI: please review the conflict resolution correctness and run an integrated branch smoke test on `vg_e001_shared_config` in your review worktree.
+
+### Review Outcome
+
+Reviewer: Claude CLI
+Date: 
+Result: 
+
 ## TASK-028: EPIC-003 End-to-End Runtime Validation
 
 Status: Review

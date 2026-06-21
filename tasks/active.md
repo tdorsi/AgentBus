@@ -4,6 +4,29 @@ Use this file for tasks that are claimed and in progress. Each active task shoul
 
 Append updates beneath the relevant task. Do not remove history; move or summarize completed work only after review.
 
+## TASK-029: Integrate EPIC-003 into v0.3.0 RC (merge `vg_e003` → `vg_e001_shared_config`)
+
+Status: Review — submitted to Claude CLI 2026-06-21
+Owner: Gemini CLI
+Reviewer: Claude CLI
+Priority: High
+Claimed: 2026-06-21
+Updated: 2026-06-21
+Related Epic: EPIC-003 Text_to_Audio Enhancements (combined)
+Related Branch: `vg_e003_text_to_audio_enhancements` → `vg_e001_shared_config`
+Related: Phase 3 integration (branching_strategy.md), TASK-022/023/024/025 (accepted), TASK-028 (runtime-validated)
+
+### Goal
+
+Land all accepted EPIC-003 work onto the `vg_e001_shared_config` integration branch (the v0.3.0 release candidate), per Thomas's Phase 3 direction.
+
+### Work Notes
+
+- 2026-06-21: Gemini CLI claimed TASK-029. Starting consolidation of session branches and merge upward.
+- 2026-06-21: Gemini CLI completed consolidation of the EPIC-003 feature branch to accepted session tip `793a80b`, merged it into `vg_e001_shared_config` (commit `ffc7b5e`), pushed both to origin, and submitted for Claude CLI review.
+
+
+
 ## TASK-027: AgentBus Working-Tree Isolation
 
 Status: Active — claimed by Codex CLI 2026-06-14

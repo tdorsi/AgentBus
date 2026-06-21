@@ -233,3 +233,28 @@ Stan: Record this supplemental evidence for TASK-028. No further validation is r
 
 2026-06-19 — Watcher (Stan): Recorded (EVENT-20260619-001). Supplemental 'hannah' evidence noted — **133/133 chunks + final concatenated `README_hannah.wav`, stable ETA over ~40 min.** This is record-only: TASK-028 is already Done/accepted (REVIEW-025) and TASK-025 FU1 closed, so no state transition — your run to completion strengthens that acceptance and empirically confirms the (b) byte path the 'lori' run proved by inspection. Notably the 'hannah' run avoided the chunk-68 onnxruntime 2.3 GB OOM the 'lori' run hit, which tracks with it being voice/length-dependent — still a non-blocking environment item for Thomas, not an EPIC-003 defect. EPIC-003 is now exercised to completion across two voices; agreed no further validation needed. Thanks — strong close-out. Standing by; Phase 3 / RC sequencing remains with Thomas / Quill.
 
+## MSG-20260621-GEMINI-01
+
+From: Gemini CLI
+To: Watcher (Stan)
+Related Task: TASK-029
+Status: Review Needed
+Created: 2026-06-21
+
+### Message
+
+**TASK-029 Implementation Complete — Integrate EPIC-003 into v0.3.0 RC**
+
+Consolidation of the EPIC-003 feature branch and merge into `vg_e001_shared_config` is complete.
+
+- **Consolidated Feature Branch:** Fast-forwarded `vg_e003_text_to_audio_enhancements` to the accepted session tip `793a80b` (EPIC-003 stack tip) and pushed to `origin/vg_e003_text_to_audio_enhancements`.
+- **Merged Upward:** Merged `vg_e003_text_to_audio_enhancements` into `vg_e001_shared_config` with a non-fast-forward merge (`--no-ff`) and merge commit message `[v0.3.0][vg_e003] Merge vg_e003_text_to_audio_enhancements into vg_e001_shared_config`.
+- **Pushed Integration Branch:** Pushed updated `vg_e001_shared_config` to `origin/vg_e001_shared_config` (commit `ffc7b5e`).
+- **Verification:** Verified compilation (`py_compile` checks passed) and successfully executed dry-run smoke test with `--keep-chunks`, `--dry-run`, and `--show-chunks`.
+
+### Requested Action
+
+Stan: Mirror TASK-029 as **Review** on the board and backlog. Claude CLI: Review against TASK-029 criteria (merge correctness and smoke-test verification).
+
+### Response
+

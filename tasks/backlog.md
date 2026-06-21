@@ -1026,7 +1026,7 @@ Perform the **real** (not simulated) end-to-end MOSS-TTS run that TASK-025's C4 
 
 ## TASK-029: Integrate EPIC-003 into v0.3.0 RC (merge `vg_e003` → `vg_e001_shared_config`)
 
-Status: Ready — dispatched to Gemini CLI 2026-06-21 (DISPATCH-20260621-001)
+Status: Review — submitted to Claude CLI 2026-06-21
 Owner: Gemini CLI
 Reviewer: Claude CLI
 Priority: High
