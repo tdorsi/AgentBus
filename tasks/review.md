@@ -1069,6 +1069,14 @@ Submitted: 2026-06-21
 
 Claude CLI: review TASK-032 for release-note completeness, documentation-only scope, correct moved annotated tag, branch convergence, and the published GitHub Release.
 
+### Review Outcome
+
+Reviewer: Claude CLI
+Date: 2026-06-21
+Result: Accepted
+
+Verified from my `Voice_Gen_claude` worktree after `git fetch --tags --force --prune`. **Documentation-only** ✓ — `git diff 5ed908f d18ad52` = `CHANGELOG.md` (+33, new) + `README.md` (+13/−1) only; diff over the feature/config files (voice_gen.py/voice_gen_utils.py/voice_gen_config.py/text_to_audio.py/voice_gen.toml) is **empty**, so the released code is byte-identical to the accepted RC. **Moved tag** ✓ — annotated `v0.3.0` (tag obj `ea3e715`, tagger tdorsi) peels to `d18ad52`; the force re-cut was under Thomas's explicit authorization and is benign (only added release docs differ from the old tagged tree). **Convergence** ✓ — `voice-gen_0.3.0` → `d18ad52`; `main` `3402658 [v0.3.0][docs] Merge`, parents `ab6dd2a` + `d18ad52`; release-branch tree == main tree. **CHANGELOG** ✓ — Keep-a-Changelog `[v0.3.0] — 2026-06-21` covering EPIC-001/002/003. **README** ✓ — `Current Version: v0.3.0`. **Compile** ✓ on main. **GitHub Release** ✓ — `gh release view v0.3.0 -R tdorsi/voice-gen`: published, draft:false, prerelease:false, Latest. Non-blocking: consumers who fetched the old `v0.3.0` (at `5ed908f`) must `fetch --tags --force` to get the moved tag. See `reviews/REVIEW-029.md`. Routed via `comms/watcher_inbox/claude.md` MSG-20260621-CLAUDE-12. Unblocks TASK-033 (branch pruning, gated per DISPATCH-20260621-005).
+
 ## TASK-033: Prune Remaining Unnecessary Voice_Gen Branches
 
 Status: Review
@@ -1119,4 +1127,6 @@ Reviewer: Claude CLI
 Date: 2026-06-21
 Result: Accepted
 
-Verified from my `Voice_Gen_claude` worktree after `git fetch --tags --force --prune`. **Documentation-only** ✓ — `git diff 5ed908f d18ad52` = `CHANGELOG.md` (+33, new) + `README.md` (+13/−1) only; diff over the feature/config files (voice_gen.py/voice_gen_utils.py/voice_gen_config.py/text_to_audio.py/voice_gen.toml) is **empty**, so the released code is byte-identical to the accepted RC. **Moved tag** ✓ — annotated `v0.3.0` (tag obj `ea3e715`, tagger tdorsi) peels to `d18ad52`; the force re-cut was under Thomas's explicit authorization and is benign (only added release docs differ from the old tagged tree). **Convergence** ✓ — `voice-gen_0.3.0` → `d18ad52`; `main` `3402658 [v0.3.0][docs] Merge`, parents `ab6dd2a` + `d18ad52`; release-branch tree == main tree. **CHANGELOG** ✓ — Keep-a-Changelog `[v0.3.0] — 2026-06-21` covering EPIC-001/002/003. **README** ✓ — `Current Version: v0.3.0`. **Compile** ✓ on main. **GitHub Release** ✓ — `gh release view v0.3.0 -R tdorsi/voice-gen`: published, draft:false, prerelease:false, Latest. Non-blocking: consumers who fetched the old `v0.3.0` (at `5ed908f`) must `fetch --tags --force` to get the moved tag. See `reviews/REVIEW-029.md`. Routed via `comms/watcher_inbox/claude.md` MSG-20260621-CLAUDE-12. Unblocks TASK-033 (branch pruning, gated per DISPATCH-20260621-005).
+Verified from my `Voice_Gen_claude` worktree after `git fetch --tags --force --prune`. **Final remote branch set** ✓ — exactly `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`; the integration branch `vg_e001_shared_config` is deleted as intended. **Tags** ✓ — `v0.1.0` + annotated `v0.3.0` (→ `d18ad52`) retained. **No work lost** ✓ — the deleted `vg_e001_shared_config` tip `5ed908f` is still an ancestor of both `origin/main` and `origin/voice-gen_0.3.0`; all epic/feature tips (`d18ad52`/`5ed908f`/`ffc7b5e`/`793a80b`/`6529caa`/`a83550f`) are reachable from `main` — nothing was reachable only through the deleted branch. **Prior release preserved** ✓ — `voice-gen_0.2.0` at `feba323`. **Release integrity** ✓ — the GitHub Release resolves through tag `v0.3.0` → `d18ad52`, not the deleted branch, so the publish is unaffected. Non-blocking: per-agent local clones (incl. mine) may still hold stale local branches — expected under isolation; `origin` is clean. See `reviews/REVIEW-030.md`. Routed via `comms/watcher_inbox/claude.md` MSG-20260621-CLAUDE-13. Completes the v0.3.0 release housekeeping (TASK-029→033 all accepted).
+
+(Correction: a prior rebase had misplaced the TASK-032 outcome under this TASK-033 entry; it has been restored to the TASK-032 entry above.)

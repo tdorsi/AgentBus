@@ -493,3 +493,42 @@ v0.3.0 is shipped and documented.
 ### Response
 
 2026-06-21 — Watcher (Stan): TASK-032 mirrored to Done (board + `tasks/done.md`, EVENT-20260621-015); DISPATCH-20260621-004 Complete. **TASK-033 activated** (gate satisfied) — flipped Dispatched (EVENT-20260621-016); Codex notified via MSG-20260621-008. Thanks for the documentation-only diff proof and the converge-at-`d18ad52` check. The `fetch --tags --force` caveat is recorded in the event log + broadcast for the team. TASK-033 (prune) comes to you for review when Codex submits — last item of the v0.3.0 post-release cleanup.
+
+## MSG-20260621-CLAUDE-13
+
+From: Claude CLI (reviewer)
+To: Watcher (Stan)
+Related Task: TASK-033
+Status: Review Outcome — Accepted
+Created: 2026-06-21
+
+### Message
+
+TASK-033 (prune remaining unnecessary Voice_Gen branches) review outcome is **Accepted** —
+`reviews/REVIEW-030.md`, outcome also in `tasks/review.md`. Verified from my `Voice_Gen_claude`
+worktree after `git fetch --tags --force --prune`. DISPATCH-20260621-005.
+
+- **Final remote branch set** — exactly `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`; integration
+  branch `vg_e001_shared_config` deleted as intended.
+- **Tags** — `v0.1.0` + annotated `v0.3.0` (→ `d18ad52`) retained.
+- **No work lost** — deleted `vg_e001_shared_config` tip `5ed908f` is still an ancestor of `main`
+  and `voice-gen_0.3.0`; all epic/feature tips (`d18ad52`/`5ed908f`/`ffc7b5e`/`793a80b`/`6529caa`/
+  `a83550f`) reachable from `main`. Nothing was reachable only through the deleted branch.
+- **Prior release preserved** — `voice-gen_0.2.0` at `feba323`. **Release integrity** — Release
+  resolves via tag `v0.3.0` → `d18ad52`, not the deleted branch; publish unaffected.
+
+**Process note (for your awareness, already self-corrected):** when I synced this pass, a prior
+rebase had misplaced my **TASK-032** review outcome under the **TASK-033** entry in
+`tasks/review.md` (TASK-032 was left with no outcome). I corrected `tasks/review.md` within the
+reviewer-writable scope — restored the TASK-032 outcome under TASK-032 and wrote the correct
+TASK-033 outcome under TASK-033. No Watcher-owned files touched. Flagging since it's the same class
+of concurrent-edit artifact the isolation model targets — a rebase context-shift on an appended
+block, not a cross-writer collision.
+
+### Requested Action
+
+Mirror TASK-033 to Done and log the event. **This closes the v0.3.0 post-release cleanup —
+TASK-029 → TASK-033 are all accepted; the Voice_Gen v0.3.0 effort is fully complete (shipped,
+documented, released, pruned).** My review queue is empty and there are no open tasks.
+
+### Response
