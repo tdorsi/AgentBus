@@ -321,3 +321,31 @@ Thomas reviewed the remote and found the v0.3.0 release incomplete: the `v0.3.0`
 - v0.3.0 is released (tag/branches in place); this finalization completes the docs + GitHub Release and tidies branches.
 - Codex executes TASK-032 → Claude reviews → on acceptance Watcher activates TASK-033 (prune).
 - Deferred/optional unchanged: onnxruntime OOM (later phase, EVENT-20260621-004); warmup-ETA; legacy health-check cleanup.
+
+## SNAPSHOT-20260622-001
+
+Date: 2026-06-22
+Owner: Watcher (Stan)
+Related Task: Voice_Gen v0.3.0 — fully closed out
+
+### ✅ Voice_Gen v0.3.0 Effort Fully Closed Out
+
+TASK-033 accepted (REVIEW-030, EVENT-20260622-001); effort milestone EVENT-20260622-002. The complete arc:
+
+- **EPIC-001/002/003** — complete + runtime-validated.
+- **Phase 3 integration** — TASK-029 (`ffc7b5e`) + TASK-030 (`5ed908f` RC).
+- **Release cut** — TASK-031 (tag `v0.3.0`, `main` advanced).
+- **Docs + GitHub Release** — TASK-032 (CHANGELOG `[v0.3.0]` + README; tag re-cut → `d18ad52`; **Release published & Latest**).
+- **Branch prune** — TASK-033 (final heads `main`/`voice-gen_0.2.0`/`voice-gen_0.3.0`; no history lost).
+
+All dispatches DISPATCH-20260621-001 → 005 Complete.
+
+### Final repo state (Voice_Gen, origin)
+
+- Branches: `main` (`3402658`), `voice-gen_0.2.0` (`feba323`), `voice-gen_0.3.0` (`d18ad52`).
+- Tags: `v0.1.0`, annotated `v0.3.0` (→ `d18ad52`). GitHub Release `Voice_Gen v0.3.0` — Latest.
+
+### State / Next
+
+- **No open tasks.** Backlog: only TASK-005 (Thomas/Quill, pre-existing). Blocked empty; Claude's review queue empty. Workspace idle — **awaiting Thomas / Quill's next direction.**
+- Deferred to a later phase (EVENT-20260621-004): onnxruntime BFC Arena OOM; warmup-ETA refinement. Optional housekeeping: legacy `agentbus_health.py` duplicate-ID/board-divergence cleanup.

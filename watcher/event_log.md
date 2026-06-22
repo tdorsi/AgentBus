@@ -1356,3 +1356,39 @@ Thomas detached Gemini's worktree as requested. Watcher-verified via `git worktr
 #### Resulting State
 
 TASK-033 moved Blocked → Ready/unblocked on the board (In Progress); Blocked empty. Routed to Codex (`comms/inbox_codex.md` MSG-20260621-011): delete the local `vg_e001_shared_config` from your Voice_Gen worktree (`git branch -d vg_e001_shared_config`) and submit TASK-033 for Claude's review. DISPATCH-20260621-005 stays open until Codex submits and Claude accepts.
+
+## EVENT-20260622-001
+
+Event ID: EVENT-20260622-001
+Type: Review Accepted
+Related Task: TASK-033 / v0.3.0 cleanup
+Related Dispatch: DISPATCH-20260621-005 (Complete)
+Source: reviews/REVIEW-030.md, comms/watcher_inbox/claude.md (TASK-033 outcome), tasks/review.md
+Actor: Watcher (Stan)
+Created: 2026-06-22
+
+#### Summary
+
+Claude CLI accepted TASK-033 (final v0.3.0 branch prune, REVIEW-030). After Thomas cleared the worktree blocker (EVENT-20260621-018), Codex deleted the local `vg_e001_shared_config` and submitted. Watcher-verified on origin: final remote heads are exactly `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`; tags `v0.1.0` + annotated `v0.3.0` (→ `d18ad52`) retained; **no history lost** — the deleted `vg_e001_shared_config` tip `5ed908f` is still an ancestor of `origin/main` and `origin/voice-gen_0.3.0`; the GitHub Release resolves through the tag (not the deleted branch) and is unaffected.
+
+#### Resulting State
+
+TASK-033 mirrored to Done on the board + `tasks/done.md`; DISPATCH-20260621-005 Complete. (Claude also corrected a misplaced TASK-032 outcome block in `tasks/review.md` — a concurrent-edit artifact, reviewer housekeeping.)
+
+## EVENT-20260622-002
+
+Event ID: EVENT-20260622-002
+Type: Milestone — Voice_Gen v0.3.0 Effort Fully Closed Out
+Related Task: v0.3.0 (TASK-029 → TASK-033)
+Related Dispatch: DISPATCH-20260621-001 → 005 (all Complete)
+Source: REVIEW-026/027/028/029/030; EVENT-20260621-005/007/008/011/015 + EVENT-20260622-001
+Actor: Watcher (Stan)
+Created: 2026-06-22
+
+#### Summary
+
+**The Voice_Gen v0.3.0 effort is fully closed out.** End to end: EPIC-001/002/003 (complete + runtime-validated) → Phase 3 integration (TASK-029/030, RC `5ed908f`) → release cut (TASK-031, tag `v0.3.0`) → docs + GitHub Release (TASK-032, tag re-cut → `d18ad52`, Release published & Latest) → branch prune (TASK-033). Final repo state: branches `main` (`3402658`), `voice-gen_0.2.0`, `voice-gen_0.3.0` (`d18ad52`); tags `v0.1.0`, `v0.3.0`; GitHub Release `Voice_Gen v0.3.0` Latest.
+
+#### Resulting State
+
+No open tasks; Backlog holds only TASK-005 (Thomas/Quill, pre-existing); Blocked empty; Claude's review queue empty. The workspace is idle, awaiting Thomas / Quill's next direction. Non-blocking, deferred to a later phase (EVENT-20260621-004): onnxruntime BFC Arena OOM; warmup-ETA refinement. Optional housekeeping: legacy `agentbus_health.py` duplicate-ID/board-divergence cleanup; owners may move their TASK-031/032/033 `active.md`/`review.md` entries to done to clear the expected board-vs-tasks lag.

@@ -239,3 +239,16 @@ Artifacts: docs commit `d18ad52 [v0.3.0][docs]`; annotated tag `v0.3.0` re-cut �
 ### Summary
 
 Finalized the v0.3.0 release docs + Release. Codex added a CHANGELOG `[v0.3.0] — 2026-06-21` section (EPIC-001/002/003) and a README "Current Version: v0.3.0" / "What's New" summary (commit `d18ad52`), advanced `voice-gen_0.3.0` to it, **re-cut the annotated `v0.3.0` tag** onto `d18ad52` (force-update, authorized by Thomas), merged docs into `main` (`3402658`), and **published the GitHub Release** `Voice_Gen v0.3.0` (Latest). Claude verified (REVIEW-029): documentation-only (`git diff 5ed908f d18ad52` = CHANGELOG + README only; feature/config code byte-identical to the accepted RC), tag/branch/main converge at `d18ad52`, compiles, Release published (draft:false, Latest). Closes the gap Thomas flagged — v0.3.0 now appears under Releases with docs in the tagged tree. Unblocks TASK-033 (branch prune).
+
+## TASK-033: Prune Remaining Unnecessary Voice_Gen Branches
+
+Status: Done — accepted by Claude CLI 2026-06-21
+Owner: Codex CLI
+Reviewer: Claude CLI
+Completed: 2026-06-21 (mirrored 2026-06-22)
+Related Review: REVIEW-030
+Artifacts: deleted `origin/vg_e001_shared_config`; final remote heads `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`; tags `v0.1.0`, `v0.3.0`
+
+### Summary
+
+Final v0.3.0 housekeeping. Codex pruned the redundant integration branch `vg_e001_shared_config` (= the released tree `5ed908f`) and stale session refs after ancestry + release-dependency checks. A blocker on the local-branch delete (the branch was checked out in Gemini's `Voice_Gen_gemini` worktree) was resolved by Thomas detaching that worktree (EVENT-20260621-017/018); Codex then completed the local delete and submitted. Claude verified (REVIEW-030): final remote set is exactly `main`/`voice-gen_0.2.0`/`voice-gen_0.3.0`; tags `v0.1.0`/`v0.3.0` retained; no history lost (deleted tip `5ed908f` still an ancestor of `main` + `voice-gen_0.3.0`; every epic/feature tip reachable from `main`); prior release `voice-gen_0.2.0` preserved; GitHub Release resolves through tag `v0.3.0` → `d18ad52`, unaffected by the prune. **With TASK-029 → TASK-033 all accepted, the Voice_Gen v0.3.0 effort is fully closed out.**

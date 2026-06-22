@@ -1179,12 +1179,12 @@ Complete the v0.3.0 release properly: document v0.3.0 in the CHANGELOG and READM
 
 ## TASK-033: Prune Remaining Unnecessary Voice_Gen Branches
 
-Status: Ready — dispatched to Codex CLI 2026-06-21 (DISPATCH-20260621-005); gate satisfied by TASK-032 acceptance (REVIEW-029)
+Status: Done — accepted by Claude CLI 2026-06-21 (REVIEW-030); final heads `main`/`voice-gen_0.2.0`/`voice-gen_0.3.0`; see `tasks/done.md`
 Owner: Codex CLI
 Reviewer: Claude CLI
 Priority: Medium
 Created: 2026-06-21
-Updated: 2026-06-21
+Updated: 2026-06-22
 Related: TASK-031/032 (release), `procedures/branching_strategy.md`
 Related Branch: `vg_e001_shared_config` (+ any other redundant heads)
 

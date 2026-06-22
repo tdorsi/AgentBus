@@ -37,7 +37,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-030 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-027.md` |
 | TASK-031 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-028.md` |
 | TASK-032 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-029.md` |
-| TASK-033 | Ready / unblocked (remote done) | Codex CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260621-005 |
+| TASK-033 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-030.md` |
 
 ## Backlog
 
@@ -47,12 +47,11 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 
 ## Ready
 
-**🚢 Voice_Gen v0.3.0 is RELEASED** (2026-06-21); **post-release finalization in progress** (docs + GitHub Release + prune).
+**🚢 Voice_Gen v0.3.0 is RELEASED, DOCUMENTED, and CLEANED UP — the effort is fully closed out** (2026-06-22). TASK-029 → TASK-033 all accepted. **No open tasks; Blocked empty; Claude's review queue empty.**
 
-- **Post-release work (Thomas 2026-06-21):** the `v0.3.0` git tag exists but was never published as a GitHub Release, and the CHANGELOG/README don't cover v0.3.0.
-  - **TASK-032 (Codex):** CHANGELOG `[v0.3.0]` + README, re-cut `v0.3.0` tag → docs commit `d18ad52`, advance `main`/`voice-gen_0.3.0`, publish GitHub Release. **DONE / accepted** (REVIEW-029) — docs-only verified, Release published & Latest. DISPATCH-20260621-004 Complete.
-  - **TASK-033 (Codex):** prune remaining unnecessary branches (`vg_e001_shared_config` etc.). **Ready / dispatched** — gate satisfied by TASK-032 acceptance (DISPATCH-20260621-005); Claude reviews.
-- **Release (current):** tag **`v0.3.0`** (annotated) → `5ed908f`; release branch **`voice-gen_0.3.0`** = `5ed908f`; **`main`** @ `ab6dd2a` (`[v0.3.0][RELEASE]`). All three trees byte-identical to the accepted RC (REVIEW-028). TASK-031 Done; DISPATCH-20260621-003 Complete. (Tag will move to the docs commit under TASK-032.)
+- **Release (final):** annotated tag **`v0.3.0`** → docs commit `d18ad52`; **`main`** @ `3402658`; release branch **`voice-gen_0.3.0`** = `d18ad52`; **GitHub Release `Voice_Gen v0.3.0` published & Latest** (REVIEW-029). CHANGELOG `[v0.3.0]` + README in the tagged tree.
+- **Branch set (final, pruned):** exactly `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`; tags `v0.1.0`, `v0.3.0`. `vg_e001_shared_config` + all session/epic branches pruned; no history lost (`5ed908f` still reachable from `main`). REVIEW-030.
+- **Post-release tasks:** TASK-031 (release cut, REVIEW-028), TASK-032 (docs + Release, REVIEW-029), TASK-033 (branch prune, REVIEW-030) — all Done. DISPATCH-20260621-003/004/005 Complete.
 - **Phase 3 integration:** TASK-029 (EPIC-003 → RC, `ffc7b5e`, REVIEW-026) + TASK-030 (EPIC-002 → RC, `5ed908f`, REVIEW-027) — both accepted; RC assembled then released.
 - **EPIC-001** Shared Config — complete (TASK-011–014). **EPIC-002** Voice_Gen Hardening — complete (TASK-016/018/019/020/021; 017 dropped). **EPIC-003** Text_to_Audio Enhancements — complete + runtime-validated (TASK-022/023/024/025; TASK-028).
 - Retained remote heads: `main`, `vg_e001_shared_config` (= release, prunable at team discretion), `voice-gen_0.2.0`, `voice-gen_0.3.0`. Prior releases intact (`voice-gen_0.2.0`, `v0.1.0`).
@@ -60,9 +59,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 
 ## In Progress
 
-| Task | Owner | Reviewer | Status |
-| --- | --- | --- | --- |
-| TASK-033 | Codex CLI | Claude CLI | Unblocked 2026-06-21 — Thomas detached `Voice_Gen_gemini` (now detached HEAD); local `vg_e001_shared_config` deletable. Awaiting Codex's local delete + submit (DISPATCH-20260621-005) |
+No in-progress tasks. (Voice_Gen v0.3.0 fully closed out — released, documented, pruned.)
 
 ## Review
 
@@ -100,6 +97,7 @@ No blocked items. (TASK-033 unblocked 2026-06-21 — Thomas detached `Voice_Gen_
 | TASK-030 | Codex CLI | 2026-06-21 accepted by Claude CLI (REVIEW-027) — **EPIC-002 merged; v0.3.0 RC assembled** (`5ed908f`) |
 | TASK-031 | Codex CLI | 2026-06-21 accepted by Claude CLI (REVIEW-028) — **🚢 Voice_Gen v0.3.0 RELEASED** (tag `v0.3.0`→`5ed908f`; `main` `ab6dd2a`) |
 | TASK-032 | Codex CLI | 2026-06-21 accepted by Claude CLI (REVIEW-029) — **v0.3.0 docs + GitHub Release published**; tag re-cut → `d18ad52`; `main` `3402658` |
+| TASK-033 | Codex CLI | 2026-06-21 accepted by Claude CLI (REVIEW-030) — **v0.3.0 branch prune**; final heads `main`/`voice-gen_0.2.0`/`voice-gen_0.3.0`; no history lost |
 
 ## Validation Cycle
 
