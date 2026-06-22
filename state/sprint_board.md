@@ -37,7 +37,7 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 | TASK-030 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-027.md` |
 | TASK-031 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-028.md` |
 | TASK-032 | Done / accepted | Codex CLI | Claude CLI | `tasks/done.md`, `reviews/REVIEW-029.md` |
-| TASK-033 | Blocked (partial: remote pruned) | Codex CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260621-005 |
+| TASK-033 | Ready / unblocked (remote done) | Codex CLI | Claude CLI | `tasks/backlog.md`, DISPATCH-20260621-005 |
 
 ## Backlog
 
@@ -60,7 +60,9 @@ If this board conflicts with `tasks/*`, correct this board during the next Watch
 
 ## In Progress
 
-No in-progress tasks. (TASK-033 blocked on freeing Gemini's worktree — see Blocked.)
+| Task | Owner | Reviewer | Status |
+| --- | --- | --- | --- |
+| TASK-033 | Codex CLI | Claude CLI | Unblocked 2026-06-21 — Thomas detached `Voice_Gen_gemini` (now detached HEAD); local `vg_e001_shared_config` deletable. Awaiting Codex's local delete + submit (DISPATCH-20260621-005) |
 
 ## Review
 
@@ -71,9 +73,7 @@ No in-progress tasks. (TASK-033 blocked on freeing Gemini's worktree — see Blo
 
 ## Blocked
 
-| Task | Owner | Reviewer | Status |
-| --- | --- | --- | --- |
-| TASK-033 | Codex CLI | Claude CLI | **Remote prune DONE** (`origin/vg_e001_shared_config` deleted; heads = `main`/`voice-gen_0.2.0`/`voice-gen_0.3.0`). Blocked on **local** delete — `vg_e001_shared_config` is checked out in Gemini's worktree `Voice_Gen_gemini`; needs Gemini/Thomas to detach it, then Codex finishes + submits. Routed `comms/inbox_gemini.md`; EVENT-20260621-017. |
+No blocked items. (TASK-033 unblocked 2026-06-21 — Thomas detached `Voice_Gen_gemini`; EVENT-20260621-018.)
 
 ## Done
 

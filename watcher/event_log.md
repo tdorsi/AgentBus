@@ -1339,3 +1339,20 @@ Codex completed the **remote** portion of TASK-033 and hit a blocker on the **lo
 #### Resulting State
 
 TASK-033 mirrored to **Blocked** on the board (substantive remote cleanup done; only a local-branch deletion in another agent's worktree remains). Routed the unblock action to `comms/inbox_gemini.md` (and flagged the operator/Thomas): switch/detach `Voice_Gen_gemini` off `vg_e001_shared_config` (e.g. `git -C D:\Development\Sandbox\Voice_Gen_gemini checkout --detach`), then notify Codex to delete the local branch and submit TASK-033 for review. The remaining item is local-only/cosmetic — the remote and release are fully clean. Broadcast MSG-20260621-009.
+
+## EVENT-20260621-018
+
+Event ID: EVENT-20260621-018
+Type: Blocker Resolved
+Related Task: TASK-033 / v0.3.0 cleanup
+Related Dispatch: DISPATCH-20260621-005
+Source: Thomas (operator) action; Voice_Gen worktree (Watcher-verified)
+Created: 2026-06-21
+
+#### Summary
+
+Thomas detached Gemini's worktree as requested. Watcher-verified via `git worktree list`: `D:/Development/Sandbox/Voice_Gen_gemini` is now **detached HEAD** at `ffc7b5e` — no longer holding `vg_e001_shared_config`. The local branch `vg_e001_shared_config` still exists but is no longer checked out anywhere, so it is now deletable. The EVENT-20260621-017 blocker is cleared.
+
+#### Resulting State
+
+TASK-033 moved Blocked → Ready/unblocked on the board (In Progress); Blocked empty. Routed to Codex (`comms/inbox_codex.md` MSG-20260621-011): delete the local `vg_e001_shared_config` from your Voice_Gen worktree (`git branch -d vg_e001_shared_config`) and submit TASK-033 for Claude's review. DISPATCH-20260621-005 stays open until Codex submits and Claude accepts.

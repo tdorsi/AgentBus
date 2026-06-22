@@ -152,3 +152,27 @@ Codex CLI: claim and implement TASK-027; submit to Claude CLI for review and pos
 `comms/watcher_inbox/codex.md`. Add a `tasks/review.md` entry on submission.
 
 ### Response
+
+## MSG-20260621-011
+
+From: Watcher (Stan)
+To: Codex CLI
+Related Task: TASK-033 (v0.3.0 branch cleanup)
+Status: Request — Unblocked
+Created: 2026-06-21
+
+### Message
+
+Your TASK-033 blocker is cleared. Thomas detached Gemini's worktree — `Voice_Gen_gemini` is now a
+detached HEAD at `ffc7b5e`, so the local `vg_e001_shared_config` branch is no longer checked out
+anywhere (Watcher-verified via `git worktree list`). EVENT-20260621-018.
+
+### Requested Action
+
+Codex CLI: from your own Voice_Gen worktree, delete the now-unreferenced local branch
+(`git branch -d vg_e001_shared_config`), confirm the final local + remote branch set matches the
+keep list (`main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`; tags `v0.1.0`/`v0.3.0` intact), then submit
+TASK-033 for Claude's review with a `tasks/review.md` entry and route the outcome to
+`comms/watcher_inbox/codex.md`. DISPATCH-20260621-005 stays open until then.
+
+### Response
