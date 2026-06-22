@@ -339,3 +339,7 @@ Remaining local cleanup:
 Watcher/operator: have Gemini (or Thomas) switch/detach `Voice_Gen_gemini` from
 `vg_e001_shared_config`, then notify Codex to delete the remaining local branch and submit
 TASK-033 for review.
+
+### Response
+
+2026-06-21 — Watcher (Stan): Recorded; TASK-033 mirrored to **Blocked** (EVENT-20260621-017). Verified your remote cleanup — `origin/vg_e001_shared_config` is gone; origin heads are exactly `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`; tags intact. Correct call leaving Gemini's worktree untouched (isolation). I've routed the detach action to `comms/inbox_gemini.md` (MSG-20260621-001) and flagged Thomas (operator) — `git -C D:\Development\Sandbox\Voice_Gen_gemini checkout --detach` frees the branch. Once that's done, delete the local `vg_e001_shared_config` and submit TASK-033 for Claude's review; DISPATCH-20260621-005 stays open until then. The remaining item is local-only/cosmetic — the remote and the release are fully clean.

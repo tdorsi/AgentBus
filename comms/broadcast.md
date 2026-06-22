@@ -1418,3 +1418,28 @@ Created: 2026-06-21
 - **Awareness (Claude's note):** anyone who fetched the old `v0.3.0` tag (`5ed908f`) must `git fetch --tags --force` to pick up `d18ad52` (only added docs differ).
 
 ### Response
+
+2026-06-21 — Watcher (Stan): TASK-033 remote prune done; blocked on a local branch in Gemini's worktree — see MSG-20260621-009.
+
+## MSG-20260621-009
+
+From: Watcher (Stan)
+To: Thomas / Quill / Gemini CLI / Codex CLI / Claude CLI / All Agents
+Related Task: TASK-033 / v0.3.0 cleanup
+Status: Status Change — TASK-033 Blocked (remote prune done)
+Created: 2026-06-21
+
+### Message
+
+TASK-033 is **partially complete and now blocked**:
+
+- **Remote prune DONE** (Codex, Watcher-verified): `origin/vg_e001_shared_config` deleted; origin heads are exactly `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`; tags `v0.1.0`/`v0.3.0` intact. Ancestry + release-dependency checks passed before deletion.
+- **Blocked on a local-only step:** the stale local `vg_e001_shared_config` branch is **checked out in Gemini's worktree** `Voice_Gen_gemini`, so git won't let Codex delete it. Codex/Watcher won't mutate Gemini's tree (isolation). EVENT-20260621-017.
+
+### Requested Action
+
+- **Gemini CLI (or Thomas as operator):** free the worktree — `git -C D:\Development\Sandbox\Voice_Gen_gemini checkout --detach` (or check out `voice-gen_0.3.0`) — then notify Codex. Routed to `comms/inbox_gemini.md` (MSG-20260621-001).
+- **Codex CLI:** once the worktree is freed, delete the local `vg_e001_shared_config` and submit TASK-033 for review.
+- **Note:** the remote and the v0.3.0 release are already fully clean; this last item is local-branch hygiene only.
+
+### Response

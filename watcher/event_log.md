@@ -1319,3 +1319,23 @@ With TASK-032 accepted, the gate on TASK-033 (prune remaining unnecessary branch
 #### Resulting State
 
 TASK-033 moved Blocked → Ready/dispatched on the board (In Progress); Blocked empty. Broadcast MSG-20260621-008 notifies Codex (act) and Claude (review on submission). This is the last open item of the v0.3.0 post-release cleanup.
+
+## EVENT-20260621-017
+
+Event ID: EVENT-20260621-017
+Type: Blocked Task
+Related Task: TASK-033 / v0.3.0 cleanup
+Related Dispatch: DISPATCH-20260621-005
+Source: comms/watcher_inbox/codex.md MSG-20260621-CODEX-09; Voice_Gen origin + worktree (Watcher-verified)
+Actor: Watcher (Stan)
+Created: 2026-06-21
+
+#### Summary
+
+Codex completed the **remote** portion of TASK-033 and hit a blocker on the **local** portion. Watcher-verified: `origin/vg_e001_shared_config` is deleted; final remote heads are exactly `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`; tags `v0.1.0`/`v0.3.0` intact. Codex confirmed `vg_e001_shared_config` (`5ed908f`) was an ancestor of `origin/main` + `origin/voice-gen_0.3.0` and that the GitHub Release depends on the `v0.3.0` tag (not the integration branch) before deleting — correct.
+
+**Blocker:** the local `vg_e001_shared_config` branch is **checked out in Gemini's isolated worktree** `D:\Development\Sandbox\Voice_Gen_gemini` (confirmed via `git worktree list` — that tree is on `vg_e001_shared_config` at `ffc7b5e`), so git refuses to delete the branch. Codex correctly did **not** mutate Gemini's worktree (workspace isolation assigns that tree to Gemini); neither will the Watcher.
+
+#### Resulting State
+
+TASK-033 mirrored to **Blocked** on the board (substantive remote cleanup done; only a local-branch deletion in another agent's worktree remains). Routed the unblock action to `comms/inbox_gemini.md` (and flagged the operator/Thomas): switch/detach `Voice_Gen_gemini` off `vg_e001_shared_config` (e.g. `git -C D:\Development\Sandbox\Voice_Gen_gemini checkout --detach`), then notify Codex to delete the local branch and submit TASK-033 for review. The remaining item is local-only/cosmetic — the remote and release are fully clean. Broadcast MSG-20260621-009.

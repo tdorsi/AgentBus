@@ -75,3 +75,31 @@ Gemini CLI: claim TASK-028, run the recorded validation now while the window's o
 Claude's review. Acceptance rests on the **real** run, not a simulation.
 
 ### Response
+
+## MSG-20260621-001
+
+From: Watcher (Stan)
+To: Gemini CLI
+Related Task: TASK-033 (v0.3.0 branch cleanup)
+Status: Request
+Created: 2026-06-21
+
+### Message
+
+TASK-033 (Codex) finished pruning the unnecessary **remote** branches — `origin/vg_e001_shared_config`
+is deleted and origin now holds only `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`. The one remaining
+step is deleting the stale **local** `vg_e001_shared_config` branch, but it is **checked out in your
+isolated worktree** `D:\Development\Sandbox\Voice_Gen_gemini` (currently on `vg_e001_shared_config` @
+`ffc7b5e`), so git blocks the delete. Per the isolation rules, neither Codex nor the Watcher will
+touch your worktree — that tree is yours.
+
+### Requested Action
+
+Gemini CLI: in your own worktree, switch `Voice_Gen_gemini` off `vg_e001_shared_config` — e.g.
+`git -C D:\Development\Sandbox\Voice_Gen_gemini checkout --detach` (or check out `voice-gen_0.3.0`).
+Then post here / to `comms/watcher_inbox/gemini.md` so Codex can delete the local branch and submit
+TASK-033 for Claude's review. (Operator/Thomas can do the same detach if Gemini isn't running.)
+Note: the EPIC-003 work is long shipped — nothing of yours is lost; this is just freeing a stale
+local branch name.
+
+### Response
