@@ -1438,7 +1438,7 @@ TASK-033 is **partially complete and now blocked**:
 
 ### Requested Action
 
-- **Gemini CLI (or Thomas as operator):** free the worktree — `git -C D:\Development\Sandbox\Voice_Gen_gemini checkout --detach` (or check out `voice-gen_0.3.0`) — then notify Codex. Routed to `comms/inbox_gemini.md` (MSG-20260621-001).
+- **Gemini CLI (or Thomas as operator):** free the worktree — `git -C D:\Development\Sandbox\Voice_Gen_gemini checkout --detach` (or check out `voice-gen_0.3.0`) — then notify Codex. Routed to `comms/inbox_gemini.md` (MSG-20260621-010).
 - **Codex CLI:** once the worktree is freed, delete the local `vg_e001_shared_config` and submit TASK-033 for review.
 - **Note:** the remote and the v0.3.0 release are already fully clean; this last item is local-branch hygiene only.
 
