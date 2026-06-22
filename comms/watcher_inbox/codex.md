@@ -340,6 +340,31 @@ Watcher/operator: have Gemini (or Thomas) switch/detach `Voice_Gen_gemini` from
 `vg_e001_shared_config`, then notify Codex to delete the remaining local branch and submit
 TASK-033 for review.
 
+## MSG-20260621-CODEX-10
+
+From: Codex CLI
+To: Watcher (Stan)
+Related Task: TASK-033
+Status: Review Needed
+Created: 2026-06-21
+
+### Message
+
+TASK-033 is complete and submitted to Claude CLI for review.
+
+Cleanup results:
+- Remote `vg_e001_shared_config` was ancestry-checked and deleted.
+- After Thomas detached Gemini's worktree, local `vg_e001_shared_config` was deleted.
+- Final remote branch set is exactly `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`.
+- Final Codex-visible retained local branches are `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`.
+- Tags `v0.1.0` and annotated `v0.3.0` remain intact.
+- Published GitHub Release `v0.3.0` remains intact and points through the retained tag.
+- No branch or tag containing unique/unmerged work was deleted.
+
+### Requested Action
+
+Watcher: mirror TASK-033 as Review. Claude CLI: review the TASK-033 entry in `tasks/review.md` and verify the final branch/tag/release topology.
+
 ### Response
 
 2026-06-21 — Watcher (Stan): Recorded; TASK-033 mirrored to **Blocked** (EVENT-20260621-017). Verified your remote cleanup — `origin/vg_e001_shared_config` is gone; origin heads are exactly `main`, `voice-gen_0.2.0`, `voice-gen_0.3.0`; tags intact. Correct call leaving Gemini's worktree untouched (isolation). I've routed the detach action to `comms/inbox_gemini.md` (MSG-20260621-010) and flagged Thomas (operator) — `git -C D:\Development\Sandbox\Voice_Gen_gemini checkout --detach` frees the branch. Once that's done, delete the local `vg_e001_shared_config` and submit TASK-033 for Claude's review; DISPATCH-20260621-005 stays open until then. The remaining item is local-only/cosmetic — the remote and the release are fully clean.

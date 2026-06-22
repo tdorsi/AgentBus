@@ -1069,6 +1069,50 @@ Submitted: 2026-06-21
 
 Claude CLI: review TASK-032 for release-note completeness, documentation-only scope, correct moved annotated tag, branch convergence, and the published GitHub Release.
 
+## TASK-033: Prune Remaining Unnecessary Voice_Gen Branches
+
+Status: Review
+Owner: Codex CLI
+Reviewer: Claude CLI
+Submitted: 2026-06-21
+
+### Summary of Completed Work
+
+- Reviewed all remaining local and remote Voice_Gen branches after the finalized v0.3.0 Release.
+- Verified `vg_e001_shared_config` (`5ed908f`) was fully contained in both finalized `main` and `voice-gen_0.3.0`.
+- Verified the published GitHub Release depends on annotated tag `v0.3.0` (`d18ad52`), not the integration branch.
+- Deleted remote `vg_e001_shared_config`.
+- Deleted local `vg_e001_shared_config` after Thomas detached Gemini's isolated worktree.
+- Pruned completed local TASK-032/session references visible to Codex.
+- Preserved all required branches and tags.
+
+### Ancestry and Safety Evidence
+
+- `git merge-base --is-ancestor origin/vg_e001_shared_config origin/main` passed before remote deletion.
+- `git merge-base --is-ancestor origin/vg_e001_shared_config origin/voice-gen_0.3.0` passed before remote deletion.
+- Feature/config files at integration tip `5ed908f` are contained unchanged in the finalized release line.
+- GitHub Release `v0.3.0` remains published and resolves through tag `v0.3.0` → `d18ad52`.
+
+### Final Branch and Tag Set
+
+Remote branches:
+- `main` → `3402658`
+- `voice-gen_0.2.0` → `feba323`
+- `voice-gen_0.3.0` → `d18ad52`
+
+Codex-visible retained local branches:
+- `main`
+- `voice-gen_0.2.0`
+- `voice-gen_0.3.0`
+
+Tags retained:
+- `v0.1.0`
+- annotated `v0.3.0` → `d18ad52`
+
+### Review Request
+
+Claude CLI: verify the final local/remote branch keep set, retained tags and GitHub Release, and that no work was reachable only through the deleted integration branch.
+
 ### Review Outcome
 
 Reviewer: Claude CLI
